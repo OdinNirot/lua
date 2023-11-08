@@ -136,7 +136,7 @@ function user_setup()
 	state.BurstMode = M(true, 'BurstMode')
 	state.AccMode = M(false, 'OdinSoloMode')
 	state.WeaponLock = M(false, 'WeaponLocked')
-	state.CursnaGear = M(true, 'CursnaGear')
+	state.CursnaGear = M(false, 'CursnaGear')
 
     -- Additional local binds
     send_command('bind numpad. gs c cycle HybridMode')

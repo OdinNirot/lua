@@ -220,10 +220,12 @@ function init_gear_sets()
 	ChironicLegs.Refresh = { name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}}
 	ChironicFeet.Refresh = { name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
 	
-	Interabus = {}
-	Interabus.FC = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
+	Intarabus = {}
+	Intarabus.FC = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
+	Intarabus.DexStoreTP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
 		 
-		 
+	Linos = { name="Linos", augments={'Accuracy+15 Attack+15','"Store TP"+4','Quadruple Attack +3',}}
+	
     -- Precast Sets
     -- Precast sets to enhance JAs
     --sets.precast.JA['Spirit Surge'] = {body="Pteroslaver Mail +3"}
@@ -232,6 +234,7 @@ function init_gear_sets()
     sets.Kiting = {feet="Fili Cothurnes +2"}
 	sets.Curse = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	sets.TreasureHunter = {waist="Chaac Belt"}
+	sets.Prime = {range="Prime Horn"}
 			  
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +1"}
@@ -257,7 +260,7 @@ function init_gear_sets()
 		hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Magic dmg. taken -4%','"Cure" potency +6%',}}, --7
 		ring1="Rahab Ring",
 		ring2="Kishar Ring", --4
-		back=Interabus.FC, --10
+		back=Intarabus.FC, --10
 		waist="Embla Sash", --5
 		legs="Volte Brais", --8
 		feet="Fili Cothurnes +2" --10
@@ -276,7 +279,7 @@ function init_gear_sets()
 		hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Magic dmg. taken -4%','"Cure" potency +6%',}},
 		ring1="Defending Ring",
 		ring2="Kishar Ring",
-		back=Interabus.FC,
+		back=Intarabus.FC,
 		waist="Embla Sash",
 		legs="Volte Brais",
 		feet="Fili Cothurnes +2"
@@ -308,7 +311,7 @@ function init_gear_sets()
     --sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
      
     sets.precast.WS = {
-		ammo="Oshasha's Treatise",
+		range=Linos,
 		head="Nyame Helm",
 		neck="Lissome Necklace",
 		ear1="Telos Earring",
@@ -344,7 +347,7 @@ function init_gear_sets()
 		neck="Mnbw. Whistle +1",
 		body="Fili Hongreline +2",
 		hands="Fili Manchettes +3",
-		back=Interabus.FC,
+		back=Intarabus.FC,
 		legs="Inyanga Shalwar +2",
 		feet="Brioso Slippers +3"
 	}
@@ -389,14 +392,14 @@ function init_gear_sets()
 		feet="Brioso Slippers +3"	
 	})
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.lullaby_single,{range="Daurdabla"})  -- focus on macc because you already hit max aoe range at 154 string skill. so base it on lullaby_single set but use Daurdabla
-	sets.midcast.madrigal = set_combine(sets.midcast.songs,{back=Interabus.FC})
+	sets.midcast.madrigal = set_combine(sets.midcast.songs,{back=Intarabus.FC})
 	sets.midcast.mambo = set_combine(sets.midcast.songs,{})
 	sets.midcast.march = set_combine(sets.midcast.songs,{})
 	sets.midcast.mazurka = set_combine(sets.midcast.songs,{})
 	sets.midcast.minne = set_combine(sets.midcast.songs,{})
 	sets.midcast.minuet = set_combine(sets.midcast.songs,{})
 	sets.midcast.paeon = set_combine(sets.midcast.songs,{head="Brioso Roundlet +3"})
-	sets.midcast.prelude = set_combine(sets.midcast.songs,{back=Interabus.FC})
+	sets.midcast.prelude = set_combine(sets.midcast.songs,{back=Intarabus.FC})
 	sets.midcast.requiem = set_combine(sets.midcast.songs,{})
 	sets.midcast.scherzo = set_combine(sets.midcast.songs,{feet="Fili Cothurnes +2"})
 	sets.midcast.threnody = set_combine(sets.midcast.lullaby_single,{range="Gjallarhorn"})
@@ -464,19 +467,19 @@ function init_gear_sets()
      
     -- Normal melee group
     sets.engaged = {
-		ammo="Coiste Bodhar",
-		head="Fili Calot +3",
-		neck="Lissome Necklace",
-		ear1="Mache Earring +1",
-		ear2="Dominance Earring +1",
-		body="Ayanmo Corazza +2",
-		hands="Gazu Bracelets +1",
-		ring1="Ephramad's Ring",
-		ring2="Cacoethic Ring +1",
-		back=Interabus.FC,
-		waist="Kentarch Belt +1",
+		range=Linos,
+		head="Ayanmo Zucchetto +2",
+		neck="Bard's Charm +2",
+		ear1="Dedition Earring",
+		ear2="Telos Earring",
+		body="Ashera Harness",
+		hands="Bunzi's Gloves",
+		ring1="Moonlight Ring",
+		ring2="Petrov Ring",
+		back=Intarabus.DexStoreTP,
+		waist="Sailfi Belt +1",
 		legs="Fili Rhingrave +3",
-		feet="Fili Cothurnes +2"
+		feet="Volte Spats"
 	}
 
 	-- Accuracy sets	
@@ -564,19 +567,20 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 
 end
 
-function buff_change(name,gain)
-	if  name=="sleep" and gain then
-		equip({range="Prime Horn"})
-		disable("range")
+function determine_sleep_state()
+	if (buffactive[2]) or (buffactive[19]) then
+			equip('sets.Prime')
+		disable("main")
 		if buffactive["Stoneskin"] then
 			windower.send_command('cancel 37;')
 		end
 	end
 	if name=="sleep" and not gain then
-		enable("range")
+		enable("main")
 	end
 end
- 
+
+
 function customize_idle_set(idleSet)
 	check_weaponlock()
 	if state.ExtraRefresh.value then
@@ -678,11 +682,13 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
- 
+	if S{'sleep'}:contains(buff:lower()) then
+        determine_sleep_state()
+    end	
 end
  
 function job_update(cmdParams, eventArgs)
-    --state.CombatForm = get_combat_form()
+	determine_sleep_state()
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.

@@ -482,6 +482,9 @@ function customize_idle_set(idleSet)
 	if state.Kalasiris.value then
 		idleSet = set_combine(idleSet,{body="Annoint. Kalasiris"})
 	end
+	if state.Kiting.value then
+		idleSet = set_combine(idleSet,sets.Kiting)
+	end
 	sird_sets()
     return idleSet
 end

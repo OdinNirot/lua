@@ -143,7 +143,8 @@ function user_setup()
 	state.BurstMode = M(true, 'BurstMode')
 	state.WeaponLock = M(false, 'WeaponLocked')
 	state.Immunobreak = M(false, 'Immunobreak')
-	state.CursnaGear = M(true, 'CursnaGear')
+	state.CursnaGear = M(false, 'CursnaGear')
+	state.Kiting = M(true, 'Kiting')
 	
     send_command('bind numpad. gs c cycle IdleMode')
 	send_command('bind ^= gs c cycle Kiting')
@@ -705,7 +706,9 @@ function customize_idle_set(idleSet)
 	else
 		idleSet = set_combine(idleSet,sets.SublimationOff)
 	end
-	
+	if state.Kiting.value then
+		idleSet = set_combine(idleSet,sets.Kiting)
+	end
 	sird_sets()
     return idleSet
 end
