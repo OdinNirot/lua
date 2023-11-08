@@ -239,6 +239,8 @@ function init_gear_sets()
 	
 	LughsCape = {}
 	LughsCape.MAB = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
+	
+	sets.Phalanx = {head=MerlinicHead.Phalanx,hands=MerlinicHands.Phalanx,legs=MerlinicLegs.Phalanx,feet=MerlinicFeet.Phalanx}
 		
     -- Precast Sets
 
@@ -250,16 +252,13 @@ function init_gear_sets()
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,{waist="Siegel Sash"})
 	sets.precast.FC['Enfeebling Magic'] = set_combine(sets.precast.FC,{})
 	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC,{head="Umuthi Hat",neck="Nodens Gorget",ear1="Earthcry Earring",waist="Siegel Sash",legs="Shedir Seraweels"})
-	sets.precast.FC['Impact'] = set_combine(sets.precast.FC,{head=empty,body="Twilight Cloak"})
+	sets.precast.FC['Impact'] = set_combine(sets.precast.FC,{head=empty,body="Twilight Cloak",waist="Shinjutsu-no-Obi +1"})
 	sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC,{main="Daybreak"})
-		
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,{waist="Siegel Sash"})
 
     sets.precast.FC.Aquaveil = set_combine(sets.precast.FC['Enhancing Magic'], {head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},hands="Regal Cuffs",waist="Emphatikos Rope",legs="Shedir Seraweels"})
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC['Enhancing Magic'], {main="Daybreak",sub="Genmei Shield"})
-
-	sets.precast.FC.MatchingGrim = set_combine(sets.precast.FC,{head="Peda. M.Board +1",feet="Acad. Loafers +3"})
-	sets.precast.FC.OppositeGrim = set_combine(sets.precast.FC,{feet=MerlinicFeet.FC})
+	sets.precast.FC.Grimoire = {head="Peda. M.Board +1", feet="Acad. Loafers +3"}
 	
     sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {})
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
@@ -329,7 +328,6 @@ function init_gear_sets()
 	sets.midcast.StatusRemoval.SIRD = set_combine(sets.midcast.StatusRemoval,sets.midcast.SIRD)
 	sets.midcast.Raise = sets.precast.FC
 	sets.midcast.Raise.SIRD = set_combine(sets.midcast.Raise,sets.midcast.SIRD)
-        --head="Orison Cap +2",legs="Orison Pantaloons +2"}
 						
 	sets.midcast.Erase = sets.midcast.StatusRemoval
 	sets.midcast.Erase.SIRD = set_combine(sets.midcast.StatusRemoval,sets.midcast.SIRD)
@@ -433,10 +431,6 @@ function init_gear_sets()
 		head=ChironicHead.Refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Ethereal Earring",
         body="Arbatel Gown +3",hands=ChironicHands.Refresh,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
         back=LughsCape.MAB,waist="Embla Sash",legs=ChironicLegs.Refresh,feet=ChironicFeet.Refresh}
-		--{main="Bolelabunga", sub="Genmei Shield",ammo="Incantor Stone",
-        --head="Nahtirah Hat",neck="Wiglen Gorget",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        --body="Gendewitha Bliaut",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        --back="Umbra Cape",waist="Witful Belt",legs="Nares Trews",feet="Herald's Gaiters"}
     sets.idle.Town = set_combine(sets.idle,{})
     sets.idle.Weak = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
 		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Sanare Earring",ear2="Ebers Earring +1",
@@ -449,10 +443,7 @@ function init_gear_sets()
     
     -- Defense sets
 
-    sets.defense.PDT = sets.idle.PDT--{main=gear.Staff.PDT,sub="Achaq Grip",
-        --head="Gendewitha Caubeen",neck="Loricate Torque +1",
-        --body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-        --back="Umbra Cape",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    sets.defense.PDT = sets.idle.PDT
 
     sets.Kiting = {ring1="Shneddick Ring +1"}
 
@@ -491,6 +482,15 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.english == "Paralyna" and buffactive.Paralyzed then
         -- no gear swaps if we're paralyzed, to avoid blinking while trying to remove it.
         eventArgs.handled = true
+    end
+end
+
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if (spell.type == "WhiteMagic" and (buffactive["Light Arts"] or buffactive["Addendum: White"])) or
+        (spell.type == "BlackMagic" and (buffactive["Dark Arts"] or buffactive["Addendum: Black"])) then
+        equip(sets.precast.FC.Grimoire)
+    elseif spell.name == 'Impact' then
+        equip(sets.precast.FC.Impact)
     end
 end
 
@@ -620,9 +620,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 	if spell.english == 'Phalanx' or spell.english == 'Phalanx II' then
 		if buffactive['Perpetuance'] then
-			equip(sets.midcast['Enhancing Magic'].base,{head=MerlinicHead.Phalanx,hands=Empyrean.Hands,legs=MerlinicLegs.Phalanx,feet=MerlinicFeet.Phalanx})
+			equip(sets.midcast['Enhancing Magic'].base,sets.Phalanx,{hands=Empyrean.Hands})
 		else
-			equip(sets.midcast['Enhancing Magic'].base,{head=MerlinicHead.Phalanx,hands=MerlinicHands.Phalanx,legs=MerlinicLegs.Phalanx,feet=MerlinicFeet.Phalanx})
+			equip(sets.midcast['Enhancing Magic'].base,sets.Phalanx)
 		end
 	end
 			
@@ -643,26 +643,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 end
 
--------------------------------------------------------------------------------------------------------------------
--- Job-specific hooks for non-casting events.
--------------------------------------------------------------------------------------------------------------------
-
--- Handle notifications of general user state change.
---function job_state_change(stateField, newValue, oldValue)
---    if stateField == 'Offense Mode' then
---        if newValue == 'Normal' then
---            disable('main','sub','range')
---        else
---            enable('main','sub','range')
---        end
---    end
---end
-
-
--------------------------------------------------------------------------------------------------------------------
--- User code that supplements standard library decisions.
--------------------------------------------------------------------------------------------------------------------
-
 -- Custom spell mapping.
 function job_get_spell_map(spell, default_spell_map)
     if spell.skill == 'Enhancing Magic' or spell.skill == 'Enfeebling Magic' or spell.skill == 'Elemental Magic' then
@@ -673,7 +653,6 @@ function job_get_spell_map(spell, default_spell_map)
         end
 	end	
 end
-
 
 function customize_idle_set(idleSet)
 	check_weaponlock()
