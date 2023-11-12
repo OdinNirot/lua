@@ -223,8 +223,11 @@ function init_gear_sets()
 	Intarabus = {}
 	Intarabus.FC = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
 	Intarabus.DexStoreTP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
+	Intarabus.WSDStr = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}}
 		 
-	Linos = { name="Linos", augments={'Accuracy+15 Attack+15','"Store TP"+4','Quadruple Attack +3',}}
+	Linos = {}
+	Linos.QAStp = { name="Linos", augments={'Accuracy+15 Attack+15','"Store TP"+4','Quadruple Attack +3',}}
+	Linos.WSDStr = { name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +3%','STR+8',}}
 	
     -- Precast Sets
     -- Precast sets to enhance JAs
@@ -311,7 +314,7 @@ function init_gear_sets()
     --sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
      
     sets.precast.WS = {
-		range=Linos,
+		range=Linos.WSDStr,
 		head="Nyame Helm",
 		neck="Lissome Necklace",
 		ear1="Telos Earring",
@@ -320,7 +323,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		ring1="Petrov Ring",
 		ring2="Chirich Ring +1",
-		back="Atheling Mantle",
+		back=Intarabus.WSDStr,
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets"
@@ -467,7 +470,7 @@ function init_gear_sets()
      
     -- Normal melee group
     sets.engaged = {
-		range=Linos,
+		range=Linos.QAStp,
 		head="Ayanmo Zucchetto +2",
 		neck="Bard's Charm +2",
 		ear1="Dedition Earring",
