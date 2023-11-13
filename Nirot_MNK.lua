@@ -128,9 +128,9 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +3"}
-    sets.precast.JA['Boost'] = {hands="Anch. Gloves +1"}
-    sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +1"}
-    sets.precast.JA['Focus'] = {head="Anchor. Crown +1"}
+    sets.precast.JA['Boost'] = {hands="Anch. Gloves +2"}
+    sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +2"}
+    sets.precast.JA['Focus'] = {head="Anchor. Crown +2"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +3"}
     sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters +2"}
     sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas +3"}
@@ -140,7 +140,7 @@ function init_gear_sets()
 
     sets.precast.JA['Chakra'] = {
 		neck="Unmoving Collar +1",
-		body="Anchorite's Cyclas +1",hands="Hesychast's Gloves +3"}
+		body="Anchorite's Cyclas +2",hands="Hesychast's Gloves +3"}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
@@ -332,12 +332,12 @@ function init_gear_sets()
 	
 
     -- Footwork combat form
-    sets.engaged.Footwork = set_combine(sets.engaged,{feet="Anch. Gaiters +1"})
+    sets.engaged.Footwork = set_combine(sets.engaged,{feet="Anch. Gaiters +2"})
     sets.engaged.Footwork.Acc = sets.engaged.Footwork
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Bhikku Cyclas +2"}
-    sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
+    sets.footwork_kick_feet = {feet="Anchorite's Gaiters +2"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
