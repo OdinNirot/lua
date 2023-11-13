@@ -55,6 +55,9 @@ function job_setup()
 	state.Buff["Equanamity"] = buffactive["Equanamity"] or false
 	state.Buff["Immanence"] = buffactive["Immanence"] or false
 	
+	no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)","Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
+
+	
     magic_maps = {}
 		
 	magic_maps.curespells = S{
@@ -524,6 +527,102 @@ function zodiaccheck(spell_element)
         equip(sets.Zodiac)
     end
 end
+
+function check_reaction(act)
+
+	--Gather Info
+    local curact = T(act)
+    local actor = T{}
+	local otherTarget = T{}
+
+    actor.id = curact.actor_id
+	
+	if not ((curact.category == 8) or curact.category == 4) then return end
+	-- Make sure it's a mob that's doing something.
+    if windower.ffxi.get_mob_by_id(actor.id) then
+        actor = windower.ffxi.get_mob_by_id(actor.id)
+    else
+        return
+    end
+	
+	-- Check if we're targeting it.
+    if player and player.target and player.target.id and actor.id == player.target.id then
+        isTarget = true
+    else
+		isTarget = false
+    end
+	
+	if curact.targets[1].id == nil then
+		targetsMe = false
+		targetsSelf = false
+		otherTarget.in_party = false
+		otherTarget.in_alliance = false
+		targetsDistance = 50
+	elseif curact.targets[1].id == player.id then
+		otherTarget.in_party = false
+		otherTarget.in_alliance = false
+		targetsMe = true
+		targetsSelf = false
+		targetsDistance = 0
+	elseif curact.targets[1].id == actor.id	then
+		if windower.ffxi.get_mob_by_id(curact.targets[1].id) then
+			otherTarget = windower.ffxi.get_mob_by_id(curact.targets[1].id)
+		else
+			otherTarget.in_party = false
+			otherTarget.in_alliance = false
+			otherTarget.distance = 10000
+		end
+		targetsMe = false
+		targetsSelf = true
+		targetsDistance = math.sqrt(otherTarget.distance)
+	else
+		if windower.ffxi.get_mob_by_id(curact.targets[1].id) then
+			otherTarget = windower.ffxi.get_mob_by_id(curact.targets[1].id)
+		else
+			otherTarget.in_party = false
+			otherTarget.in_alliance = false
+			otherTarget.distance = 10000
+		end
+		targetsSelf = false
+		targetsMe = false
+		targetsDistance = math.sqrt(otherTarget.distance)
+	end
+		
+	-- Make sure it's not US from this point on!
+	if actor.id == player.id then return end
+    -- Make sure it's a WS or MA precast before reacting to it.		
+    if not (curact.category == 7 or curact.category == 8) then return end
+	
+    -- Get the name of the action.
+    if curact.category == 8 then act_info = res.spells[curact.targets[1].actions[1].param] end
+	if act_info == nil then return end
+
+	if targetsMe then
+		if PhalanxAbility:contains(act_info.name) then
+			do_equip('sets.Phalanx')
+			windower.send_command('wait 2.5;gs c update user')
+		end
+	end
+end
+
+windower.raw_register_event('action', check_reaction)
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.ring1) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.ring2) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.waist) then
+            enable("waist")
+            equip(sets.idle)
+        end
+    end
+)
 
 function check_weaponlock()
 	if state.WeaponLock.value then
