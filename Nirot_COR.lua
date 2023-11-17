@@ -236,7 +236,7 @@ function init_gear_sets()
 	
 	sets.idle = {
         head="Nyame Helm",neck="Warder's Charm +1",ear1="Sanare Earring",ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
-	    body="Chasseur's Frac +2",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Chirich Ring +1",
+	    body="Chasseur's Frac +3",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Chirich Ring +1",
 	    back=Camulus.DW,waist="Carrier's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.idle.PDT = set_combine(sets.idle, {})
 	sets.idle.Normal = sets.idle
@@ -245,7 +245,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     
-    sets.precast.JA['Triple Shot'] = {body="Chasseur's Frac +2"} -- Chasseur's Frac +2 increases proc rate by 12% 
+    sets.precast.JA['Triple Shot'] = {body="Chasseur's Frac +3"} -- Chasseur's Frac +3 increases proc rate by 12% 
     sets.precast.JA['Snake Eye'] = {legs="Lanun Trews +3"} -- Lanun Trews +3 gives Snake Eye a 4% chance of having no recast per merit level, for a maximum of a 20% chance. 
     sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"} -- There is an equal 1/6 possibility of each of the six results. This probability is skewed upwards by utilizing Commodore Bottes +2 or any of the versions of Lanun Bottes 1/2/3
     sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"} -- Occasionally allows Random Deal to restore two used Job Abilities. (~50% of the time) 
@@ -254,7 +254,7 @@ function init_gear_sets()
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +2"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +2"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2"})
-    sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2"})
+    sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3"})
 
     sets.precast.LuzafRing = {ring1="Luzaf's Ring"}
@@ -342,8 +342,8 @@ function init_gear_sets()
     sets.midcast.RA.HighAcc = set_combine(sets.midcast.RA.Acc, {})
     sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {})
     sets.midcast.RA.STP = set_combine(sets.midcast.RA, {})
-    sets.TripleShot = {body="Chasseur's Frac +2"} --27
-    sets.TripleShotCritical = {body="Chasseur's Frac +2"}
+    sets.TripleShot = {body="Chasseur's Frac +3"} --27
+    sets.TripleShotCritical = {body="Chasseur's Frac +3"}
     sets.TrueShot = {}
 
     sets.idle.Refresh = set_combine(sets.idle, {})
