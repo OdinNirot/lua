@@ -82,7 +82,7 @@ function init_gear_sets()
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,{waist="Siegel Sash"})
 	sets.precast.FC['Enfeebling Magic'] = set_combine(sets.precast.FC,{head="Lethargy Chappel +3"})
 	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC,{head="Umuthi Hat",neck="Nodens Gorget",ear1="Earthcry Earring",hands="Stone Mufflers",waist="Siegel Sash",legs="Shedir Seraweels"})
-	sets.precast.FC['Impact'] = set_combine(sets.precast.FC,{head=empty,body="Twilight Cloak"})
+	sets.precast.FC['Impact'] = set_combine(sets.precast.FC,{head=empty,body="Crepuscular Cloak"})
 	sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC,{main="Daybreak"})
 
         
@@ -131,7 +131,7 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'].macc = set_combine(sets.midcast['Enfeebling Magic'].base,{range="Ullr",ear2="Leth. Earring +1",body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",back="Aurist's Cape +1",feet="Leth. Houseaux +3"})
     sets.midcast['Enfeebling Magic'].intpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ammo="Regal Gem",ring1="Metamor. Ring +1"})
     sets.midcast['Enfeebling Magic'].skillpot = set_combine(sets.midcast['Enfeebling Magic'].base,{})
-	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{head=empty,body="Twilight Cloak",ring1="Metamor. Ring +1",back="Aurist's Cape +1",feet="Leth. Houseaux +3"})
+	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{head=empty,body="Crepuscular Cloak",ring1="Metamor. Ring +1",back="Aurist's Cape +1",feet="Leth. Houseaux +3"})
 	sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].macc,{main="Daybreak"})
 	
 	sets.midcast['Enhancing Magic'] = {}

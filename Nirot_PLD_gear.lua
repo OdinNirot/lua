@@ -24,7 +24,7 @@ function init_gear_sets()
 	sets.precast.JA['Sentinel'] = set_combine(sets.midcast.Enmity,{feet={ name="Caballarius Leggings +3", priority=63}})
 	sets.precast.JA['Rampart'] = set_combine(sets.midcast.Enmity,{head={ name="Caballarius Coronet +3", priority=116}})
 	sets.precast.JA['Fealty'] = set_combine(sets.midcast.Enmity,{body={ name="Caballarius Surcoat +3", priority=138}})
-	sets.precast.JA['Divine Emblem'] = set_combine(sets.midcast.Enmity,{feet={ name="Chev. Sabatons +2", priority=42}})
+	sets.precast.JA['Divine Emblem'] = set_combine(sets.midcast.Enmity,{feet={ name="Chev. Sabatons +3", priority=52}})
 	sets.precast.JA['Cover'] = set_combine(sets.midcast.Enmity,{head={ name="Reverence Coronet +3", priority=71}})
 
 	-- /drk abilities
@@ -74,7 +74,7 @@ function init_gear_sets()
 	-- Leyline: 6
 	-- Weatherspoon ring +1: 6
 	-- Kishar: 4
-	-- Chev. Sabatons +2: 10	
+	-- Chev. Sabatons +3: 13	
 	-- 
 	-- Total: 44
 	-- Keeping SIRD gear in the precast set as well so not all of these pieces will be used
@@ -97,8 +97,8 @@ function init_gear_sets()
 		
 	sets.precast.FC = {ammo={name="Staunch Tathlum +1", priority=1},
 		head={name="Chev. Armet +2", priority=135},neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Knightly Earring", priority=1},ear2="Chev. Earring +1",
-		body="Chev. Cuirass +2",hands={ name="Yorium Gauntlets", augments={'Spell interruption rate down -10%','Phalanx +3',}},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
-		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Founder's Hose", augments={'MND+1','Mag. Acc.+2','Attack+6',}, priority=54},feet={ name="Odyssean Greaves", augments={'INT+5','Spell interruption rate down -10%','"Store TP"+2','Accuracy+18 Attack+18','Mag. Acc.+16 "Mag.Atk.Bns."+16',}, priority=20}}
+		body={name="Chev. Cuirass +2",priority=141},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
+		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Founder's Hose", augments={'MND+1','Mag. Acc.+2','Attack+6',}, priority=54},feet={ name="Chev. Sabatons +3", priority=52}}
 		
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
 		ear2={ name="Andoaa Earring", priority=1}})
