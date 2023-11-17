@@ -28,6 +28,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+	res = require('resources')
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
@@ -163,6 +164,9 @@ function user_setup()
 	send_command('get "Storage Slip 23" sack') --ambu +2
 	send_command('get "Storage Slip 29" sack') --empy +2
 	
+	PhalanxAbility = S{"Phalanx","Phalanx II"}
+	RefreshAbility = S{"Refresh","Refresh II","Refresh III"}
+	
 	end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -255,7 +259,7 @@ function init_gear_sets()
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,{waist="Siegel Sash"})
 	sets.precast.FC['Enfeebling Magic'] = set_combine(sets.precast.FC,{})
 	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC,{head="Umuthi Hat",neck="Nodens Gorget",ear1="Earthcry Earring",waist="Siegel Sash",legs="Shedir Seraweels"})
-	sets.precast.FC['Impact'] = set_combine(sets.precast.FC,{head=empty,body="Twilight Cloak",waist="Shinjutsu-no-Obi +1"})
+	sets.precast.FC['Impact'] = set_combine(sets.precast.FC,{head=empty,body="Crepuscular Cloak",waist="Shinjutsu-no-Obi +1"})
 	sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC,{main="Daybreak"})
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,{waist="Siegel Sash"})
 
@@ -408,7 +412,7 @@ function init_gear_sets()
 
     -- Custom spell classes
 	sets.midcast['Enfeebling Magic'] = {}
-    sets.midcast['Enfeebling Magic'].base = {main="Murgleis",sub="Ammurapi Shield",
+    sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Khonsu",
 		neck="Duelist's Torque +2",ear1="Snotra Earring",ear2="Arbatel Earring +1",
 		body="Cohort Cloak +1",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Arbatel Pants +2",feet="Arbatel Loafers +2"}
@@ -419,7 +423,7 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'].intpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ring1="Metamor. Ring +1"})
     sets.midcast['Enfeebling Magic'].skillpot = set_combine(sets.midcast['Enfeebling Magic'].base,{})
 	sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].macc,{main="Daybreak"})
-	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{head=empty,body="Twilight Cloak",ring1="Metamor. Ring +1",back="Aurist's Cape +1"})
+	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{head=empty,body="Crepuscular Cloak",ring1="Metamor. Ring +1",back="Aurist's Cape +1"})
     
     -- Sets to return to when not performing an action.
     
