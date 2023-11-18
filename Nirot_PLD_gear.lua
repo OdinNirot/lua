@@ -12,7 +12,10 @@ function init_gear_sets()
 	Rudianos.SIRD = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Spell interruption rate down-10%',}, priority=80}
 	Rudianos.WSD = { name="Rudianos's Mantle", augments={'HP+60','Accuracy+20 Attack+20','STR+5','Weapon skill damage +10%','Phys. dmg. taken-10%',}, priority=80}
 	Rudianos.DT = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Damage taken-5%',}, priority=80}
+	Rudianos.FC = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}, priority=80}
 
+	EschiteLegs = {}
+	EschiteLegs.FC = { name="Eschite Cuisses", augments={'"Mag.Atk.Bns."+25','"Conserve MP"+6','"Fast Cast"+5',}, priority=52}
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
@@ -95,10 +98,10 @@ function init_gear_sets()
 	
 	-- Due to how Spell Interruption Rate is calculated, user must have a total of -102% Spell Interruption Rate Down
 		
-	sets.precast.FC = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Knightly Earring", priority=1},ear2="Chev. Earring +1",
-		body={name="Chev. Cuirass +2",priority=141},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
-		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Founder's Hose", augments={'MND+1','Mag. Acc.+2','Attack+6',}, priority=54},feet={ name="Chev. Sabatons +3", priority=52}}
+	sets.precast.FC = {ammo={ name="Sapience Orb", priority=1},
+		head={name="Chev. Armet +2", priority=135},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
+		body={ name="Sacro Breastplate",priority=178},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
+		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}  --change body to rev. +3 once you have it
 		
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
 		ear2={ name="Andoaa Earring", priority=1}})
