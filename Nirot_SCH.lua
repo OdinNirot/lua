@@ -253,9 +253,9 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {main="Musa",Sub="Clerisy Strap +1",ammo="Sapience Orb",
-		head="Cath Palug Crown",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Malignance Earring",
+		head="Acad. Mortar. +3",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Malignance Earring",
 		body="Zendik Robe",hands="Acad. Bracers +3",ring1="Rahab Ring",ring2="Kishar Ring",
-		back="Fi Follet Cape +1",waist="Embla Sash",legs="Volte Brais",feet="Kaykaus Boots +1"}
+		back="Fi Follet Cape +1",waist="Embla Sash",legs="Volte Brais",feet="Acad. Loafers +3"}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,{waist="Siegel Sash"})
 	sets.precast.FC['Enfeebling Magic'] = set_combine(sets.precast.FC,{})
 	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC,{head="Umuthi Hat",neck="Nodens Gorget",ear1="Earthcry Earring",waist="Siegel Sash",legs="Shedir Seraweels"})
@@ -265,7 +265,7 @@ function init_gear_sets()
 
     sets.precast.FC.Aquaveil = set_combine(sets.precast.FC['Enhancing Magic'], {head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},hands="Regal Cuffs",waist="Emphatikos Rope",legs="Shedir Seraweels"})
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC['Enhancing Magic'], {main="Daybreak",sub="Genmei Shield"})
-	sets.precast.FC.Grimoire = {head="Peda. M.Board +1", feet="Acad. Loafers +3"}
+	sets.precast.FC.Grimoire = {head="Peda. M.Board +3", feet="Acad. Loafers +3"}
 	
     sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {})
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
@@ -274,7 +274,7 @@ function init_gear_sets()
     -- CureMelee spell map should default back to Healing Magic.
     
     -- Precast sets to enhance JAs
-	sets.precast.JA.Sublimation = {head="Acad. Mortar. +3",waist="Embla Sash"}
+	sets.precast.JA.Sublimation = {head="Acad. Mortar. +3",body="Peda. Gown +3",waist="Embla Sash"}
     sets.precast.JA["Tabula Rasa"] = {body="Peda. Pants +3"}
 
     -- Waltz set (chr and vit)
@@ -325,9 +325,9 @@ function init_gear_sets()
         back=LughsCape.MAB,waist="Shinjutsu-no-Obi +1",legs="Arbatel Pants +2",feet="Kaykaus Boots +1"}
 	sets.midcast.CureMelee.SIRD = set_combine(sets.midcast.CureMelee,sets.midcast.SIRD)
 
-    sets.midcast.Cursna = {main="Rubicundity",Sub="Ammurapi Shield",
+    sets.midcast.Cursna = {main="Gada",Sub="Ammurapi Shield",
 		head=VanyaHead.HealSkill,neck="Debilis Medallion",ear1="Meili Earring",ear2="Beatific Earring",
-		body="Peda. Gown +1",hands="Hieros Mittens",ring1="Menelaus's Ring",ring2="Haoma's Ring",
+		body="Peda. Gown +3",hands="Hieros Mittens",ring1="Menelaus's Ring",ring2="Haoma's Ring",
         back="Oretania's Cape +1",waist="Bishop's Sash",legs="Acad. Pants +2",feet=VanyaFeet.HealSkill}
 	sets.midcast.Cursna.SIRD = set_combine(sets.midcast.Cursna,sets.midcast.SIRD)
 		
@@ -359,7 +359,7 @@ function init_gear_sets()
 	sets.midcast.Aquaveil.SIRD = set_combine(sets.midcast.Aquaveil,sets.midcast.SIRD)
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'].base,{
 		head=TelHead.Duration,neck="Incanter's Torque",ear2="Mendicant's Earring",
-		body="Peda. Gown +1",hands=TelHands.Duration,ring1="Stikini Ring +1",ring2="Mephitas's Ring +1",
+		body="Peda. Gown +3",hands=TelHands.Duration,ring1="Stikini Ring +1",ring2="Mephitas's Ring +1",
 		back="Fi Follet Cape +1",waist="Embla Sash",legs=TelLegs.Duration,feet=TelFeet.Duration})
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'].base,{main="Musa",Sub="Khonsu",
 		head="Arbatel Bonnet +3",
@@ -390,9 +390,12 @@ function init_gear_sets()
 		head="Arbatel Bonnet +3",
 		body="Agwu's Robe",hands="Agwu's Gages",ring1="Mujin Band",
 		back=LughsCape.MAB}) 
-	sets.BurstHelix = set_combine(sets.midcast['Elemental Magic'].base,{
-		head="Pedagogy Mortarboard +1",ear2="Arbatel Earring +1",
-		body="Agwu's Robe",hands="Agwu's Gages",ring2="Mujin Band",
+	sets.Helix =set_combine(sets.midcast['Elemental Magic'].base,{
+		body="Agwu's Robe",hands="Amalric Gages +1",ring2="Mallquis Ring",
+		feet="Amalric Nails +1"})
+	sets.BurstHelix = set_combine(sets.Helix,{
+		head="Peda. M.Board +3",ear2="Arbatel Earring +1",
+		hands="Agwu's Gages",ring2="Mujin Band",
 		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +2"})
 	sets.midcast.Death = sets.midcast['Elemental Magic'].base
 	sets.midcast.Kaustra = set_combine(sets.midcast['Elemental Magic'].base,{ammo="Pemphredo Tathlum",
@@ -401,10 +404,7 @@ function init_gear_sets()
 		back=LughsCape.MAB,legs="Amalric Slops +1",feet="Agwu's Pigaches"})
 	
     sets.midcast['Divine Magic'] = set_combine(sets.precast.FC,{})
-	sets.midcast.Banish = {main="Daybreak",Sub="Ammurapi Shield",
-		head="Ipoca Beret",neck="Mizukage-no-Kubikazari",ear1="Friomisi Earring",ear2="Arbatel Earring +1",
-        hands="Fanatic Gloves",ring1="Stikini Ring +1",ring2="Freke Ring",
-        back="Fi Follet Cape +1",waist="Bishop's Sash",legs="Arbatel Pants +2",feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
+	sets.midcast.Banish = set_combine(sets.midcast['Elemental Magic'].base,{})
 	sets.midcast.Banish.SIRD = set_combine(sets.midcast.Banish,sets.midcast.SIRD)
 
     sets.midcast['Dark Magic'] = {}
@@ -413,9 +413,9 @@ function init_gear_sets()
     -- Custom spell classes
 	sets.midcast['Enfeebling Magic'] = {}
     sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Khonsu",
-		neck="Duelist's Torque +2",ear1="Snotra Earring",ear2="Arbatel Earring +1",
-		body="Cohort Cloak +1",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Arbatel Pants +2",feet="Arbatel Loafers +2"}
+		head="Arbatel Bonnet +3",neck="Argute Stole +2",ear1="Snotra Earring",ear2="Arbatel Earring +1",
+		body="Arbatel Gown +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Arbatel Pants +2",feet="Acad. Loafers +3"}
     sets.midcast['Enfeebling Magic'].potency = set_combine(sets.midcast['Enfeebling Magic'].base,{})
     sets.midcast['Enfeebling Magic'].mndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ring1="Metamor. Ring +1"})
     sets.midcast['Enfeebling Magic'].skillmndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{waist="Luminary Sash"})
@@ -423,7 +423,9 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'].intpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ring1="Metamor. Ring +1"})
     sets.midcast['Enfeebling Magic'].skillpot = set_combine(sets.midcast['Enfeebling Magic'].base,{})
 	sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].macc,{main="Daybreak"})
-	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{head=empty,body="Crepuscular Cloak",ring1="Metamor. Ring +1",back="Aurist's Cape +1"})
+	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{ammo="Pemphredo Tathlum",
+		head=empty,body="Crepuscular Cloak",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+		back="Aurist's Cape +1"})
     
     -- Sets to return to when not performing an action.
     
@@ -439,12 +441,9 @@ function init_gear_sets()
         body="Arbatel Gown +3",hands=ChironicHands.Refresh,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
         back=LughsCape.MAB,waist="Embla Sash",legs=ChironicLegs.Refresh,feet=ChironicFeet.Refresh}
     sets.idle.Town = set_combine(sets.idle,{})
-    sets.idle.Weak = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
-		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Sanare Earring",ear2="Ebers Earring +1",
-        body="Arbatel Gown +3",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Chirich Ring +1",ring2="Defending Ring",
-        back=LughsCape.MAB,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
+    sets.idle.Weak = sets.idle
     sets.idle.PDT = {main="Malignance Pole",Sub="Mensch Strap +1",ammo="Homiliary",
-		head="Nyame Helm",neck="Loricate Torque +1",ear1="Eabani Earring",ear2="Ebers Earring +1",
+		head="Nyame Helm",neck="Loricate Torque +1",ear1="Eabani Earring",
         body="Arbatel Gown +3",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Stikini Ring +1",
         back=LughsCape.MAB,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet="Nyame Sollerets"}
     
@@ -457,9 +456,11 @@ function init_gear_sets()
     sets.latent_refresh = {waist="Fucho-no-obi"}
 	
 	sets.ExtraRegen = {ring2="Chirich Ring +1"}
-	sets.SublimationCharging = {head="Acad. Mortar. +3",waist="Embla Sash"}
+	sets.SublimationCharging = {head="Acad. Mortar. +3",body="Peda. Gown +3",waist="Embla Sash"}
 	sets.SublimationFull = {head="Arbatel Bonnet +3",waist="Carrier's Sash"}
 	sets.SublimationOff = {head="Arbatel Bonnet +3",waist="Carrier's Sash"}
+	sets.Immanence = {head="Nyame Helm",neck="Warder's Charm +1",body="Nyame Mail",hands="Arbatel Bracers +2",back=LughsCape.MAB}
+	sets.EbullienceMB = {head="Arbatel Bonnet +3",ring1="Mujin Band"}
 
     -- Engaged sets
 
@@ -476,6 +477,7 @@ function init_gear_sets()
 	sets.engaged.PDT = set_combine(sets.engaged,{neck="Loricate Torque +1"})
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
+		
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -541,7 +543,7 @@ function check_reaction(act)
 
     actor.id = curact.actor_id
 	
-	if not ((curact.category == 8) or curact.category == 4) then return end
+	if not ((curact.category == 8) or curact.category == 4) then return end  --8 is begin casting, 4 is completed casting
 	-- Make sure it's a mob that's doing something.
     if windower.ffxi.get_mob_by_id(actor.id) then
         actor = windower.ffxi.get_mob_by_id(actor.id)
@@ -556,46 +558,21 @@ function check_reaction(act)
 		isTarget = false
     end
 	
-	if curact.targets[1].id == nil then
-		targetsMe = false
-		targetsSelf = false
-		otherTarget.in_party = false
-		otherTarget.in_alliance = false
-		targetsDistance = 50
-	elseif curact.targets[1].id == player.id then
+	if curact.targets[1].id == player.id then
 		otherTarget.in_party = false
 		otherTarget.in_alliance = false
 		targetsMe = true
 		targetsSelf = false
 		targetsDistance = 0
-	elseif curact.targets[1].id == actor.id	then
-		if windower.ffxi.get_mob_by_id(curact.targets[1].id) then
-			otherTarget = windower.ffxi.get_mob_by_id(curact.targets[1].id)
-		else
-			otherTarget.in_party = false
-			otherTarget.in_alliance = false
-			otherTarget.distance = 10000
-		end
-		targetsMe = false
-		targetsSelf = true
-		targetsDistance = math.sqrt(otherTarget.distance)
 	else
-		if windower.ffxi.get_mob_by_id(curact.targets[1].id) then
-			otherTarget = windower.ffxi.get_mob_by_id(curact.targets[1].id)
-		else
-			otherTarget.in_party = false
-			otherTarget.in_alliance = false
-			otherTarget.distance = 10000
-		end
 		targetsSelf = false
 		targetsMe = false
-		targetsDistance = math.sqrt(otherTarget.distance)
 	end
 		
 	-- Make sure it's not US from this point on!
 	if actor.id == player.id then return end
     -- Make sure it's a WS or MA precast before reacting to it.		
-    if not (curact.category == 7 or curact.category == 8) then return end
+    if not (curact.category == 7 or curact.category == 8) then return end  -- 7 is begin JA, 8 is begin casting
 	
     -- Get the name of the action.
     if curact.category == 8 then act_info = res.spells[curact.targets[1].actions[1].param] end
@@ -690,14 +667,20 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Nuke' then
         weathercheck(spell.element,sets.midcast['Elemental Magic'].base)
         zodiaccheck(spell.element)
+		if buffactive['Immanence'] then
+			equip(sets.Immanence)
+		end
 		if state.BurstMode.value then
-		
-		
-		-- ADD Additional conditions here: ebullience, if spell is helix etc !!
-		--sets.BurstHelix
-		
-		
 			equip(sets.Burst)
+			if string.find(spell.english,'helix') then
+				equip(sets.BurstHelix)
+			end
+			
+			if buffactive['Ebullience'] then
+				equip(sets.EbullienceMB)
+			end
+		elseif string.find(spell.english,'helix') then
+			equip(sets.Helix)
 		end
         --if sets.ElementalMagicMAB[spell.element] then
         --    equip(sets.ElementalMagicMAB[spell.element])
@@ -744,6 +727,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		
 	--add_to_chat(8,spellMap)
 	
+end
+
+function job_post_aftercast(spell, action, spellMap, eventArgs)
+	if spell.skill then
+		equip(idleSet)
+	end
 end
 
 -- Custom spell mapping.
