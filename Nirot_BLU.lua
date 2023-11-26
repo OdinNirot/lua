@@ -275,6 +275,9 @@ function init_gear_sets()
 	AdhemarBody.FC = { name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}}
 	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
 	
+	TaeonHead = {}
+	TaeonHead.SIRD = { name="Taeon Chapeau", augments={'Mag. Acc.+11 "Mag.Atk.Bns."+11','Spell interruption rate down -10%','STR+6 VIT+6',}}
+	
     TelHead = {}
     TelBody = {}
     TelHands = {}
@@ -353,7 +356,7 @@ function init_gear_sets()
         --back="Swith Cape +1",waist="Hurch'lan Sash",legs="Enif Cosciales",feet="Iuitl Gaiters +1"}
         
 	sets.SIRD = {ammo="Staunch Tathlum +1",
-		head="Nyame Helm",neck="Loricate Torque +1",ear1="Halasz Earring",ear2="Etiolation Earring",
+		head=TaeonHead.SIRD,neck="Loricate Torque +1",ear1="Halasz Earring",ear2="Etiolation Earring",
 		body="Hashishin Mintan +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Defending Ring",
 		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Assim. Shalwar +2",feet="Amalric Nails +1"}
 		
