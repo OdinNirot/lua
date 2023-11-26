@@ -396,7 +396,7 @@ end
 
 function determine_sleep_state()
 	if (buffactive[2]) or (buffactive[19]) then
-		do_equip('sets.Prime')
+		do_equip(sets.Prime)
 		disable("main")
 		if buffactive["Stoneskin"] then
 			windower.send_command('cancel 37;')
