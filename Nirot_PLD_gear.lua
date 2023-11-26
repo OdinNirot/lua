@@ -42,7 +42,7 @@ function init_gear_sets()
    
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = set_combine(sets.midcast.Enmity,{
-		head={name="Chev. Armet +2", priority=135},
+		head={name="Chev. Armet +3", priority=145},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +2", priority=54},
 		waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}})
 		
@@ -99,7 +99,7 @@ function init_gear_sets()
 	-- Due to how Spell Interruption Rate is calculated, user must have a total of -102% Spell Interruption Rate Down
 		
 	sets.precast.FC = {ammo={ name="Sapience Orb", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
+		head={name="Chev. Armet +3", priority=145},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={ name="Sacro Breastplate",priority=178},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
 		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}  --change body to rev. +3 once you have it
 		
@@ -167,7 +167,7 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.midcast.FastRecast = {
-		head={name="Chev. Armet +2", priority=135},ear1={ name="Loquacious Earring", priority=1},
+		head={name="Chev. Armet +3", priority=145},ear1={ name="Loquacious Earring", priority=1},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +2", priority=54},
 		waist={name="Dynamic Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}}
 		
@@ -274,7 +274,7 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={name="Kgt. Beads +2", priority=60},ear1={ name="Sanare Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
+		head={name="Chev. Armet +3", priority=145},neck={name="Kgt. Beads +2", priority=60},ear1={ name="Sanare Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={ name="Sacro Breastplate",priority=178},hands={ name="Chev. Gauntlets +2", priority=54},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
 		back=Rudianos.DT,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Reverence Leggings +3", priority=82}}
 
@@ -300,7 +300,7 @@ function init_gear_sets()
 	-- Basic defense sets.
 		
 	sets.defense.PDT = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={name="Kgt. Beads +2", priority=60},
+		head={name="Chev. Armet +3", priority=145},neck={name="Kgt. Beads +2", priority=60},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +2", priority=54},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
 		back=Rudianos.DT,waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}}
 	sets.defense.HP = {}
@@ -319,17 +319,17 @@ function init_gear_sets()
 	--------------------------------------
 	
 	sets.engaged = {ammo={name="Aurgelmir Orb +1", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
+		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Chirich Ring +1", priority=1},ring2={name="Moonlight Ring", priority=110},
 		back=Rudianos.DT,waist={name="Sailfi belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 
 	sets.engaged.Acc = {ammo={ name="Ginsen", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Dignitary's Earring", priority=1},
+		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Dignitary's Earring", priority=1},
 		body={name="Sakpata's Plate", priority=136},hands={name="Sakpata's Gauntlets", priority=91},ring1={name="Chirich Ring +1", priority=1},ring2={name="Moonlight Ring", priority=110},
 		back=Rudianos.DT,waist={name="Dynamic Belt +1", priority=1},legs={name="Sakpata's Cuisses", priority=114},feet={name="Sakpata's Leggings", priority=68}}
 
 	sets.engaged.PDT = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={name="Chev. Armet +2", priority=135},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={ name="Ethereal Earring", priority=1},
+		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={ name="Ethereal Earring", priority=1},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +2", priority=54},ring1={ name="Defending Ring",priority=1},ring2={ name="Pernicious Ring", priority=1},
 		back=Rudianos.DT,waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127}}
 		
