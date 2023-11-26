@@ -25,7 +25,7 @@ function job_setup()
     state.Buff['Terror'] = buffactive['terror'] or false
     state.Buff['Stun'] = buffactive['stun'] or false
     state.Buff['Petrification'] = buffactive['petrification'] or false
-	state.CursnaGear = M(true, 'CursnaGear')
+	state.CursnaGear = M(false, 'CursnaGear')
 	--state.Kiting = M(true)
 	state.ElementalResist = M(false, 'EleResist')
     state.FootworkWS = M(true, 'Footwork on WS')
@@ -128,9 +128,9 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +3"}
-    sets.precast.JA['Boost'] = {hands="Anch. Gloves +2"}
+    sets.precast.JA['Boost'] = {hands="Anchor. Gloves +2"}
     sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +2"}
-    sets.precast.JA['Focus'] = {head="Anchor. Crown +2"}
+    sets.precast.JA['Focus'] = {head="Anch. Crown +2"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +3"}
     sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters +2"}
     sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas +3"}
