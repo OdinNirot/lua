@@ -375,6 +375,10 @@ function job_precast(spell, action, spellMap, eventArgs)
 --    end
 end
 
+function do_equip(setname)
+	send_command('gs equip '..setname..'')
+end
+
 function sird_sets()
 	if state.IdleMode.value == 'PDT' then
 		state.CastingMode:set('SIRD')
