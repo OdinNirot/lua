@@ -68,6 +68,7 @@ function job_setup()
     info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 	
 	
+	send_command('get "Storage Slip 06" sack') --af for steal+
 	send_command('get "Storage Slip 21" sack') --empy +1
 	send_command('get "Storage Slip 24" sack') --AF +2
 	send_command('get "Storage Slip 25" sack') --AF +3
