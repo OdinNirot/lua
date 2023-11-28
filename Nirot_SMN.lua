@@ -86,7 +86,6 @@ function get_sets()
 	Grio = {}
 	Campestres = {}
 	
-	MerlinicHead.Refresh = { name="Merlinic Hood", augments={'Spell interruption rate down -9%','Pet: STR+1','"Refresh"+2','Accuracy+16 Attack+16',}}
 	MerlinicHands.Refresh = { name="Merlinic Dastanas", augments={'Pet: STR+3','STR+8','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+8 "Mag.Atk.Bns."+8',}}
 	MerlinicHands.TH = { name="Merlinic Dastanas", augments={'MND+5','Weapon Skill Acc.+2','"Treasure Hunter"+2',}}
 	MerlinicHead.TH = { name="Merlinic Hood", augments={'Mag. Acc.+22','"Dbl.Atk."+3','"Treasure Hunter"+2','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
@@ -156,7 +155,7 @@ function get_sets()
 	-- BP Timer Gear
 	-- Use BP Recast Reduction here, along with Avatar's Favor gear.
 	-- Avatar's Favor skill tiers are 512 / 575 / 670.
-    sets.midcast.BP = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},sub="Vox Grip",ammo="Sancus Sachet +1",
+    sets.midcast.BP = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},sub="Vox Grip",ammo="Epitaph",
 		head="Beckoner's Horn +3",neck="Incanter's Torque",ear1="Cath Palug Earring",ear2="Lodurr Earring",
 		body="Baayami Robe +1",hands="Baayami Cuffs +1",ring1="Stikini Ring +1",ring2="Evoker's Ring",
 		back={ name="Conveyance Cape", augments={'Summoning magic skill +2','Pet: Enmity+12','Blood Pact Dmg.+5','Blood Pact ab. del. II -1',}},waist="Kobo Obi",legs="Baayami Slops +1",feet="Baayami Sabots +1"}
@@ -300,7 +299,7 @@ function get_sets()
 	sets.pet_midcast.Physical_BP = {
 		main="Nirvana",
 		sub="Elan Strap +1",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head=HeliosHead.PhysBP,
 		neck="Smn. Collar +2",
 		ear1="Lugalbanda Earring",
@@ -350,7 +349,7 @@ function get_sets()
 	sets.pet_midcast.Magic_BP_Base = {
 		main=Grio.PetMAB,  
 		sub="Elan Strap +1",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head="Cath Palug Crown",
 		neck="Smn. Collar +2",
 		ear1="Lugalbanda Earring",
@@ -377,13 +376,13 @@ function get_sets()
 	})
 
 	sets.pet_midcast.Magic_BP_TP_Acc = set_combine(sets.pet_midcast.Magic_BP_TP, {
-		head=MerlinicHead.Refresh,
+		head=Beckoner's Horn +3,
 		body="Convoker's Doublet +3",
 		hands=MerlinicHands.Refresh
 	})
 
 	sets.pet_midcast.Magic_BP_NoTP_Acc = set_combine(sets.pet_midcast.Magic_BP_NoTP, {
-		head=MerlinicHead.Refresh,
+		head=Beckoner's Horn +3,
 		body="Convoker's Doublet +3",
 		hands=MerlinicHands.Refresh
 	})
@@ -395,7 +394,7 @@ function get_sets()
 	sets.pet_midcast.FlamingCrush = {
 		main="Nirvana",
 		sub="Elan Strap +1",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head="Cath Palug Crown",
 		neck="Smn. Collar +2",
 		ear1="Lugalbanda Earring",
@@ -421,7 +420,7 @@ function get_sets()
 	sets.pet_midcast.MagicAcc_BP = {
 		main="Nirvana",
 		sub="Vox Grip",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head="Convoker's Horn +3",
 		neck="Smn. Collar +2",
 		ear1="Lugalbanda Earring",
@@ -444,7 +443,7 @@ function get_sets()
 	sets.pet_midcast.SummoningMagic = {
 		main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
 		sub="Vox Grip",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head="Baayami Hat +1",
 		neck="Incanter's Torque",
 		ear1="Cath Palug Earring",
@@ -501,7 +500,7 @@ function get_sets()
 	-- If you want to add your own idle modes, do a find for "IdleModeCommands" and add it there.
 
 	-- This is your main idle set with no avatar out. Focus on refresh and defensive stats.
-	sets.aftercast = {main="Mpaca's Staff",sub="Khonsu",ammo="Sancus Sachet +1",
+	sets.aftercast = {main="Mpaca's Staff",sub="Khonsu",ammo="Epitaph",
 		head="Beckoner's Horn +3",neck="Smn. Collar +2",ear1="Cath Palug Earring",ear2="Beckoner's Earring",
 		body="Bunzi's Robe",hands=MerlinicHands.Refresh,ring1="Defending Ring",ring2={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		back=Campestres.CapeA,waist="Regal Belt",legs=MerlinicLegs.Refresh,feet=MerlinicFeet.Refresh}  -- i used to have loricate torque in this set, seems like just using Smn collar is fine?
@@ -566,7 +565,7 @@ function get_sets()
 	sets.aftercast.Avatar = {
 		main="Nirvana",
 		sub="Oneiros Grip",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head="Beckoner's Horn +3",
 		neck="Caller's Pendant",
 		ear1="Cath Palug Earring",
@@ -603,7 +602,7 @@ function get_sets()
 	sets.aftercast.Avatar.PetDT = {
 		main="Nirvana",
 		sub="Khonsu",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head={ name="Apogee Crown +1", augments={'Pet: Accuracy+25','"Avatar perpetuation cost"+7','Pet: Damage taken -4%',}},
 		neck="Smn. Collar +2",
 		ear1="Cath Palug Earring",
@@ -645,7 +644,7 @@ function get_sets()
 	sets.aftercast.Spirit = {
 		main="Nirvana",
 		sub="Vox Grip",
-		ammo="Sancus Sachet +1",
+		ammo="Epitaph",
 		head="Convoker's Horn +3",
 		neck="Incanter's Torque",
 		ear1="Cath Palug Earring",
