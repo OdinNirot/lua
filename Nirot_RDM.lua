@@ -460,6 +460,8 @@ function customize_melee_set(meleeSet)
 
 	if player.sub_job == 'DNC' or player.sub_job == 'NIN' then
 		state.DualWielding = true
+	else
+		state.DualWielding = false
 	end
 	
 	if state.HybridMode.value == 'PDT' and not (buffactive['Enfire'] or buffactive['Enblizzard'] or buffactive['Enaero'] or buffactive['Enstone'] or buffactive['Enthunder'] or buffactive['Enwater']) then
