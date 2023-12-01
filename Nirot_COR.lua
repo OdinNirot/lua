@@ -251,9 +251,9 @@ function init_gear_sets()
     sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"} -- Occasionally allows Random Deal to restore two used Job Abilities. (~50% of the time) 
 	
 	sets.precast.CorsairRoll = set_combine(sets.idle.PDT,{head="Lanun Tricorne +3",neck="Regal Necklace",hands="Chasseur's Gants +3",ring2="Gelatinous Ring +1",back=Camulus.DW,legs="Desultor Tassets"})
-    sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +2"})
+    sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +3"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +2"})
-    sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2"})
+    sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +3"})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3"})
 
@@ -277,7 +277,7 @@ function init_gear_sets()
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket"})
 	
 	sets.precast.RA = {ammo=gear.RAbullet,
-		head="Chass. Tricorne +2",neck="Comm. Charm +2",
+		head="Chass. Tricorne +3",neck="Comm. Charm +2",
 		body="Laksa. Frac +3",hands="Lanun Gants +3",waist="Yemaya Belt",legs="Adhemar Kecks +1"}
 	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {})
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {})
@@ -336,7 +336,7 @@ function init_gear_sets()
     sets.midcast.RA = {ammo=gear.RAbullet,
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Dingir Ring",ring2="Ilabrat Ring",
-		back=Camulus.DW,waist="Yemaya Belt",legs="Chasseur's Culottes +2",feet="Malignance Boots"}
+		back=Camulus.DW,waist="Yemaya Belt",legs="Chasseur's Culottes +3",feet="Malignance Boots"}
 
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {})
     sets.midcast.RA.HighAcc = set_combine(sets.midcast.RA.Acc, {})
@@ -351,9 +351,9 @@ function init_gear_sets()
 
 
     sets.engaged = {
-        head="Chass. Tricorne +2",neck="Combatant's Torque",ear1="Telos Earring",ear2="Mache Earring +1",
+        head="Chass. Tricorne +3",neck="Combatant's Torque",ear1="Telos Earring",ear2="Mache Earring +1",
 	    body="Malignance Tabard",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Chirich Ring +1",
-	    waist="Kentarch Belt +1",legs="Chasseur's Culottes +2",feet="Malignance Boots"}
+	    waist="Kentarch Belt +1",legs="Chasseur's Culottes +3",feet="Malignance Boots"}
     sets.engaged.LowAcc = set_combine(sets.engaged, {})
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {ring2="Cacoethic Ring +1"})
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {ear1="Dominance Earring +1"})
