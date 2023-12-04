@@ -621,6 +621,11 @@ function display_current_job_state(eventArgs)
 	else
         cursnagear_msg = 'Off'
     end
+    if state.WeaponLock.value == true then
+        wl_msg = 'On'
+	else
+        wl_msg = 'Off'
+    end
 	
     local msg = ''
     if state.Kiting.value then
@@ -638,6 +643,7 @@ function display_current_job_state(eventArgs)
         ..string.char(31,008).. ' AccMode: ' ..string.char(31,001)..am_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' ImmunobreakMode: ' ..string.char(31,001)..immunobreak_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' CursnaGear: ' ..string.char(31,001)..cursnagear_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,008).. ' WeaponLock: ' ..string.char(31,001)..wl_msg.. string.char(31,002)..  ' |'
         ..string.char(31,002)..msg)
 
     eventArgs.handled = true
