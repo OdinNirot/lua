@@ -41,12 +41,14 @@ function job_setup()
     include('Mote-TreasureHunter')
      
     state.Buff = {}
+	
 	state.Buff['Curse'] = buffactive['curse'] or false
 	state.Buff['Curse'] = buffactive['doom'] or false
 	state.Buff['Curse'] = buffactive['bane'] or false
 	state.Buff['Terror'] = buffactive['terror'] or false
     state.Buff['Stun'] = buffactive['stun'] or false
     state.Buff['Petrification'] = buffactive['petrification'] or false
+	state.DualWielding = M{true, false}
 	
 	state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
@@ -57,6 +59,47 @@ function job_setup()
 	
 	magic_maps.curespells = S{
 		'Cura','Cura II','Cura III','Curaga','Curaga II','Curaga III','Curaga IV','Cure','Cure II','Cure III','Cure IV','Cure V','Cure VI'
+	}
+	
+	magic_maps.mndpot = S{
+		'Paralyze','Paralyze II','Slow','Slow II','Addle',
+		'Addle II'
+	}
+	
+	magic_maps.skillmndpot = S{
+		'Distract','Distract II','Distract III','Frazzle III'
+	}
+	
+	magic_maps.macc = S{
+		'Sleep','Sleep II','Sleepga','Silence','Inundation',
+		'Dispel','Dispelga','Break','Bind','Frazzle','Frazzle II'
+	}
+	
+	magic_maps.intpot = S{
+		'Blind','Blind II'
+	}
+	
+	magic_maps.skillpot = S{
+		'Poison','Poison II','Poisonga','Poisonga II'
+	}
+	
+	magic_maps.BarSpells = S{
+	'Barfire','Barblizzard','Baraero','Barstone','Barthunder','Barwater','Barsleep','Barpoison','Barparalyze','Barblind','Barsilence','Barpetrify','Barvirus','Baramnesia','Barfira','Barblizzara','Baraera','Barstonra','Barthundra','Barwatera','Barsleepra','Barpoisonra','Barparalyzra','Barblindra','Barsilencera','Barpetra','Barvira','Baramnesra'	
+	}
+
+	magic_maps.EnhancingSkill = S{
+		'Aquaveil','Blaze Spikes','Enaero','Enaero II','Enblizzard','Enblizzard II','Enfire','Enfire II','Enstone','Enstone II','Enthunder','Enthunder II','Enwater','Enwater II','Ice Spikes','Phalanx','Phalanx II','Shock Spikes','Temper','Temper II'
+	}	
+	
+	magic_maps.NoEnhancingSkill = S{
+		'Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II'
+	}
+	magic_maps.RegenSpells = S{
+		'Regen','Regen II'
+	}	
+			
+	magic_maps.ImmunobreakSpells = S{
+		'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II'
 	}
 	
 	magic_maps.ballad = S{
@@ -157,6 +200,7 @@ function user_setup()
     state.HybridMode:options('Normal')
 	state.OffenseMode:options('Normal', 'SomeAccuracy','MaxAccuracy')
     state.WeaponskillMode:options('Normal', 'NotAttackCapped', 'Accuracy')
+	state.CastingMode:options('Normal','DW')
 	state.Kiting              = M(true, 'Kiting')
 	state.ExtraRefresh = M(false, 'ExtraRefresh')
 	state.WeaponLock = M(false, 'WeaponLocked')
@@ -175,7 +219,8 @@ function user_setup()
 	send_command('bind F10 gs c cycle WeaponLock')
 	
 	enable('range', 'ammo')
-	 
+	my_classes()
+	
     -- Additional local binds
     --send_command('bind ^` input /ja "Hasso" <me>')
     --send_command('bind !` input /ja "Seigan" <me>')
@@ -230,14 +275,12 @@ function init_gear_sets()
 	Linos.WSDStr = { name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +3%','STR+8',}}
 	
     -- Precast Sets
-    -- Precast sets to enhance JAs
-    --sets.precast.JA['Spirit Surge'] = {body="Pteroslaver Mail +3"}
- 
     Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
     sets.Kiting = {feet="Fili Cothurnes +2"}
 	sets.Curse = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	sets.TreasureHunter = {waist="Chaac Belt"}
 	sets.Prime = {range="Prime Horn"}
+			  
 			  
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +1"}
@@ -246,7 +289,7 @@ function init_gear_sets()
 			  
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-		ear1="Regal Earring",
+		ear1="Fili Earring +1",
 		waist="Flume Belt +1",Legs="Dashing Subligar"}
          
     -- Don't need any special gear for Healing Waltz.
@@ -277,7 +320,7 @@ function init_gear_sets()
 		head="Fili Calot +3",
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
-		ear2="Fili Earring",
+		ear2="Fili Earring +1",
 		body="Inyanga Jubbah +2",
 		hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Magic dmg. taken -4%','"Cure" potency +6%',}},
 		ring1="Defending Ring",
@@ -288,35 +331,57 @@ function init_gear_sets()
 		feet="Fili Cothurnes +2"
 	}
 	sets.precast.FC.dummy = set_combine(sets.precast.FC.songs,{range="Daurdabla"})
+	sets.precast.FC.DW = {sub="Kali"}
+	sets.precast.FC.dummy.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW,{range="Daurdabla"})
 	
 	sets.precast.FC.ballad = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.ballad.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.carol = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.carol.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.elegy = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.elegy.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.etude = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.etude.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.finale = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.finale.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.hymnus = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.hymnus.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.lullaby_aoe = set_combine(sets.precast.FC.songs,{range="Daurdabla"})
+	sets.precast.FC.lullaby_aoe.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW,{range="Daurdabla"})
 	sets.precast.FC.lullaby_single = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.lullaby_single.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.madrigal = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.madrigal.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.mambo = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.mambo.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.march = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.march.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.mazurka = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.mazurka.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.minne = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.minne.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.minuet = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.minuet.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.paeon = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.paeon.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.prelude = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.prelude.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.requiem = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.requiem.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.scherzo = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.scherzo.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.threnody = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.threnody.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.virelai = set_combine(sets.precast.FC.songs,{})
+	sets.precast.FC.virelai.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC['Honor March'] = set_combine(sets.precast.FC.march,{range="Marsyas"})
-	
+	sets.precast.FC['Honor March'].DW = set_combine(sets.precast.FC.march,sets.precast.FC.DW,{range="Marsyas"})
     --sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
      
     sets.precast.WS = {
 		range=Linos.WSDStr,
 		head="Nyame Helm",
-		neck="Lissome Necklace",
+		neck="Bard's Charm +2",
 		ear1="Telos Earring",
 		ear2="Moonshade Earring",
 		body="Nyame Mail",
@@ -339,6 +404,11 @@ function init_gear_sets()
 	sets.precast.WS['Mordant Rime'].NotAttackCapped = set_combine(sets.precast.WS.NotAttackCapped,sets.precast.WS['Mordant Rime'])
 	sets.precast.WS['Mordant Rime'].Accuracy = set_combine(sets.precast.WS.Accuracy,sets.precast.WS['Mordant Rime'].NotAttackCapped)
 	
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		head="Fili Calot +3",neck="Rep. Plat. Medal",ear1="Domin. Earring +1",
+		hands="Fili Manchettes +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
+		waist="Prosilio Belt +1"})
+	
     -- Midcast Sets
 	sets.midcast.curespells = {main="Daybreak",sub="Genmei Shield",ammo="Staunch Tathlum +1",
 		head="Fili Calot +3",neck="Loricate Torque +1",ear1="Mendi. Earring",ear2="Loquacious Earring",
@@ -348,13 +418,13 @@ function init_gear_sets()
 	sets.midcast.songs = {
 		head="Fili Calot +3",
 		neck="Mnbw. Whistle +1",
-		body="Fili Hongreline +2",
+		body="Fili Hongreline +3",
 		hands="Fili Manchettes +3",
 		back=Intarabus.FC,
 		legs="Inyanga Shalwar +2",
 		feet="Brioso Slippers +3"
 	}
-	sets.midcast.ballad = set_combine(sets.midcast.songs,{})
+	sets.midcast.ballad = set_combine(sets.midcast.songs,{legs="Fili Rhingrave +3"})
 	sets.midcast.carol = set_combine(sets.midcast.songs,{})
 	sets.midcast.elegy = set_combine(sets.midcast.songs,{})
 	sets.midcast.etude = set_combine(sets.midcast.songs,{})
@@ -377,6 +447,7 @@ function init_gear_sets()
 		legs="Inyanga Shalwar +2",
 		feet="Bihu Slippers +1"	
 	})
+	sets.midcast.lullaby_aoe.DW = set_combine(sets.midcast.lullaby_aoe,sets.precast.FC.DW)
 	
 	sets.midcast.lullaby_single = set_combine(sets.midcast.songs,{  --macc focus, use GHorn or Marsyas
 		main="Carnwenhan",
@@ -385,8 +456,8 @@ function init_gear_sets()
 		head="Brioso Roundlet +3",
 		neck="Moonbow Whistle +1",
 		ear1="Dignitary's Earring",
-		ear2="Regal Earring",
-		body="Fili Hongreline +2",
+		ear2="Fili Earring +1",
+		body="Fili Hongreline +3",
 		hands="Brioso Cuffs +3",
 		ring1="Stikini Ring +1",
 		ring2="Stikini Ring +1",
@@ -394,7 +465,9 @@ function init_gear_sets()
 		legs="Inyanga Shalwar +2",
 		feet="Brioso Slippers +3"	
 	})
+	sets.midcast.lullaby_single.DW = set_combine(sets.midcast.lullaby_single,sets.precast.FC.DW)
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.lullaby_single,{range="Daurdabla"})  -- focus on macc because you already hit max aoe range at 154 string skill. so base it on lullaby_single set but use Daurdabla
+	sets.midcast['Horde Lullaby'].DW = set_combine(sets.midcast['Horde Lullaby'],sets.precast.FC.DW)
 	sets.midcast.madrigal = set_combine(sets.midcast.songs,{back=Intarabus.FC})
 	sets.midcast.mambo = set_combine(sets.midcast.songs,{})
 	sets.midcast.march = set_combine(sets.midcast.songs,{})
@@ -411,22 +484,36 @@ function init_gear_sets()
 	 
 	 
 	------Dummy sets (just stay in FC gear because you'll be applying full strength songs after)
-	sets.midcast.dummy = set_combine(sets.precast.FC.songs,{range="Daurdabla"})
+	sets.midcast.dummy = sets.precast.FC.dummy
+	sets.midcast.dummy.DW = sets.precast.FC.dummy.DW
 	sets.midcast.ballad.dummy = set_combine(sets.precast.FC.ballad,{range="Daurdabla"})
+	sets.midcast.ballad.dummy.DW = set_combine(sets.precast.FC.ballad.DW,{range="Daurdabla"})
 	sets.midcast.carol.dummy = set_combine(sets.precast.FC.carol,{range="Daurdabla"})
+	sets.midcast.carol.dummy.DW = set_combine(sets.precast.FC.carol.DW,{range="Daurdabla"})
 	sets.midcast.etude.dummy = set_combine(sets.precast.FC.etude,{range="Daurdabla"})
+	sets.midcast.etude.dummy.DW = set_combine(sets.precast.FC.etude.DW,{range="Daurdabla"})
 	sets.midcast.hymnus.dummy = set_combine(sets.precast.FC.hymnus,{range="Daurdabla"})
+	sets.midcast.hymnus.dummy.DW = set_combine(sets.precast.FC.hymnus.DW,{range="Daurdabla"})
 	sets.midcast.madrigal.dummy = set_combine(sets.precast.FC.madrigal,{range="Daurdabla"})
+	sets.midcast.madrigal.dummy.DW = set_combine(sets.precast.FC.madrigal.DW,{range="Daurdabla"})
 	sets.midcast.mambo.dummy = set_combine(sets.precast.FC.mambo,{range="Daurdabla"})
+	sets.midcast.mambo.dummy.DW = set_combine(sets.precast.FC.mambo.DW,{range="Daurdabla"})
 	sets.midcast.march.dummy = set_combine(sets.precast.FC.march,{range="Daurdabla"})
+	sets.midcast.march.dummy.DW = set_combine(sets.precast.FC.march.DW,{range="Daurdabla"})
 	sets.midcast.mazurka.dummy = set_combine(sets.precast.FC.mazurka,{range="Daurdabla"})
+	sets.midcast.mazurka.dummy.DW = set_combine(sets.precast.FC.mazurka.DW,{range="Daurdabla"})
 	sets.midcast.minne.dummy = set_combine(sets.precast.FC.minne,{range="Daurdabla"})
+	sets.midcast.minne.dummy.DW = set_combine(sets.precast.FC.minne.DW,{range="Daurdabla"})
 	sets.midcast.minuet.dummy = set_combine(sets.precast.FC.minuet,{range="Daurdabla"})
+	sets.midcast.minuet.dummy.DW = set_combine(sets.precast.FC.minuet.DW,{range="Daurdabla"})
 	sets.midcast.paeon.dummy = set_combine(sets.precast.FC.paeon,{range="Daurdabla"})
+	sets.midcast.paeon.dummy.DW = set_combine(sets.precast.FC.paeon.DW,{range="Daurdabla"})
 	sets.midcast.prelude.dummy = set_combine(sets.precast.FC.prelude,{range="Daurdabla"})
+	sets.midcast.prelude.dummy.DW = set_combine(sets.precast.FC.prelude.DW,{range="Daurdabla"})
 	sets.midcast.scherzo.dummy = set_combine(sets.precast.FC.scherzo,{range="Daurdabla"})
+	sets.midcast.scherzo.dummy.DW = set_combine(sets.precast.FC.scherzo.DW,{range="Daurdabla"})
 	sets.midcast.threnody.dummy = set_combine(sets.midcast.threnody,{range="Gjallarhorn"})
-	 
+	sets.midcast.threnody.dummy.DW = set_combine(sets.midcast.threnody.DW,{range="Gjallarhorn"})
 	 
 	 
     -- Sets to return to when not performing an action.
@@ -453,14 +540,6 @@ function init_gear_sets()
 		feet="Fili Cothurnes +2"
 	}
   
-    --sets.defense.Reraise = {
-    --    head="Twilight Helm",neck="Loricate Torque +1",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-    --    body="Twilight Mail",hands="Buremte Gloves",ring1="Dark Ring",ring2="Paguroidea Ring",
-    --    back="Letalis Mantle",waist="Goading Belt",legs="Cizin Breeches",feet="Karieyh Sollerets +1"}
-  
- 
-    --sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
- 
     -- Engaged sets
  
     -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
@@ -471,19 +550,21 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {
 		range=Linos.QAStp,
-		head="Ayanmo Zucchetto +2",
+		head="Fili Calot +3",
 		neck="Bard's Charm +2",
 		ear1="Dedition Earring",
 		ear2="Telos Earring",
 		body="Ashera Harness",
-		hands="Bunzi's Gloves",
+		hands="Gazu Bracelets +1",
 		ring1="Moonlight Ring",
-		ring2="Petrov Ring",
+		ring2="Chirich Ring +1",
 		back=Intarabus.DexStoreTP,
-		waist="Sailfi Belt +1",
+		waist="Windbuffet Belt +1",
 		legs="Fili Rhingrave +3",
 		feet="Volte Spats"
 	}
+	
+	sets.engaged.DW = set_combine(sets.engaged,{})
 
 	-- Accuracy sets	
     sets.engaged.SomeAccuracy = set_combine(sets.engaged, {})
@@ -507,6 +588,18 @@ function job_get_spell_map(spell, default_spell_map)
 	end
 end
 
+function my_classes()
+	classes.CustomMeleeGroups:clear()
+	if (player.sub_job == 'DNC' or player.sub_job == 'NIN' or player.sub_job == 'THF') then
+		state.DualWielding = true
+		classes.CustomMeleeGroups:append('DW')
+		state.CastingMode.current = 'DW'
+	else
+		state.CastingMode.current = 'Normal'
+		state.DualWielding = false
+	end
+end
+ 
 function dummy_sets()
 	if state.DummyMode.value == 'Dummy' then
 		classes.CustomClass = "dummy"
@@ -514,7 +607,6 @@ function dummy_sets()
 		classes.CustomClass = nil
 	end
 end
-
  
 -- Set eventArgs.handled to true if we don't want any automatic target handling to be done.
 function job_pretarget(spell, action, spellMap, eventArgs)
@@ -526,7 +618,7 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
 	check_weaponlock()
 	dummy_sets()
-    if spell.action_type == 'Magic' then
+    if spell.action_type == 'Magic' and not spell.type == 'BardSong' then
 		equip(sets.precast.FC)
     end
     if spell.type == 'BardSong' then
@@ -586,6 +678,7 @@ end
 
 function customize_idle_set(idleSet)
 	check_weaponlock()
+		
 	if state.ExtraRefresh.value then
 		idleSet = set_combine(idleSet,{ring1="Stikini Ring +1",ring2="Stikini Ring +1"})
 	end
@@ -632,7 +725,6 @@ end
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_handle_equipping_gear(status, eventArgs)
-
 end
  
 -- Return a customized weaponskill mode to use for weaponskill sets.
@@ -643,6 +735,13 @@ end
   
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+
+	if state.DualWielding then
+		meleeSet = set_combine(meleeSet,sets.engaged.DW)
+	else
+		meleeSet = set_combine(meleeSet, sets.engaged)
+	end
+	
 	if state.ExtraResist.value == 'Charm' then
 		meleeSet = set_combine(meleeSet,sets.Charm)
 	elseif state.ExtraResist.value == 'Death' then
@@ -781,10 +880,19 @@ function display_current_job_state(eventArgs)
 	else 
         msg = msg .. ' Kiting: Off'
     end
+	
+	-- temp section
+	if classes.CustomMeleeGroups then
+		--cmg_msg = classes.CustomMeleeGroups
+		cmg_msg = tostring(classes.CustomMeleeGroups)
+	else
+		cmg_msg = "Unknown CustomMeleeGroup"
+	end
 
     add_to_chat(string.char(31,210).. 'DummyMode: ' ..string.char(31,001)..dummy_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' ExtraResist: ' ..string.char(31,001)..er_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' WeaponLock: ' ..string.char(31,001)..wl_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,008).. ' CustomMeleeGroups: ' ..string.char(31,001)..cmg_msg.. string.char(31,002)..  ' |'
         ..string.char(31,002)..msg)
 
     eventArgs.handled = true
