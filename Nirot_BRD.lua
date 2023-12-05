@@ -881,18 +881,9 @@ function display_current_job_state(eventArgs)
         msg = msg .. ' Kiting: Off'
     end
 	
-	-- temp section
-	if classes.CustomMeleeGroups then
-		--cmg_msg = classes.CustomMeleeGroups
-		cmg_msg = tostring(classes.CustomMeleeGroups)
-	else
-		cmg_msg = "Unknown CustomMeleeGroup"
-	end
-
     add_to_chat(string.char(31,210).. 'DummyMode: ' ..string.char(31,001)..dummy_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' ExtraResist: ' ..string.char(31,001)..er_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' WeaponLock: ' ..string.char(31,001)..wl_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' CustomMeleeGroups: ' ..string.char(31,001)..cmg_msg.. string.char(31,002)..  ' |'
         ..string.char(31,002)..msg)
 
     eventArgs.handled = true
