@@ -424,7 +424,7 @@ function init_gear_sets()
 		legs="Inyanga Shalwar +2",
 		feet="Brioso Slippers +3"
 	}
-	sets.midcast.ballad = set_combine(sets.midcast.songs,{legs="Fili Rhingrave +3"})
+	sets.midcast.ballad = set_combine(sets.midcast.songs,{})  --prefer to keen inyanga shalwar for longer duration, else legs="Fili Rhingrave +3" would be a good choice
 	sets.midcast.carol = set_combine(sets.midcast.songs,{})
 	sets.midcast.elegy = set_combine(sets.midcast.songs,{})
 	sets.midcast.etude = set_combine(sets.midcast.songs,{})
