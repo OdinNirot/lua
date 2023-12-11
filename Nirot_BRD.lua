@@ -283,8 +283,8 @@ function init_gear_sets()
 			  
 			  
     -- Precast sets to enhance JAs on use
-    sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +1"}
-    sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +1"}
+    sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +3"}
+    sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +3"}
     sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +3"}
 			  
     -- Waltz set (chr and vit)
@@ -406,7 +406,7 @@ function init_gear_sets()
 	
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 		head="Fili Calot +3",neck="Rep. Plat. Medal",ear1="Domin. Earring +1",
-		hands="Fili Manchettes +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
+		body="Bihu Justaucorps +3",hands="Fili Manchettes +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
 		waist="Prosilio Belt +1"})
 	
     -- Midcast Sets
@@ -418,6 +418,7 @@ function init_gear_sets()
 	sets.midcast.songs = {
 		head="Fili Calot +3",
 		neck="Mnbw. Whistle +1",
+		ear2="Fili Earring +1",
 		body="Fili Hongreline +3",
 		hands="Fili Manchettes +3",
 		back=Intarabus.FC,
@@ -445,7 +446,7 @@ function init_gear_sets()
 		ring2="Stikini Ring +1",
 		waist="Harfner's Sash",
 		legs="Inyanga Shalwar +2",
-		feet="Bihu Slippers +1"	
+		feet="Bihu Slippers +3"	
 	})
 	sets.midcast.lullaby_aoe.DW = set_combine(sets.midcast.lullaby_aoe,sets.precast.FC.DW)
 	

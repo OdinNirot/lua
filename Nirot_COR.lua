@@ -302,7 +302,7 @@ function init_gear_sets()
         head="Nyame Helm",neck="Comm. Charm +2",ear1="Friomisi Earring",ear2="Crematio Earring",
 	    body="Lanun Frac +3",hands="Chasseur's Gants +3",ring1="Dingir Ring",ring2="Epaminondas's Ring",
 	    back=Camulus.WSDMagi,waist="Orpheus's Sash",legs=HercLegs.WSD,feet="Lanun Bottes +3"}
-    sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {head="Pixie Hairpin +1",ear2="Moonshade Earring",hands="Nyame Gauntlets",waist="Orpheus's Sash",legs="Nyame Flanchard"})
+    sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {head="Pixie Hairpin +1",ear2="Moonshade Earring",hands="Nyame Gauntlets",ring2="Archon Ring",waist="Orpheus's Sash",legs="Nyame Flanchard"})
 	sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
 	
 	sets.precast.WS['Evisceration'] = {}
