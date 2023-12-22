@@ -98,9 +98,9 @@ function job_setup()
 		'Regen','Regen II'
 	}	
 			
-	magic_maps.ImmunobreakSpells = S{
-		'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II'
-	}
+	--magic_maps.ImmunobreakSpells = S{
+	--	'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II'
+	--}
 	
 	magic_maps.ballad = S{
 		"Mage's Ballad","Mage's Ballad II","Mage's Ballad III"
@@ -289,7 +289,7 @@ function init_gear_sets()
 			  
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-		ear1="Fili Earring +1",
+		ear1="Fili Earring +2",
 		waist="Flume Belt +1",Legs="Dashing Subligar"}
          
     -- Don't need any special gear for Healing Waltz.
@@ -320,7 +320,7 @@ function init_gear_sets()
 		head="Fili Calot +3",
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
-		ear2="Fili Earring +1",
+		ear2="Fili Earring +2",
 		body="Inyanga Jubbah +2",
 		hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Magic dmg. taken -4%','"Cure" potency +6%',}},
 		ring1="Defending Ring",
@@ -418,7 +418,7 @@ function init_gear_sets()
 	sets.midcast.songs = {
 		head="Fili Calot +3",
 		neck="Mnbw. Whistle +1",
-		ear2="Fili Earring +1",
+		ear2="Fili Earring +2",
 		body="Fili Hongreline +3",
 		hands="Fili Manchettes +3",
 		back=Intarabus.FC,
@@ -457,7 +457,7 @@ function init_gear_sets()
 		head="Brioso Roundlet +3",
 		neck="Moonbow Whistle +1",
 		ear1="Dignitary's Earring",
-		ear2="Fili Earring +1",
+		ear2="Fili Earring +2",
 		body="Fili Hongreline +3",
 		hands="Brioso Cuffs +3",
 		ring1="Stikini Ring +1",
@@ -516,6 +516,12 @@ function init_gear_sets()
 	sets.midcast.threnody.dummy = set_combine(sets.midcast.threnody,{range="Gjallarhorn"})
 	sets.midcast.threnody.dummy.DW = set_combine(sets.midcast.threnody.DW,{range="Gjallarhorn"})
 	 
+	 sets.midcast['Enfeebling Magic'] = {}
+	 sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Clerisy Strap +1",range="Aureole",
+		head=empty,neck="Mnbw. Whistle +1",ear1="Digni. Earring",ear2="Fili Earring +2",
+		body="Cohort Cloak +1",hands="Fili Manchettes +3",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+		back="Aurist's Cape +1",waist="Luminary Sash",legs="Fili Rhingrave +3",feet="Skaoi Boots"}
+	 sets.midcast['Enfeebling Magic'].macc = set_combine(sets.midcast['Enfeebling Magic'].base,{})
 	 
     -- Sets to return to when not performing an action.
      
