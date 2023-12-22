@@ -376,13 +376,13 @@ function get_sets()
 	})
 
 	sets.pet_midcast.Magic_BP_TP_Acc = set_combine(sets.pet_midcast.Magic_BP_TP, {
-		head=Beckoner's Horn +3,
+		head="Beckoner's Horn +3",
 		body="Convoker's Doublet +3",
 		hands=MerlinicHands.Refresh
 	})
 
 	sets.pet_midcast.Magic_BP_NoTP_Acc = set_combine(sets.pet_midcast.Magic_BP_NoTP, {
-		head=Beckoner's Horn +3,
+		head="Beckoner's Horn +3",
 		body="Convoker's Doublet +3",
 		hands=MerlinicHands.Refresh
 	})
