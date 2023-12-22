@@ -109,6 +109,9 @@ function init_gear_sets()
 	
 	sets.Prime = {main="Lorg Mor"}
 	
+	Gada = {}
+	Gada.Enh = { name="Gada", augments={'Enh. Mag. eff. dur. +6','DMG:+4',}}
+	
     -- Precast Sets
 
     -- Fast cast sets for spells
@@ -218,7 +221,7 @@ function init_gear_sets()
 	sets.midcast.Erase = sets.midcast.StatusRemoval
 	sets.midcast.Erase.SIRD = set_combine(sets.midcast.StatusRemoval,sets.midcast.SIRD,{neck="Cleric's Torque +2"})
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
-    sets.midcast['Enhancing Magic'] = {main="Gada",sub="Ammurapi Shield",
+    sets.midcast['Enhancing Magic'] = {main=Gada.Enh,sub="Ammurapi Shield",
 		head=TelHead.Duration,neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Ebers Earring +1",
 		body=TelBody.Duration,hands=TelHands.Duration,
 		waist="Embla Sash",legs=TelLegs.Duration,feet="Theophany Duckbills +3"}--{main="Beneficus",sub="Genmei Shield",
@@ -229,7 +232,7 @@ function init_gear_sets()
 	sets.midcast['Haste'] = sets.midcast['Enhancing Magic']
 	sets.midcast['Haste'].SIRD = set_combine(sets.midcast['Haste'],sets.midcast.SIRD)
 
-    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{main="Gada",sub="Ammurapi Shield",
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",
 		head="Cath Palug Crown",neck="Nodens Gorget",ear1="Earthcry Earring",
 		waist="Siegel Sash",legs="Shedir Seraweels",feet="Theophany Duckbills +3"})--{
         --head="Nahtirah Hat",neck="Orison Locket",ear2="Loquacious Earring",
@@ -242,10 +245,10 @@ function init_gear_sets()
 		waist="Emphatikos Rope",legs="Shedir Seraweels"})
 	sets.midcast.Aquaveil.SIRD = set_combine(sets.midcast.Aquaveil,sets.midcast.SIRD)
 
-    sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'],{main="Gada",sub="Ammurapi Shield",waist="Embla Sash",feet="Ebers Duckbills +3"})
+    sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",waist="Embla Sash",feet="Ebers Duckbills +3"})
 	sets.midcast.Auspice.SIRD = set_combine(sets.midcast.Auspice,sets.midcast.SIRD)
 
-    sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],{main="Gada",sub="Ammurapi Shield",
+    sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",
 		neck="Sroda Necklace",body="Ebers Bliaut +2",hands="Ebers Mitts +3",
 		back=Alaunus.DA,waist="Embla Sash",legs="Piety Pantaloons +3",feet="Ebers Duckbills +3"})--{main="Beneficus",sub="Genmei Shield",
         --head="Orison Cap +2",neck="Colossus's Torque",
@@ -267,9 +270,9 @@ function init_gear_sets()
 		waist="Embla Sash",legs="Theophany Pantaloons +3",feet="Theophany Duckbills +3"})
 	sets.midcast.Regen.SIRD = set_combine(sets.midcast.Regen,sets.midcast.SIRD)
 
-    sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'],{main="Gada",sub="Ammurapi Shield",waist="Embla Sash"})--{ring1="Sheltered Ring",feet="Piety Duckbills +1"}
+    sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",waist="Embla Sash"})--{ring1="Sheltered Ring",feet="Piety Duckbills +1"}
 
-    sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'],{main="Gada",sub="Ammurapi Shield",waist="Embla Sash",legs="Piety Pantaloons +3"})--{ring1="Sheltered Ring",legs="Piety Pantaloons"}
+    sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",waist="Embla Sash"})--{ring1="Sheltered Ring",legs="Piety Pantaloons"}
 
 
     sets.midcast['Divine Magic'] = set_combine(sets.precast.FC,{})
