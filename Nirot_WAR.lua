@@ -129,7 +129,7 @@ function init_gear_sets()
     sets.precast.JA["Warrior's Charge"] = {legs="Agoge Cuisses +3"}
     sets.precast.JA['Tomahawk'] = {feet="Agoge Calligae +3"}
     sets.precast.JA['Retaliation'] = {hands="Pumm. Mufflers +1",feet="Boii Calligae +2"}
-    sets.precast.JA['Restraint'] = {hands="Boii Mufflers +2"}
+    sets.precast.JA['Restraint'] = {hands="Boii Mufflers +3"}
     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3"}
     sets.precast.JA['Brazen Rush'] = {}
 
@@ -153,7 +153,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Knobkierrie",
 		head="Agoge Mask +3",neck="War. Beads +2",ear1="Moonshade Earring",ear2="Thrud Earring",
-		body="Nyame Mail",hands="Boii Mufflers +2",ring1="Ephramad's Ring",ring2="Niqmaddu Ring",
+		body="Nyame Mail",hands="Boii Mufflers +3",ring1="Ephramad's Ring",ring2="Niqmaddu Ring",
 		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.NotAttackCapped = sets.precast.WS
 	sets.precast.WS.Accuracy = set_combine(sets.precast.WS,{neck="Vim Torque +1"})
@@ -165,7 +165,7 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.
     sets.precast.WS['Upheaval'] = {ammo="Knobkierrie",
-		body="Boii Lorica +3",hands="Boii Mufflers +2",ring1="Regal Ring",ring2="Niqmaddu Ring",
+		body="Boii Lorica +3",hands="Boii Mufflers +3",ring1="Regal Ring",ring2="Niqmaddu Ring",
 		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Boii Cuisses +3",feet="Sulevia's Leggings +2"}
 	sets.precast.WS['Upheaval'].HighTP = set_combine(sets.precast.WS['Upheaval'],{
 		ear1="Lugra Earring +1",
@@ -185,10 +185,15 @@ function init_gear_sets()
 		ear1="Schere Earring",ear1="Lugra Earring +1",
 		body="Boii Lorica +3",
 		legs="Nyame Flanchard",feet="Sulevia's Leggings +2"})
+	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS,{
+		head="Boii Mask +2",
+		body="Boii Lorica +3",
+		legs="Boii Cuisses +3",feet="Sulevia's Leggings +2"})
 		
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS,{
 		body="Boii Lorica +3",hands="Nyame Gauntlets",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
-		legs="Boii Cuisses +3"})
+		legs="Boii Cuisses +3",ring1="Gelatinous Ring +1"})
+		
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS,{
 		head="Blistering Sallet +1",ear2="Boii Earring +1",
 		body="Hjarrandi Breast.",
@@ -198,6 +203,17 @@ function init_gear_sets()
 		body="Hjarrandi Breast.",
 		legs="Boii Cuisses +3",feet="Boii Calligae +2"})
 		
+	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS,{ammo="Seeth. Bomblet +1",
+		head="Nyame Helm",neck="Baetyl Pendant",ear2="Friomisi Earring",
+		hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Metamor. Ring +1",
+		waist="Orpheus's Sash",hands="Sakpata's Gauntlets"})
+		
+	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
+		head="Boii Mask +2",ear2="Schere Earring",
+		body="Sakpata's Breastplate",
+		waist="Fotia Belt",legs="Boii Cuisses +3",feet="Sakpata's Leggings"})
+	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS,{
+		head="Boii Mask +2",ear1="Schere Earring"})
 		
     
     
@@ -288,7 +304,7 @@ function init_gear_sets()
 		hands="Tatenashi Gote +1",ring1="Moonlight Ring",
 		legs="Boii Cuisses +3"})
      sets.engaged.OneHaxe.SomeAccuracy = set_combine(sets.engaged.OneHaxe, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
-     sets.engaged.OneHaxe.MaxAccuracy = set_combine(sets.engaged.OneHaxe.SomeAccuracy, {hands="Boii Mufflers +2"})	 
+     sets.engaged.OneHaxe.MaxAccuracy = set_combine(sets.engaged.OneHaxe.SomeAccuracy, {hands="Boii Mufflers +3"})	 
      sets.engaged.OneHaxe.SubtleBlow = set_combine(sets.engaged.OneHaxe, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})	 
 	 
      sets.engaged.DWOneHsword = set_combine(sets.engaged, {ammo="Seeth. Bomblet +1",
