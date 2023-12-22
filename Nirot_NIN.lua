@@ -534,8 +534,8 @@ function init_gear_sets()
 	sets.precast.WS['Blade: Teki'].PDT = set_combine(sets.precast.WS['Blade: Teki'], {body="Hattori Ningi +2",hands="Nyame Gauntlets",legs="Hattori Hakama +2",feet="Hattori Kyahan +2"})
 	
 	-- SAVAGE BLADE- STR 50%; MND 50% 
-    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",head="Hachiya Hatsuburi +3",neck="Rep. Plat. Medal",ear2="Lugra Earring +1",body="Nyame Mail",hands="Mochizuki Tekko +3",ring2="Gere Ring",legs="Mochizuki Hakama +3"}) 
-	sets.precast.WS['Savage Blade'].PDT = set_combine(sets.precast.WS['Savage Blade'], {hands="Nyame Gauntlets",ring2="Defending Ring"})
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",head="Hattori Zukin +2",neck="Rep. Plat. Medal",ear2="Lugra Earring +1",body="Hattori Ningi +2",hands="Nyame Gauntlets",waist="Prosilio Belt +1",legs="Nyame Flanchard"}) 
+	sets.precast.WS['Savage Blade'].PDT = set_combine(sets.precast.WS['Savage Blade'], {})
     
 	-- AEOLIAN EDGE- DEX:40%; INT:40% 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {head="Mochi. Hatsuburi +3"})
