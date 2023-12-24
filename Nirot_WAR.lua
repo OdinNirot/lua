@@ -214,8 +214,13 @@ function init_gear_sets()
 		waist="Fotia Belt",legs="Boii Cuisses +3",feet="Sakpata's Leggings"})
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS,{
 		head="Boii Mask +2",ear1="Schere Earring"})
+	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS,{
+		head="Agoge Mask +3",neck="Fotia Gorget",
+		ring1="Regal Ring",
+		waist="Fotia Belt",feet="Nyame Sollerets"})
 		
-    
+	sets.precast.WS["Judgment"] = set_combine(sets.precast.WS["Savage Blade"],{})
+	
     
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC

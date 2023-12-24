@@ -517,7 +517,7 @@ function init_gear_sets()
 	sets.midcast.threnody.dummy.DW = set_combine(sets.midcast.threnody.DW,{range="Gjallarhorn"})
 	 
 	 sets.midcast['Enfeebling Magic'] = {}
-	 sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Clerisy Strap +1",range="Aureole",
+	 sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Enki Strap",range="Aureole",
 		head=empty,neck="Mnbw. Whistle +1",ear1="Digni. Earring",ear2="Fili Earring +2",
 		body="Cohort Cloak +1",hands="Fili Manchettes +3",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Aurist's Cape +1",waist="Luminary Sash",legs="Fili Rhingrave +3",feet="Skaoi Boots"}
