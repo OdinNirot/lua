@@ -107,16 +107,10 @@ function init_gear_sets()
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
 	
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
-	HercLegs.WSD = { name="Herculean Trousers", augments={'Spell interruption rate down -7%','MND+13','Weapon skill damage +9%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	
 	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
-	
-	AdhemarHead = {}
-	AdhemarHands = {}
-	AdhemarHead.AtkPdt = { name="Adhemar Bonnet +1", augments={'HP+105','Attack+13','Phys. dmg. taken -4',}}
-	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
 	
 	Segomo = {}
 	Segomo.Normal = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+5','"Dbl.Atk."+10','Damage taken-5%',}}
@@ -132,7 +126,7 @@ function init_gear_sets()
     sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +2"}
     sets.precast.JA['Focus'] = {head="Anch. Crown +2"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +3"}
-    sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters +2"}
+    sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters +3"}
     sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas +3"}
     sets.precast.JA['Mantra'] = {feet="Hesychast's Gaiters +3"}
 
@@ -165,8 +159,8 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Coiste Bodhar",
         head="Mpaca's Cap",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
-		body="Bhikku Cyclas +2",hands="Ryuo Tekko +1",ring1="Gere Ring",ring2="Niqmaddu Ring",
-        back=Segomo.Normal,waist="Moonbow Belt +1",legs="Mpaca's Hose",feet=HercFeet.TripleAtk}
+		body="Bhikku Cyclas +3",hands="Ryuo Tekko +1",ring1="Gere Ring",ring2="Niqmaddu Ring",
+        back=Segomo.Normal,waist="Moonbow Belt +1",legs="Mpaca's Hose",feet="Mpaca's Boots"}
 	sets.precast.WS.NotAttackCapped = sets.precast.WS
 	sets.precast.WS.Accuracy = set_combine(sets.precast.WS,{})
     --sets.precast.WSAcc = {} --{ammo="Honed Tathlum",body="Manibozho Jerkin",back="Letalis Mantle",feet="Qaaxo Leggings"}
@@ -178,40 +172,40 @@ function init_gear_sets()
     
     -- legs={name="Quiahuiz Trousers", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','STR+8'}}}
 
-    sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",hands="Adhemar Wristbands +1"})
+    sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {ammo="Voluspa Tathlum",
+		ear1="Schere Earring",
+		body="Mpaca's Doublet",hands="Bhikku Gloves +3",feet="Bhikku Gaiters +3"})
     sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {ammo="Knobkierrie",
-		neck="Rep. Plat. Medal",ear1="Moonshade Earring",ear2="Schere Earring",
-		hands="Bhikku Gloves +2",feet="Mpaca's Boots"})
-    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {head="Hesychast's Crown +3",ear1="Schere Earring",ear2="Bhikku Earring +1",
-		hands="Bhikku Gloves +2",ring2="Regal Ring",
-		waist="Fotia Belt",legs="Bhikku Hose +2",feet="Ryuo Sune-Ate +1"})
-    --sets.precast.WS["Ascetic's Fury"]  = {}
-    sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS,{
-		head=AdhemarHead.AtkPdt,ear1="Odr Earring",ear2="Schere Earring",
-		feet="Nyame Sollerets"})
+		neck="Monk's Nodowa +2",ear1="Moonshade Earring",ear2="Schere Earring",
+		body="Bhikku Cyclas +3",hands="Mpaca's Gloves",
+		feet="Bhikku Gaiters +3"})
+    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {ammo="Crepuscular Pebble",
+		head="Bhikku Crown +2",ear1="Odnowa Earring +1",ear2="Bhikku Earring +1",
+		body="Bhikku Cyclas +3",hands="Bhikku Gloves +3",ring1="Regal Ring",ring2="Regal Ring",
+		waist="Fotia Belt",legs="Bhikku Hose +3",feet="Bhikku Gaiters +3"})
+    sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
+		ear1="Odr Earring",ear2="Schere Earring",
+		body="Mpaca's Doublet",hands="Bhikku Gloves +3",ring2="Ephramad's Ring"})
     sets.precast.WS['Shijin Spiral']  = set_combine(sets.precast.WS, {
-		head=AdhemarHead.AtkPdt,ear2="Schere Earring",
-		hands="Bhikku Gloves +2",
-		legs="Hesychast's Hose +3",feet="Mpaca's Boots"})
+		head="Bhikku Crown +2",ear2="Schere Earring",
+		body="Mpaca's Doublet",hands="Bhikku Gloves +3"})
 	sets.precast.WS['Shijin Spiral'].NotAttackCapped = sets.precast.WS['Shijin Spiral']
 	sets.precast.WS['Shijin Spiral'].Accuracy = set_combine(sets.precast.WS['Shijin Spiral'],{})
-    sets.precast.WS["Spinning Attack"] = set_combine(sets.precast.WS,{
-		head=AdhemarHead.AtkPdt,ear2="Schere Earring",
-		hands="Bhikku Gloves +2",
-		feet="Ryuo Sune-Ate +1"})
-    sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS,{
-		head=AdhemarHead.AtkPdt,ear2="Schere Earring",
-		hands="Bhikku Gloves +2",
-		feet="Ryuo Sune-Ate +1"})
+    sets.precast.WS["Spinning Attack"] = set_combine(sets.precast.WS,{ammo="Voluspa Tathlum",
+		ear2="Schere Earring",
+		body="Mpaca's Doublet",hands="Bhikku Gloves +3",
+		feet="Bhikku Gaiters +3"})
+    sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
+		ear2="Schere Earring",
+		body="Mpaca's Doublet",hands="Bhikku Gloves +3",ring1="Ephramad's Ring"})
     sets.precast.WS["Combo"] = set_combine(sets.precast.WS,{
 		head="Mpaca's Cap",ear1="Moonshade Earring",ear2="Schere Earring",
-		hands="Bhikku Gloves +2",
-		feet="Mpaca's Boots"})
+		hands="Bhikku Gloves +3"})
 		
 	sets.precast.WS['Final Heaven'] = set_combine(sets.precast.WS, {ammo="Knobkierrie",
-		head="Hes. Crown +3",neck="Rep. Plat. Medal",ear2="Schere Earring",
-		hands="Bhikku Gloves +2",
-		waist="Moonbow Belt +1",legs=HercLegs.WSD,feet="Nyame Sollerets"})
+		head="Hes. Crown +3",neck="Loricate Torque +1",ear2="Schere Earring",
+		body="Bhikku Cyclas +3",hands="Bhikku Gloves +3",ring1="Gelatinous Ring +1",
+		legs="Bhikku Hose +3",feet="Nyame Sollerets"})
 	
     --sets.precast.WS['Dragon Kick']     = {}
     --sets.precast.WS['Tornado Kick']    = {}
@@ -251,7 +245,7 @@ function init_gear_sets()
     sets.resting = {ammo="Staunch Tathlum +1",
         head="Nyame Helm",neck="Warder's Charm +1",ear1="Sanare Earring",ear2="Odnowa Earring +1",   --neck="Elite Royal Collar"
 		body="Hiza. Haramaki +2",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Chirich Ring +1",
-        back=Segomo.Normal,waist="Engraved Belt",legs="Bhikku Hose +2",feet="Nyame Sollerets"}
+        back=Segomo.Normal,waist="Engraved Belt",legs="Bhikku Hose +3",feet="Nyame Sollerets"}
     
 
     -- Idle sets
@@ -280,8 +274,9 @@ function init_gear_sets()
     -- Normal melee sets
     sets.engaged = {ammo="Coiste Bodhar",
 		head="Malignance Chapeau",neck="Mnk. Nodowa +2",ear1="Sherida Earring",ear2="Dedition Earring",
-		body="Ken. Samue +1",hands=AdhemarHands.StrDexAtk,ring1="Gere Ring",ring2="Epona's Ring",
-		back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +2",feet="Tatenashi Sune-Ate +1"}  --11 SB1 + 35 from job =46, 25 SB2 = 71 SB total
+		body="Mpaca's Doublet",hands="Malignance Gloves",ring1="Gere Ring",ring2="Epona's Ring",
+		back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +3",feet=HercFeet.TripleAtk}  --11 SB1 + 35 from job =46, 25 SB2 = 71 SB total
+		
 	sets.engaged.SomeAccuracy = set_combine(sets.engaged,{
 		ear2="Telos Earring",
 		body="Malignance Tabard",ring2="Niqmaddu Ring"})
@@ -293,28 +288,28 @@ function init_gear_sets()
 	
 	
     sets.engaged.DT = set_combine(sets.engaged,{
-		body="Malignance Tabard",hands="Malignance Gloves",feet=HercFeet.TripleAtk})
+		body="Malignance Tabard",feet="Malignance Boots"})
 	sets.engaged.SomeAccuracy.DT = set_combine(sets.engaged.DT,{})
 	sets.engaged.MaxAccuracy.DT = set_combine(sets.engaged.SomeAccuracy.DT,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		feet="Tatenashi Sune-Ate +1"})
 		
-	sets.engaged.Impetus = set_combine(sets.engaged,{body="Bhikku Cyclas +2"})
-	sets.engaged.Impetus.DT = set_combine(sets.engaged.DT,{body="Bhikku Cyclas +2"})
+	sets.engaged.Impetus = set_combine(sets.engaged,{body="Bhikku Cyclas +3"})
+	sets.engaged.Impetus.DT = set_combine(sets.engaged.DT,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.SomeAccuracy = set_combine(sets.engaged.Impetus,{ear2="Telos Earring",ring2="Niqmaddu Ring"})
 	sets.engaged.Impetus.MaxAccuracy = set_combine(sets.engaged.Impetus.SomeAccuracy,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring"})
 	sets.engaged.Impetus.SubtleBlow = set_combine(sets.engaged.Impetus,{head="Bhikku Crown +2"})
-	sets.engaged.Impetus.SomeAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy,{feet="Bhikku Gaiters +2"})
+	sets.engaged.Impetus.SomeAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy,{feet="Bhikku Gaiters +3"})
 	sets.engaged.Impetus.MaxAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy.DT,{ammo="Ginsen",head="Bhikku Crown +2",ear1="Telos Earring"})
 			
 -- base Subtle Blow set:
 --    sets.engaged = {ammo="Coiste Bodhar",
 --        head="Bhikku Crown +2",neck="Mnk. Nodowa +2",ear1="Sherida Earring",ear2="Schere Earring",
 --		body="Mpaca's Doublet",hands="Hes. Gloves +3",ring1="Gere Ring",ring2="Chirich Ring +1",
---        back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +2",feet="Malignance Boots"}
+--        back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +3",feet="Malignance Boots"}
 		
 	
     -- Hundred Fists/Impetus melee set mods
@@ -324,8 +319,8 @@ function init_gear_sets()
 	sets.engaged.HF.SubtleBlow = set_combine(sets.engaged.HF,{head="Bhikku Crown +2"})
     sets.engaged.HF.DT = set_combine(sets.engaged.DT,{})
 
-    sets.engaged.HF.Impetus = set_combine(sets.engaged.HF,{body="Bhikku Cyclas +2"})
-    sets.engaged.HF.Impetus.SomeAccuracy = set_combine(sets.engaged.HF.SomeAccuracy, {body="Bhikku Cyclas +2"})
+    sets.engaged.HF.Impetus = set_combine(sets.engaged.HF,{body="Bhikku Cyclas +3"})
+    sets.engaged.HF.Impetus.SomeAccuracy = set_combine(sets.engaged.HF.SomeAccuracy, {body="Bhikku Cyclas +3"})
     sets.engaged.HF.Impetus.MaxAccuracy = set_combine(sets.engaged.HF.Impetus.SomeAccuracy, {ammo="Ginsen",head="Bhikku Crown +2",ear1="Telos Earring"})
 	sets.engaged.HF.Impetus.SubtleBlow = set_combine(sets.engaged.HF.Impetus,{head="Bhikku Crown +2"})
     sets.engaged.HF.Impetus.DT = set_combine(sets.engaged.Impetus.DT,{})
@@ -336,7 +331,7 @@ function init_gear_sets()
     sets.engaged.Footwork.Acc = sets.engaged.Footwork
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
-    sets.impetus_body = {body="Bhikku Cyclas +2"}
+    sets.impetus_body = {body="Bhikku Cyclas +3"}
     sets.footwork_kick_feet = {feet="Anchorite's Gaiters +2"}
 end
 
@@ -687,7 +682,7 @@ function customize_melee_set(meleeSet)
     end
 	
 	if  buffactive.impetus then
-		meleeSet = set_combine(meleeSet,{body="Bhikku Cyclas +2"})
+		meleeSet = set_combine(meleeSet,{body="Bhikku Cyclas +3"})
 	end
 	
 	if state.CursnaGear.value and (buffactive['Doom'] or buffactive['Bane']) then
