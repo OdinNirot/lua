@@ -121,14 +121,14 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers +3"}
-    sets.precast.JA['Berserk'] = {body="Pummeler's Lorica +2",back=Cichol.DA,feet="Agoge Calligae +3"}
+    sets.precast.JA['Berserk'] = {body="Pummeler's Lorica +3",back=Cichol.DA,feet="Agoge Calligae +3"}
     sets.precast.JA['Warcry'] = {head="Agoge Mask +3"}
     sets.precast.JA['Defender'] = { }
     sets.precast.JA['Aggressor'] = {head="Pummeler's Mask +3",body="Agoge Lorica +3"}
     sets.precast.JA['Provoke'] = sets.precast.Enmity
     sets.precast.JA["Warrior's Charge"] = {legs="Agoge Cuisses +3"}
     sets.precast.JA['Tomahawk'] = {feet="Agoge Calligae +3"}
-    sets.precast.JA['Retaliation'] = {hands="Pumm. Mufflers +1",feet="Boii Calligae +2"}
+    sets.precast.JA['Retaliation'] = {hands="Pumm. Mufflers +2",feet="Boii Calligae +2"}
     sets.precast.JA['Restraint'] = {hands="Boii Mufflers +3"}
     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3"}
     sets.precast.JA['Brazen Rush'] = {}

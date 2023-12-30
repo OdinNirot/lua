@@ -313,7 +313,7 @@ function init_gear_sets()
     sets.midcast.Cure = {main="Musa",Sub="Khonsu",ammo="Pemphredo Tathlum",
         head="Arbatel Bonnet +3",neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Mendicant's Earring",
         body="Arbatel Gown +3",hands="Kaykaus Cuffs +1",ring1="Naji's Loop",ring2="Defending Ring",
-        back="Fi Follet Cape +1",waist="Shinjutsu-no-Obi +1",legs="Kaykaus Tights +1",feet="Kaykaus Boots +1"}  --acad. pants +3 when ready
+        back="Fi Follet Cape +1",waist="Shinjutsu-no-Obi +1",legs="Acad. Pants +3",feet="Kaykaus Boots +1"} 
 	sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure,sets.midcast.SIRD)
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
@@ -328,7 +328,7 @@ function init_gear_sets()
     sets.midcast.Cursna = {main="Gada",Sub="Ammurapi Shield",
 		head=VanyaHead.HealSkill,neck="Debilis Medallion",ear1="Meili Earring",ear2="Beatific Earring",
 		body="Peda. Gown +3",hands="Hieros Mittens",ring1="Menelaus's Ring",ring2="Haoma's Ring",
-        back="Oretania's Cape +1",waist="Bishop's Sash",legs="Acad. Pants +2",feet=VanyaFeet.HealSkill}
+        back="Oretania's Cape +1",waist="Bishop's Sash",legs="Acad. Pants +3",feet=VanyaFeet.HealSkill}
 	sets.midcast.Cursna.SIRD = set_combine(sets.midcast.Cursna,sets.midcast.SIRD)
 		
     sets.midcast.StatusRemoval = {}
