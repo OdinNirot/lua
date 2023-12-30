@@ -100,8 +100,8 @@ function init_gear_sets()
 		
 	sets.precast.FC = {ammo={ name="Sapience Orb", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Sacro Breastplate",priority=178},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
-		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}  --change body to rev. +3 once you have it
+		body={ name="Rev. Surcoat +3",priority=254},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
+		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}
 		
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
 		ear2={ name="Andoaa Earring", priority=1}})
