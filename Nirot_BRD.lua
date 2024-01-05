@@ -276,7 +276,7 @@ function init_gear_sets()
 	
     -- Precast Sets
     Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
-    sets.Kiting = {feet="Fili Cothurnes +2"}
+    sets.Kiting = {feet="Fili Cothurnes +3"}
 	sets.Curse = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	sets.TreasureHunter = {waist="Chaac Belt"}
 	sets.Prime = {range="Prime Horn"}
@@ -309,7 +309,7 @@ function init_gear_sets()
 		back=Intarabus.FC, --10
 		waist="Embla Sash", --5
 		legs="Volte Brais", --8
-		feet="Fili Cothurnes +2" --10
+		feet="Fili Cothurnes +3" --10
 	}
 	
 	-- since songs don't need SIRD this set will be different from the above FC set
@@ -328,7 +328,7 @@ function init_gear_sets()
 		back=Intarabus.FC,
 		waist="Embla Sash",
 		legs="Volte Brais",
-		feet="Fili Cothurnes +2"
+		feet="Fili Cothurnes +3"
 	}
 	sets.precast.FC.dummy = set_combine(sets.precast.FC.songs,{range="Daurdabla"})
 	sets.precast.FC.DW = {sub="Kali"}
@@ -478,7 +478,7 @@ function init_gear_sets()
 	sets.midcast.paeon = set_combine(sets.midcast.songs,{head="Brioso Roundlet +3"})
 	sets.midcast.prelude = set_combine(sets.midcast.songs,{back=Intarabus.FC})
 	sets.midcast.requiem = set_combine(sets.midcast.songs,{})
-	sets.midcast.scherzo = set_combine(sets.midcast.songs,{feet="Fili Cothurnes +2"})
+	sets.midcast.scherzo = set_combine(sets.midcast.songs,{feet="Fili Cothurnes +3"})
 	sets.midcast.threnody = set_combine(sets.midcast.lullaby_single,{range="Gjallarhorn"})
 	sets.midcast.virelai = set_combine(sets.midcast.songs,{})
 	sets.midcast['Honor March'] = set_combine(sets.midcast.march,{range="Marsyas"})
@@ -544,7 +544,7 @@ function init_gear_sets()
 		back="Engulfer Cape +1",
 		waist="Carrier's Sash",
 		legs="Fili Rhingrave +3",
-		feet="Fili Cothurnes +2"
+		feet="Fili Cothurnes +3"
 	}
   
     -- Engaged sets
