@@ -257,9 +257,13 @@ function init_gear_sets()
     
     -- Normal melee sets
     sets.engaged = {ammo="Coiste Bodhar",
-		head="Boii Mask +2",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +1",
-		body="Boii Lorica +3",hands="Sakpata's Gauntlets",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		head="Hjarrandi Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +1",
+		body="Boii Lorica +3",hands="Sakpata's Gauntlets",ring1="Moonlight Ring",ring2="Niqmaddu Ring",
 		back=Cichol.DA,waist="Sailfi Belt +1",legs="Pummeler's Cuisses +3",feet="Pummeler's Calligae +3"}
+    sets.engagedDT = {ammo="Antitail +1",
+		head="Sakpata's Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +1",
+		body="Sakpata's Plate",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",ring2="Niqmaddu Ring",
+		back=Cichol.DA,waist="Ioskeha Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 				
 	-- Subtle Blow 1/2: each can add up to 50, combined they can't go over 75
 	-- i can get 58 subtle blow with gear so far- 43 SB1 + 15 SB2.
@@ -351,11 +355,9 @@ function init_gear_sets()
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.Club.SubtleBlow = set_combine(sets.engaged.Club, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
-		
-    sets.engagedDT = {ammo="Crepuscular Pebble",ring1="Defending Ring"} --neck="Loricate Torque +1"
 
 	sets.engaged.EleResist = {neck="Warder's Charm +1",waist="Engraved Belt"}
-	sets.engagedDT.EleResist = {neck="Warder's Charm +1",waist="Engraved Belt",legs="Sakpata's Cuisses"}
+	sets.engagedDT.EleResist = set_combine(sets.engagedDT,{neck="Warder's Charm +1",waist="Engraved Belt"})
 		
 -- base Subtle Blow set:
 --    sets.engaged = {ammo="Coiste Bodhar",
