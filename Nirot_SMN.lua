@@ -124,7 +124,7 @@ function get_sets()
 		head="Beckoner's Horn +3",
 		neck="Smn. Collar +2",
 		ear1="Cath Palug Earring",
-		ear2="Beckoner's Earring",
+		ear2="Beck. Earring +1",
 		body="Bunzi's Robe",
 		hands=MerlinicHands.Refresh,
 		ring1="Gelatinous Ring +1",
@@ -325,7 +325,7 @@ function get_sets()
 	-- Physical pacts which benefit more from TP than Pet:DA (like Spinning Dive and other pacts you never use except that one time)
 	sets.pet_midcast.Physical_BP_TP = set_combine(sets.pet_midcast.Physical_BP, {
 		head={ name="Apogee Crown +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}},
-		ear2="Beckoner's Earring",
+		ear2="Beck. Earring +1",
 		body="Convoker's Doublet +3",
 		ring1="Varar Ring +1",
 		waist="Regal Belt",
@@ -336,7 +336,7 @@ function get_sets()
 	-- Used for all physical pacts when AccMode is true
 	sets.pet_midcast.Physical_BP_Acc = set_combine(sets.pet_midcast.Physical_BP, {
 		head={ name="Apogee Crown +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}},
-		ear2="Beckoner's Earring",
+		ear2="Beck. Earring +1",
 		body="Convoker's Doublet +3",
 		hands=MerlinicHands.Refresh,
 		feet="Convoker's Pigaches +3"
@@ -501,7 +501,7 @@ function get_sets()
 
 	-- This is your main idle set with no avatar out. Focus on refresh and defensive stats.
 	sets.aftercast = {main="Mpaca's Staff",sub="Khonsu",ammo="Epitaph",
-		head="Beckoner's Horn +3",neck="Smn. Collar +2",ear1="Cath Palug Earring",ear2="Beckoner's Earring",
+		head="Beckoner's Horn +3",neck="Smn. Collar +2",ear1="Cath Palug Earring",ear2="Beck. Earring +1",
 		body="Bunzi's Robe",hands=MerlinicHands.Refresh,ring1="Defending Ring",ring2={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		back=Campestres.CapeA,waist="Regal Belt",legs=MerlinicLegs.Refresh,feet=MerlinicFeet.Refresh}  -- i used to have loricate torque in this set, seems like just using Smn collar is fine?
 	
@@ -569,7 +569,7 @@ function get_sets()
 		head="Beckoner's Horn +3",
 		neck="Caller's Pendant",
 		ear1="Cath Palug Earring",
-		ear2="Beckoner's Earring",
+		ear2="Beck. Earring +1",
 		body={ name="Apo. Dalmatica +1", augments={'Summoning magic skill +20','Enmity-6','Pet: Damage taken -4%',}},
 		hands=MerlinicHands.Refresh,
 		ring1="Stikini Ring +1",
