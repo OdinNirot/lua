@@ -112,8 +112,11 @@ function init_gear_sets()
 	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 	
+	AdhemarHands = {}
+	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
+	
 	Segomo = {}
-	Segomo.Normal = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+5','"Dbl.Atk."+10','Damage taken-5%',}}
+	Segomo.Normal = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	
 	Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	EleResist = {neck="Warder's Charm +1",waist="Engraved Belt"}
@@ -274,8 +277,8 @@ function init_gear_sets()
     -- Normal melee sets
     sets.engaged = {ammo="Coiste Bodhar",
 		head="Malignance Chapeau",neck="Mnk. Nodowa +2",ear1="Sherida Earring",ear2="Dedition Earring",
-		body="Mpaca's Doublet",hands="Malignance Gloves",ring1="Gere Ring",ring2="Epona's Ring",
-		back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +3",feet=HercFeet.TripleAtk}  --11 SB1 + 35 from job =46, 25 SB2 = 71 SB total
+		body="Mpaca's Doublet",hands=AdhemarHands.StrDexAtk,ring1="Gere Ring",ring2="Epona's Ring",
+		back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +3",feet="Malignance Boots"}  --11 SB1 + 35 from job =46, 25 SB2 = 71 SB total
 		
 	sets.engaged.SomeAccuracy = set_combine(sets.engaged,{
 		ear2="Telos Earring",
@@ -288,7 +291,7 @@ function init_gear_sets()
 	
 	
     sets.engaged.DT = set_combine(sets.engaged,{
-		body="Malignance Tabard",feet="Malignance Boots"})
+		body="Malignance Tabard",hands="Malignance Gloves"})
 	sets.engaged.SomeAccuracy.DT = set_combine(sets.engaged.DT,{})
 	sets.engaged.MaxAccuracy.DT = set_combine(sets.engaged.SomeAccuracy.DT,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
