@@ -57,7 +57,6 @@ function user_setup()
 	enhancingSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V','Shell','Shell II','Shell III','Shell IV','Shell V','Reprisal','Crusade'} --add phalanx if you want more duration at the cost of less effectiveness
 	
     update_defense_mode()
-	sird_sets()
 	    
 	send_command('bind ^= gs c cycle Kiting')
 	send_command('bind F10 gs c cycle WeaponLock')
@@ -105,17 +104,19 @@ end
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
 
-function sird_sets()
-	if state.SIRDMode.value == 'SIRD' then
-		classes.CustomClass = "SIRD"
-		--classes.CustomClass:append('SIRD')
-	else
-		classes.CustomClass = nil
+function sird_sets(spell)
+	if spell.action_type == 'Magic' then
+		if state.SIRDMode.value == 'SIRD' then
+			classes.CustomClass = "SIRD"
+			--classes.CustomClass:append('SIRD')
+		else
+			classes.CustomClass = nil
+		end
 	end
 end
 
 function job_precast(spell, action, spellMap, eventArgs)
-	sird_sets()
+	sird_sets(spell)
 end
 
 function do_equip(setname)
@@ -200,7 +201,6 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     -- Check that shield slot is locked, if necessary
 	check_weaponlock()
     check_shield_lock()
-	sird_sets()
 	if state.MaxHP.value then
 		equip(sets.MaxHP)
 		disallow_swaps()
@@ -218,7 +218,8 @@ function job_midcast(spell, action, spellMap, eventArgs)
     -- the enhanced effect of whatever item of gear applies to them,
     -- and only one item should be swapped out.
 	
-	sird_sets()
+	sird_sets(spell)
+	
     if state.DefenseMode.value ~= 'None' and spell.type ~= 'JobAbility' then
         handle_equipping_gear(player.status)
         eventArgs.handled = true
