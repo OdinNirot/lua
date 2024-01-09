@@ -289,7 +289,7 @@ function init_gear_sets()
     sets.precast.WS = {ammo="Sroda Tathlum",
 		head="Pixie Hairpin +1",neck="Combatant's Torque",ear1="Moonshade Earring",ear2="Friomisi Earring",
         body="Arbatel Gown +3",hands="Jhakri Cuffs +2",ring1="Archon Ring",ring2="Epaminondas's Ring",
-        back=LughsCape.MAB,waist="Hachirin-no-obi",legs="Arbatel Pants +2",feet="Arbatel Loafers +2"}
+        back=LughsCape.MAB,waist="Hachirin-no-obi",legs="Arbatel Pants +3",feet="Arbatel Loafers +2"}
 	sets.precast.WS.PDT = sets.precast.WS
     
     --sets.precast.WS['Flash Nova'] = {
@@ -304,7 +304,7 @@ function init_gear_sets()
 	sets.midcast.SIRD = {ammo="Staunch Tathlum +1",
 		head="Arbatel Bonnet +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Halasz Earring",
 		body="Ros. Jaseran +1",hands=ChironicHands.Refresh,ring1="Freke Ring",ring2="Defending Ring",
-		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Arbatel Pants +2",feet="Amalric Nails +1"}
+		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Arbatel Pants +3",feet="Amalric Nails +1"}
 	
     -- Cure sets
     --gear.default.obi_waist = "Goading Belt"
@@ -322,7 +322,7 @@ function init_gear_sets()
     sets.midcast.CureMelee = {ammo="Staunch Tathlum +1",
 		head="Arbatel Bonnet +3",neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Mendicant's Earring",
         body="Arbatel Gown +3",hands="Kaykaus Cuffs +1",ring1="Naji's Loop",ring2="Mephitas's Ring +1",
-        back=LughsCape.MAB,waist="Shinjutsu-no-Obi +1",legs="Arbatel Pants +2",feet="Kaykaus Boots +1"}
+        back=LughsCape.MAB,waist="Shinjutsu-no-Obi +1",legs="Arbatel Pants +3",feet="Kaykaus Boots +1"}
 	sets.midcast.CureMelee.SIRD = set_combine(sets.midcast.CureMelee,sets.midcast.SIRD)
 
     sets.midcast.Cursna = {main="Gada",Sub="Ammurapi Shield",
@@ -415,7 +415,7 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Khonsu",
 		head="Arbatel Bonnet +3",neck="Argute Stole +2",ear1="Snotra Earring",ear2="Arbatel Earring +1",
 		body="Arbatel Gown +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Arbatel Pants +2",feet="Acad. Loafers +3"}
+		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Arbatel Pants +3",feet="Acad. Loafers +3"}
     sets.midcast['Enfeebling Magic'].potency = set_combine(sets.midcast['Enfeebling Magic'].base,{})
     sets.midcast['Enfeebling Magic'].mndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ring1="Metamor. Ring +1"})
     sets.midcast['Enfeebling Magic'].skillmndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{waist="Luminary Sash"})
@@ -473,7 +473,7 @@ function init_gear_sets()
     sets.engaged = {ammo="Staunch Tathlum +1",
 		head="Arbatel Bonnet +3",neck="Combatant's Torque",ear1="Dominance Earring +1",ear2="Telos Earring",
         body="Arbatel Gown +3",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Chirich Ring +1",
-        back=LughsCape.MAB,waist="Windbuffet Belt +1",legs="Arbatel Pants +2",feet="Arbatel Loafers +2"}
+        back=LughsCape.MAB,waist="Windbuffet Belt +1",legs="Arbatel Pants +3",feet="Arbatel Loafers +2"}
 	sets.engaged.PDT = set_combine(sets.engaged,{neck="Loricate Torque +1"})
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
