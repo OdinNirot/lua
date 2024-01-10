@@ -116,7 +116,7 @@ function init_gear_sets()
 	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
 	
 	Segomo = {}
-	Segomo.Normal = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	Segomo.Normal = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	
 	Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	EleResist = {neck="Warder's Charm +1",waist="Engraved Belt"}
