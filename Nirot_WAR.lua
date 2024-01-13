@@ -106,6 +106,9 @@ function init_gear_sets()
 	ValorousBody.Phalanx = { name="Valorous Mail", augments={'Pet: DEX+1','"Mag.Atk.Bns."+11','Phalanx +4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 	ValorousBody.Waltz = { name="Valorous Mail", augments={'"Waltz" potency +10%','Pet: STR+2','"Store TP"+2','Accuracy+14 Attack+14',}}
 	
+	YoriumBody = {}
+	YoriumBody.Phalanx = { name="Yorium Cuirass", augments={'Spell interruption rate down -9%','Phalanx +3',}}
+	
 	Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	
 	Cichol = {}
@@ -246,7 +249,7 @@ function init_gear_sets()
     sets.Kiting = {ring1="Shneddick Ring +1"}
 	sets.Doom = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Blenmot's Ring +1",waist="Gishdubar Sash",legs="Shabti Cuisses +1"}
 	sets.TreasureHunter = {head=ValorousHead.TH,waist="Chaac Belt"}
-	sets.Phalanx = {head=ValorousHead.Phalanx,body=ValorousBody.Phalanx,hands="Souv. Handsch. +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1"}
+	sets.Phalanx = {head=ValorousHead.Phalanx,body=YoriumBody.Phalanx,hands="Souv. Handsch. +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1"}
 	
     -- Engaged sets
 
