@@ -237,6 +237,11 @@ function init_gear_sets()
     
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
+	
+	sets.midcast["Absorb-TP"] = {
+		head={ name="Herculean Helm", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Accuracy+3','"Fast Cast"+7',}},neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquac. Earring",
+		body={ name="Samnuha Coat", augments={'Mag. Acc.+11','"Mag.Atk.Bns."+10','"Fast Cast"+3',}},hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},ring1="Rahab Ring",ring2="Archon Ring",
+		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},waist={ name="Acuity Belt +1", augments={'Path: A',}},legs="Bhikku Hose +3",feet={ name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}}
         
     -- Specific spells
     sets.midcast.Utsusemi = sets.precast.FC.Utsusemi
@@ -287,7 +292,7 @@ function init_gear_sets()
 		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring"})
 	-- Subtle Blow and Subtle Blow II individually cap at 50% each, and cap at 75% combined.
-	sets.engaged.SubtleBlow = set_combine(sets.engaged,{head="Bhikku Crown +2"})
+	sets.engaged.SubtleBlow = set_combine(sets.engaged,{head="Ken. Jinpachi +1",hands="Malignance Gloves",body="Malignance Tabard",ring2="Niqmaddu Ring",feet="Ken. Sune-Ate +1"})
 	
 	
     sets.engaged.DT = set_combine(sets.engaged,{
@@ -297,6 +302,7 @@ function init_gear_sets()
 		head="Bhikku Crown +2",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		feet="Tatenashi Sune-Ate +1"})
+	sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
 		
 	sets.engaged.Impetus = set_combine(sets.engaged,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.DT = set_combine(sets.engaged.DT,{body="Bhikku Cyclas +3"})
@@ -304,7 +310,8 @@ function init_gear_sets()
 	sets.engaged.Impetus.MaxAccuracy = set_combine(sets.engaged.Impetus.SomeAccuracy,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring"})
-	sets.engaged.Impetus.SubtleBlow = set_combine(sets.engaged.Impetus,{head="Bhikku Crown +2"})
+	sets.engaged.Impetus.SubtleBlow = set_combine(sets.engaged.SubtleBlow,{body="Bhikku Cyclas +3"})
+	sets.engaged.Impetus.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
 	sets.engaged.Impetus.SomeAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy,{feet="Bhikku Gaiters +3"})
 	sets.engaged.Impetus.MaxAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy.DT,{ammo="Ginsen",head="Bhikku Crown +2",ear1="Telos Earring"})
 			
@@ -345,8 +352,8 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    -- Don't gearswap for weaponskills when Defense is on.
-    if spell.type == 'WeaponSkill' and state.DTMode.current ~= 'None' then
+    -- Don't gearswap for weaponskills when Defense or SubtleBlow is on.
+    if spell.type == 'WeaponSkill' and (state.DTMode.current ~= 'None' or state.OffMode.value == 'SubtleBlow') then
         eventArgs.handled = true
     end
 end
