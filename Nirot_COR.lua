@@ -67,7 +67,7 @@ function job_setup()
     state.Buff['Terror'] = buffactive['terror'] or false
     state.Buff['Stun'] = buffactive['stun'] or false
     state.Buff['Petrification'] = buffactive['petrification'] or false
-	state.CursnaGear = M(true, 'CursnaGear')
+	state.CursnaGear = M(false, 'CursnaGear')
 	
 	-- /run sj
     state.Runes = M{['description']='Runes', "Ignis", "Gelus", "Flabra", "Tellus", "Sulpor", "Unda", "Lux", "Tenebrae"}
@@ -209,7 +209,7 @@ function init_gear_sets()
 	HercHands.Waltz = { name="Herculean Gloves", augments={'Chance of successful block +1','"Waltz" potency +10%','"Store TP"+1','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
 
-    HercFeet.TP = {} --{ name="Herculean Boots", augments={'Accuracy+21 Attack+21','"Triple Atk."+4','DEX+8',}}
+	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 
     HercBody.WSD = { name="Herculean Vest", augments={'MND+15','"Store TP"+2','Weapon skill damage +8%',} } 
@@ -231,7 +231,7 @@ function init_gear_sets()
 	Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	
 	Camulus = {}
-	Camulus.DW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Damage taken-5%',}}
+	Camulus.DW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
 	Camulus.WSDMagi = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
 	
 	sets.idle = {
@@ -351,13 +351,14 @@ function init_gear_sets()
 
 
     sets.engaged = {
-        head="Chass. Tricorne +3",neck="Combatant's Torque",ear1="Telos Earring",ear2="Mache Earring +1",
-	    body="Malignance Tabard",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Chirich Ring +1",
-	    waist="Kentarch Belt +1",legs="Chasseur's Culottes +3",feet="Malignance Boots"}
+        head="Chass. Tricorne +3",neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",  --still looking for Dampening Tam with QA +3% in a non-DT set
+	    body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Epona's Ring",
+	    back=Camulus.DW,waist="Windbuffet Belt +1",legs="Chasseur's Culottes +3",feet=HercFeet.TripleAtk}
     sets.engaged.LowAcc = set_combine(sets.engaged, {})
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {ring2="Cacoethic Ring +1"})
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {ear1="Dominance Earring +1"})
     sets.engaged.STP = set_combine(sets.engaged, {})
+	sets.engaged.PDT = set_combine(sets.engaged, {hands="Malignance Gloves",feet="Malignance Boots"})
 
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
@@ -695,6 +696,13 @@ function customize_melee_set(meleeSet)
 --    check_weaponset()
 	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
 		meleeSet = set_combine(meleeSet,sets.buff.Doom)
+	end
+    if state.HybridMode.value == 'PDT' then
+	    if state.Kiting.value then
+			meleeSet = set_combine(sets.engaged.PDT,sets.Kiting)
+		else
+			meleeSet = set_combine(meleeSet, sets.engaged.PDT)
+		end
 	end
     return meleeSet
 end
