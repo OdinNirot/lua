@@ -242,7 +242,7 @@ function init_gear_sets()
 	VanyaFeet.HealSkill = { name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
 		
 	Empyrean = {}
-	Empyrean.Hands = {name="Arbatel Bracers +2"}
+	Empyrean.Hands = {name="Arbatel Bracers +3"}
 	
 	LughsCape = {}
 	LughsCape.MAB = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
@@ -439,13 +439,13 @@ function init_gear_sets()
     sets.idle = {main="Mpaca's Staff",Sub="Khonsu",ammo="Homiliary",
 		head=ChironicHead.Refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Ethereal Earring",
         body="Arbatel Gown +3",hands=ChironicHands.Refresh,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-        back=LughsCape.MAB,waist="Embla Sash",legs=ChironicLegs.Refresh,feet=ChironicFeet.Refresh}
+        back=LughsCape.MAB,waist="Embla Sash",legs="Arbatel Pants +3",feet=ChironicFeet.Refresh}
     sets.idle.Town = set_combine(sets.idle,{})
     sets.idle.Weak = sets.idle
     sets.idle.PDT = {main="Malignance Pole",Sub="Mensch Strap +1",ammo="Homiliary",
 		head="Nyame Helm",neck="Loricate Torque +1",ear1="Eabani Earring",
         body="Arbatel Gown +3",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-        back=LughsCape.MAB,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet="Nyame Sollerets"}
+        back=LughsCape.MAB,waist="Carrier's Sash",feet="Nyame Sollerets"}
     
     -- Defense sets
 
@@ -459,7 +459,7 @@ function init_gear_sets()
 	sets.SublimationCharging = {head="Acad. Mortar. +3",body="Peda. Gown +3",waist="Embla Sash"}
 	sets.SublimationFull = {head="Arbatel Bonnet +3",waist="Carrier's Sash"}
 	sets.SublimationOff = {head="Arbatel Bonnet +3",waist="Carrier's Sash"}
-	sets.Immanence = {head="Nyame Helm",neck="Warder's Charm +1",body="Nyame Mail",hands="Arbatel Bracers +2",back=LughsCape.MAB}
+	sets.Immanence = {head="Nyame Helm",neck="Warder's Charm +1",body="Nyame Mail",hands="Arbatel Bracers +3",back=LughsCape.MAB}
 	sets.EbullienceMB = {head="Arbatel Bonnet +3",ring1="Mujin Band"}
 
     -- Engaged sets
