@@ -351,7 +351,7 @@ function init_gear_sets()
 
 
     sets.engaged = {
-        head={ name="Dampening Tam", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Quadruple Attack +3',}},,neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",
+        head={ name="Dampening Tam", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Quadruple Attack +3',}},neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",
 	    body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 	    back=Camulus.DW,waist="Windbuffet Belt +1",legs="Chasseur's Culottes +3",feet=HercFeet.TripleAtk}
     sets.engaged.LowAcc = set_combine(sets.engaged, {})
