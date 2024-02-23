@@ -351,14 +351,14 @@ function init_gear_sets()
 
 
     sets.engaged = {
-        head="Chass. Tricorne +3",neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",  --still looking for Dampening Tam with QA +3% in a non-DT set
-	    body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Epona's Ring",
+        head={ name="Dampening Tam", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Quadruple Attack +3',}},,neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",
+	    body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 	    back=Camulus.DW,waist="Windbuffet Belt +1",legs="Chasseur's Culottes +3",feet=HercFeet.TripleAtk}
     sets.engaged.LowAcc = set_combine(sets.engaged, {})
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {ring2="Cacoethic Ring +1"})
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {ear1="Dominance Earring +1"})
     sets.engaged.STP = set_combine(sets.engaged, {})
-	sets.engaged.PDT = set_combine(sets.engaged, {hands="Malignance Gloves",feet="Malignance Boots"})
+	sets.engaged.PDT = set_combine(sets.engaged, {head="Chass. Tricorne +3",hands="Malignance Gloves",feet="Malignance Boots"})
 
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
