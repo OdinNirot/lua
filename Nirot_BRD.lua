@@ -102,6 +102,10 @@ function job_setup()
 	--	'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II'
 	--}
 	
+	magic_maps.aria = S{
+		"Aria of Passion"
+	}
+
 	magic_maps.ballad = S{
 		"Mage's Ballad","Mage's Ballad II","Mage's Ballad III"
 	}
@@ -279,7 +283,7 @@ function init_gear_sets()
     sets.Kiting = {feet="Fili Cothurnes +3"}
 	sets.Curse = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	sets.TreasureHunter = {waist="Chaac Belt"}
-	sets.Prime = {range="Prime Horn"}
+	sets.Prime = {} --{range="Prime Horn"}
 			  
 			  
     -- Precast sets to enhance JAs on use
@@ -334,6 +338,8 @@ function init_gear_sets()
 	sets.precast.FC.DW = {sub="Kali"}
 	sets.precast.FC.dummy.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW,{range="Daurdabla"})
 	
+	sets.precast.FC.aria = set_combine(sets.precast.FC.songs,{range="Loughnashade"})
+	sets.precast.FC.aria.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW,{range="Loughnashade"})
 	sets.precast.FC.ballad = set_combine(sets.precast.FC.songs,{})
 	sets.precast.FC.ballad.DW = set_combine(sets.precast.FC.songs,sets.precast.FC.DW)
 	sets.precast.FC.carol = set_combine(sets.precast.FC.songs,{})
@@ -382,8 +388,8 @@ function init_gear_sets()
 		range=Linos.WSDStr,
 		head="Nyame Helm",
 		neck="Bard's Charm +2",
-		ear1="Telos Earring",
-		ear2="Moonshade Earring",
+		ear1="Moonshade Earring",
+		ear2="Telos Earring",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		ring1="Petrov Ring",
@@ -405,9 +411,8 @@ function init_gear_sets()
 	sets.precast.WS['Mordant Rime'].Accuracy = set_combine(sets.precast.WS.Accuracy,sets.precast.WS['Mordant Rime'].NotAttackCapped)
 	
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-		head="Fili Calot +3",neck="Rep. Plat. Medal",ear1="Domin. Earring +1",
-		body="Bihu Justaucorps +3",hands="Fili Manchettes +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
-		waist="Prosilio Belt +1"})
+		ear2="Balder Earring +1",
+		body="Bihu Justaucorps +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring"})
 	
     -- Midcast Sets
 	sets.midcast.curespells = {main="Daybreak",sub="Genmei Shield",ammo="Staunch Tathlum +1",
@@ -425,6 +430,7 @@ function init_gear_sets()
 		legs="Inyanga Shalwar +2",
 		feet="Brioso Slippers +3"
 	}
+	sets.midcast.aria = set_combine(sets.midcast.songs,{range="Loughnashade"})
 	sets.midcast.ballad = set_combine(sets.midcast.songs,{})  --prefer to keen inyanga shalwar for longer duration, else legs="Fili Rhingrave +3" would be a good choice
 	sets.midcast.carol = set_combine(sets.midcast.songs,{})
 	sets.midcast.elegy = set_combine(sets.midcast.songs,{})
@@ -517,7 +523,7 @@ function init_gear_sets()
 	sets.midcast.threnody.dummy.DW = set_combine(sets.midcast.threnody.DW,{range="Gjallarhorn"})
 	 
 	 sets.midcast['Enfeebling Magic'] = {}
-	 sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Enki Strap",range="Aureole",
+	 sets.midcast['Enfeebling Magic'].base = {main="Carnwenhan",sub="Ammurapi Shield",range="Aureole",
 		head=empty,neck="Mnbw. Whistle +1",ear1="Digni. Earring",ear2="Fili Earring +2",
 		body="Cohort Cloak +1",hands="Fili Manchettes +3",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Aurist's Cape +1",waist="Luminary Sash",legs="Fili Rhingrave +3",feet="Skaoi Boots"}
@@ -671,14 +677,15 @@ end
 
 function determine_sleep_state()
 	if (buffactive[2]) or (buffactive[19]) then
+			enable("range")
 			equip(sets.Prime)
-		disable("main")
+			disable("range")
 		if buffactive["Stoneskin"] then
 			windower.send_command('cancel 37;')
 		end
 	end
 	if name=="sleep" and not gain then
-		enable("main")
+		enable("range")
 	end
 end
 
@@ -792,12 +799,12 @@ end
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
 	if S{'sleep'}:contains(buff:lower()) then
-        determine_sleep_state()
+        --determine_sleep_state()
     end	
 end
  
 function job_update(cmdParams, eventArgs)
-	determine_sleep_state()
+	--determine_sleep_state()
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
