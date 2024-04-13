@@ -22,6 +22,7 @@ function job_setup()
     state.Buff['Petrification'] = buffactive['petrification'] or false
 	--state.Kiting = M(true)
 	state.ElementalResist = M(false, 'EleResist')
+    state.Crepuscular = M(false, 'Crepuscular')
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
       "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
@@ -63,6 +64,7 @@ function user_setup()
 	send_command('bind ^= gs c cycle TreasureMode')
 	send_command('bind ^- gs c cycle Kiting')
 	send_command('bind ^backspace gs c cycle CursnaGear')
+    send_command('bind F11 gs c cycle Crepuscular')
     send_command('bind numpad. gs c cycle HybridMode')
     send_command('bind numpad2 gs c cycle ElementalResist')
     send_command('bind numpad3 gs c cycle OffenseMode')
@@ -82,6 +84,7 @@ function user_unload()
 	send_command('unbind ^=')
 	send_command('unbind ^-')
 	send_command('unbind ^backspace')
+	send_command('unbind F11')
 	send_command('unbind numpad2')
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
@@ -115,6 +118,8 @@ function init_gear_sets()
 	Cichol.DA = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	Cichol.WSDVit = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Damage taken-5%',}}
 	
+	sets.Crepuscular = {head="Crepuscular Helm",body="Crepuscular Mail"}
+	
     -- Precast Sets
 	
 	sets.precast.Enmity = {ammo={ name="Sapience Orb", priority=1},
@@ -131,7 +136,7 @@ function init_gear_sets()
     sets.precast.JA['Provoke'] = sets.precast.Enmity
     sets.precast.JA["Warrior's Charge"] = {legs="Agoge Cuisses +3"}
     sets.precast.JA['Tomahawk'] = {feet="Agoge Calligae +3"}
-    sets.precast.JA['Retaliation'] = {hands="Pumm. Mufflers +2",feet="Boii Calligae +2"}
+    sets.precast.JA['Retaliation'] = {hands="Pumm. Mufflers +3",feet="Boii Calligae +3"}
     sets.precast.JA['Restraint'] = {hands="Boii Mufflers +3"}
     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3"}
     sets.precast.JA['Brazen Rush'] = {}
@@ -177,9 +182,9 @@ function init_gear_sets()
     --sets.precast.WS['Asuran Fists']    = {}
     --sets.precast.WS["Ascetic's Fury"]  = {}
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS,{ammo="Yetshila +1",
-		head="Boii Mask +2",ear1="Schere Earring",ear2="Boii Earring +1",
+		head="Boii Mask +3",ear1="Schere Earring",ear2="Boii Earring +2",
 		body="Hjarrandi Breast.",ring1="Regal Ring",
-		legs="Boii Cuisses +3",feet="Boii Calligae +2"})
+		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
     sets.precast.WS["Fell Cleave"] = set_combine(sets.precast.WS,{
 		ear1="Schere Earring",ear1="Lugra Earring +1",
 		body="Boii Lorica +3",
@@ -189,7 +194,7 @@ function init_gear_sets()
 		body="Boii Lorica +3",
 		legs="Nyame Flanchard",feet="Sulevia's Leggings +2"})
 	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS,{
-		head="Boii Mask +2",
+		head="Boii Mask +3",
 		body="Boii Lorica +3",
 		legs="Boii Cuisses +3",feet="Sulevia's Leggings +2"})
 		
@@ -198,13 +203,13 @@ function init_gear_sets()
 		legs="Boii Cuisses +3",ring1="Gelatinous Ring +1"})
 		
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS,{
-		head="Blistering Sallet +1",ear2="Boii Earring +1",
+		head="Blistering Sallet +1",ear2="Boii Earring +2",
 		body="Hjarrandi Breast.",
-		legs="Boii Cuisses +3",feet="Boii Calligae +2"})
+		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
     sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS,{ammo="Yetshila +1",
-		head="Boii Mask +2",ear2="Boii Earring +1",
+		head="Boii Mask +3",ear2="Boii Earring +2",
 		body="Hjarrandi Breast.",
-		legs="Boii Cuisses +3",feet="Boii Calligae +2"})
+		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
 		
 	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS,{ammo="Seeth. Bomblet +1",
 		head="Nyame Helm",neck="Baetyl Pendant",ear2="Friomisi Earring",
@@ -212,11 +217,11 @@ function init_gear_sets()
 		waist="Orpheus's Sash",hands="Sakpata's Gauntlets"})
 		
 	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
-		head="Boii Mask +2",ear2="Schere Earring",
+		head="Boii Mask +3",ear2="Schere Earring",
 		body="Sakpata's Breastplate",
 		waist="Fotia Belt",legs="Boii Cuisses +3",feet="Sakpata's Leggings"})
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS,{
-		head="Boii Mask +2",ear1="Schere Earring"})
+		head="Boii Mask +3",ear1="Schere Earring"})
 	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS,{
 		head="Agoge Mask +3",neck="Fotia Gorget",
 		ring1="Regal Ring",
@@ -260,11 +265,11 @@ function init_gear_sets()
     
     -- Normal melee sets
     sets.engaged = {ammo="Coiste Bodhar",
-		head="Hjarrandi Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +1",
+		head="Hjarrandi Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +2",
 		body="Boii Lorica +3",hands="Sakpata's Gauntlets",ring1="Moonlight Ring",ring2="Niqmaddu Ring",
 		back=Cichol.DA,waist="Sailfi Belt +1",legs="Pummeler's Cuisses +3",feet="Pummeler's Calligae +3"}
     sets.engagedDT = {ammo="Antitail +1",
-		head="Sakpata's Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +1",
+		head="Sakpata's Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +2",
 		body="Sakpata's Plate",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",ring2="Niqmaddu Ring",
 		back=Cichol.DA,waist="Ioskeha Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 				
@@ -280,7 +285,7 @@ function init_gear_sets()
 		hands="Tatenashi Gote +1",ring1="Chirich Ring +1"})
      sets.engaged.GreatSword.SomeAccuracy = set_combine(sets.engaged.GreatSword, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
      sets.engaged.GreatSword.MaxAccuracy = set_combine(sets.engaged.GreatSword.SomeAccuracy, {ammo="Seeth. Bomblet +1",
-		head="Boii Mask +2",ear1="Dominance Earring +1",ear2="Schere Earring",
+		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
 	 sets.engaged.GreatSword.SubtleBlow = set_combine(sets.engaged.GreatSword,{head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
@@ -289,7 +294,7 @@ function init_gear_sets()
 		hands="Tatenashi Gote +1",ring1="Chirich Ring +1"})
      sets.engaged.GreatAxe.SomeAccuracy = set_combine(sets.engaged.GreatAxe, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
      sets.engaged.GreatAxe.MaxAccuracy = set_combine(sets.engaged.GreatAxe.SomeAccuracy, {ammo="Seeth. Bomblet +1",
-		head="Boii Mask +2",ear1="Dominance Earring +1",ear2="Schere Earring",
+		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
 	 sets.engaged.GreatAxe.SubtleBlow = set_combine(sets.engaged.GreatAxe,{head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
@@ -299,7 +304,7 @@ function init_gear_sets()
 		hands="Tatenashi Gote +1",ring1="Chirich Ring +1"})
      sets.engaged.Polearm.SomeAccuracy = set_combine(sets.engaged.Polearm, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
      sets.engaged.Polearm.MaxAccuracy = set_combine(sets.engaged.Polearm.SomeAccuracy, {ammo="Seeth. Bomblet +1",
-		head="Boii Mask +2",ear1="Dominance Earring +1",ear2="Schere Earring",
+		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
 	 sets.engaged.Polearm.SubtleBlow = set_combine(sets.engaged.Polearm,{head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
@@ -334,7 +339,7 @@ function init_gear_sets()
 		ring1="Moonlight Ring",
 		feet="Flamma Gambieras +2"})
      sets.engaged.OneHsword.MaxAccuracy = set_combine(sets.engaged.OneHsword.SomeAccuracy, {
-		head="Boii Mask +2",ear1="Dominance Earring +1",ear2="Schere Earring",
+		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.OneHsword.SubtleBlow = set_combine(sets.engaged.OneHsword, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})	 
@@ -354,7 +359,7 @@ function init_gear_sets()
 		ring1="Moonlight Ring",
 		feet="Flamma Gambieras +2"})
      sets.engaged.Club.MaxAccuracy = set_combine(sets.engaged.Club.SomeAccuracy, {
-		head="Boii Mask +2",ear1="Dominance Earring +1",ear2="Schere Earring",
+		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
 		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.Club.SubtleBlow = set_combine(sets.engaged.Club, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
@@ -585,6 +590,15 @@ function customize_idle_set(idleSet)
             idleSet = set_combine(idleSet, sets.Kiting)
         end
     end
+	if player.hpp < 30 or (state.Crepuscular.value) then
+		idleSet = set_combine(idleSet,sets.Crepuscular)
+		equip(sets.Crepuscular)
+		disable("head")
+		disable("body")
+	else
+		enable("head")
+		enable("body")
+	end
     return idleSet
 end
 
@@ -690,7 +704,15 @@ function customize_melee_set(meleeSet)
 	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
 		meleeSet = set_combine(meleeSet,sets.buff.Curse)
 	end
-
+	if player.hpp < 30 or (state.Crepuscular.value) then
+		meleeSet = set_combine(meleeSet,sets.Crepuscular)
+		equip(sets.Crepuscular)
+		disable("head")
+		disable("body")
+	else
+		enable("head")
+		enable("body")
+	end
     return meleeSet
 end
 
