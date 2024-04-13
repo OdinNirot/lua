@@ -52,6 +52,7 @@ function user_setup()
 	state.WeaponLock = M(true, 'WeaponLocked')
 	state.SIRDMode = M('SIRD','MaxEnmity')
 	state.CursnaGear = M(false, 'CursnaGear')
+    state.Crepuscular = M(false, 'Crepuscular')
 	
 	proSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V'}
 	enhancingSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V','Shell','Shell II','Shell III','Shell IV','Shell V','Reprisal','Crusade'} --add phalanx if you want more duration at the cost of less effectiveness
@@ -60,7 +61,7 @@ function user_setup()
 	    
 	send_command('bind ^= gs c cycle Kiting')
 	send_command('bind F10 gs c cycle WeaponLock')
-    send_command('bind ^f11 gs c cycle MagicalDefenseMode')
+    send_command('bind F11 gs c cycle Crepuscular')
     send_command('bind !f11 gs c cycle ExtraDefenseMode')
     send_command('bind numpad. gs c cycle HybridMode')
 	send_command('bind ^- gs c cycle CursnaGear')
@@ -76,15 +77,12 @@ function user_setup()
 	
 	PhalanxAbility = S{"Phalanx","Phalanx II"}
 	RefreshAbility = S{"Refresh","Refresh II","Refresh III"}
-	
-
-				 
 end
 
 function user_unload()
     send_command('unbind ^-')
 	send_command('unbind F10')
-    send_command('unbind ^f11')
+    send_command('unbind F11')
     send_command('unbind !f11')
 	send_command('unbind ^=')
 	send_command('unbind numpad.')
@@ -96,7 +94,8 @@ function user_unload()
 	send_command('unbind numpad6')	
 	send_command('unbind numpad7')	
 	send_command('unbind numpad8')	
-	send_command('unbind numpad9')	
+	send_command('unbind numpad9')
+	
 	
 end
 
@@ -377,6 +376,15 @@ function customize_melee_set(meleeSet)
 	elseif state.ExtraResist.value == 'Death' then
 		meleeSet = set_combine(meleeSet,sets.Death)
 	end
+	if player.hpp < 30 or (state.Crepuscular.value) then
+		meleeSet = set_combine(meleeSet,sets.Crepuscular)
+		equip(sets.Crepuscular)
+		disable("head")
+		disable("body")
+	else
+		enable("head")
+		enable("body")
+	end
     return meleeSet
 end
 
@@ -435,6 +443,15 @@ function customize_idle_set(idleSet)
 	end
 	if state.Kiting.value then
 		idleSet = set_combine(idleSet,sets.Kiting)
+	end
+	if player.hpp < 30 or (state.Crepuscular.value) then
+		idleSet = set_combine(idleSet,sets.Crepuscular)
+		equip(sets.Crepuscular)
+		disable("head")
+		disable("body")
+	else
+		enable("head")
+		enable("body")
 	end
     return idleSet
 end

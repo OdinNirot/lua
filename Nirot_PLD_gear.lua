@@ -6,7 +6,10 @@ function init_gear_sets()
 	ValorousHead = {}
 	ValorousBody = {}
 	ValorousHead.Phalanx = { name="Valorous Mask", augments={'Pet: Mag. Acc.+2 Pet: "Mag.Atk.Bns."+2','Pet: AGI+8','Phalanx +5',},priority=38}
-	ValorousBody.Phalanx = { name="Valorous Mail", augments={'Pet: DEX+1','"Mag.Atk.Bns."+11','Phalanx +4','Mag. Acc.+18 "Mag.Atk.Bns."+18',},priority=61}
+	--ValorousBody.Phalanx = { name="Valorous Mail", augments={'Pet: DEX+1','"Mag.Atk.Bns."+11','Phalanx +4','Mag. Acc.+18 "Mag.Atk.Bns."+18',},priority=61}
+	
+	YoriumBody = {}
+	YoriumBody.Phalanx = { name="Yorium Cuirass", augments={'Spell interruption rate down -9%','Phalanx +3',}}
 	
 	Rudianos = {}
 	Rudianos.SIRD = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Spell interruption rate down-10%',}, priority=80}
@@ -16,6 +19,8 @@ function init_gear_sets()
 
 	EschiteLegs = {}
 	EschiteLegs.FC = { name="Eschite Cuisses", augments={'"Mag.Atk.Bns."+25','"Conserve MP"+6','"Fast Cast"+5',}, priority=52}
+	
+	sets.Crepuscular = {head="Crepuscular Helm",body="Crepuscular Mail"}
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
@@ -74,13 +79,12 @@ function init_gear_sets()
 	-- Orunmila Torque: 5
 	-- Etiolation: 1
 	-- Loquacious: 2
-	-- Leyline: 6
+	-- Leyline: 8
 	-- Weatherspoon ring +1: 6
 	-- Kishar: 4
 	-- Chev. Sabatons +3: 13	
 	-- 
-	-- Total: 44
-	-- Keeping SIRD gear in the precast set as well so not all of these pieces will be used
+	-- Total: 51
 		
 	-- SIRD options:
 	-- Staunch Tath +1: 11
@@ -100,7 +104,7 @@ function init_gear_sets()
 		
 	sets.precast.FC = {ammo={ name="Sapience Orb", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Rev. Surcoat +3",priority=254},hands={ name="Leyline Gloves", augments={'Accuracy+10','Mag. Acc.+7','"Fast Cast"+1',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
+		body={ name="Rev. Surcoat +3",priority=254},hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
 		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}
 		
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
@@ -193,7 +197,7 @@ function init_gear_sets()
 	
 	sets.Phalanx = {
 		head=ValorousHead.Phalanx, priority=38,
-		body=ValorousBody.Phalanx, priority=61,hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},
+		body=YoriumBody.Phalanx, priority=61,hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},
 		back={ name="Weard Mantle", augments={'VIT+4','Enmity+2','Phalanx +5',}, priority=40},legs={name="Sakpata's Cuisses", priority=114},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 	sets.PhalanxMain = {main="Sakpata's Sword"}
 	sets.PhalanxSub = {sub="Priwen"}
@@ -333,7 +337,7 @@ function init_gear_sets()
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +3", priority=64},ring1={ name="Defending Ring",priority=1},ring2={ name="Pernicious Ring", priority=1},
 		back=Rudianos.DT,waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127}}
 		
-	sets.engaged.MDT = set_combine(sets.engaged.PDT, {ear1={ name="Sanare Earring", priority=1},ring2={ name="Purity Ring", priority=1},waist={ name="Creed Baudrier", priority=40}})
+	sets.engaged.MDT = set_combine(sets.engaged.PDT, {ear1={ name="Sanare Earring", priority=1},ring2={ name="Purity Ring", priority=1},waist={ name="Creed Baudrier", priority=40},feet="Sakpata's Leggings"})
 				
 	--[[
 	sets.engaged.DW = {ammo={ name="Ginsen", priority=1},
