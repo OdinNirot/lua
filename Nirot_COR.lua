@@ -208,6 +208,7 @@ function init_gear_sets()
     HercHands.WSD = { name="Herculean Gloves", augments={'MND+14','STR+10','Weapon skill damage +7%','Mag. Acc.+17 "Mag.Atk.Bns."+17',} }
 	HercHands.Waltz = { name="Herculean Gloves", augments={'Chance of successful block +1','"Waltz" potency +10%','"Store TP"+1','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
+	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
@@ -267,7 +268,7 @@ function init_gear_sets()
 	
 	sets.buff.Doom = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"} --{ring2="Saida Ring"}
 	sets.buff.Curse = sets.buff.Doom
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
     sets.TreasureHunter = {head=HercHead.TH}
 
     sets.precast.FC = {

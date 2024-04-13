@@ -103,6 +103,7 @@ function init_gear_sets()
 	HercHands.Waltz = { name="Herculean Gloves", augments={'Chance of successful block +1','"Waltz" potency +10%','"Store TP"+1','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
     HercHands.WSD = { name="Herculean Gloves", augments={'MND+14','STR+10','Weapon skill damage +7%','Mag. Acc.+17 "Mag.Atk.Bns."+17',} }
+	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
 	
@@ -126,7 +127,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +3"}
     sets.precast.JA['Boost'] = {hands="Anchor. Gloves +2"}
-    sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +2"}
+    sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
     sets.precast.JA['Focus'] = {head="Anch. Crown +2"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +3"}
     sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters +3"}
@@ -270,7 +271,7 @@ function init_gear_sets()
 	sets.Doom = {neck="Nicander's Necklace",ring1="Blenmot's Ring +1",ring2="Blenmot's Ring +1",waist="Gishdubar Sash"}
     sets.ExtraRegen = {} --{head="Ocelomeh Headpiece +1"}
 	sets.TreasureHunter = {head=HercHead.TH,hands=HercHands.TH}
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
 	
     -- Engaged sets
 
@@ -337,12 +338,12 @@ function init_gear_sets()
 	
 
     -- Footwork combat form
-    sets.engaged.Footwork = set_combine(sets.engaged,{feet="Anch. Gaiters +2"})
+    sets.engaged.Footwork = set_combine(sets.engaged,{feet="Anch. Gaiters +3"})
     sets.engaged.Footwork.Acc = sets.engaged.Footwork
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Bhikku Cyclas +3"}
-    sets.footwork_kick_feet = {feet="Anchorite's Gaiters +2"}
+    sets.footwork_kick_feet = {feet="Anch. Gaiters +3"}
 end
 
 -------------------------------------------------------------------------------------------------------------------

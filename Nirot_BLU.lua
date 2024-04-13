@@ -262,6 +262,7 @@ function init_gear_sets()
 	HercHands.Refresh = { name="Herculean Gloves", augments={'DEX+5','VIT+13','"Refresh"+2','Accuracy+4 Attack+4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
 	HercHands.TH = { name="Herculean Gloves", augments={'Accuracy+1 Attack+1','Weapon skill damage +2%','"Treasure Hunter"+2',}}
+	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercLegs.Refresh = { name="Herculean Trousers", augments={'AGI+7','"Mag.Atk.Bns."+13','"Refresh"+2','Accuracy+8 Attack+8',}}
 	HercLegs.Healing = { name="Herculean Trousers", augments={'"Triple Atk."+2','"Cure" potency +10%','Damage taken-2%','Accuracy+20 Attack+20','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
@@ -426,7 +427,7 @@ function init_gear_sets()
     sets.midcast.Protectra = {ring1="Sheltered Ring"}
     sets.midcast.Shell = {ring1="Sheltered Ring"}
     sets.midcast.Shellra = {ring1="Sheltered Ring"}
-	sets.midcast.Phalanx = set_combine(sets.midcast.EnhancingDuration, {head=HercHead.Phalanx,body=HercBody.Phalanx,legs=HercLegs.Phalanx})
+	sets.midcast.Phalanx = set_combine(sets.midcast.EnhancingDuration, {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx})
         
     -- Sets to return to when not performing an action.
 
@@ -462,7 +463,7 @@ function init_gear_sets()
 	sets.Refresh = {waist="Gishdubar Sash"}
 	
 	-- don't forget to add these pieces to your midcast as well
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
 
     -- Engaged sets
 

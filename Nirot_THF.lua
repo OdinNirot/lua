@@ -150,6 +150,7 @@ function init_gear_sets()
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
 	HercHands.Waltz = { name="Herculean Gloves", augments={'Chance of successful block +1','"Waltz" potency +10%','"Store TP"+1','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
+	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	HercLegs.WSD = { name="Herculean Trousers", augments={'Spell interruption rate down -7%','MND+13','Weapon skill damage +9%','Mag. Acc.+3 "Mag.Atk.Bns."+3',} }
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
@@ -165,7 +166,7 @@ function init_gear_sets()
 	sets.buff['Curse'] = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	sets.Charm = {neck="Unmoving Collar +1",ear1="Arete Del Luna +1"}
 	sets.Death = {neck="Warder's Charm +1",ring1="Shadow Ring",ring2="Warden's Ring"}
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
 
     sets.buff['Sneak Attack'] = {
         head=AdhemarHead.DexAgiAtk,neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Sherida Earring",

@@ -195,6 +195,7 @@ function init_gear_sets()
 	HercHands.TH = {name="Herculean Gloves", augments={'Accuracy+1 Attack+1','Weapon skill damage +2%','"Treasure Hunter"+2',}}
 	HercHands.Waltz = { name="Herculean Gloves", augments={'Chance of successful block +1','"Waltz" potency +10%','"Store TP"+1','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
+	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
 
@@ -223,7 +224,7 @@ function init_gear_sets()
 	InninHead = "Hattori Zukin +2"
 	YoninLegs = "Hattori Hakama +2"
 	
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
     --------------------------------------
     -- Job Abilties
     --------------------------------------
@@ -359,7 +360,7 @@ function init_gear_sets()
     sets.engaged = {ammo="Happo Shuriken +1",
         head="Ryuo Somen +1",neck="Ninja Nodowa +2",ear1="Dedition Earring",ear2="Eabani Earring",
 		body="Ashera Harness",hands="Malignance Gloves",ring1="Epona's Ring",ring2="Gere Ring",
-		back=Andartia.DA,waist="Reiki Yotai",legs={ name="Samnuha Tights", augments={'STR+8','DEX+9','"Dbl.Atk."+3','"Triple Atk."+2',}},feet="Tatena. Sune. +1"}
+		back=Andartia.DA,waist="Reiki Yotai",legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},feet="Tatena. Sune. +1"}
 		
     -- assumptions made about targe
     sets.engaged.MidAcc = set_combine(sets.engaged, {ammo="Happo Shuriken +1",
@@ -430,8 +431,8 @@ function init_gear_sets()
 	
     -- Delay Cap from spell + songs alone
     sets.engaged.MaxHaste = set_combine(sets.engaged.Haste_35, {head="Malignance Chapeau",waist="Sailfi Belt +1"})
-    sets.engaged.MidAcc.MaxHaste = set_combine(sets.engaged.MidAcc.Haste_35, {head="Malignance Chapeau",ear1="Dedition Earring",hands="Adhemar Wristbands +1",waist="Sailfi Belt +1",legs={ name="Samnuha Tights", augments={'STR+8','DEX+9','"Dbl.Atk."+3','"Triple Atk."+2',}}})
-    sets.engaged.MaxAcc.MaxHaste = set_combine(sets.engaged.MaxAcc.Haste_35, {head="Malignance Chapeau",ear1="Dedition Earring",hands="Adhemar Wristbands +1",waist="Sailfi Belt +1",legs={ name="Samnuha Tights", augments={'STR+8','DEX+9','"Dbl.Atk."+3','"Triple Atk."+2',}}})
+    sets.engaged.MidAcc.MaxHaste = set_combine(sets.engaged.MidAcc.Haste_35, {head="Malignance Chapeau",ear1="Dedition Earring",hands="Adhemar Wristbands +1",waist="Sailfi Belt +1",legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}}})
+    sets.engaged.MaxAcc.MaxHaste = set_combine(sets.engaged.MaxAcc.Haste_35, {head="Malignance Chapeau",ear1="Dedition Earring",hands="Adhemar Wristbands +1",waist="Sailfi Belt +1",legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}}})
       sets.engaged.Innin.MaxHaste     = set_combine(sets.engaged.Innin.Haste_35, {})
       sets.engaged.Innin.MidAcc.MaxHaste = set_combine(sets.engaged.Innin.MidAcc.Haste_35, {})
       sets.engaged.Innin.MaxAcc.MaxHaste = set_combine(sets.engaged.Innin.MaxAcc.Haste_35, {})
