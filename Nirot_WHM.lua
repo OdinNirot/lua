@@ -208,7 +208,7 @@ function init_gear_sets()
 
     sets.midcast.Cursna = {main="Yagrush",Sub="Thuellaic Ecu +1",
 		head=VanyaHead.HealSkill,neck="Debilis Medallion",ear1="Meili Earring",ear2="Ebers Earring +1",
-		body="Ebers Bliaut +2",hands="Fanatic Gloves",ring1="Menelaus's Ring",ring2="Haoma's Ring",
+		body="Ebers Bliaut +3",hands="Fanatic Gloves",ring1="Menelaus's Ring",ring2="Haoma's Ring",
         back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet=VanyaFeet.HealSkill}
 	sets.midcast.Cursna.SIRD = set_combine(sets.midcast.Cursna,sets.midcast.SIRD)
 		
@@ -249,7 +249,7 @@ function init_gear_sets()
 	sets.midcast.Auspice.SIRD = set_combine(sets.midcast.Auspice,sets.midcast.SIRD)
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",
-		neck="Sroda Necklace",body="Ebers Bliaut +2",hands="Ebers Mitts +3",
+		neck="Sroda Necklace",body="Ebers Bliaut +3",hands="Ebers Mitts +3",
 		back=Alaunus.DA,waist="Embla Sash",legs="Piety Pantaloons +3",feet="Ebers Duckbills +3"})--{main="Beneficus",sub="Genmei Shield",
         --head="Orison Cap +2",neck="Colossus's Torque",
         --body="Orison Bliaud +2",hands="Orison Mitts +2",
@@ -303,7 +303,7 @@ function init_gear_sets()
     -- Resting sets
     sets.resting = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
 		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Ethereal Earring",ear2="Telos Earring",
-        body="Ebers Bliaut +2",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Chirich Ring +1",ring2="Defending Ring",
+        body="Ebers Bliaut +3",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Chirich Ring +1",ring2="Defending Ring",
         back=Alaunus.DT,waist="Hachirin-no-obi",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
@@ -317,7 +317,7 @@ function init_gear_sets()
         --back="Umbra Cape",waist="Witful Belt",legs="Nares Trews",feet="Herald's Gaiters"}
     sets.idle.Town = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
 		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Ethereal Earring",ear2="Ebers Earring +1",
-        body="Ebers Bliaut +2",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+        body="Ebers Bliaut +3",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Stikini Ring +1",
         back=Alaunus.DT,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
     sets.idle.Weak = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
 		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Sanare Earring",ear2="Ebers Earring +1",
