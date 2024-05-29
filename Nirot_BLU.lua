@@ -268,6 +268,7 @@ function init_gear_sets()
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	HercFeet.Refresh = { name="Herculean Boots", augments={'DEX+10','STR+2','"Refresh"+2','Accuracy+11 Attack+11',}}
+	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	
 	AdhemarHead = {}
 	AdhemarBody = {}
@@ -300,12 +301,15 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     sets.precast.JA['Azure Lore'] = {hands="Luhlaza Bazubands +3"}
-
+	sets.precast.JA['Burst Affinity'] = {legs="Assim. Shalwar +2",feet="Hashishin Basmak +2"}
+	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +2",feet="Assim. Charuqs +1"}
+	sets.precast.JA['Diffusion'] = {feet="Luhlaza Charuqs +3"}
+	
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
 		body="Passion Jacket",
-		legs="Dashing Subligar",feet="Rawhide Boots"}
+		legs="Dashing Subligar",feet=HercFeet.Waltz}
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}

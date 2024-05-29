@@ -156,6 +156,7 @@ function init_gear_sets()
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	
 	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
+	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	
 	Toutatis.STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Damage taken-5%',}}
 	Toutatis.WSD = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
@@ -208,7 +209,7 @@ function init_gear_sets()
 	-- Waltz Potency gear caps at 50%, while Waltz received potency caps at 30%
 	-- Passion Jacket is 13% Rawhide Boots are 8%
     sets.precast.Waltz = {
-		body="Passion Jacket",hands=HercHands.Waltz,waist="Flume Belt +1",Legs="Dashing Subligar",Feet="Rawhide Boots"}
+		body="Passion Jacket",hands=HercHands.Waltz,waist="Flume Belt +1",Legs="Dashing Subligar",Feet=HercFeet.Waltz}
 
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}

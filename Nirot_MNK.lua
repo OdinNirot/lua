@@ -112,6 +112,7 @@ function init_gear_sets()
 	
 	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
+	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	
 	AdhemarHands = {}
 	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
@@ -126,7 +127,7 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +3"}
-    sets.precast.JA['Boost'] = {hands="Anchor. Gloves +2"}
+    sets.precast.JA['Boost'] = {hands="Anchor. Gloves +3"}
     sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
     sets.precast.JA['Focus'] = {head="Anch. Crown +2"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +3"}
@@ -138,11 +139,11 @@ function init_gear_sets()
 
     sets.precast.JA['Chakra'] = {
 		neck="Unmoving Collar +1",
-		body="Anchorite's Cyclas +2",hands="Hesychast's Gloves +3"}
+		body="Anchorite's Cyclas +3",hands="Hesychast's Gloves +3"}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-		body="Passion Jacket",hands=HercHands.Waltz,Legs="Dashing Subligar",feet="Rawhide Boots"}
+		body="Passion Jacket",hands=HercHands.Waltz,Legs="Dashing Subligar",feet=HercFeet.Waltz}
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
