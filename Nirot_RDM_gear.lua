@@ -162,7 +162,7 @@ function init_gear_sets()
 	sets.midcast["Elemental Magic"].base = {main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
 		head="Lethargy Chappel +3",neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Lethargy Sayon +3",hands="Leth. Ganth. +3",ring1="Freke Ring",ring2="Metamor. Ring +1",
-		back=Sucellos.Normal,waist="Acuity Belt +1",legs="Leth. Fuseau +3",feet="Leth. Houseaux +3"}
+		back=Sucellos.Normal,waist="Orpheus's Sash",legs="Leth. Fuseau +3",feet="Leth. Houseaux +3"}
 	sets.midcast.Death = sets.midcast['Elemental Magic'].base
     sets.Burst = set_combine(sets.midcast["Elemental Magic"].base,{head="Ea Hat +1",body="Ea Houppe. +1",hands="Amalric Gages +1"}) --{ hands="Hattori Tekko +1", feet=HercFeet.MAB})
 	
@@ -175,11 +175,12 @@ function init_gear_sets()
     sets.latent_refresh = {waist="Fucho-no-obi"}
     
     -- Idle sets
-    sets.idle = {main="Colada",Sub="Sacro Bulwark",ammo="Homiliary",
+	sets.idle = {main="Colada",Sub="Sacro Bulwark",ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Yngvi Choker",ear1="Sanare Earring",ear2="Etiolation Earring",
-        body="Lethargy Sayon +3",hands=ChironicHands.Refresh,ring1="Defending Ring",ring2="Stikini Ring +1",
-        back=Sucellos.Normal,waist="Carrier's Sash",legs={ name="Merlinic Shalwar", augments={'Pet: Mag. Acc.+1','Accuracy+4 Attack+4','"Refresh"+2','Mag. Acc.+6 "Mag.Atk.Bns."+6',}},feet=ChironicFeet.Refresh}
-
+--		head="Vitiation Chapeau +3",neck="Warder's Charm +1",ear1="Sanare Earring",ear2="Etiolation Earring",   -- swap out the Yngvi when trying to maintain hate. Ody Atonement 3, etc
+		body="Lethargy Sayon +3",hands=ChironicHands.Refresh,ring1="Defending Ring",ring2="Stikini Ring +1",
+		back=Sucellos.Normal,waist="Carrier's Sash",legs={ name="Merlinic Shalwar", augments={'Pet: Mag. Acc.+1','Accuracy+4 Attack+4','"Refresh"+2','Mag. Acc.+6 "Mag.Atk.Bns."+6',}},feet=ChironicFeet.Refresh}
+		
     sets.idle.PDT = set_combine(sets.idle,{hands="Lethargy Gantherots +3"})
     sets.idle.Town = sets.idle
     sets.resting = sets.idle 
