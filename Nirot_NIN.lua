@@ -200,6 +200,7 @@ function init_gear_sets()
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
 
 	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
+	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 
 	HercHead.TH = {name="Herculean Helm", augments={'"Store TP"+1','"Avatar perpetuation cost" -1','"Treasure Hunter"+2','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
 	HercHead.FC = { name="Herculean Helm", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Accuracy+3','"Fast Cast"+7',}}
@@ -237,7 +238,7 @@ function init_gear_sets()
 	
     -- Waltz (chr and vit)
     sets.precast.Waltz = {ammo="Yamarang",
-		body="Passion Jacket",hands=HercHands.Waltz,waist="Flume Belt +1",Legs="Dashing Subligar",Feet="Rawhide Boots"}	
+		body="Passion Jacket",hands=HercHands.Waltz,waist="Flume Belt +1",Legs="Dashing Subligar",Feet=HercFeet.Waltz}	
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
 	
