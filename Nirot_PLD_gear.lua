@@ -6,11 +6,8 @@ function init_gear_sets()
 	ValorousHead = {}
 	ValorousBody = {}
 	ValorousHead.Phalanx = { name="Valorous Mask", augments={'Pet: Mag. Acc.+2 Pet: "Mag.Atk.Bns."+2','Pet: AGI+8','Phalanx +5',},priority=38}
-	--ValorousBody.Phalanx = { name="Valorous Mail", augments={'Pet: DEX+1','"Mag.Atk.Bns."+11','Phalanx +4','Mag. Acc.+18 "Mag.Atk.Bns."+18',},priority=61}
-	
-	YoriumBody = {}
-	YoriumBody.Phalanx = { name="Yorium Cuirass", augments={'Spell interruption rate down -9%','Phalanx +3',}}
-	
+	ValorousBody.Phalanx = { name="Valorous Mail", augments={'STR+7','DEX+5','Phalanx +5','Accuracy+5 Attack+5','Mag. Acc.+17 "Mag.Atk.Bns."+17',},priority=61}
+		
 	Rudianos = {}
 	Rudianos.SIRD = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Spell interruption rate down-10%',}, priority=80}
 	Rudianos.WSD = { name="Rudianos's Mantle", augments={'HP+60','Accuracy+20 Attack+20','STR+5','Weapon skill damage +10%','Phys. dmg. taken-10%',}, priority=80}
@@ -197,7 +194,7 @@ function init_gear_sets()
 	
 	sets.Phalanx = {
 		head=ValorousHead.Phalanx, priority=38,
-		body=YoriumBody.Phalanx, priority=61,hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},
+		body=ValorousBody.Phalanx, priority=61,hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},
 		back={ name="Weard Mantle", augments={'VIT+4','Enmity+2','Phalanx +5',}, priority=40},legs={name="Sakpata's Cuisses", priority=114},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 	sets.PhalanxMain = {main="Sakpata's Sword"}
 	sets.PhalanxSub = {sub="Priwen"}
