@@ -212,6 +212,7 @@ function init_gear_sets()
 
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
+	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 
     HercBody.WSD = { name="Herculean Vest", augments={'MND+15','"Store TP"+2','Weapon skill damage +8%',} } 
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
@@ -262,7 +263,7 @@ function init_gear_sets()
     sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
 	
 	sets.precast.Waltz = {
-	    body="Passion Jacket",hands=HercHands.Waltz,waist="Flume Belt +1",Legs="Dashing Subligar",Feet="Rawhide Boots"}	
+	    body="Passion Jacket",hands=HercHands.Waltz,waist="Flume Belt +1",Legs="Dashing Subligar",Feet=HercFeet.Waltz}	
     sets.precast.Waltz['Healing Waltz'] = {}
     sets.precast.Step = {}
 	
@@ -322,16 +323,14 @@ function init_gear_sets()
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
     sets.midcast.Cure = {}
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
-    sets.midcast.CorsairShot = {ammo=gear.MAbullet,
+    sets.precast.CorsairShot = {ammo=gear.MAbullet,
         head="Nyame Helm",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Crematio Earring",
 	    body="Mirke Wardecors",hands="Carmine Fin. Ga. +1",ring1="Dingir Ring",ring2="Ilabrat Ring",
 	    back=Camulus.WSDMagi,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
-    sets.midcast.CorsairShot.STP = set_combine(sets.midcast.CorsairShot, {
+    sets.precast.CorsairShot.STP = set_combine(sets.precast.CorsairShot, {
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Dedition Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Crepuscular Ring",ring2="Chirich Ring +1",
 		waist="Yemaya Belt",legs="Malignance Tights",feet="Malignance Boots"})
-    sets.midcast.CorsairShot['Light Shot'] = set_combine(sets.midcast.CorsairShot, {})
-    sets.midcast.CorsairShot['Dark Shot'] = sets.midcast.CorsairShot['Light Shot']
 
     -- Ranged gear
     sets.midcast.RA = {ammo=gear.RAbullet,
@@ -409,6 +408,31 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Ranged Attack' or spell.type == 'WeaponSkill' or spell.type == 'CorsairShot' then
         do_bullet_checks(spell, spellMap, eventArgs)
     end
+	
+	if spell.type == 'CorsairShot' then
+		if state.QDMode.value ~= 'STP' then
+			if (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then
+				-- Matching double weather (w/o day conflict).
+				if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+					do_equip('sets.Hachirin')
+				-- Target distance under 1.7 yalms.
+				elseif spell.target.distance < (1.7 + spell.target.model_size) then
+					do_equip('sets.Orpheus')
+				-- Matching day and weather.
+				elseif spell.element == world.day_element and spell.element == world.weather_element then
+					do_equip('sets.Hachirin')
+				-- Target distance under 8 yalms.
+				elseif spell.target.distance < (8 + spell.target.model_size) then
+					do_equip('sets.Orpheus')
+				-- Match day or weather.
+				elseif spell.element == world.day_element or spell.element == world.weather_element then
+					do_equip('sets.Hachirin')
+				end
+			end
+		elseif state.QDMode.value == 'STP' then
+			do_equip('sets.precast.CorsairShot.STP')
+		end
+	end
 
     if spell.english == 'Fold' and buffactive['Bust'] == 2 then
         if sets.precast.FoldDoubleBust then
@@ -570,31 +594,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
-    if spell.type == 'CorsairShot' then
-        if (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then
-            -- Matching double weather (w/o day conflict).
-            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
-                equip({waist="Hachirin-no-Obi"})
-            -- Target distance under 1.7 yalms.
-            elseif spell.target.distance < (1.7 + spell.target.model_size) then
-                equip({waist="Orpheus's Sash"})
-            -- Matching day and weather.
-            elseif spell.element == world.day_element and spell.element == world.weather_element then
-                equip({waist="Hachirin-no-Obi"})
-            -- Target distance under 8 yalms.
-            elseif spell.target.distance < (8 + spell.target.model_size) then
-                equip({waist="Orpheus's Sash"})
-            -- Match day or weather.
-            elseif spell.element == world.day_element or spell.element == world.weather_element then
-                equip({waist="Hachirin-no-Obi"})
-            end
-            if state.QDMode.value == 'Damage' then
-                equip(sets.midcast.CorsairShot)
-            elseif state.QDMode.value == 'STP' then
-                equip(sets.midcast.CorsairShot.STP)
-            end
-        end
-    elseif spell.action_type == 'Ranged Attack' then
+    if spell.action_type == 'Ranged Attack' then
         if buffactive['Triple Shot'] then
             equip(sets.TripleShot)
             if buffactive['Aftermath: Lv.3'] and player.equipment.ranged == "Armageddon" then
