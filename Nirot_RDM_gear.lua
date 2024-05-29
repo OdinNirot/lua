@@ -71,7 +71,7 @@ function init_gear_sets()
 	sets.precast.Waltz = {legs="Dashing Subligar"}
         
 	-- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {}
+	sets.precast.Waltz['Healing Waltz'] = {}
 
 	-- Fast cast sets for spells
     
@@ -213,10 +213,10 @@ function init_gear_sets()
 	sets.engaged.enspell.DW = set_combine(sets.engaged.enspell,{ear1="Suppanomimi",ear2="Eabani Earring",back=Sucellos.DW,legs="Carmine Cuisses +1"})
 	sets.engaged.enspell.DW.Acc = set_combine(sets.engaged.enspell.DW,{ammo="Ginsen",neck="Lissome Necklace",body="Malignance Tabard",ring2="Patricius Ring",back=Sucellos.DW,legs="Carmine Cuisses +1",feet="Malignance Boots"})
 		
---  sets.engaged.Acc = set_combine(sets.engaged,{})
---  sets.engaged.Refresh = set_combine(sets.engaged,{})
---  sets.engaged.DW.Acc = set_combine(sets.engaged,{})
---  sets.engaged.DW.Refresh = set_combine(sets.engaged,{})
+--	sets.engaged.Acc = set_combine(sets.engaged,{})
+--	sets.engaged.Refresh = set_combine(sets.engaged,{})
+--	sets.engaged.DW.Acc = set_combine(sets.engaged,{})
+--	sets.engaged.DW.Refresh = set_combine(sets.engaged,{})
 	sets.engaged.DW.enspell = set_combine(sets.engaged.enspell,{ear1="Suppanomimi",ear2="Eabani Earring",back=Sucellos.DW,legs="Carmine Cuisses +1"})
 	sets.engaged.DW.enspell.PDT = set_combine(sets.engaged.enspell.DW,{ammo="Staunch Tathlum +1",
 		neck="Loricate Torque +1",body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
