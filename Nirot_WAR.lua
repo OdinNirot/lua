@@ -169,40 +169,36 @@ function init_gear_sets()
     --sets.precast.WS.Mod = set_combine(sets.precast.WS, sets.precast.WSMod)
 
     -- Specific weaponskill sets.
-    sets.precast.WS['Upheaval'] = {ammo="Knobkierrie",
-		body="Boii Lorica +3",hands="Boii Mufflers +3",ring1="Regal Ring",ring2="Niqmaddu Ring",
-		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Boii Cuisses +3",feet="Sulevia's Leggings +2"}
+    sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS,{ammo="Knobkierrie",
+		head="Boii Mask +3",
+		hands="Boii Mufflers +3",ring1="Gelatinous Ring +1",ring2="Niqmaddu Ring",
+		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Boii Cuisses +3"})
 	sets.precast.WS['Upheaval'].HighTP = set_combine(sets.precast.WS['Upheaval'],{
-		ear1="Lugra Earring +1",
-		ring1="Gelatinous Ring +1"})
-    --sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {})
-    --sets.precast.WS['Asuran Fists']    = {}
-    --sets.precast.WS["Ascetic's Fury"]  = {}
+		head="Agoge Mask +3",ear1="Lugra Earring +1",
+		body="Boii Lorica +3",ring1="Gelatinous Ring +1",
+		legs="Nyame Flanchard"})
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS,{ammo="Yetshila +1",
 		head="Boii Mask +3",ear1="Schere Earring",ear2="Boii Earring +2",
-		body="Hjarrandi Breast.",ring1="Regal Ring",
+		body="Hjarrandi Breast.",ring1="Ephramad's Ring",
 		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
     sets.precast.WS["Fell Cleave"] = set_combine(sets.precast.WS,{
-		ear1="Schere Earring",ear1="Lugra Earring +1",
-		body="Boii Lorica +3",
-		legs="Nyame Flanchard",feet="Sulevia's Leggings +2"})
+		ear1="Schere Earring",ear1="Schere Earring",
+		ring1="Gelatinous Ring +1"})
     sets.precast.WS["Metatron Torment"] = set_combine(sets.precast.WS,{
-		ear1="Schere Earring",ear1="Lugra Earring +1",
-		body="Boii Lorica +3",
-		legs="Nyame Flanchard",feet="Sulevia's Leggings +2"})
+		ear1="Schere Earring",
+		ring1="Gelatinous Ring +1",
+		legs="Nyame Flanchard"})
 	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS,{
-		head="Boii Mask +3",
-		body="Boii Lorica +3",
-		legs="Boii Cuisses +3",feet="Sulevia's Leggings +2"})
+		body="Sakpata's Breastplate",ring2="Defending Ring",
+		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
 		
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS,{
-		body="Boii Lorica +3",hands="Nyame Gauntlets",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
-		legs="Boii Cuisses +3",ring1="Gelatinous Ring +1"})
+		hands="Boii Mufflers +3",ring1="Ephramad's Ring",ring2="Defending Ring"})
 		
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS,{
-		head="Blistering Sallet +1",ear2="Boii Earring +2",
+		ear2="Boii Earring +2",
 		body="Hjarrandi Breast.",
-		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
+		feet="Boii Calligae +3"})
     sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS,{ammo="Yetshila +1",
 		head="Boii Mask +3",ear2="Boii Earring +2",
 		body="Hjarrandi Breast.",
@@ -210,21 +206,30 @@ function init_gear_sets()
 		
 	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS,{ammo="Seeth. Bomblet +1",
 		head="Nyame Helm",neck="Baetyl Pendant",ear2="Friomisi Earring",
-		hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Metamor. Ring +1",
-		waist="Orpheus's Sash",hands="Sakpata's Gauntlets"})
+		hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Beithir Ring",
+		waist="Orpheus's Sash"})
 		
 	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
-		head="Boii Mask +3",ear2="Schere Earring",
-		body="Sakpata's Breastplate",
+		head="Boii Mask +3",neck="Fotia Gorget",ear2="Schere Earring",
+		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",
 		waist="Fotia Belt",legs="Boii Cuisses +3",feet="Sakpata's Leggings"})
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS,{
-		head="Boii Mask +3",ear1="Schere Earring"})
+		head="Sakpata's Helm",ear1="Schere Earring",
+		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",
+		waist="Fotia Belt",legs="Boii Cuisses +3"})
 	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS,{
-		head="Agoge Mask +3",neck="Fotia Gorget",
-		ring1="Regal Ring",
-		waist="Fotia Belt",feet="Nyame Sollerets"})
+		head="Boii Mask +3",neck="Fotia Gorget",ear1="Schere Earring",ear2="Boii Earring +2",
+		waist="Fotia Belt"})
 		
 	sets.precast.WS["Judgment"] = set_combine(sets.precast.WS["Savage Blade"],{})
+	sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"],{
+		head="Boii Mask +3",
+		ring2="Regal Ring"})
+	sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Ground Strike"],{ammo="Yetshila +1",
+		waist="Sailfi Belt +1",feet="Boii Calligae +3"})
+	sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Shockwave"],{ammo="Seeth. Bomblet +1",
+		ear2="Thrud Earring",
+		ring2="Metamorph Ring +1"})
 	
     
     -- Midcast Sets
