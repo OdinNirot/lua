@@ -230,6 +230,8 @@ function init_gear_sets()
     
     TaeonHead = {}
     TaeonHead.Snap = {} --{ name="Taeon Chapeau", augments={'Accuracy+20 Attack+20','"Snapshot"+5','"Snapshot"+4',}}
+	AdhemarHead = {}
+	AdhemarHead.StrDexAtk = { name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
 	Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	
 	Camulus = {}
@@ -290,33 +292,56 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo=gear.RAbullet ,
         head="Malignance Chapeau",neck="Combatant's Torque",ear1="Odr Earring",ear2="Moonshade Earring",
-	    body="Laksa. Frac +3",hands="Meghanada Gloves +2",ring1="Epaminondas's Ring",ring2="Ephramad's Ring",
-	    back=Camulus.WSDMagi,waist="K. Kachina Belt +1",legs=HercLegs.WSD,feet="Lanun Bottes +3"}
+	    body="Laksa. Frac +3",hands="Chasseur's Gants +3",ring1="Epaminondas's Ring",ring2="Ephramad's Ring",
+	    back=Camulus.WSDMagi,waist="K. Kachina Belt +1",legs="Nyame Flanchard",feet="Lanun Bottes +3"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	
 	sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS,{
-		neck="Fotia Gorget",
-		body="Laksa. Frac +3",ring1="Regal Ring",
-		waist="Fotia Belt",legs=HercLegs.WSD})
+		neck="Comm. Charm +2",
+		body="Nyame Mail",ring1="Regal Ring",
+		waist="Fotia Belt"})
     sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {})
 	
-	sets.precast.WS['Wildfire'] = {ammo=gear.MAbullet,
+	sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS, {ammo=gear.MAbullet,
         head="Nyame Helm",neck="Comm. Charm +2",ear1="Friomisi Earring",ear2="Crematio Earring",
-	    body="Lanun Frac +3",hands="Chasseur's Gants +3",ring1="Dingir Ring",ring2="Epaminondas's Ring",
-	    back=Camulus.WSDMagi,waist="Orpheus's Sash",legs=HercLegs.WSD,feet="Lanun Bottes +3"}
-    sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {head="Pixie Hairpin +1",ear2="Moonshade Earring",hands="Nyame Gauntlets",ring2="Archon Ring",waist="Orpheus's Sash",legs="Nyame Flanchard"})
-	sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
+	    body="Lanun Frac +3",hands="Nyame Gauntlets",ring2="Dingir Ring",
+	    back=Camulus.WSDMagi,waist="Orpheus's Sash"})
+    sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {
+		head="Pixie Hairpin +1",ear1="Odnowa Earring +1",ear2="Moonshade Earring",
+		hands="Nyame Gauntlets",
+		waist="Orpheus's Sash",legs="Nyame Flanchard"})
+	sets.precast.WS['Hot Shot'] = set_combine(sets.precast.WS['Wildfire'], {
+		neck="Fotia Gorget",ear2="Moonshade Earring",
+		body="Nyame Mail",hands="Chasseur's Gants +3"})
 	
-	sets.precast.WS['Evisceration'] = {}
+	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
+		head=AdhemarHead.StrDexAtk,neck="Fotia Gorget",
+		body="Meghanada Cuirie +2",hands="Mummu Wrists +2",ring1="Defending Ring",
+		waist="Fotia Belt",legs="Chasseur's Culottes +3",feet="Mummu Gamashes +2"})
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
-	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {head="Nyame Helm",neck="Rep. Plat. Medal",body="Nyame Mail",ring1="Regal Ring",waist="Sailfi Belt +1",legs="Nyame Flanchard"})
+	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Wildfire'], {
+		neck="Baetyl Pendant",ear2="Moonshade Earring"})
+	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS['Wildfire'], {
+		neck="Republican Platinum Medal",ear1="Dominance Earring +1",
+		body="Nyame Mail",hands="Chasseur's Gants +3",ring1="Ephramad's Ring",ring2="Regal Ring",
+		waist="Kentarch Belt +1",feet="Nyame Sollerets"})
+
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		head="Nyame Helm",neck="Rep. Plat. Medal",
+		body="Nyame Mail",ring1="Regal Ring",
+		waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {})
-	sets.precast.WS['Swift Blade'] = set_combine(sets.precast.WS, {})
+	sets.precast.WS['Swift Blade'] = set_combine(sets.precast.WS, {
+		neck="Fotia Gorget",ear1="Brutal Earring",ear2="Balder Earring +1",
+		body="Nyame Mail",ring1="Regal Ring",
+		waist="Sailfi Belt +1",feet="Nyame Sollerets"})
 	sets.precast.WS['Swift Blade'].Acc = set_combine(sets.precast.WS['Swift Blade'], {})
-	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS['Swift Blade'], {})
+	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS['Swift Blade'], {
+		head="Nyame Helm",ear1="Cessance Earring",
+		ring1="Metamorph Ring +1",
+		waist="Fotia Belt"})
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {})
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {})
-	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Wildfire'], {})
 	
     sets.midcast.FastRecast = sets.precast.FC
     sets.midcast.SpellInterrupt = {}
