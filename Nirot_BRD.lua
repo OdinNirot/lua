@@ -406,12 +406,22 @@ function init_gear_sets()
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	
 	-- Mordant Rime: 70% CHR ; 30% DEX
-    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS, {})
+    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS, {ear1="Dominance Earring +1",ear2="Regal Earring",
+		body="Bihu Justaucorps +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
+		waist="Kentarch Belt +1"})
 	sets.precast.WS['Mordant Rime'].NotAttackCapped = set_combine(sets.precast.WS.NotAttackCapped,sets.precast.WS['Mordant Rime'])
 	sets.precast.WS['Mordant Rime'].Accuracy = set_combine(sets.precast.WS.Accuracy,sets.precast.WS['Mordant Rime'].NotAttackCapped)
+	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
+		ear2="Dominance Earring +1",
+		body="Bihu Justaucorps +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring",
+		waist="Kentarch Belt +1"})
+	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
+		head="Blistering Sallet +1",ear1="Odnowa Earring +1",ear2="Dominance Earring +1",
+		body="Bihu Justaucorps +3",ring1="Ephramad's Ring",ring2="Defending Ring",
+		waist="Fotia Belt",legs="Jokushu Haidate",feet="Ayanmo Gambieras +2"})
 	
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-		ear2="Balder Earring +1",
+		ear2="Dominance Earring +1",
 		body="Bihu Justaucorps +3",ring1="Ephramad's Ring",ring2="Epaminondas's Ring"})
 	
     -- Midcast Sets
@@ -566,7 +576,7 @@ function init_gear_sets()
 		head="Fili Calot +3",
 		neck="Bard's Charm +2",
 		ear1="Dedition Earring",
-		ear2="Telos Earring",
+		ear2="Balder Earring +1",
 		body="Ashera Harness",
 		hands="Gazu Bracelets +1",
 		ring1="Moonlight Ring",
