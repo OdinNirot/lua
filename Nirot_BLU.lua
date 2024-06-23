@@ -230,7 +230,7 @@ function init_gear_sets()
     --------------------------------------
 
     sets.buff['Burst Affinity'] = {feet="Hashishin Basmak +2"}
-    sets.buff['Chain Affinity'] = {head="Hashishin Kavuk +2"} --feet="Assim. Charuqs +1"
+    sets.buff['Chain Affinity'] = {head="Hashishin Kavuk +3"} --feet="Assim. Charuqs +1"
     sets.buff.Convergence = {head="Luhlaza Keffiyeh +3"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
     sets.buff.Enchainment = {body="Luhlaza Jubbah +3"}
@@ -273,7 +273,7 @@ function init_gear_sets()
 	AdhemarHead = {}
 	AdhemarBody = {}
 	AdhemarHands = {}
-	AdhemarHead.DexAgiAtk = { name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
+	AdhemarHead.StrDexAtk = { name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
 	AdhemarBody.FC = { name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}}
 	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
 	
@@ -302,7 +302,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Azure Lore'] = {hands="Luhlaza Bazubands +3"}
 	sets.precast.JA['Burst Affinity'] = {legs="Assim. Shalwar +2",feet="Hashishin Basmak +2"}
-	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +2",feet="Assim. Charuqs +1"}
+	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +3",feet="Assim. Charuqs +1"}
 	sets.precast.JA['Diffusion'] = {feet="Luhlaza Charuqs +3"}
 	
 
@@ -327,33 +327,44 @@ function init_gear_sets()
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {ammo="Aurgelmir Orb +1",
-		head="Hashishin Kavuk +2",neck="Rep. Plat. Medal",ear1="Moonshade Earring",ear2="Odr Earring",
-		body="Assim. Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Ephramad's Ring",
-		back=Rosmerta.WS,waist="Grunfeld Rope",legs="Luhlaza Shalwar +3",feet="Nyame Sollerets"}
+    sets.precast.WS = {ammo="Oshasha's Treatise",
+		head="Hashishin Kavuk +3",neck="Mirage Stole +2",ear1="Moonshade Earring",ear2="Odr Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Ephramad's Ring",
+		back=Rosmerta.WS,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.PDT = set_combine(sets.precast.WS,Nyame)
     sets.precast.WS.acc = set_combine(sets.precast.WS, {}) --{hands="Buremte Gloves"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
-		head="Luh. Keffiyeh +3",neck="Fotia Gorget",ear2="Brutal Earring",
-		body="Luhlaza Jubbah +3",hands="Luhlaza Bazubands +3",ring1="Epona's Ring",
-		waist="Fotia Belt",legs="Gleti's Breeches",feet="Luhlaza Charuqs +3"}) 
+    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
+		neck="Fotia Gorget",ear2="Regal Earring",
+		hands="Hashishin Bazubands +2",ring1="Epona's Ring",ring2="Metamorph Ring +1",
+		waist="Fotia Belt",legs="Hashishin Tayt +2"}) 
     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS,{ammo="Ghastly Tathlum +1",
-		head="Pixie Hairpin +1",neck="Baetyl Pendant",ear1="Regal Earring",ear2="Friomisi Earring",
-		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Archon Ring",
-		back=Rosmerta.MAB,waist="Orpheus's Sash",feet="Nyame Sollerets"})
-	sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
-		neck="Mirage Stole +2",
-		waist="Sailfi Belt +1"})
-	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,{ammo="Oshasha's Treatise",
-		neck="Mirage Stole +2",
-		waist="Sailfi Belt +1"})
+		head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi Earring",
+		body="Hashishin Mintan +2",hands="Hashishin Bazubands +2",ring1="Epaminondas's Ring",ring2="Archon Ring",
+		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3",feet="Hashishin Basmak +2"})
+	sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS,{ammo="Aurgelmir Orb +1",
+		ear2="Telos Earring"})
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,{
+		ear2="Odnowa Earring +1"})
 		
+	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS,{
+		neck="Baetyl Pendant",ear2="Regal Earring",
+		body="Hashishin Mintan +2",hands="Hashishin Bazubands +2",ring2="Beithir Ring",
+		waist="Orpheus's Sash",legs="Luhlaza Shalwar +3"})
+	sets.precast.WS['True Strike'] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
+		head=AdhemarHead.StrDexAtk,ear1="Dominance Earring +1",ear2="Hashi. Earring +1",
+		body="Gleti's Cuirass",hands="Malignance Gloves",
+		legs="Gleti's Breeches",feet="Gleti's Boots"})
+	sets.precast.WS['Judgment'] = set_combine(sets.precast.WS,{
+		ear2="Dominance Earring +1"})
+	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS,{
+		ear2="Regal Earring"})
+	sets.precast.WS['Realmrazer'] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
+		neck="Fotia Gorget",ear1="Regal Earring",ear2="Telos Earring",
+		body="Hashishin Mintan +2",hands="Hashishin Bazubands +2",ring1="Metamorph Ring +1",
+		waist="Fotia Belt",legs="Hashishin Tayt +2",feet="Hashishin Basmak +2"})
 		
-		
-    
-    
     -- Midcast Sets
     --sets.midcast.FastRecast = {
         --head="Haruspex Hat",ear2="Loquacious Earring",
@@ -367,6 +378,26 @@ function init_gear_sets()
 		
     sets.midcast['Blue Magic'] = {}
     
+    -- Normal melee group
+    sets.engaged = {ammo="Coiste Bodhar",
+		head="Malignance Chapeau",neck="Mirage Stole +2",ear1="Suppanomimi",ear2="Dedition Earring",
+		body="Adhemar Jacket +1",hands="Malignance Gloves",ring1="Defending Ring",ring2="Epona's Ring",
+		back=Rosmerta.TP,waist="Windbuffet Belt +1",legs="Malignance Tights",feet={ name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}}
+
+	sets.engaged.PDT = set_combine(sets.engaged,{
+		head="Malignance Chapeau",ear2="Telos Earring",
+		hands="Malignance Gloves",ring1="Defending Ring"})
+	
+    sets.engaged.Acc = set_combine(sets.engaged,{ammo="Aurgelmir Orb +1",
+		head="Malignance Chapeau",ear1="Telos Earring",ear2="Hashi. Earring +1",
+		hands="Gazu Bracelets +1",ring1="Ephramad's Ring",
+		waist="Reiki Yotai",legs="Hashishin Tayt +2"})
+    sets.engaged.Refresh = set_combine(sets.engaged,{})
+    sets.engaged.DW = set_combine(sets.engaged,{})
+    sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{})
+	sets.engaged.DW.PDT = set_combine(sets.engaged.PDT,{})
+    sets.engaged.DW.Refresh = set_combine(sets.engaged,{})
+	
     -- Physical Spells --
     
     sets.midcast['Blue Magic'].Physical = {ammo="Aurgelmir Orb +1",
@@ -386,7 +417,7 @@ function init_gear_sets()
     -- Magical Spells --
     
     sets.midcast['Blue Magic'].Magical = {ammo="Ghastly Tathlum +1",
-		head="Hashishin Kavuk +2",neck="Sibyl Scarf",ear1="Friomisi Earring",ear2="Hashi. Earring +1",
+		head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Friomisi Earring",ear2="Hashi. Earring +1",
 		body="Hashishin Mintan +2",hands="Hashi. Bazu. +2",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3",feet="Hashi. Basmak +2"}
     sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{body="Vanir Cotehardie",ring1="Sangoma Ring",legs="Iuitl Tights",feet="Hashishin Basmak +2"}
@@ -397,7 +428,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical,{})
     sets.midcast['Blue Magic'].Dark = set_combine(sets.midcast['Blue Magic'].Magical,{head="Pixie Hairpin +1"})
     sets.midcast['Blue Magic'].MagicAccuracy = {ammo="Ghastly Tathlum +1",
-		head="Hashishin Kavuk +2",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Hashi. Earring +1",
+		head="Hashishin Kavuk +3",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Hashi. Earring +1",
 		body="Hashishin Mintan +2",hands="Hashi. Bazu. +2",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
 		back=Rosmerta.MAB,waist="Acuity Belt +1",legs="Hashishin Tayt +2",feet="Hashi. Basmak +2"}
 	
@@ -476,28 +507,6 @@ function init_gear_sets()
     -- If you create a set with both offense and defense modes, the offense mode should be first.
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
-    -- Normal melee group
-    sets.engaged = {ammo="Coiste Bodhar",
-		head="Dampening Tam",neck="Mirage Stole +2",ear1="Dominance Earring +1",ear2="Dedition Earring",
-		body="Malignance Tabard",hands=AdhemarHands.StrDexAtk,ring1="Petrov Ring",ring2="Epona's Ring",
-		back=Rosmerta.TP,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet={ name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}}
-
-	sets.engaged.PDT = set_combine(sets.engaged,{
-		head="Malignance Chapeau",ear2="Telos Earring",
-		hands="Malignance Gloves",ring1="Defending Ring"})
-	
-    sets.engaged.Acc = set_combine(sets.engaged,{ammo="Aurgelmir Orb +1",
-		head="Malignance Chapeau",ear1="Telos Earring",ear2="Hashi. Earring +1",
-		hands="Gazu Bracelets +1",ring1="Ephramad's Ring",
-		waist="Reiki Yotai",legs="Hashishin Tayt +2"})
-    sets.engaged.Refresh = set_combine(sets.engaged,{})
-    sets.engaged.DW = set_combine(sets.engaged,{})
-    sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{})
-	sets.engaged.DW.PDT = set_combine(sets.engaged.PDT,{})
-    sets.engaged.DW.Refresh = set_combine(sets.engaged,{})
-
-
-    --sets.self_healing = {ring1="Kunaji Ring",ring2="Asklepian Ring"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
