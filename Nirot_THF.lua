@@ -161,7 +161,7 @@ function init_gear_sets()
 	Toutatis.STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Damage taken-5%',}}
 	Toutatis.WSD = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 
-    sets.TreasureHunter = {hands="Plunderer's Armlets +3",Feet="Skulker's Poulaines +2"}
+    sets.TreasureHunter = {hands="Plunderer's Armlets +3",Feet="Skulker's Poulaines +3"}
     sets.ExtraRegen = {head="Turms Cap +1",neck="Elite Royal Collar",body="Turms Harness +1",hands="Turms Mittens +1",ring1="Chirich Ring +1",legs="Turms Subligar +1",Feet="Turms Leggings +1"}
     sets.Kiting = {feet="Pillager's Poulaines +3"}
 	sets.buff['Curse'] = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
@@ -172,12 +172,12 @@ function init_gear_sets()
     sets.buff['Sneak Attack'] = {
         head=AdhemarHead.DexAgiAtk,neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Sherida Earring",
         body="Turms Harness +1",hands="Plunderer's Armlets +3",ring1="Ilabrat Ring",ring2="Gere Ring",
-        back=Toutatis.WSD,waist="Chaac Belt",legs="Plunderer's Culottes +3",Feet="Skulker's Poulaines +2"}
+        back=Toutatis.WSD,waist="Chaac Belt",legs="Plunderer's Culottes +3",Feet="Skulker's Poulaines +3"}
 
     sets.buff['Trick Attack'] = {
         head=AdhemarHead.DexAgiAtk,neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Sherida Earring",
         body="Turms Harness +1",hands="Plunderer's Armlets +3",ring1="Ilabrat Ring",ring2="Gere Ring",
-        back=Toutatis.WSD,waist="Chaac Belt",legs="Turms Subligar +1",Feet="Skulker's Poulaines +2"}
+        back=Toutatis.WSD,waist="Chaac Belt",legs="Turms Subligar +1",Feet="Skulker's Poulaines +3"}
 
     -- Actions we want to use to tag TH.
     sets.precast.Step = sets.TreasureHunter
@@ -198,7 +198,7 @@ function init_gear_sets()
     --sets.precast.JA['Steal'] = {ammo="Barathrum",neck="Pentalagus Charm",hands="Thief's Kote",legs="Assassin's Culottes",feet="Pillager's Poulaines +3"}
 	-- trying to stick to ilvl gear
     sets.precast.JA['Steal'] = {range=empty,ammo="Barathrum",neck="Pentalagus Charm",feet="Pillager's Poulaines +3"}
-    sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +2"}
+    sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +3"}
     sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
     sets.precast.JA['Feint'] = {legs="Plunderer's Culottes +3"}
     sets.precast.JA['Sneak Attack'] = sets.buff['Sneak Attack']
@@ -235,38 +235,44 @@ function init_gear_sets()
         head="Pillager's Bonnet +3",neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Moonshade Earring",
         body={ name="Herculean Vest", augments={'MND+15','"Store TP"+2','Weapon skill damage +8%',}},hands="Meghanada Gloves +2",ring1="Ilabrat Ring",ring2="Regal Ring",
         back=Toutatis.WSD,waist="Grunfeld Rope",legs="Plun. Culottes +3",feet="Nyame Sollerets"}
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {}) --{ammo="Honed Tathlum", back="Letalis Mantle"})
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.PDT = set_combine(sets.precast.WS, {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	
 	-- Exenterator: AGI:73~85%, depending on merit points ugrades. 
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {neck="Fotia Gorget",waist="Fotia Belt",back=Toutatis.WSD})
-    sets.precast.WS['Exenterator'].PDT = set_combine(sets.precast.WS['Exenterator'], {neck="Fotia Gorget",waist="Fotia Belt",back=Toutatis.WSD})
-    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Honed Tathlum", back="Letalis Mantle"})
-    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {neck="Fotia Gorget",waist="Fotia Belt"}) --{head="Felistris Mask",waist=gear.ElementalBelt})
-    sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Mod, {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Qirmiz Tathlum"})
-    sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Mod, {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Qirmiz Tathlum"})
-    sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Qirmiz Tathlum"})
-    sets.precast.WS['Exenterator'].UncappedAtk = set_combine(sets.precast.WS['Exenterator'].Mod, {legs="Plunderer's Culottes +3",Feet="Lustratio Leggings +1"})
+    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
+		head="Skulker's Bonnet +2",neck="Fotia Gorget",ear1="Odnowa Earring +1",ear2="Skulker's Earring +1",
+		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Gere Ring",
+		back=Toutatis.WSD,waist="Fotia Belt",legs="Meghanada Chausses +2",feet="Skulker's Poulaines +3"})
+    sets.precast.WS['Exenterator'].PDT = set_combine(sets.precast.WS['Exenterator'], {ring2="Defending Ring"})
+    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {})
+    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {})
+    sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Mod, {})
+    sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Mod, {})
+    sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {})
+    sets.precast.WS['Exenterator'].UncappedAtk = set_combine(sets.precast.WS['Exenterator'].Mod, {})
 
 	-- Dancing Edge: DEX:40% ; CHR:40% 
-    sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS, {})
-    sets.precast.WS['Dancing Edge'].PDT = set_combine(sets.precast.WS.PDT, {})
-    sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {neck="Fotia Gorget",waist="Fotia Belt",back=Toutatis.WSD})
-    sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {neck="Fotia Gorget",waist="Fotia Belt"}) --{waist=gear.ElementalBelt})
-    sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Qirmiz Tathlum"})
-    sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Qirmiz Tathlum"})
-    sets.precast.WS['Dancing Edge'].SATA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {neck="Fotia Gorget",waist="Fotia Belt"}) --{ammo="Qirmiz Tathlum"})
-	sets.precast.WS["Dancing Edge"].UncappedAtk = set_combine(sets.precast.WS["Dancing Edge"].Mod, {legs="Plunderer's Culottes +3",Feet="Lustratio Leggings +1"})
+    sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS, {ammo="Voluspa Tathlum",
+		head="Plunderer's Bonnet +3",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +1",
+		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Ephramad's ring",ring2="Gere Ring",
+		waist="Sailfi Belt +1",legs="Skulker's Culottes +2",feet="Skulker's Poulaines +3"})
+    sets.precast.WS['Dancing Edge'].PDT = set_combine(sets.precast.WS.PDT, {ring2="Defending Ring"})
+    sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {})
+    sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {})
+    sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {})
+    sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {})
+    sets.precast.WS['Dancing Edge'].SATA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {})
+	sets.precast.WS["Dancing Edge"].UncappedAtk = set_combine(sets.precast.WS["Dancing Edge"].Mod, {})
 
 	-- Evisceration: DEX:50% 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {ammo="Yetshila +1",
-		head="Blistering Sallet +1",neck="Fotia Gorget",
-		body="Plunderer's Vest +3",hands="Gleti's Gauntlets",ring1="Gere Ring",ring2="Defending Ring",
-		back=Toutatis.WSD,waist="Fotia Belt",legs="Skulker's Culottes +2",feet="Skulker's Poulaines +2"})
-    sets.precast.WS['Evisceration'].PDT = set_combine(sets.precast.WS['Evisceration'], {})
-    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {}) 
+		head="Skulker's Bonnet +2",neck="Fotia Gorget",
+		body="Plunderer's Vest +3",hands="Gleti's Gauntlets",ring1="Ephramad's Ring",ring2="Gere Ring",
+		back=Toutatis.WSD,waist="Fotia Belt",legs="Skulker's Culottes +2",feet="Skulker's Poulaines +3"})
+    sets.precast.WS['Evisceration'].PDT = set_combine(sets.precast.WS['Evisceration'], {ring2="Defending Ring"})
+    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
     sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {})
     sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
     sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
@@ -274,48 +280,57 @@ function init_gear_sets()
 	sets.precast.WS["Evisceration"].UncappedAtk = set_combine(sets.precast.WS["Evisceration"].Mod, {})
 	
 	-- Rudra's Storm: 80% DEX
-    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {ammo="Oshasha's Treatise",
+    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {ammo="Aurgelmir Orb +1",
 		head="Nyame Helm",neck="Assassin's Gorget +2",ear1="Dominance Earring +1",
 		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Ephramad's Ring",
-		back=Toutatis.WSD,waist="Kentarch Belt +1",legs="Skulker's Culottes +2",feet="Skulker's Poulaines +2"})
-    sets.precast.WS["Rudra's Storm"].PDT = set_combine(sets.precast.WS["Rudra's Storm"], {})
-    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {}) --{ammo="Honed Tathlum", back="Letalis Mantle"})
-    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS["Rudra's Storm"], {}) --{back="Kayapa Cape",waist=gear.ElementalBelt})
-    sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS["Rudra's Storm"].UncappedAtk = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {}) --{ammo="Qirmiz Tathlum",
+		back=Toutatis.WSD,waist="Kentarch Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"})
+    sets.precast.WS["Rudra's Storm"].PDT = set_combine(sets.precast.WS["Rudra's Storm"], {ring2="Defending Ring"})
+    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
+    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS["Rudra's Storm"], {})
+    sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
+    sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
+    sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
+    sets.precast.WS["Rudra's Storm"].UncappedAtk = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
 
 	-- Shark Bite: DEX:40% AGI:40% 
-    sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {})
-    sets.precast.WS["Shark Bite"].PDT = set_combine(sets.precast.WS.PDT, {})
-    sets.precast.WS['Shark Bite'].Acc = set_combine(sets.precast.WS['Shark Bite'], {back=Toutatis.WSD}) --{ammo="Honed Tathlum", back="Letalis Mantle"})
-    sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'], {}) --{back="Kayapa Cape",waist=gear.ElementalBelt})
-    sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS['Shark Bite'].TA = set_combine(sets.precast.WS['Shark Bite'].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'].Mod, {}) --{ammo="Qirmiz Tathlum",
-	sets.precast.WS["Shark Bite"].UncappedAtk = set_combine(sets.precast.WS["Shark Bite"].Mod, {legs="Plunderer's Culottes +3",Feet="Lustratio Leggings +1"}) 
-
+    sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
+		head="Nyame Helm",ear1="Sherida Earring",
+		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Ephramad's Ring",
+		waist="Sailfi Belt +1",legs="Nyame Flanchard"})
+    sets.precast.WS["Shark Bite"].PDT = set_combine(sets.precast.WS.PDT, {ring2="Defending Ring"})
+    sets.precast.WS['Shark Bite'].Acc = set_combine(sets.precast.WS['Shark Bite'], {})
+    sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'], {})
+    sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'].Mod, {})
+    sets.precast.WS['Shark Bite'].TA = set_combine(sets.precast.WS['Shark Bite'].Mod, {})
+    sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'].Mod, {})
+	sets.precast.WS["Shark Bite"].UncappedAtk = set_combine(sets.precast.WS["Shark Bite"].Mod, {})
 
 	-- Mandalic Stab: DEX:60% 
-    sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {neck="Assassin's Gorget +2",back=Toutatis.WSD})
-    sets.precast.WS['Mandalic Stab'].PDT = set_combine(sets.precast.WS.PDT, {neck="Assassin's Gorget +2",back=Toutatis.WSD})
-    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {}) --{ammo="Honed Tathlum", back="Letalis Mantle"})
-    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {}) --{back="Kayapa Cape",waist=gear.ElementalBelt})
-    sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS['Mandalic Stab'].SATA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {}) --{ammo="Qirmiz Tathlum",
-    sets.precast.WS['Mandalic Stab'].UncappedAtk = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {legs="Plunderer's Culottes +3",Feet="Lustratio Leggings +1"})  --{ammo="Qirmiz Tathlum",
+    sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {ammo="Crepuscular Pebble",
+		head="Skulker's Bonnet +2",ear1="Dominance Earring +1",
+		body="Skulker's Vest +2",ring1="Ephramad's Ring",ring2="Gelatinous Ring +1",
+		waist="Kentarch Belt +1",legs="Gleti's Breeches"})
+    sets.precast.WS['Mandalic Stab'].PDT = set_combine(sets.precast.WS.PDT, {ring1="Defending Ring"})
+    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {})
+    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {})
+    sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
+    sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
+    sets.precast.WS['Mandalic Stab'].SATA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
+    sets.precast.WS['Mandalic Stab'].UncappedAtk = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
 
 	-- Aeolian Edge: DEX:40%; INT:40% 
-    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {ammo="Crepuscular Pebble",
-		head="Nyame Helm",neck="Baetyl Pendant",ear1="Moonshade Earring",ear2="Friomisi Earring",
+    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
+		head="Nyame Helm",neck="Baetyl Pendant",ear1="Friomisi Earring",
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Dingir Ring",ring2="Epaminondas's Ring",
 		back=Toutatis.WSD,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"})
     sets.precast.WS['Aeolian Edge'].PDT = set_combine(sets.precast.WS['Aeolian Edge'], {})
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
 
-
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
+		head="Nyame Helm",neck="Republican Platinum Medal",ear1="Odnowa Earring +1",
+		body="Skulker's Vest +2",hands="Nyame Gauntlets",ring1="Ephramad's Ring",
+		waist="Sailfi Belt +1",legs="Nyame Flanchard"})
+	
     --------------------------------------
     -- Midcast sets
     --------------------------------------
@@ -418,9 +433,9 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {ammo="Aurgelmir Orb +1",
-        head="Malignance Chapeau",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +1",
-        body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gere Ring",
-        back=Toutatis.STP,waist="Windbuffet Belt +1",legs="Malignance Tights",feet="Malignance Boots"}
+        head="Skulker's Bonnet +2",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +1",
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonlight Ring",ring2="Gere Ring",
+        back=Toutatis.STP,waist="Reiki Yotai",legs="Malignance Tights",feet="Malignance Boots"}
     sets.engaged.Acc = set_combine(sets.engaged,{})
     sets.engaged.MeleeRegen = {
         head="Turms Cap +1",neck="Assassin's Gorget +2",ear1="Dedition Earring",ear2="Sherida Earring",
