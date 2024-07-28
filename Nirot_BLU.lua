@@ -234,7 +234,7 @@ function init_gear_sets()
     sets.buff.Convergence = {head="Luhlaza Keffiyeh +3"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
     sets.buff.Enchainment = {body="Luhlaza Jubbah +3"}
-    sets.buff.Efflux = {legs="Hashishin Tayt +2"}
+    sets.buff.Efflux = {legs="Hashishin Tayt +3"}
 	
     sets.Obis = {}
     sets.Obis.Fire = {waist='Hachirin-no-Obi'}
@@ -338,10 +338,10 @@ function init_gear_sets()
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
 		neck="Fotia Gorget",ear2="Regal Earring",
 		hands="Hashishin Bazubands +2",ring1="Epona's Ring",ring2="Metamorph Ring +1",
-		waist="Fotia Belt",legs="Hashishin Tayt +2"}) 
+		waist="Fotia Belt",legs="Hashishin Tayt +3"}) 
     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS,{ammo="Ghastly Tathlum +1",
 		head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi Earring",
-		body="Hashishin Mintan +2",hands="Hashishin Bazubands +2",ring1="Epaminondas's Ring",ring2="Archon Ring",
+		body="Hashishin Mintan +3",hands="Hashishin Bazubands +2",ring1="Epaminondas's Ring",ring2="Archon Ring",
 		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3",feet="Hashishin Basmak +2"})
 	sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS,{ammo="Aurgelmir Orb +1",
 		ear2="Telos Earring"})
@@ -350,7 +350,7 @@ function init_gear_sets()
 		
 	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS,{
 		neck="Baetyl Pendant",ear2="Regal Earring",
-		body="Hashishin Mintan +2",hands="Hashishin Bazubands +2",ring2="Beithir Ring",
+		body="Hashishin Mintan +3",hands="Hashishin Bazubands +2",ring2="Beithir Ring",
 		waist="Orpheus's Sash",legs="Luhlaza Shalwar +3"})
 	sets.precast.WS['True Strike'] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
 		head=AdhemarHead.StrDexAtk,ear1="Dominance Earring +1",ear2="Hashi. Earring +1",
@@ -362,8 +362,8 @@ function init_gear_sets()
 		ear2="Regal Earring"})
 	sets.precast.WS['Realmrazer'] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
 		neck="Fotia Gorget",ear1="Regal Earring",ear2="Telos Earring",
-		body="Hashishin Mintan +2",hands="Hashishin Bazubands +2",ring1="Metamorph Ring +1",
-		waist="Fotia Belt",legs="Hashishin Tayt +2",feet="Hashishin Basmak +2"})
+		body="Hashishin Mintan +3",hands="Hashishin Bazubands +2",ring1="Metamorph Ring +1",
+		waist="Fotia Belt",legs="Hashishin Tayt +3",feet="Hashishin Basmak +2"})
 		
     -- Midcast Sets
     --sets.midcast.FastRecast = {
@@ -373,7 +373,7 @@ function init_gear_sets()
         
 	sets.SIRD = {ammo="Staunch Tathlum +1",
 		head=TaeonHead.SIRD,neck="Loricate Torque +1",ear1="Halasz Earring",ear2="Etiolation Earring",
-		body="Hashishin Mintan +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Defending Ring",
+		body="Hashishin Mintan +3",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Defending Ring",
 		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Assim. Shalwar +2",feet="Amalric Nails +1"}
 		
     sets.midcast['Blue Magic'] = {}
@@ -391,7 +391,7 @@ function init_gear_sets()
     sets.engaged.Acc = set_combine(sets.engaged,{ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",ear1="Telos Earring",ear2="Hashi. Earring +1",
 		hands="Gazu Bracelets +1",ring1="Ephramad's Ring",
-		waist="Reiki Yotai",legs="Hashishin Tayt +2"})
+		waist="Reiki Yotai",legs="Hashishin Tayt +3"})
     sets.engaged.Refresh = set_combine(sets.engaged,{})
     sets.engaged.DW = set_combine(sets.engaged,{})
     sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{})
@@ -403,7 +403,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].Physical = {ammo="Aurgelmir Orb +1",
 		head="Luh. Keffiyeh +3",neck="Mirage Stole +2",ear1="Telos Earring",ear2="Hashi. Earring +1",
 		body="Luhlaza Jubbah +3",hands="Luh. Bazubands +3",ring1="Stikini Ring +1",ring2="Ilabrat Ring",
-		back=Rosmerta.WS,waist="Sailfi Belt +1",legs="Hashishin Tayt +2",feet="Luhlaza Charuqs +3"}
+		back=Rosmerta.WS,waist="Sailfi Belt +1",legs="Hashishin Tayt +3",feet="Luhlaza Charuqs +3"}
     sets.midcast['Blue Magic'].PhysicalAcc = set_combine(sets.engaged.Acc,{})
     sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,{}) --{body="Iuitl Vest",hands="Assimilator's Bazubands +1"}
     sets.midcast['Blue Magic'].PhysicalDex = set_combine(sets.midcast['Blue Magic'].Physical,{}) --{ammo="Jukukik Feather",body="Iuitl Vest",hands="Assimilator's Bazubands +1",waist="Chaac Belt",legs="Manibozho Brais"}
@@ -418,7 +418,7 @@ function init_gear_sets()
     
     sets.midcast['Blue Magic'].Magical = {ammo="Ghastly Tathlum +1",
 		head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Friomisi Earring",ear2="Hashi. Earring +1",
-		body="Hashishin Mintan +2",hands="Hashi. Bazu. +2",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+		body="Hashishin Mintan +3",hands="Hashi. Bazu. +2",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3",feet="Hashi. Basmak +2"}
     sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{body="Vanir Cotehardie",ring1="Sangoma Ring",legs="Iuitl Tights",feet="Hashishin Basmak +2"}
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{ring1="Aquasoul Ring"}
@@ -429,8 +429,8 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].Dark = set_combine(sets.midcast['Blue Magic'].Magical,{head="Pixie Hairpin +1"})
     sets.midcast['Blue Magic'].MagicAccuracy = {ammo="Ghastly Tathlum +1",
 		head="Hashishin Kavuk +3",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Hashi. Earring +1",
-		body="Hashishin Mintan +2",hands="Hashi. Bazu. +2",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-		back=Rosmerta.MAB,waist="Acuity Belt +1",legs="Hashishin Tayt +2",feet="Hashi. Basmak +2"}
+		body="Hashishin Mintan +3",hands="Hashi. Bazu. +2",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
+		back=Rosmerta.MAB,waist="Acuity Belt +1",legs="Hashishin Tayt +3",feet="Hashi. Basmak +2"}
 	
     -- Breath Spells --
     
@@ -475,8 +475,8 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {ammo="Staunch Tathlum +1",
 		head=HercHead.Refresh,neck="Elite Royal Collar",ear1="Ethereal Earring",ear2="Etiolation Earring",
-		body="Hashishin Mintan +2",hands=HercHands.Refresh,ring1="Chirich Ring +1",ring2="Defending Ring",
-		back="Engulfer Cape +1",waist="Flume Belt +1",legs="Hashishin Tayt +2",feet=HercFeet.Refresh}
+		body="Hashishin Mintan +3",hands=HercHands.Refresh,ring1="Chirich Ring +1",ring2="Defending Ring",
+		back="Engulfer Cape +1",waist="Flume Belt +1",legs="Hashishin Tayt +3",feet=HercFeet.Refresh}
 
     sets.idle.PDT = set_combine(sets.idle,{})	
     sets.idle.Town = sets.idle
