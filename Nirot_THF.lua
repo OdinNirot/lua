@@ -357,7 +357,9 @@ function init_gear_sets()
         --body="Iuitl Vest",hands="Buremte Gloves",ring1="Beeline Ring",ring2="Hajduk Ring",
         --back="Libeccio Mantle",waist="Aquiline Belt",legs="Thurandaut Tights +1",feet="Pillager's Poulaines +3"}
 
-
+	sets.midcast['Poisonga'] = set_combine(sets.precast.FC,sets.TreasureHunter)
+	sets.midcast['Aspir'] = set_combine(sets.precast.FC,sets.TreasureHunter)
+		
     --------------------------------------
     -- Idle/resting/defense sets
     --------------------------------------
