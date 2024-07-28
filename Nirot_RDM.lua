@@ -53,55 +53,57 @@ function job_setup()
 	magic_maps.skillmndpot = S{
 		'Distract','Distract II','Distract III','Frazzle III'
 	}
-	
+
 	magic_maps.macc = S{
 		'Sleep','Sleep II','Sleepga','Silence','Inundation',
 		'Dispel','Dispelga','Break','Bind','Frazzle','Frazzle II'
 	}
-	
+
 	magic_maps.intpot = S{
 		'Blind','Blind II'
 	}
-	
+
 	magic_maps.skillpot = S{
 		'Poison','Poison II','Poisonga','Poisonga II'
 	}
-	
+
 	magic_maps.Impact = S{
 		'Impact'
 	}
-	
+
 	magic_maps.Nuke = S{
 		'Aero','Aero II','Aero III','Aero IV','Aero V','Aero VI','Aeroga','Aeroga II','Aeroga III','Aeroja','Aerora','Aerora II','Aerora III','Anemohelix','Anemohelix II','Blizzaga','Blizzaga II','Blizzaga III','Blizzaja','Blizzara','Blizzara II','Blizzara III','Blizzard','Blizzard II','Blizzard III','Blizzard IV','Blizzard V','Blizzard VI','Burn','Burst','Burst II','Comet','Cryohelix','Cryohelix II','Drown','Fira','Fira II','Fira III','Firaga','Firaga II','Firaga III','Firaja','Fire','Fire II','Fire III','Fire IV','Fire V','Fire VI','Flare','Flare II','Flood','Flood II','Freeze','Freeze II','Frost','Geohelix','Geohelix II','Hydrohelix','Hydrohelix II','Ionohelix','Ionohelix II','Luminohelix','Luminohelix II','Meteor','Noctohelix','Noctohelix II','Pyrohelix','Pyrohelix II','Quake','Quake II','Rasp','Shock','Stone','Stone II','Stone III','Stone IV','Stone V','Stone VI','Stonega','Stonega II','Stonega III','Stoneja','Stonera','Stonera II','Stonera III','Thundaga','Thundaga II','Thundaga III','Thundaja','Thundara','Thundara II','Thundara III','Thunder','Thunder II','Thunder III','Thunder IV','Thunder V','Thunder VI','Tornado','Tornado II','Water','Water II','Water III','Water IV','Water V','Water VI','Watera','Watera II','Watera III','Waterga','Waterga II','Waterga III','Waterja'
 	}
-	
+
 	-- defining these here instead of depending on the includes file to do it
 	magic_maps.RefreshSpells = S{
 		'Refresh','Refresh II','Refresh III'
 	}
-    	
+
 	magic_maps.BarSpells = S{
-	'Barfire','Barblizzard','Baraero','Barstone','Barthunder','Barwater','Barsleep','Barpoison','Barparalyze','Barblind','Barsilence','Barpetrify','Barvirus','Baramnesia','Barfira','Barblizzara','Baraera','Barstonra','Barthundra','Barwatera','Barsleepra','Barpoisonra','Barparalyzra','Barblindra','Barsilencera','Barpetra','Barvira','Baramnesra'	
+		'Barfire','Barblizzard','Baraero','Barstone','Barthunder','Barwater','Barsleep','Barpoison','Barparalyze','Barblind','Barsilence','Barpetrify','Barvirus','Baramnesia','Barfira','Barblizzara','Baraera','Barstonra','Barthundra','Barwatera','Barsleepra','Barpoisonra','Barparalyzra','Barblindra','Barsilencera','Barpetra','Barvira','Baramnesra'
 	}
-	
+
 	magic_maps.GainSpells = S{
-	'Gain-STR','Gain-STR','Gain-DEX','Gain-VIT','Gain-AGI','Gain-INT','Gain-MND','Gain-CHR'
+		'Gain-STR','Gain-STR','Gain-DEX','Gain-VIT','Gain-AGI','Gain-INT','Gain-MND','Gain-CHR'
 	}
-			
+
 	magic_maps.EnhancingSkill = S{
 		'Aquaveil','Blaze Spikes','Enaero','Enaero II','Enblizzard','Enblizzard II','Enfire','Enfire II','Enstone','Enstone II','Enthunder','Enthunder II','Enwater','Enwater II','Ice Spikes','Phalanx','Phalanx II','Shock Spikes','Temper','Temper II'
 	}	
-	
+
 	magic_maps.NoEnhancingSkill = S{
 		'Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II'
 	}
+
 	magic_maps.RegenSpells = S{
 		'Regen','Regen II'
 	}	
-			
-	magic_maps.ImmunobreakSpells = S{
-		'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II'
+
+	ImmunobreakSpells = S{
+		'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II','Silence'
 	}
+
 	state.TreasureMode:set('Tag')
 	
 	--spell element reference:
@@ -368,12 +370,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         --equip(sets.aftercast.Idle,sets.aftercast[tp_level])
         weathercheck(spell.element,sets.midcast[spell.skill])
     end
-	
-	if spellMap == 'ImmunobreakSpells' and state.Immunobreak.value then
+		
+    if state.Immunobreak.value and ImmunobreakSpells:contains(spell.english) then
 		equip(sets.Immunobreak)
 	end
-	
-	
+
 end
 
 -- function to interpet the spell maps
