@@ -444,7 +444,7 @@ function init_gear_sets()
 	sets.midcast.ballad = set_combine(sets.midcast.songs,{})  --prefer to keen inyanga shalwar for longer duration, else legs="Fili Rhingrave +3" would be a good choice
 	sets.midcast.carol = set_combine(sets.midcast.songs,{})
 	sets.midcast.elegy = set_combine(sets.midcast.songs,{})
-	sets.midcast.etude = set_combine(sets.midcast.songs,{})
+	sets.midcast.etude = set_combine(sets.midcast.songs,{head="Mousai Turban +1"})
 	sets.midcast.finale = set_combine(sets.midcast.songs,{})
 	sets.midcast.hymnus = set_combine(sets.midcast.songs,{})
 	
