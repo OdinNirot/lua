@@ -156,8 +156,26 @@ function init_gear_sets()
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {ammo="Hasty Pinion +1",
 		head="Nyame Helm",neck="Combatant's Torque",ear1="Moonshade Earring",ear2="Dominance Earring +1",
-        body="Ayanmo Corazza +2",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Ayanmo Ring",
+        body="Nyame Mail",hands="Gazu Bracelets +1",ring1="Cornelia's Ring",ring2="Epaminondas's Ring",
         back=Alaunus.DA,waist="Eschan Stone",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {ammo="Oshasha's Treatise",
+		neck="Republican Platinum Medal",ear2="Regal Earring",
+		hands="Nyame Gauntlets",
+		waist="Prosilio Belt +1"})
+	sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS, {ammo="Crepuscular Pebble",
+		head="Blistering Sallet +1",neck="Fotia Gorget",ear1="Odnowa Earring +1",ear2="Brutal Earring",
+		hands="Gazu Bracelets +1",ring2="Hetairoi Ring",
+		waist="Fotia Belt"})
+	sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {ammo="Oshasha's Treatise",
+		neck="Republican Platinum Medal",ear1="Moonshade Earring",ear2="Regal Earring",
+		hands="Nyame Gauntlets",
+		waist="Prosilio Belt +1"})
+	sets.precast.WS['Realmrazer'] = set_combine(sets.precast.WS, {ammo="Hasty Pinion +1",
+		neck="Fotia Gorget",ear1="Telos Earring",
+		hands="Bunzi's Gloves",ring2="Metamorph Ring +1",
+		waist="Fotia Belt"})
+	
+	
 	sets.precast.WS.PDT = sets.precast.WS
     
     --sets.precast.WS['Flash Nova'] = {
@@ -169,9 +187,9 @@ function init_gear_sets()
     -- Midcast Sets
 	
     sets.midcast.FastRecast = {
-        head="Cath Palug Crown",ear2="Loquacious Earring",
+        head="Ebers Cap +3",ear2="Loquacious Earring",
         body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Rahab Ring",ring2="Kishar Ring",
-        back="Swith Cape +1",waist="Witful Belt",legs="Kaykaus Tights +1",feet=TelFeet.Duration}
+        back="Swith Cape +1",waist="Witful Belt",legs="Volte Brais",feet="Volte Gaiters"}
     
 	sets.midcast.SIRD = {ammo="Staunch Tathlum +1",
 		head="Ebers Cap +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Nourishing Earring +1",
@@ -350,9 +368,9 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {ammo="Crepuscular Pebble",
-		head="Ayanmo Zucchetto +2",neck="Combatant's Torque",ear1="Dominance Earring +1",ear2="Odnowa Earring +1",
-        body="Ayanmo Corazza +2",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Cacoethic Ring +1",
-        back=Alaunus.DA,waist="Eschan Stone",legs="Bunzi's Pants",feet="Nyame Sollerets"}
+		head="Ayanmo Zucchetto +2",neck="Lissome Necklace",ear1="Dedition Earring",ear2="Brutal Earring",
+        body="Ayanmo Corazza +2",hands="Gazu Bracelets +1",ring1="Petrov Ring",ring2="Chirich Ring +1",
+        back=Alaunus.DA,waist="Windbuffet Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.engaged.PDT = set_combine(sets.engaged,{ring2="Defending Ring"})
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
