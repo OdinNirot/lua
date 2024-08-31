@@ -114,10 +114,10 @@ function init_gear_sets()
 		body="Lethargy Sayon +3",hands="Gazu Bracelets +1",ring2="Cacoethic Ring +1",
 		back=Sucellos.Normal,waist="Kentarch Belt +1",legs="Leth. Fuseau +3",feet="Leth. Houseaux +3"})
 		
-	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {ammo="Voluspa Tathlum",
-		head="Lethargy Chappel +3",neck="Combatant's Torque",ear1="Moonshade Earring",ear2="Dominance Earring +1",
-		body="Lethargy Sayon +3",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Cacoethic Ring +1",
-		back=Sucellos.Normal,waist="Kentarch Belt +1",legs="Leth. Fuseau +3",feet="Leth. Houseaux +3"})
+	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
+		ear1="Moonshade Earring",ear2="Dominance Earring +1",
+		ring2="Cornelia's Ring",
+		back=Sucellos.Normal,waist="Kentarch Belt +1",feet="Leth. Houseaux +3"})
 		
 
 	sets.midcast['Enfeebling Magic'] = {}
@@ -195,10 +195,10 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee group
-	sets.engaged = {ammo="Aurgelmir Orb +1",
-		head="Malignance Chapeau",neck="Combatant's Torque",ear1="Sherida Earring",ear2="Lethargy Earring +1",
-		body="Malignance Tabard",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Chirich Ring +1",
-		back=Sucellos.Normal,waist="Kentarch Belt +1",legs="Malignance Tights",feet="Malignance Boots"}
+	sets.engaged = {ammo="Coiste Bodhar",
+		head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Dedition Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Ilabrat Ring",ring2="Chirich Ring +1",
+		back=Sucellos.Normal,waist="Windbuffet Belt +1",legs="Malignance Tights",feet="Malignance Boots"}
 	sets.engaged.PDT = set_combine(sets.engaged,{neck="Loricate Torque +1",ring1="Defending Ring"})
 	sets.engaged.DW = set_combine(sets.engaged,{ear1="Suppanomimi",ear2="Eabani Earring",waist="Reiki Yotai",legs="Carmine Cuisses +1"})
 	sets.engaged.DW.PDT = set_combine(sets.engaged.DW,sets.engaged.PDT)

@@ -178,37 +178,42 @@ function init_gear_sets()
     -- legs={name="Quiahuiz Trousers", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','STR+8'}}}
 
     sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
-		ear1="Schere Earring",
-		body="Mpaca's Doublet",hands="Bhikku Gloves +3"})
+		neck="Republican Platinum Medal",ear1="Schere Earring",
+		body="Nyame Mail",hands="Bhikku Gloves +3",
+		legs="Nyame Flanchard",feet="Nyame Sollerets"})
     sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {ammo="Crepuscular Pebble",
-		neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Schere Earring",
-		body="Tatenashi Haramaki +1",hands="Bhikku Gloves +3"})
-    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {ammo="Knobkierrie",
-		head="Bhikku Crown +2",ear1="Schere Earring",ear2="Bhikku Earring +1",
-		body="Bhikku Cyclas +3",hands="Bhikku Gloves +3",ring1="Regal Ring",ring2="Ephramad's Ring",
-		waist="Fotia Belt",legs="Bhikku Hose +3",feet="Bhikku Gaiters +3"})
+		neck="Monk's Nodowa +2",ear1="Moonshade Earring",ear2="Schere Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",feet="Nyame Sollerets"})
+    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
+		head="Hesychast's Crown +3",ear1="Schere Earring",ear2="Odnowa Earring +1",
+		body="Nyame Mail",hands="Bhikku Gloves +3",ring1="Regal Ring",ring2="Gere Ring",
+		waist="Fotia Belt",legs="Nyame Flanchard",feet="Bhikku Gaiters +3"})
     sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS,{
-		ear1="Odr Earring",ear2="Schere Earring",
-		body="Mpaca's Doublet",hands="Bhikku Gloves +3"})
+		head="Adhemar Bonnet +1",ear1="Odr Earring",ear2="Schere Earring",
+		body="Mpaca's Doublet"})
     sets.precast.WS['Shijin Spiral']  = set_combine(sets.precast.WS, {
-		head="Bhikku Crown +2",ear2="Schere Earring",
-		body="Mpaca's Doublet",hands="Bhikku Gloves +3"})
+		ear2="Schere Earring",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.precast.WS['Shijin Spiral'].NotAttackCapped = sets.precast.WS['Shijin Spiral']
 	sets.precast.WS['Shijin Spiral'].Accuracy = set_combine(sets.precast.WS['Shijin Spiral'],{})
     sets.precast.WS["Spinning Attack"] = set_combine(sets.precast.WS,{ammo="Voluspa Tathlum",
 		ear2="Schere Earring",
-		body="Mpaca's Doublet",hands="Bhikku Gloves +3"})
+		body="Nyame Mail",hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",feet="Nyame Sollerets"})
     sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
-		head="Kendatsuba Jinpachi +1",ear2="Schere Earring",
-		body="Mpaca's Doublet",hands="Bhikku Gloves +3",ring1="Ephramad's Ring"})
+		ear2="Schere Earring",
+		body="Nyame Mail",hands="Bhikku Gloves +3",
+		waist="Fotia Belt",feet="Nyame Sollerets"})
     sets.precast.WS["Combo"] = set_combine(sets.precast.WS,{
-		head="Mpaca's Cap",ear1="Moonshade Earring",ear2="Schere Earring",
-		body="Mpaca's Doublet",hands="Bhikku Gloves +3",
-		legs="Tatenashi Haidate +1",feet="Nyame Sollerets"})
+		ear1="Moonshade Earring",ear2="Schere Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",feet="Nyame Sollerets"})
 		
 	sets.precast.WS['Final Heaven'] = set_combine(sets.precast.WS, {ammo="Knobkierrie",
-		head="Hes. Crown +3",neck="Fotia Gorget",ear1="Odnowa Earring +1",ear2="Schere Earring",
-		body="Bhikku Cyclas +3",hands="Bhikku Gloves +3",ring1="Gelatinous Ring +1",
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Schere Earring",ear2="Bhikku Earring +1",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
 		legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	
     --sets.precast.WS['Dragon Kick']     = {}
@@ -291,7 +296,7 @@ function init_gear_sets()
 		body="Malignance Tabard",ring2="Niqmaddu Ring"})
 	sets.engaged.MaxAccuracy = set_combine(sets.engaged.SomeAccuracy,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
-		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring"})
+		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring"})
 	-- Subtle Blow and Subtle Blow II individually cap at 50% each, and cap at 75% combined.
 	sets.engaged.SubtleBlow = set_combine(sets.engaged,{head="Ken. Jinpachi +1",hands="Malignance Gloves",body="Malignance Tabard",ring2="Niqmaddu Ring",feet="Ken. Sune-Ate +1"})
 	
@@ -301,7 +306,7 @@ function init_gear_sets()
 	sets.engaged.SomeAccuracy.DT = set_combine(sets.engaged.DT,{})
 	sets.engaged.MaxAccuracy.DT = set_combine(sets.engaged.SomeAccuracy.DT,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
-		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		feet="Tatenashi Sune-Ate +1"})
 	sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
 		
@@ -310,7 +315,7 @@ function init_gear_sets()
 	sets.engaged.Impetus.SomeAccuracy = set_combine(sets.engaged.Impetus,{ear2="Telos Earring",ring2="Niqmaddu Ring"})
 	sets.engaged.Impetus.MaxAccuracy = set_combine(sets.engaged.Impetus.SomeAccuracy,{ammo="Ginsen",
 		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
-		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring"})
+		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring"})
 	sets.engaged.Impetus.SubtleBlow = set_combine(sets.engaged.SubtleBlow,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
 	sets.engaged.Impetus.SomeAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy,{feet="Bhikku Gaiters +3"})

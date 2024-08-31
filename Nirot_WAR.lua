@@ -158,7 +158,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Knobkierrie",
 		head="Agoge Mask +3",neck="War. Beads +2",ear1="Moonshade Earring",ear2="Thrud Earring",
-		body="Nyame Mail",hands="Boii Mufflers +3",ring1="Ephramad's Ring",ring2="Niqmaddu Ring",
+		body="Nyame Mail",hands="Boii Mufflers +3",ring1="Cornelia's Ring",ring2="Niqmaddu Ring",
 		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.NotAttackCapped = sets.precast.WS
 	sets.precast.WS.Accuracy = set_combine(sets.precast.WS,{neck="Vim Torque +1"})
@@ -170,66 +170,71 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.
     sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS,{ammo="Knobkierrie",
-		head="Boii Mask +3",
-		hands="Boii Mufflers +3",ring1="Gelatinous Ring +1",ring2="Niqmaddu Ring",
-		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Boii Cuisses +3"})
+		head="Agoge Mask +3",
+		hands="Nyame Gauntlets",
+		back=Cichol.WSDVit,waist="Sailfi Belt +1"})
 	sets.precast.WS['Upheaval'].HighTP = set_combine(sets.precast.WS['Upheaval'],{
-		head="Agoge Mask +3",ear1="Lugra Earring +1",
-		body="Boii Lorica +3",ring1="Gelatinous Ring +1",
-		legs="Nyame Flanchard"})
+		ear1="Lugra Earring +1",
+		ring2="Regal Ring"})
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS,{ammo="Yetshila +1",
 		head="Boii Mask +3",ear1="Schere Earring",ear2="Boii Earring +2",
-		body="Hjarrandi Breast.",ring1="Ephramad's Ring",
+		body="Sakpata's Breastplate",hands="Nyame Gauntlets",
 		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
     sets.precast.WS["Fell Cleave"] = set_combine(sets.precast.WS,{
-		ear1="Schere Earring",ear1="Schere Earring",
-		ring1="Gelatinous Ring +1"})
+		ear1="Schere Earring",
+		hands="Nyame Gauntlets"})
     sets.precast.WS["Metatron Torment"] = set_combine(sets.precast.WS,{
 		ear1="Schere Earring",
-		ring1="Gelatinous Ring +1",
-		legs="Nyame Flanchard"})
+		hands="Nyame Gauntlets"})
 	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS,{
-		body="Sakpata's Breastplate",ring2="Defending Ring",
-		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
+		head="Sakpata's Helm",
+		hands="Nyame Gauntlets",ring2="Sroda Ring",
+		legs="Boii Cuisses +3"})
 		
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS,{
-		hands="Boii Mufflers +3",ring1="Ephramad's Ring",ring2="Defending Ring"})
+		hands="Nyame Gauntlets",ring2="Sroda Ring"})
 		
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS,{
-		ear2="Boii Earring +2",
-		body="Hjarrandi Breast.",
+		head="Blistering Sallet +1",ear2="Boii Earring +2",
+		hands="Nyame Gauntlets",
 		feet="Boii Calligae +3"})
     sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS,{ammo="Yetshila +1",
 		head="Boii Mask +3",ear2="Boii Earring +2",
-		body="Hjarrandi Breast.",
 		legs="Boii Cuisses +3",feet="Boii Calligae +3"})
 		
 	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS,{ammo="Seeth. Bomblet +1",
 		head="Nyame Helm",neck="Baetyl Pendant",ear2="Friomisi Earring",
-		hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Beithir Ring",
+		hands="Nyame Gauntlets",ring2="Epaminondas's Ring",
 		waist="Orpheus's Sash"})
+	sets.precast.WS["Calamity"] = set_combine(sets.precast.WS,{
+		hands="Nyame Gauntlets",ring2="Regal Ring"})
 		
 	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
-		head="Boii Mask +3",neck="Fotia Gorget",ear2="Schere Earring",
-		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",
-		waist="Fotia Belt",legs="Boii Cuisses +3",feet="Sakpata's Leggings"})
+		head="Boii Mask +3",ear2="Schere Earring",
+		hands="Sakpata's Gauntlets",ring1="Sroda Ring",
+		waist="Fotia Belt",legs="Boii Cuisses +3"})
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS,{
-		head="Sakpata's Helm",ear1="Schere Earring",
-		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",
+		head="Nyame Helm",neck="Fotia Gorget",
+		hands="Nyame Gauntlets",ring2="Sroda Ring",
 		waist="Fotia Belt",legs="Boii Cuisses +3"})
 	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS,{
-		head="Boii Mask +3",neck="Fotia Gorget",ear1="Schere Earring",ear2="Boii Earring +2",
+		head="Agoge Mask +3",neck="Fotia Gorget",ear1="Schere Earring",ear2="Boii Earring +2",
+		hands="Nyame Gauntlets",
 		waist="Fotia Belt"})
 		
-	sets.precast.WS["Judgment"] = set_combine(sets.precast.WS["Savage Blade"],{})
+	sets.precast.WS["Judgment"] = set_combine(sets.precast.WS["Savage Blade"],{
+		head="Agoge Mask +3",
+		hands="Nyame Gauntlets",ring2="Regal Ring"})
 	sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"],{
-		head="Boii Mask +3",
+		head="Nyame Helm",
 		ring2="Regal Ring"})
 	sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Ground Strike"],{ammo="Yetshila +1",
-		waist="Sailfi Belt +1",feet="Boii Calligae +3"})
+		ear1="Schere Earring",
+		hands="Sakpata's Gauntlets",ring1="Niqmaddu Ring",
+		waist="Fotia Belt",feet="Boii Calligae +3"})
 	sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Shockwave"],{ammo="Seeth. Bomblet +1",
 		ear2="Thrud Earring",
-		ring2="Metamorph Ring +1"})
+		ring1="Regal Ring",ring2="Metamorph Ring +1"})
 	
     
     -- Midcast Sets
@@ -288,7 +293,7 @@ function init_gear_sets()
      sets.engaged.GreatSword.SomeAccuracy = set_combine(sets.engaged.GreatSword, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
      sets.engaged.GreatSword.MaxAccuracy = set_combine(sets.engaged.GreatSword.SomeAccuracy, {ammo="Seeth. Bomblet +1",
 		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
-		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
 	 sets.engaged.GreatSword.SubtleBlow = set_combine(sets.engaged.GreatSword,{head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
 	 
@@ -297,7 +302,7 @@ function init_gear_sets()
      sets.engaged.GreatAxe.SomeAccuracy = set_combine(sets.engaged.GreatAxe, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
      sets.engaged.GreatAxe.MaxAccuracy = set_combine(sets.engaged.GreatAxe.SomeAccuracy, {ammo="Seeth. Bomblet +1",
 		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
-		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
 	 sets.engaged.GreatAxe.SubtleBlow = set_combine(sets.engaged.GreatAxe,{head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
 	 
@@ -307,13 +312,13 @@ function init_gear_sets()
      sets.engaged.Polearm.SomeAccuracy = set_combine(sets.engaged.Polearm, {ammo="Antitail +1",waist="Ioskeha Belt +1"})
      sets.engaged.Polearm.MaxAccuracy = set_combine(sets.engaged.Polearm.SomeAccuracy, {ammo="Seeth. Bomblet +1",
 		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
-		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
 	 sets.engaged.Polearm.SubtleBlow = set_combine(sets.engaged.Polearm,{head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
 	 
      sets.engaged.DWOneHaxe = set_combine(sets.engaged, {ammo="Seeth. Bomblet +1",
 		ear1="Dominance Earring +1",ear2="Schere Earring",
-		hands="Tatenashi Gote +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		hands="Tatenashi Gote +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.DWOneHaxe.SomeAccuracy = set_combine(sets.engaged.DWOneHaxe, {})
      sets.engaged.DWOneHaxe.MaxAccuracy = set_combine(sets.engaged.DWOneHaxe.SomeAccuracy, {})
@@ -328,7 +333,7 @@ function init_gear_sets()
 	 
      sets.engaged.DWOneHsword = set_combine(sets.engaged, {ammo="Seeth. Bomblet +1",
 		ear1="Dominance Earring +1",ear2="Schere Earring",
-		hands="Tatenashi Gote +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		hands="Tatenashi Gote +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.DWOneHsword.SomeAccuracy = set_combine(sets.engaged.DWOneHsword, {})
      sets.engaged.DWOneHsword.MaxAccuracy = set_combine(sets.engaged.DWOneHsword.SomeAccuracy, {})
@@ -342,14 +347,13 @@ function init_gear_sets()
 		feet="Flamma Gambieras +2"})
      sets.engaged.OneHsword.MaxAccuracy = set_combine(sets.engaged.OneHsword.SomeAccuracy, {
 		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
-		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.OneHsword.SubtleBlow = set_combine(sets.engaged.OneHsword, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})	 
 	 
-     sets.engaged.DWClub = set_combine(sets.engaged, {ammo="Seeth. Bomblet +1",
-		ear1="Dominance Earring +1",ear2="Schere Earring",
-		hands="Tatenashi Gote +1",ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
-		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
+     sets.engaged.DWClub = set_combine(sets.engaged, {ammo="Coiste Bodhar",
+		ear1="Dedition Earring",ear2="Schere Earring",
+		body="Boii Lorica +3",ring1="Chirich Ring +1"})
      sets.engaged.DWClub.SomeAccuracy = set_combine(sets.engaged.DWClub, {})
      sets.engaged.DWClub.MaxAccuracy = set_combine(sets.engaged.DWClub.SomeAccuracy, {})
      sets.engaged.DWClub.SubtleBlow = set_combine(sets.engaged.DWClub, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
@@ -362,7 +366,7 @@ function init_gear_sets()
 		feet="Flamma Gambieras +2"})
      sets.engaged.Club.MaxAccuracy = set_combine(sets.engaged.Club.SomeAccuracy, {
 		head="Boii Mask +3",ear1="Dominance Earring +1",ear2="Schere Earring",
-		ring1="Cacoethic Ring +1",ring2="Ephramad's Ring",
+		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"})
      sets.engaged.Club.SubtleBlow = set_combine(sets.engaged.Club, {head="Hjarrandi Helm",neck="Bathy Choker +1",body="Dagon Breast.",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",legs="Sakpata's Cuisses",feet="Volte Spats"})
 

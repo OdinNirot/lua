@@ -292,53 +292,54 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo=gear.RAbullet ,
         head="Malignance Chapeau",neck="Combatant's Torque",ear1="Odr Earring",ear2="Moonshade Earring",
-	    body="Laksa. Frac +3",hands="Chasseur's Gants +3",ring1="Epaminondas's Ring",ring2="Ephramad's Ring",
+	    body="Laksa. Frac +3",hands="Chasseur's Gants +3",ring1="Epaminondas's Ring",ring2="Cornelia's Ring",
 	    back=Camulus.WSDMagi,waist="K. Kachina Belt +1",legs="Nyame Flanchard",feet="Lanun Bottes +3"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	
 	sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS,{
-		neck="Comm. Charm +2",
+		head="Nyame Helm",neck="Comm. Charm +2",
 		body="Nyame Mail",ring1="Regal Ring",
-		waist="Fotia Belt"})
+		waist="Fotia Belt",feet="Nyame Sollerets"})
     sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {})
 	
 	sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS, {ammo=gear.MAbullet,
         head="Nyame Helm",neck="Comm. Charm +2",ear1="Friomisi Earring",ear2="Crematio Earring",
-	    body="Lanun Frac +3",hands="Nyame Gauntlets",ring2="Dingir Ring",
+	    body="Lanun Frac +3",hands="Nyame Gauntlets",ring1="Dingir Ring",
 	    back=Camulus.WSDMagi,waist="Orpheus's Sash"})
     sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {
-		head="Pixie Hairpin +1",ear1="Odnowa Earring +1",ear2="Moonshade Earring",
-		hands="Nyame Gauntlets",
+		head="Pixie Hairpin +1",ear1="Friomisi Earring",ear2="Moonshade Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",
 		waist="Orpheus's Sash",legs="Nyame Flanchard"})
 	sets.precast.WS['Hot Shot'] = set_combine(sets.precast.WS['Wildfire'], {
 		neck="Fotia Gorget",ear2="Moonshade Earring",
-		body="Nyame Mail",hands="Chasseur's Gants +3"})
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring"})
 	
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
 		head=AdhemarHead.StrDexAtk,neck="Fotia Gorget",
-		body="Meghanada Cuirie +2",hands="Mummu Wrists +2",ring1="Defending Ring",
-		waist="Fotia Belt",legs="Chasseur's Culottes +3",feet="Mummu Gamashes +2"})
+		body="Meghanada Cuirie +2",hands="Malignance Gloves",ring1="Defending Ring",ring2="Epona's Ring",
+		waist="Fotia Belt",feet="Mummu Gamashes +2"})
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Wildfire'], {
-		neck="Baetyl Pendant",ear2="Moonshade Earring"})
+		neck="Baetyl Pendant",ear2="Crematio Earring",
+		ring1="Epaminondas's Ring"})
 	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS['Wildfire'], {
-		neck="Republican Platinum Medal",ear1="Dominance Earring +1",
-		body="Nyame Mail",hands="Chasseur's Gants +3",ring1="Ephramad's Ring",ring2="Regal Ring",
+		neck="Republican Platinum Medal",ear1="Dominance Earring +1",ear2="Odr Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Regal Ring",
 		waist="Kentarch Belt +1",feet="Nyame Sollerets"})
 
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-		head="Nyame Helm",neck="Rep. Plat. Medal",
-		body="Nyame Mail",ring1="Regal Ring",
+		head="Nyame Helm",neck="Rep. Plat. Medal",ear1="Brutal Earring",ear2="Balder Earring +1",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Sroda Ring",
 		waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {})
 	sets.precast.WS['Swift Blade'] = set_combine(sets.precast.WS, {
-		neck="Fotia Gorget",ear1="Brutal Earring",ear2="Balder Earring +1",
-		body="Nyame Mail",ring1="Regal Ring",
-		waist="Sailfi Belt +1",feet="Nyame Sollerets"})
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Balder Earring +1",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Regal Ring",ring2="Sroda Ring",
+		waist="Fotia Belt",feet="Nyame Sollerets"})
 	sets.precast.WS['Swift Blade'].Acc = set_combine(sets.precast.WS['Swift Blade'], {})
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS['Swift Blade'], {
-		head="Nyame Helm",ear1="Cessance Earring",
-		ring1="Metamorph Ring +1",
+		head="Nyame Helm",ear1="Brutal Earring",
+		ring1="Metamorph Ring +1",ring2="Regal Ring",
 		waist="Fotia Belt"})
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {})
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {})
@@ -375,14 +376,14 @@ function init_gear_sets()
     sets.Kiting = {ring2="Shneddick Ring +1"}
 
 
-    sets.engaged = {
-        head={ name="Dampening Tam", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Quadruple Attack +3',}},neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",
-	    body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-	    back=Camulus.DW,waist="Windbuffet Belt +1",legs="Chasseur's Culottes +3",feet=HercFeet.TripleAtk}
-    sets.engaged.LowAcc = set_combine(sets.engaged, {})
-    sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {ring2="Cacoethic Ring +1"})
-    sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {ear1="Dominance Earring +1"})
-    sets.engaged.STP = set_combine(sets.engaged, {})
+	sets.engaged = {
+		head={ name="Dampening Tam", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Quadruple Attack +3',}},neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",
+		body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back=Camulus.DW,waist="Windbuffet Belt +1",legs="Chasseur's Culottes +3",feet=HercFeet.TripleAtk}
+	sets.engaged.LowAcc = set_combine(sets.engaged, {})
+	sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {ring2="Cacoethic Ring +1"})
+	sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {ear1="Dominance Earring +1"})
+	sets.engaged.STP = set_combine(sets.engaged, {})
 	sets.engaged.PDT = set_combine(sets.engaged, {head="Chass. Tricorne +3",hands="Malignance Gloves",feet="Malignance Boots"})
 
     -- * DNC Subjob DW Trait: +15%

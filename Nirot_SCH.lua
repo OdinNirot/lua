@@ -287,10 +287,15 @@ function init_gear_sets()
     gear.default.weaponskill_neck = "" --"Asperity Necklace"
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {ammo="Sroda Tathlum",
-		head="Pixie Hairpin +1",neck="Combatant's Torque",ear1="Moonshade Earring",ear2="Friomisi Earring",
-        body="Arbatel Gown +3",hands="Jhakri Cuffs +2",ring1="Archon Ring",ring2="Epaminondas's Ring",
-        back=LughsCape.MAB,waist="Hachirin-no-obi",legs="Arbatel Pants +3",feet="Arbatel Loafers +2"}
+		head="Nyame Helm",neck="Combatant's Torque",ear1="Moonshade Earring",ear2="Friomisi Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Archon Ring",ring2="Epaminondas's Ring",
+        back=LughsCape.MAB,waist="Hachirin-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.PDT = sets.precast.WS
+	
+	sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,{ammo="Amar Cluster",
+		neck="Lissome Necklace",ear1="Telos Earring",ear2="Crepuscular Earring",
+		hands="Gazu Bracelets +1",ring1="Cacoethic Ring +1",ring2="Chirich Ring +1",
+		waist="Windbuffet Belt +1"})
     
     --sets.precast.WS['Flash Nova'] = {
     --    head="Nahtirah Hat",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Hecate's Earring",
@@ -470,10 +475,10 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Basic set for if no TP weapon is defined.
-    sets.engaged = {ammo="Staunch Tathlum +1",
-		head="Arbatel Bonnet +3",neck="Combatant's Torque",ear1="Dominance Earring +1",ear2="Telos Earring",
-        body="Arbatel Gown +3",hands="Gazu Bracelets +1",ring1="Ephramad's Ring",ring2="Chirich Ring +1",
-        back=LughsCape.MAB,waist="Windbuffet Belt +1",legs="Arbatel Pants +3",feet="Arbatel Loafers +2"}
+    sets.engaged = {ammo="Amar Cluster",
+		head="Nyame Helm",neck="Lissome Necklace",ear1="Telos Earring",ear2="Crepuscular Earring",
+        body="Nyame Mail",hands="Gazu Bracelets +1",ring1="Cacoethic Ring +1",ring2="Chirich Ring +1",
+        back=LughsCape.MAB,waist="Windbuffet Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.engaged.PDT = set_combine(sets.engaged,{neck="Loricate Torque +1"})
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
