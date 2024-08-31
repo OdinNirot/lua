@@ -101,7 +101,7 @@ function job_setup()
 	}	
 
 	ImmunobreakSpells = S{
-		'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II','Silence'
+		'Slow','Slow II','Paralyze','Paralyze II','Silence','Addle','Addle II','Blind','Blind II','Gravity','Gravity II','Bind','Poison','Break','Sleep','Sleep II'
 	}
 
 	state.TreasureMode:set('Tag')
