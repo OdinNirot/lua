@@ -183,6 +183,7 @@ function user_setup()
 	state.CastingMode:options('Normal', 'Resistant')
 	state.IdleMode:options('Normal', 'PDT')
 	state.HybridMode:options('Normal','PDT') --"engaged" sets
+	state.CursnaGear = M(true, 'CursnaGear')
 
 	state.Kiting              = M(true, 'Kiting')
 	state.ExtraResist = M('Normal','Charm','Death')
@@ -196,6 +197,7 @@ function user_setup()
 	send_command('bind numpad. gs c cycle HybridMode')
 	send_command('bind numpad3 gs c cycle OffenseMode')
 	send_command('bind numpad4 gs c cycle ExtraResist')
+	send_command('bind ^backspace gs c cycle CursnaGear')
 
 	send_command('unbind ^-') --unbind this key which is set in Mote-Globals.lua so we can use it
 	send_command('bind ^- gs c cycle Kiting')
@@ -220,6 +222,7 @@ function user_unload()
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
 	send_command('unbind ^=')
+	send_command('unbind ^backspace')
 end
 
 
@@ -805,7 +808,7 @@ function customize_idle_set(idleSet)
 	elseif state.ExtraResist.value == 'Death' then
 		idleSet = set_combine(idleset,sets.Death)
 	end
-	if buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane'] then
+	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
 		--if state.Buff['Curse'] or state.Buff['Doom'] or state.Buff['Bane'] then
 		idleSet = set_combine(idleSet,sets.buff.Doom)
 	end
@@ -830,12 +833,13 @@ function customize_melee_set(meleeSet)
 	elseif state.ExtraResist.value == 'Death' then
 		meleeSet = set_combine(meleeSet,sets.Death)
 	end
-	if buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane'] then
-		meleeSet = set_combine(meleeSet,sets.buff.Doom)
-	end
 	if buffactive['Terror'] or buffactive['Stun'] or buffactive['Petrification'] then
 		meleeSet = set_combine(meleeSet,sets.engaged.PDT)
 	end
+	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
+		meleeSet = set_combine(meleeSet,sets.buff.Doom)
+	end
+	
 	return meleeSet
 end
 
