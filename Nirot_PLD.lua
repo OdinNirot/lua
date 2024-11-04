@@ -5,10 +5,10 @@
 -- Initialization function for this job file.
 function get_sets()
 	include(player.name..'_'..player.main_job..'_gear.lua')
-    mote_include_version = 2
+	mote_include_version = 2
 
-    -- Load and initialize the include file.
-    include('Mote-Include.lua')
+	-- Load and initialize the include file.
+	include('Mote-Include.lua')
 	res = require('resources')
 end
 
@@ -17,10 +17,10 @@ function job_setup()
 
 	classes.CustomClass = L{}
 
-    state.Buff.Sentinel = buffactive.sentinel or false
-    state.Buff.Cover = buffactive.cover or false
-    state.Buff.Doom = buffactive.Doom or false
-    state.Buff.Curse = (buffactive.Curse or buffactive.Bane) or false
+	state.Buff.Sentinel = buffactive.sentinel or false
+	state.Buff.Cover = buffactive.cover or false
+	state.Buff.Doom = buffactive.Doom or false
+	state.Buff.Curse = (buffactive.Curse or buffactive.Bane) or false
 	
 	send_command('get "Storage Slip 08" sack') -- empy accessories
 	send_command('get "Storage Slip 25" sack') --AF +3
@@ -35,55 +35,55 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc')
-    state.HybridMode:options('Normal', 'PDT', 'MDT')
-    state.WeaponskillMode:options('Normal', 'PDT', 'MDT')
-    state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
-    state.MagicalDefenseMode:options('MDT', 'HP', 'Reraise')
-    
-    state.ExtraDefenseMode = M{['description']='Extra Defense Mode', 'None', 'MP', 'Knockback', 'MP_Knockback'}
+	state.OffenseMode:options('Normal', 'Acc')
+	state.HybridMode:options('Normal', 'PDT', 'MDT')
+	state.WeaponskillMode:options('Normal', 'PDT', 'MDT')
+	state.CastingMode:options('Normal', 'Resistant')
+	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
+	state.MagicalDefenseMode:options('MDT', 'HP', 'Reraise')
+
+	state.ExtraDefenseMode = M{['description']='Extra Defense Mode', 'None', 'MP', 'Knockback', 'MP_Knockback'}
 	state.LockShield = M(true, 'LockShield')
 	state.MaxHP = M(false, 'MaxHP')
-    state.Kiting        = M(true, 'Kiting')
+	state.Kiting = M(true, 'Kiting')
 	state.ExtraResist = M('Normal','Charm','Death')
 	state.NormalShield = M('Ochain', 'Aegis', 'Duban','Srivatsa')
 	state.NormalWeapon = M('Burtgang','Excalibur','Naegling')
 	state.WeaponLock = M(true, 'WeaponLocked')
 	state.SIRDMode = M('SIRD','MaxEnmity')
 	state.CursnaGear = M(false, 'CursnaGear')
-    state.Crepuscular = M(false, 'Crepuscular')
-	
+	state.Crepuscular = M(false, 'Crepuscular')
+
 	proSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V'}
 	enhancingSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V','Shell','Shell II','Shell III','Shell IV','Shell V','Reprisal','Crusade'} --add phalanx if you want more duration at the cost of less effectiveness
-	
-    update_defense_mode()
-	    
+
+	update_defense_mode()
+
 	send_command('bind ^= gs c cycle Kiting')
 	send_command('bind F10 gs c cycle WeaponLock')
-    send_command('bind F11 gs c cycle Crepuscular')
-    send_command('bind !f11 gs c cycle ExtraDefenseMode')
-    send_command('bind numpad. gs c cycle HybridMode')
+	send_command('bind F11 gs c cycle Crepuscular')
+	send_command('bind !f11 gs c cycle ExtraDefenseMode')
+	send_command('bind numpad. gs c cycle HybridMode')
 	send_command('bind ^- gs c cycle CursnaGear')
-    send_command('bind numpad0 gs c cycle NormalWeapon')
+	send_command('bind numpad0 gs c cycle NormalWeapon')
 	send_command('bind numpad2 gs c cycle ExtraResist')
-    send_command('bind numpad3 gs c cycle LockShield')
-    send_command('bind numpad4 gs c set HybridMode Normal')
-    send_command('bind numpad5 gs c set HybridMode MDT')
-    send_command('bind numpad6 gs c set HybridMode PDT')
-    send_command('bind numpad7 gs c cycle NormalShield')
-    send_command('bind numpad8 gs c cycle SIRDMode')
-    send_command('bind numpad9 gs c cycle MaxHP')
-	
+	send_command('bind numpad3 gs c cycle LockShield')
+	send_command('bind numpad4 gs c set HybridMode Normal')
+	send_command('bind numpad5 gs c set HybridMode MDT')
+	send_command('bind numpad6 gs c set HybridMode PDT')
+	send_command('bind numpad7 gs c cycle NormalShield')
+	send_command('bind numpad8 gs c cycle SIRDMode')
+	send_command('bind numpad9 gs c cycle MaxHP')
+
 	PhalanxAbility = S{"Phalanx","Phalanx II"}
 	RefreshAbility = S{"Refresh","Refresh II","Refresh III"}
 end
 
 function user_unload()
-    send_command('unbind ^-')
+	send_command('unbind ^-')
 	send_command('unbind F10')
-    send_command('unbind F11')
-    send_command('unbind !f11')
+	send_command('unbind F11')
+	send_command('unbind !f11')
 	send_command('unbind ^=')
 	send_command('unbind numpad.')
 	send_command('unbind numpad0')
@@ -95,8 +95,8 @@ function user_unload()
 	send_command('unbind numpad7')	
 	send_command('unbind numpad8')	
 	send_command('unbind numpad9')
-	
-	
+
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -126,26 +126,26 @@ end
 function check_reaction(act)
 
 	--Gather Info
-    local curact = T(act)
-    local actor = T{}
+	local curact = T(act)
+	local actor = T{}
 	local otherTarget = T{}
 
-    actor.id = curact.actor_id
-	
+	actor.id = curact.actor_id
+
 	if not ((curact.category == 8) or curact.category == 4) then return end  --8 is begin casting, 4 is completed casting
 	-- Make sure it's a mob that's doing something.
-    if windower.ffxi.get_mob_by_id(actor.id) then
-        actor = windower.ffxi.get_mob_by_id(actor.id)
-    else
-        return
-    end
-	
+	if windower.ffxi.get_mob_by_id(actor.id) then
+		actor = windower.ffxi.get_mob_by_id(actor.id)
+	else
+		return
+	end
+
 	-- Check if we're targeting it.
-    if player and player.target and player.target.id and actor.id == player.target.id then
-        isTarget = true
-    else
+	if player and player.target and player.target.id and actor.id == player.target.id then
+		isTarget = true
+	else
 		isTarget = false
-    end
+	end
 	
 	if curact.targets[1].id == player.id then
 		otherTarget.in_party = false
@@ -157,14 +157,14 @@ function check_reaction(act)
 		targetsSelf = false
 		targetsMe = false
 	end
-		
+
 	-- Make sure it's not US from this point on!
 	if actor.id == player.id then return end
-    -- Make sure it's a WS or MA precast before reacting to it.		
-    if not (curact.category == 7 or curact.category == 8) then return end  -- 7 is begin JA, 8 is begin casting
-	
-    -- Get the name of the action.
-    if curact.category == 8 then act_info = res.spells[curact.targets[1].actions[1].param] end
+	-- Make sure it's a WS or MA precast before reacting to it.		
+	if not (curact.category == 7 or curact.category == 8) then return end  -- 7 is begin JA, 8 is begin casting
+
+	-- Get the name of the action.
+	if curact.category == 8 then act_info = res.spells[curact.targets[1].actions[1].param] end
 	if act_info == nil then return end
 
 	if targetsMe then
@@ -197,9 +197,9 @@ end
 windower.raw_register_event('action', check_reaction)
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
-    -- Check that shield slot is locked, if necessary
+	-- Check that shield slot is locked, if necessary
 	check_weaponlock()
-    check_shield_lock()
+	check_shield_lock()
 	if state.MaxHP.value then
 		equip(sets.MaxHP)
 		disallow_swaps()
@@ -209,21 +209,21 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
-    -- If DefenseMode is active, apply that gear over midcast
-    -- choices.  Precast is allowed through for fast cast on
-    -- spells, but we want to return to def gear before there's
-    -- time for anything to hit us.
-    -- Exclude Job Abilities from this restriction, as we probably want
-    -- the enhanced effect of whatever item of gear applies to them,
-    -- and only one item should be swapped out.
-	
+	-- If DefenseMode is active, apply that gear over midcast
+	-- choices.  Precast is allowed through for fast cast on
+	-- spells, but we want to return to def gear before there's
+	-- time for anything to hit us.
+	-- Exclude Job Abilities from this restriction, as we probably want
+	-- the enhanced effect of whatever item of gear applies to them,
+	-- and only one item should be swapped out.
+
 	sird_sets(spell)
-	
-    if state.DefenseMode.value ~= 'None' and spell.type ~= 'JobAbility' then
-        handle_equipping_gear(player.status)
-        eventArgs.handled = true
-    end
-	
+
+	if state.DefenseMode.value ~= 'None' and spell.type ~= 'JobAbility' then
+		handle_equipping_gear(player.status)
+		eventArgs.handled = true
+	end
+
 	if proSpells:contains(spell.english) then
 		if state.LockShield.value then
 			--do nothing
@@ -231,7 +231,7 @@ function job_midcast(spell, action, spellMap, eventArgs)
 			do_equip('sets.Srivatsa')
 		end
 	end
-	
+
 	if enhancingSpells:contains(spell.english) then
 		do_equip('sets.EnhancingDuration')
 		if state.LockShield.value and not state.WeaponLock.value then
@@ -278,14 +278,14 @@ end
 
 -- Called when the player's status changes.
 function job_state_change(field, new_value, old_value)
-    classes.CustomDefenseGroups:clear()
-    classes.CustomDefenseGroups:append(state.ExtraDefenseMode.current)
-    --if state.EquipShield.value == true then
-    --    classes.CustomDefenseGroups:append(state.DefenseMode.current .. 'Shield')
-    --end
+	classes.CustomDefenseGroups:clear()
+	classes.CustomDefenseGroups:append(state.ExtraDefenseMode.current)
+	--	if state.EquipShield.value == true then
+	--		classes.CustomDefenseGroups:append(state.DefenseMode.current .. 'Shield')
+	--	end
 
-    classes.CustomMeleeGroups:clear()
-    classes.CustomMeleeGroups:append(state.ExtraDefenseMode.current)
+	classes.CustomMeleeGroups:clear()
+	classes.CustomMeleeGroups:append(state.ExtraDefenseMode.current)
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -295,7 +295,7 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
-    update_defense_mode()
+	update_defense_mode()
 end
 
 function disallow_swaps()
@@ -331,7 +331,7 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.HybridMode.value == 'PDT' then
+	if state.HybridMode.value == 'PDT' then
 		if state.LockShield.value and state.MaxHP.value then
 			meleeSet = sets.MaxHP
 		elseif state.LockShield.value then
@@ -341,7 +341,7 @@ function customize_melee_set(meleeSet)
 		else 
 			meleeSet = set_combine(sets.engaged.PDT,{sub="Duban"})
 		end
-    elseif state.HybridMode.value == 'MDT' then
+	elseif state.HybridMode.value == 'MDT' then
 		if state.LockShield.value and state.MaxHP.value then
 			meleeSet = sets.MaxHP
 		elseif state.LockShield.value then
@@ -385,7 +385,7 @@ function customize_melee_set(meleeSet)
 		enable("head")
 		enable("body")
 	end
-    return meleeSet
+	return meleeSet
 end
 
 function customize_defense_set(defenseSet)
@@ -393,10 +393,10 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
-        idleSet = set_combine(idleSet, sets.latent_refresh)
-    end
-    if state.HybridMode.value == 'PDT' then
+	if player.mpp < 51 then
+		idleSet = set_combine(idleSet, sets.latent_refresh)
+	end
+	if state.HybridMode.value == 'PDT' then
 		if state.LockShield.value and state.MaxHP.value then
 			idleSet = set_combine(idleSet,sets.MaxHP)
 		elseif state.LockShield.value then
@@ -406,7 +406,7 @@ function customize_idle_set(idleSet)
 		else 
 			idleSet = set_combine(sets.idle.PDT,{sub="Duban"})
 		end
-    elseif state.HybridMode.value == 'MDT' then
+	elseif state.HybridMode.value == 'MDT' then
 		if state.LockShield.value and state.MaxHP.value then
 			idleSet = set_combine(idleSet,sets.MaxHP)
 		elseif state.LockShield.value then
@@ -453,36 +453,36 @@ function customize_idle_set(idleSet)
 		enable("head")
 		enable("body")
 	end
-    return idleSet
+	return idleSet
 end
 
 function display_current_job_state(eventArgs)
-    local cf_msg = ''
-    if state.CombatForm.has_value then
-        cf_msg = ' (' ..state.CombatForm.value.. ')'
-    end
+	local cf_msg = ''
+	if state.CombatForm.has_value then
+		cf_msg = ' (' ..state.CombatForm.value.. ')'
+	end
 
---    local m_msg = state.OffenseMode.value
---    if state.HybridMode.value ~= 'Normal' then
---        m_msg = m_msg .. '/' ..state.HybridMode.value
-        m_msg = state.HybridMode.value
---    end
+--	local m_msg = state.OffenseMode.value
+--	if state.HybridMode.value ~= 'Normal' then
+--		m_msg = m_msg .. '/' ..state.HybridMode.value
+		m_msg = state.HybridMode.value
+--	end
 
 	if state.LockShield.value then
 		ls_msg = 'On'
 	else 
 		ls_msg = 'Off'
 	end
-	
+
 	if state.WeaponLock.value then
 		swl_msg = 'On'
 	else
 		swl_msg = 'Off'
 	end
-	
+
 	if state.MaxHP.value == true then
 		mhp_msg = 'On'
-	else 
+	else
 		mhp_msg = 'Off'
 	end
 
@@ -498,8 +498,8 @@ function display_current_job_state(eventArgs)
 		nw_msg = 'None'
 	end
 
-	
-    local ws_msg = state.WeaponskillMode.value
+
+	local ws_msg = state.WeaponskillMode.value
 
 	if state.ExtraResist.value then
 		er_msg = state.ExtraResist.value
@@ -507,38 +507,38 @@ function display_current_job_state(eventArgs)
 		er_msg = 'None'
 	end
 
-    local d_msg = 'None'
-    if state.DefenseMode.value ~= 'None' then
-        d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
-    end
+	local d_msg = 'None'
+	if state.DefenseMode.value ~= 'None' then
+		d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
+	end
 
-    local i_msg = state.IdleMode.value
-	
+	local i_msg = state.IdleMode.value
+
 	if state.SIRDMode.value then
 		sird_msg = state.SIRDMode.value
 	else
 		sird_msg = 'None'
 	end
 
-    local msg = ''
-    if state.Kiting.value then
-        msg = msg .. ' Kiting: On'
-	else 
-        msg = msg .. ' Kiting: Off'
-    end
+	local msg = ''
+	if state.Kiting.value then
+		msg = msg .. ' Kiting: On'
+	else
+		msg = msg .. ' Kiting: Off'
+	end
 
-    add_to_chat(string.char(31,210).. 'Hybrid' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' LockShield: ' ..string.char(31,001)..ls_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' LockWeapon: ' ..string.char(31,001)..swl_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' NormalShield: ' ..string.char(31,001)..ns_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' NormalWeapon: ' ..string.char(31,001)..nw_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' MaxHP: ' ..string.char(31,001)..mhp_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' ExtraResist: ' ..string.char(31,001)..er_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,008).. ' SIRDMode: ' ..string.char(31,001)..sird_msg.. string.char(31,002)..  ' |'
-		
-        ..string.char(31,002)..msg)
+	add_to_chat(string.char(31,210).. 'Hybrid' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' LockShield: ' ..string.char(31,001)..ls_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' LockWeapon: ' ..string.char(31,001)..swl_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' NormalShield: ' ..string.char(31,001)..ns_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' NormalWeapon: ' ..string.char(31,001)..nw_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' MaxHP: ' ..string.char(31,001)..mhp_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' ExtraResist: ' ..string.char(31,001)..er_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' SIRDMode: ' ..string.char(31,001)..sird_msg.. string.char(31,002)..  ' |'
 
-    eventArgs.handled = true
+		..string.char(31,002)..msg)
+
+	eventArgs.handled = true
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -546,22 +546,22 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function update_defense_mode()    
-    if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-        if player.equipment.sub and not player.equipment.sub:contains('Shield') and player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Ochain' then
-            state.CombatForm:set('DW')
-        else
-            state.CombatForm:reset()
-        end
-    end
+	if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
+		if player.equipment.sub and not player.equipment.sub:contains('Shield') and player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Ochain' then
+			state.CombatForm:set('DW')
+		else
+			state.CombatForm:reset()
+		end
+	end
 end
 
 -- Function to lock the ranged slot if we have a ranged weapon equipped.
 function check_shield_lock()
-    if state.LockShield.value  then
-        disable('sub')
-    else
-        enable('sub')
-    end
+	if state.LockShield.value  then
+		disable('sub')
+	else
+		enable('sub')
+	end
 end
 
 function check_weaponlock()
@@ -574,11 +574,11 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function set_macros(sheet,book)
-    if book then 
-        send_command('@input /macro book '..tostring(book)..';wait .1;input /macro set '..tostring(sheet))
-        return
-    end
-    send_command('@input /macro set '..tostring(sheet))
+	if book then 
+		send_command('@input /macro book '..tostring(book)..';wait .1;input /macro set '..tostring(sheet))
+		return
+	end
+	send_command('@input /macro set '..tostring(sheet))
 end
 
 --Page, Book--
@@ -589,6 +589,6 @@ else
 end
 
 function set_style(sheet)
-    send_command('@input ;wait 5.0;input /lockstyleset '..sheet)
+	send_command('@input ;wait 5.0;input /lockstyleset '..sheet)
 end
-set_style(17) 
+set_style(17)

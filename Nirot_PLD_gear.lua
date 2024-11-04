@@ -7,7 +7,7 @@ function init_gear_sets()
 	ValorousBody = {}
 	ValorousHead.Phalanx = { name="Valorous Mask", augments={'Pet: Mag. Acc.+2 Pet: "Mag.Atk.Bns."+2','Pet: AGI+8','Phalanx +5',},priority=38}
 	ValorousBody.Phalanx = { name="Valorous Mail", augments={'STR+7','DEX+5','Phalanx +5','Accuracy+5 Attack+5','Mag. Acc.+17 "Mag.Atk.Bns."+17',},priority=61}
-		
+
 	Rudianos = {}
 	Rudianos.SIRD = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Spell interruption rate down-10%',}, priority=80}
 	Rudianos.WSD = { name="Rudianos's Mantle", augments={'HP+60','Accuracy+20 Attack+20','STR+5','Weapon skill damage +10%','Phys. dmg. taken-10%',}, priority=80}
@@ -16,12 +16,12 @@ function init_gear_sets()
 
 	EschiteLegs = {}
 	EschiteLegs.FC = { name="Eschite Cuisses", augments={'"Mag.Atk.Bns."+25','"Conserve MP"+6','"Fast Cast"+5',}, priority=52}
-	
+
 	sets.Crepuscular = {head="Crepuscular Helm",body="Crepuscular Mail"}
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
-	
+
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Invincible'] = set_combine(sets.midcast.Enmity,{legs={ name="Caballarius Breeches +3", priority=72}})
 	sets.precast.JA['Holy Circle'] = set_combine(sets.midcast.Enmity,{feet={name="Reverence Leggings +3", priority=82}})
@@ -41,35 +41,35 @@ function init_gear_sets()
 	sets.precast.JA['Chivalry'] = set_combine(sets.midcast.Enmity,{
 		head={ name="Reverence Coronet +3", priority=71},ear1={ name="Nourishing Earring +1", priority=1},
 		hands={ name="Reverence Gauntlets +3", priority=113}})
-   
+
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = set_combine(sets.midcast.Enmity,{
 		head={name="Chev. Armet +3", priority=145},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +3", priority=64},
 		waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}})
-		
+
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = sets.midcast.Enmity
-	
+
 	sets.precast.Step = {} --{waist="Chaac Belt"}
 	sets.precast.Flourish1 = {} --{waist="Chaac Belt"}
-		
+
 	sets.Refresh = {waist={ name="Gishdubar Sash", priority=1}}
 	sets.Srivatsa = {sub="Srivatsa"}
-	
+
 	sets.EnhancingDuration = {body="Shab. Cuirass +1"}
 	sets.EnhancingDurationShield = {sub="Ajax +1"}
 	sets.EnhancingDurationMain = {}  --put enhancing colada here if you ever make one
 	sets.EnhancingDurationFull = {sub="Ajax +1"} --and add the colada here too
-	
+
 	-- Fast cast sets for spells
-	
+
 	--sets.precast['Divine Magic'] = {
 	--	head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280}, priority=280},ear1={ name="Loquacious Earring", priority=1},
 	--	body={ name="Yorium Cuirass", augments={'Spell interruption rate down -9%',}},hands={ name="Yorium Gauntlets", augments={'Spell interruption rate down -10%',}},
 	--	legs={name="Carmine Cuisses +1", priority=50}}--{ammo="Incantor Stone",
-	 --   --head="Cizin Helm",ring2="Kishar Ring",legs="Enif Cosciales"}
-		
+	--	--head="Cizin Helm",ring2="Kishar Ring",legs="Enif Cosciales"}
+
 	-- FC best options:
 	-- Sapience Orb: 2
 	-- Chev Armet +2: 8
@@ -82,7 +82,7 @@ function init_gear_sets()
 	-- Chev. Sabatons +3: 13	
 	-- 
 	-- Total: 51
-		
+
 	-- SIRD options:
 	-- Staunch Tath +1: 11
 	-- Souv Schal +1: 20
@@ -96,31 +96,31 @@ function init_gear_sets()
 	-- Odyssean Greaves: 30
 	--
 	-- Total: 139/145
-	
+
 	-- Due to how Spell Interruption Rate is calculated, user must have a total of -102% Spell Interruption Rate Down
-		
+
 	sets.precast.FC = {ammo={ name="Sapience Orb", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={ name="Rev. Surcoat +3",priority=254},hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
 		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}
-		
+
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
 		ear2={ name="Andoaa Earring", priority=1}})
-		
+
 	--sets.precast.FC.Cure = set_combine(sets.precast.FC, {neck="Diemer Gorget",hands="Yorium Gauntlets"})
-		
+
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo={name="Aurgelmir Orb +1", priority=1},
 		head={ name="Cab. Coronet +3", priority=116},neck={name="Kgt. Beads +2", priority=60},ear1={name="Tuisto Earring", priority=150},ear2="Moonshade Earring",
 		body={name="Sakpata's Plate", priority=136},hands={name="Sakpata's Gauntlets", priority=91},ring1={ name="Epaminondas's Ring", priority=1},ring2={ name="Gelatinous Ring +1", augments={'Path: A',}, priority=135},
 		back=Rudianos.WSD,waist={ name="Fotia Belt", priority=1},legs={name="Sakpata's Cuisses", priority=114},feet={name="Sakpata's Leggings", priority=68}}
-		
+
 	sets.precast.WS.PDT = {ammo={name="Aurgelmir Orb +1", priority=1},
 		head={ name="Cab. Coronet +3", priority=116},neck={name="Kgt. Beads +2", priority=60},ear1={name="Tuisto Earring", priority=150},ear2="Moonshade Earring",
 		body={name="Sakpata's Plate", priority=136},hands={name="Sakpata's Gauntlets", priority=91},ring1={ name="Epaminondas's Ring", priority=1},ring2={ name="Gelatinous Ring +1", augments={'Path: A',}, priority=135},
 		back=Rudianos.WSD,waist={ name="Fotia Belt", priority=1},legs={name="Sakpata's Cuisses", priority=114},feet={name="Sakpata's Leggings", priority=68}}
-		
+
 	sets.precast.WS.MDT = set_combine(sets.precast.WS.PDT,{ neck={ name="Warder's Charm +1", priority=1 }} )
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {ammo={ name="Ginsen", priority=1},
@@ -129,7 +129,7 @@ function init_gear_sets()
 		back=Rudianos.WSD,waist={name="Sailfi belt +1", priority=1},legs={name="Sakpata's Cuisses", priority=114},feet={name="Sakpata's Leggings", priority=68}})
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	
+
 	-- Requiescat: MND:73~85%, depending on merit points ugrades. 
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {})
 	sets.precast.WS['Requiescat'].PDT = set_combine(sets.precast.WS['Requiescat'], {})
@@ -146,13 +146,13 @@ function init_gear_sets()
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS,{}) 
 	sets.precast.WS['Sanguine Blade'].PDT = set_combine(sets.precast.WS['Sanguine Blade'],{}) 
 	sets.precast.WS['Sanguine Blade'].MDT = set_combine(sets.precast.WS['Sanguine Blade'],{}) 
-	
+
 	-- Atonement: Based on accumulated enmity, caps at 1190
 	sets.precast.WS['Atonement'] = set_combine(sets.precast.WS,{
 		legs={ name="Caballarius Breeches +3", priority=72},feet={ name="Caballarius Leggings +3", priority=63}})
 	sets.precast.WS['Atonement'].PDT = set_combine(sets.precast.WS['Atonement'], {})
 	sets.precast.WS['Atonement'].MDT = set_combine(sets.precast.WS['Atonement'], {})
-		
+
 	-- Savage Blade: STR 50%; MND 50% 
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,{ammo={name="Aurgelmir Orb +1", priority=1},
 		neck={ name="Fotia Gorget", priority=1},
@@ -162,7 +162,7 @@ function init_gear_sets()
 		waist={ name="Fotia Belt", priority=1}})
 	sets.precast.WS['Savage Blade'].MDT = set_combine(sets.precast.WS['Savage Blade'], {ammo={name="Aurgelmir Orb +1", priority=1},
 		waist={ name="Fotia Belt", priority=1}})
-	
+
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
@@ -179,7 +179,7 @@ function init_gear_sets()
 
 	-- you need a total of 102 to cap SIRD. Full merits in the category mean you only need 92% from gear. Probably best to use +enmity or -DT in the rest of the slots
 	-- ear1={ name="Loquacious Earring", priority=1},body={ name="Yorium Cuirass", augments={'Spell interruption rate down -9%',}},hands={ name="Yorium Gauntlets", augments={'Spell interruption rate down -10%',}}
-	
+
 	--ammo={name="Staunch Tathlum +1", priority=1} = 11
 	--head="Souv. Schaller +1" = 20
 	--ear2={ name="Knightly Earring", priority=1} = 9
@@ -191,7 +191,7 @@ function init_gear_sets()
 		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={name="Moonlight Necklace", priority=1},ear1={ name="Knightly Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={name="Chev. Gauntlets +3", priority=64},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
 		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={name="Founder's Hose", priority=54},feet={ name="Odyssean Greaves", augments={'INT+5','Spell interruption rate down -10%','"Store TP"+2','Accuracy+18 Attack+18','Mag. Acc.+16 "Mag.Atk.Bns."+16',}, priority=20}}
-	
+
 	sets.Phalanx = {
 		head=ValorousHead.Phalanx, priority=38,
 		body=ValorousBody.Phalanx, priority=61,hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},
@@ -200,7 +200,7 @@ function init_gear_sets()
 	sets.PhalanxSub = {sub="Priwen"}
 	sets.PhalanxFull = set_combine(sets.Phalanx,{main="Sakpata's Sword",sub="Priwen"})
 	sets.PhalanxSIRD = set_combine(sets.Phalanx, sets.midcast.SIRD)  --if you want to use SIRD with phalanx when SIRDMode is enabled. Make sure UseSIRDWithPhalanx = true is set. Otherwise, you get full-strength phalanx in both SIRD and Enmity modes
-	
+
 	-- WhiteMagic
 	sets.midcast['Cure'] = sets.midcast.Enmity
 	sets.midcast.SIRD['Cure'] = sets.midcast.SIRD
@@ -264,10 +264,10 @@ function init_gear_sets()
 	sets.resting = {} --{neck="Creed Collar",
 		-- ring1="Sheltered Ring",ring2="Paguroidea Ring",
 		-- waist="Austerity Belt"}
- 
+
 	sets.Charm = {neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Arete Del Luna +1", priority=1},legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=162}}
 	sets.Death = {neck={ name="Warder's Charm +1", priority=1},ring1={ name="Shadow Ring", priority=1},ring2={ name="Warden's Ring", priority=1}}
- 
+
 	sets.MaxHP = {
 		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Sanare Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Moonlight Ring", priority=110},ring2={ name="Gelatinous Ring +1", augments={'Path: A',}, priority=135},
@@ -283,7 +283,7 @@ function init_gear_sets()
 	sets.idle.MDT = set_combine(sets.idle,{neck={ name="Warder's Charm +1", priority=1 }})	
 	sets.idle.Town = sets.idle
 	sets.idle.Weak = sets.idle
-	
+
 	sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
 	sets.Kiting = {ring1={name="Shneddick Ring +1",priority=1}}
 	sets.latent_refresh = {} --{waist="Fucho-no-obi"}
@@ -299,7 +299,7 @@ function init_gear_sets()
 	sets.MP_Knockback = {} --{neck="Creed Collar",waist="Flume Belt",back="Repulse Mantle"}
 
 	-- Basic defense sets.
-		
+
 	sets.defense.PDT = {ammo={name="Staunch Tathlum +1", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={name="Kgt. Beads +2", priority=60},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +3", priority=64},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
@@ -318,7 +318,7 @@ function init_gear_sets()
 	--------------------------------------
 	-- Engaged sets
 	--------------------------------------
-	
+
 	sets.engaged = {ammo={name="Aurgelmir Orb +1", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={name="Sakpata's Plate", priority=136},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Chirich Ring +1", priority=1},ring2={name="Moonlight Ring", priority=110},
@@ -335,7 +335,7 @@ function init_gear_sets()
 		back=Rudianos.DT,waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127}}
 		
 	sets.engaged.MDT = set_combine(sets.engaged.PDT, {ear1={ name="Sanare Earring", priority=1},ring2={ name="Purity Ring", priority=1},waist={ name="Creed Baudrier", priority=40},feet="Sakpata's Leggings"})
-				
+
 	--[[
 	sets.engaged.DW = {ammo={ name="Ginsen", priority=1},
 		head={ name="Reverence Coronet +3", priority=71},ear1={name="Telos Earring", priority=1},ear2={name="Dignitary's Earring", priority=1},
@@ -349,7 +349,7 @@ function init_gear_sets()
 
 	--]]
 	
-   -- sets.engaged.PDT = set_combine(sets.engaged, {body={ name="Caballarius Surcoat +3", priority=138},neck={name="Kgt. Beads +2", priority=60},ring1={ name="Defending Ring",priority=1},back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Damage taken-5%',}}})
+	-- sets.engaged.PDT = set_combine(sets.engaged, {body={ name="Caballarius Surcoat +3", priority=138},neck={name="Kgt. Beads +2", priority=60},ring1={ name="Defending Ring",priority=1},back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Damage taken-5%',}}})
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {neck={name="Kgt. Beads +2", priority=60},ring1={ name="Defending Ring",priority=1},back=Rudianos.DT})
 	sets.engaged.Reraise = set_combine(sets.engaged, sets.Reraise)
 	sets.engaged.Acc.Reraise = set_combine(sets.engaged.Acc, sets.Reraise)
