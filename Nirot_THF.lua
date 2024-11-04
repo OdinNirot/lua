@@ -242,7 +242,7 @@ function init_gear_sets()
 	
 	-- Exenterator: AGI:73~85%, depending on merit points ugrades. 
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
-		head="Skulker's Bonnet +2",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring +1",
+		head="Skulker's Bonnet +2",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring +2",
 		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Gere Ring",
 		back=Toutatis.WSD,waist="Fotia Belt",legs="Nyame Flanchard",feet="Skulker's Poulaines +3"})
     sets.precast.WS['Exenterator'].PDT = set_combine(sets.precast.WS['Exenterator'], {ring2="Defending Ring"})
@@ -435,12 +435,12 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {ammo="Aurgelmir Orb +1",
-        head="Skulker's Bonnet +2",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +1",
+        head="Skulker's Bonnet +2",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +2",
         body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonlight Ring",ring2="Gere Ring",
         back=Toutatis.STP,waist="Reiki Yotai",legs="Malignance Tights",feet="Malignance Boots"}
     sets.engaged.Acc = set_combine(sets.engaged,{})
     sets.engaged.MeleeRegen = {
-        head="Turms Cap +1",neck="Assassin's Gorget +2",ear1="Dedition Earring",ear2="Sherida Earring",
+        head="Turms Cap +1",neck="Assassin's Gorget +2",ear1="Dedition Earring",ear2="Skulker's Earring +2",
         body="Pillager's Vest +3",hands="Turms Mittens +1",ring1="Chirich Ring +1",ring2="Gere Ring",
         back=Toutatis.STP,waist="Reiki Yotai",legs="Turms Subligar +1",Feet="Turms Leggings +1"}
 		
