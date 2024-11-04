@@ -539,6 +539,10 @@ function zodiaccheck(spell_element)
     end
 end
 
+function do_equip(setname)
+	send_command('gs equip '..setname..'')
+end
+
 function check_reaction(act)
 
 	--Gather Info
