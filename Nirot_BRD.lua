@@ -419,6 +419,10 @@ function init_gear_sets()
 		head="Blistering Sallet +1",ear2="Dominance Earring +1",
 		body="Bihu Justaucorps +3",ring1="Moonlight Ring",ring2="Ilabrat Ring",
 		waist="Fotia Belt",feet="Lustratio Leggings +1"})
+	sets.precast.WS['Ruthless Stroke'] = set_combine(sets.precast.WS, {
+		ear2="Dominance Earring +1",
+		body="Bihu Justaucorps +3",ring2="Ilabrat Ring"})
+		
 	
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 		neck="Republican Platinum Medal",ear2="Regal Earring",
