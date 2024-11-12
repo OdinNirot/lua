@@ -225,7 +225,7 @@ function init_gear_sets()
 	sets.midcast.CureMelee.SIRD = set_combine(sets.midcast.CureMelee,sets.midcast.SIRD)
 
 	sets.midcast.Cursna = {main="Yagrush",Sub="Thuellaic Ecu +1",
-		head=VanyaHead.HealSkill,neck="Debilis Medallion",ear1="Meili Earring",ear2="Ebers Earring +1",
+		head=VanyaHead.HealSkill,neck="Debilis Medallion",ear1="Meili Earring",ear2="Ebers Earring +2",
 		body="Ebers Bliaut +3",hands="Fanatic Gloves",ring1="Menelaus's Ring",ring2="Haoma's Ring",
 		back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet=VanyaFeet.HealSkill}
 	sets.midcast.Cursna.SIRD = set_combine(sets.midcast.Cursna,sets.midcast.SIRD)
@@ -240,7 +240,7 @@ function init_gear_sets()
 	sets.midcast.Erase.SIRD = set_combine(sets.midcast.StatusRemoval,sets.midcast.SIRD,{neck="Cleric's Torque +2"})
 	-- 110 total Enhancing Magic Skill; caps even without Light Arts
 	sets.midcast['Enhancing Magic'] = {main=Gada.Enh,sub="Ammurapi Shield",
-		head=TelHead.Duration,neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Ebers Earring +1",
+		head=TelHead.Duration,neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Ebers Earring +2",
 		body=TelBody.Duration,hands=TelHands.Duration,
 		waist="Embla Sash",legs=TelLegs.Duration,feet="Theophany Duckbills +3"}--{main="Beneficus",sub="Genmei Shield",
 		--head="Umuthi Hat",neck="Colossus's Torque",
@@ -306,7 +306,7 @@ function init_gear_sets()
 
 	-- Custom spell classes
 	sets.midcast.Enfeebs = {main="Yagrush",Sub="Ammurapi Shield",
-		head="C. Palug Crown",neck="Incanter's Torque",ear1="Regal Earring",ear2="Ebers Earring +1",
+		head="C. Palug Crown",neck="Incanter's Torque",ear1="Regal Earring",ear2="Ebers Earring +2",
 		body="Theophany Bliaut +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Aurist's Cape +1",legs="Th. Pant. +3",feet="Skaoi Boots"}
 	sets.midcast.MndEnfeebles = set_combine(sets.midcast.Enfeebs, {
@@ -326,7 +326,7 @@ function init_gear_sets()
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
-		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Ethereal Earring",ear2="Ebers Earring +1",
+		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Ethereal Earring",ear2="Ebers Earring +2",
 		body="Shamash Robe",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Defending Ring",
 		back=Alaunus.DT,waist="Carrier's Sash",legs="Ebers Pant. +3",feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
 		--{main="Bolelabunga", sub="Genmei Shield",ammo="Incantor Stone",
@@ -334,15 +334,15 @@ function init_gear_sets()
 		--body="Gendewitha Bliaut",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
 		--back="Umbra Cape",waist="Witful Belt",legs="Nares Trews",feet="Herald's Gaiters"}
 	sets.idle.Town = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
-		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Ethereal Earring",ear2="Ebers Earring +1",
+		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Ethereal Earring",ear2="Ebers Earring +2",
 		body="Ebers Bliaut +3",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back=Alaunus.DT,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
 	sets.idle.Weak = {main="Daybreak",Sub="Genmei Shield",ammo="Homiliary",
-		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Sanare Earring",ear2="Ebers Earring +1",
+		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Sanare Earring",ear2="Ebers Earring +2",
 		body="Shamash Robe",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Defending Ring",
 		back=Alaunus.DT,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
 	sets.idle.PDT = {main="Malignance Pole",Sub="Mensch Strap +1",ammo="Homiliary",
-		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Eabani Earring",ear2="Ebers Earring +1",
+		head={ name="Chironic Hat", augments={'"Dbl.Atk."+2','Accuracy+9 Attack+9','"Refresh"+2','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},neck="Clr. Torque +2",ear1="Eabani Earring",ear2="Ebers Earring +2",
 		body="Shamash Robe",hands={ name="Chironic Gloves", augments={'Pet: AGI+9','"Fast Cast"+4','"Refresh"+2','Accuracy+5 Attack+5',}},ring1="Stikini Ring +1",ring2="Defending Ring",
 		back=Alaunus.DT,waist="Carrier's Sash",legs={ name="Chironic Hose", augments={'DEX+5','INT+4','"Refresh"+2','Accuracy+2 Attack+2',}},feet="Ebers Duckbills +3"}
 
