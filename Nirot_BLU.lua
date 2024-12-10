@@ -232,8 +232,8 @@ function init_gear_sets()
 	-- Start defining the sets
 	--------------------------------------
 
-	sets.buff['Burst Affinity'] = {feet="Hashishin Basmak +2"}
-	sets.buff['Chain Affinity'] = {head="Hashishin Kavuk +3"} --feet="Assim. Charuqs +1"
+	sets.buff['Burst Affinity'] = {feet="Hashishin Basmak +3"}
+	sets.buff['Chain Affinity'] = {head="Hashishin Kavuk +3"} --feet="Assim. Charuqs +2"
 	sets.buff.Convergence = {head="Luhlaza Keffiyeh +3"}
 	sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
 	sets.buff.Enchainment = {body="Luhlaza Jubbah +3"}
@@ -304,8 +304,8 @@ function init_gear_sets()
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Azure Lore'] = {hands="Luhlaza Bazubands +3"}
-	sets.precast.JA['Burst Affinity'] = {legs="Assim. Shalwar +2",feet="Hashishin Basmak +2"}
-	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +3",feet="Assim. Charuqs +1"}
+	sets.precast.JA['Burst Affinity'] = {legs="Assim. Shalwar +3",feet="Hashishin Basmak +3"}
+	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +3",feet="Assim. Charuqs +2"}
 	sets.precast.JA['Diffusion'] = {feet="Luhlaza Charuqs +3"}
 
 	-- Waltz set (chr and vit)
@@ -343,7 +343,7 @@ function init_gear_sets()
 		waist="Fotia Belt"}) 
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS,{ammo="Ghastly Tathlum +1",
 		head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi Earring",
-		hands="Hashishin Bazubands +2",ring1="Archon Ring",
+		hands="Hashishin Bazubands +3",ring1="Archon Ring",
 		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3"})
 	sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
 		ear1="Odr Earring",ear2="Hashishin Earring +1",
@@ -353,7 +353,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
 		neck="Baetyl Pendant",ear1="Odnowa Earring +1",ear2="Regal Earring",
-		hands="Hashishin Bazubands +2",
+		hands="Hashishin Bazubands +3",
 		waist="Orpheus's Sash",legs="Luhlaza Shalwar +3"})
 	sets.precast.WS['True Strike'] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
 		head=AdhemarHead.StrDexAtk,ear1="Brutal Earring",ear2="Hashi. Earring +1",
@@ -366,7 +366,7 @@ function init_gear_sets()
 		ring1="Beithir Ring"})
 	sets.precast.WS['Realmrazer'] = set_combine(sets.precast.WS,{ammo="Coiste Bodhar",
 		neck="Fotia Gorget",ear1="Regal Earring",ear2="Telos Earring",
-		hands="Hashishin Bazubands +2",ring1="Metamorph Ring +1",ring2="Sroda Ring",
+		hands="Hashishin Bazubands +3",ring1="Metamorph Ring +1",ring2="Sroda Ring",
 		waist="Fotia Belt"})
 
 	-- Midcast Sets
@@ -378,7 +378,7 @@ function init_gear_sets()
 	sets.SIRD = {ammo="Staunch Tathlum +1",
 		head=TaeonHead.SIRD,neck="Loricate Torque +1",ear1="Halasz Earring",ear2="Etiolation Earring",
 		body="Hashishin Mintan +3",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Defending Ring",
-		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Assim. Shalwar +2",feet="Amalric Nails +1"}
+		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Assim. Shalwar +3",feet="Amalric Nails +1"}
 
 	sets.midcast['Blue Magic'] = {}
 
@@ -422,9 +422,9 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].Magical = {ammo="Ghastly Tathlum +1",
 		head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Friomisi Earring",ear2="Hashi. Earring +1",
-		body="Hashishin Mintan +3",hands="Hashi. Bazu. +2",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3",feet="Hashi. Basmak +2"}
-	sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{body="Vanir Cotehardie",ring1="Sangoma Ring",legs="Iuitl Tights",feet="Hashishin Basmak +2"}
+		body="Hashishin Mintan +3",hands="Hashishin Bazubands +3",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+		back=Rosmerta.MAB,waist="Orpheus's Sash",legs="Luhlaza Shalwar +3",feet="Hashishin Basmak +3"}
+	sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{body="Vanir Cotehardie",ring1="Sangoma Ring",legs="Iuitl Tights",feet="Hashishin Basmak +3"}
 	sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{ring1="Aquasoul Ring"}
 	sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical,{})
 	sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical,{}) --{ring1="Spiral Ring"}
@@ -433,8 +433,8 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Dark = set_combine(sets.midcast['Blue Magic'].Magical,{head="Pixie Hairpin +1"})
 	sets.midcast['Blue Magic'].MagicAccuracy = {ammo="Ghastly Tathlum +1",
 		head="Hashishin Kavuk +3",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Hashi. Earring +1",
-		body="Hashishin Mintan +3",hands="Hashi. Bazu. +2",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-		back=Rosmerta.MAB,waist="Acuity Belt +1",legs="Hashishin Tayt +3",feet="Hashi. Basmak +2"}
+		body="Hashishin Mintan +3",hands="Hashishin Bazubands +3",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
+		back=Rosmerta.MAB,waist="Acuity Belt +1",legs="Hashishin Tayt +3",feet="Hashishin Basmak +3"}
 
 	-- Breath Spells --
 
