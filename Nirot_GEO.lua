@@ -248,6 +248,7 @@ function init_gear_sets()
 	
 	Nantosuelta = {}
 	Nantosuelta.PetRegen = { name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
+	Nantosuelta.DexDA = Nantosuelta.PetRegen
 	
 	-- Precast Sets
 	
@@ -407,12 +408,12 @@ function init_gear_sets()
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 	
 	-- Normal melee group
-	sets.engaged = {ammo="Amar Cluster",
-		head="Nyame Helm",neck="Lissome Necklace",ear1="Telos Earring",ear2="Crepuscular Earring",
+	sets.engaged = {ranged="Dunna",
+		head="Azimuth Hood +3",neck="Combatant's Torque",ear1="Telos Earring",ear2="Crepuscular Earring",
 		body="Nyame Mail",hands="Gazu Bracelets +1",ring1="Cacoethic Ring +1",ring2="Chirich Ring +1",
-		waist="Windbuffet Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+		back=Nantosuelta.DexDA,waist="Windbuffet Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.engaged.PDT = set_combine(sets.engaged,{neck="Loricate Torque +1",ring1="Defending Ring"})
-	sets.engaged.DW = set_combine(sets.engaged,{ear1="Suppanomimi",ear2="Eabani Earring",waist="Reiki Yotai",legs="Carmine Cuisses +1"})
+	sets.engaged.DW = set_combine(sets.engaged,{ear1="Suppanomimi",ear2="Eabani Earring"})
 	sets.engaged.DW.PDT = set_combine(sets.engaged.DW,sets.engaged.PDT)
 	
 	
