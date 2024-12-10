@@ -135,14 +135,15 @@ function init_gear_sets()
 	sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].macc,{main="Daybreak"})
 
 	sets.midcast['Enhancing Magic'] = {}
-	sets.midcast['Enhancing Magic'].nocomposure = {main="Daybreak",sub="Ammurapi Shield",
-		head=TelHead.Duration,neck="Duelist's Torque +2",body="Vitiation Tabard +3",hands="Atrophy Gloves +3",ear1="Andoaa Earring",ear2="Leth. Earring +2",
-		back="Ghostfyre Cape",waist="Embla Sash",legs=TelLegs.Duration,feet="Leth. Houseaux +3"}
+	sets.midcast['Enhancing Magic'].nocomposure = {main="Daybreak",sub="Ammurapi Shield",ammo="Sapience Orb",
+		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Leth. Earring +2",
+		body="Vitiation Tabard +3",hands="Atrophy Gloves +3",ring1="Rahab Ring",ring2="Kishar Ring",
+		back="Ghostfyre Cape",waist="Embla Sash",legs="Leth. Fuseau +3",feet="Leth. Houseaux +3"}
 	sets.midcast['Enhancing Magic'].composure = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{head="Lethargy Chappel +3",body="Lethargy Sayon +3",legs="Lethargy Fuseau +3"})
 	sets.midcast['Enhancing Magic'].EnhancingSkill = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{sub="Forfend +1",
 		head="Befouled Crown",body="Viti. Tabard +3",hands="Viti. Gloves +3",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		waist="Olympus Sash",legs="Atrophy Tights +3",feet="Leth. Houseaux +3"})
-	sets.midcast['Enhancing Magic'].NoEnhancingSkill = {}
+	sets.midcast['Enhancing Magic'].NoEnhancingSkill = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ear1="Malignance Earring"})
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",ear1="Earthcry Earring",hands="Stone Mufflers",waist="Siegel Sash",legs="Shedir Seraweels"}
 	sets.midcast.Aquaveil = {head="Amalric Coif +1",hands="Regal Cuffs",legs="Shedir Seraweels"}
 	sets.midcast['Enhancing Magic'].RefreshSpells = {head="Amalric Coif +1",body="Atrophy Tabard +3",hands="Atrophy Gloves +3",legs="Lethargy Fuseau +3",feet="Leth. Houseaux +3"}
@@ -195,6 +196,7 @@ function init_gear_sets()
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 
 	-- Normal melee group
+	-- alpha/omega master trial engaged set: sets.engaged = {main="Crocea Mors",sub="Thuellaic Ecu +1",ammo="Hasty Pinion +1",head="Ayanmo Zucchetto +2",neck="Bathy Choker +1",ear1="Sherida Earring",ear2="Dedition Earring",body="Viti. Tabard +3",hands="Ayanmo Manopolas +2",ring1="Chirich Ring +1",ring2="Chirich Ring +1",back=Sucellos.Normal,waist="Hachirin-no-Obi",legs="Atrophy Tights +3",feet="Volte Spats"}
 	sets.engaged = {ammo="Coiste Bodhar",
 		head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Dedition Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Ilabrat Ring",ring2="Chirich Ring +1",
