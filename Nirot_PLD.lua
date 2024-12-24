@@ -246,10 +246,22 @@ function job_midcast(spell, action, spellMap, eventArgs)
 		windower.send_command('wait 3.5;gs c update user')
 	end
 
+	local phalanxSet
 	if PhalanxAbility:contains(spell.english) then
 		if UseSIRDWithPhalanx and state.SIRDMode.value == 'SIRD' then
-			do_equip('sets.PhalanxSIRD')
-			windower.send_command('wait 2.5;gs c update user')
+			if not state.LockShield.value and not state.WeaponLock.value then
+				phalanxSet = set_combine(sets.PhalanxFull,sets.PhalanxSIRD)
+				equip(phalanxSet)
+				windower.send_command('wait 2.5;gs c update user')
+			elseif state.LockShield.value and not state.WeaponLock.value then
+				phalanxSet = set_combine(sets.PhalanxMain,sets.PhalanxSIRD)
+				equip(phalanxSet)
+				windower.send_command('wait 2.5;gs c update user')
+			elseif not state.LockShield.value and state.WeaponLock.value then
+				phalanxSet = set_combine(sets.PhalanxSub,sets.PhalanxSIRD)
+				equip(phalanxSet)
+				windower.send_command('wait 2.5;gs c update user')
+			end
 		else
 			do_equip('sets.Phalanx')
 			windower.send_command('wait 2.5;gs c update user')
