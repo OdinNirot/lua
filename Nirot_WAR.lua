@@ -27,7 +27,7 @@ function job_setup()
 	no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
 		"Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 	gsList = S{'Montante +1','Nandaka'}
-	gaList = S{'Chango','Bravura'}
+	gaList = S{'Chango','Bravura','Ukonvasara'}
 	paList = S{'Shining One'}
 	aList = S{'Dolichenus','Perun +1',"Renaud's Axe +3",'Fernagu'}
 	sList = S{'Naegling','Zantetsuken',"Sakpata's Sword",'Mercurial Kris'}
