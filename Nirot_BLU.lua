@@ -30,6 +30,8 @@ function job_setup()
 	state.Buff['Petrification'] = buffactive['petrification'] or false
 
 	include('Mote-TreasureHunter')
+	send_command('unbind ^-') --unbind this key which is set in Mote-Globals.lua so we can use it
+
 
 	blue_magic_maps = {}
 
@@ -199,7 +201,6 @@ function user_setup()
 	send_command('bind numpad4 gs c cycle ExtraResist')
 	send_command('bind ^backspace gs c cycle CursnaGear')
 
-	send_command('unbind ^-') --unbind this key which is set in Mote-Globals.lua so we can use it
 	send_command('bind ^- gs c cycle Kiting')
 	send_command('bind ^= gs c cycle TreasureMode')
 
@@ -221,6 +222,7 @@ function user_unload()
 	send_command('unbind numpad.')
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
+	send_command('unbind ^-')
 	send_command('unbind ^=')
 	send_command('unbind ^backspace')
 end
@@ -458,7 +460,7 @@ function init_gear_sets()
 	--	}
 
 	sets.midcast.EnhancingDuration = {
-		head=TelHead.Duration,neck="Incanter's Torque",ear1="Andoaa Earring",
+		head=TelHead.Duration,neck="Incanter's Torque",ear1="Mimir Earring",
 		body=TelBody.Duration,hands=TelHands.Duration,
 		legs=TelLegs.Duration,feet=TelFeet.Duration}
 

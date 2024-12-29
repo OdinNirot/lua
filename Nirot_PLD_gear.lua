@@ -105,7 +105,7 @@ function init_gear_sets()
 		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}
 
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
-		ear2={ name="Andoaa Earring", priority=1}})
+		ear2={ name="Mimir Earring", priority=1}})
 
 	--sets.precast.FC.Cure = set_combine(sets.precast.FC, {neck="Diemer Gorget",hands="Yorium Gauntlets"})
 

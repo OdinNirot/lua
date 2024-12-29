@@ -224,7 +224,7 @@ function get_sets()
 	sets.midcast.Enfeeble.INT = set_combine(sets.midcast.Enfeeble, {waist="Acuity Belt +1"})
 
 	sets.midcast.Enhancing = {main="Gada",sub="Ammurapi Shield",
-		head=TelHead.Duration,neck="Incanter's Torque",ear2="Andoaa Earring",
+		head=TelHead.Duration,neck="Incanter's Torque",ear2="Mimir Earring",
 		body=TelBody.Duration,hands=TelHands.Duration,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Perimede Cape",waist="Embla Sash",legs=TelLegs.Duration,feet=TelFeet.Duration}
 
@@ -439,7 +439,7 @@ function get_sets()
 
 	-- Pure summoning magic set, mainly used for buffs like Hastega II.
 	-- Strong Alternatives:
-	-- Andoaa Earring, Summoning Earring, Lamassu Mitts +1, Caller's Pendant
+	-- Mimir Earring, Summoning Earring, Lamassu Mitts +1, Caller's Pendant
 	sets.pet_midcast.SummoningMagic = {
 		main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
 		sub="Vox Grip",
