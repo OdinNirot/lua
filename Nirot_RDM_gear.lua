@@ -46,6 +46,10 @@ function init_gear_sets()
 	TelLegs = {}
 	TelFeet = {}
 
+	Colada = {}
+	Colada.Enhancing = { name="Colada", augments={'Enh. Mag. eff. dur. +4','Mag. Acc.+7','"Mag.Atk.Bns."+6',}}
+	Colada.Refresh = { name="Colada", augments={'Accuracy+4 Attack+4','STR+5','"Refresh"+2','DMG:+17',}}
+
 	TelHead.Duration = { name="Telchine Cap", augments={'Mag. Evasion+20','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	TelBody.Duration = { name="Telchine Chas.", augments={'Mag. Evasion+21','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	TelHands.Duration = { name="Telchine Gloves", augments={'Mag. Evasion+25','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
@@ -135,8 +139,8 @@ function init_gear_sets()
 	sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].macc,{main="Daybreak"})
 
 	sets.midcast['Enhancing Magic'] = {}
-	sets.midcast['Enhancing Magic'].nocomposure = {main="Daybreak",sub="Ammurapi Shield",ammo="Sapience Orb",
-		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Leth. Earring +2",
+	sets.midcast['Enhancing Magic'].nocomposure = {main=Colada.Enhancing,sub="Ammurapi Shield",ammo="Sapience Orb",
+		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Mimir Earring",ear2="Leth. Earring +2",
 		body="Vitiation Tabard +3",hands="Atrophy Gloves +3",ring1="Rahab Ring",ring2="Kishar Ring",
 		back="Ghostfyre Cape",waist="Embla Sash",legs="Leth. Fuseau +3",feet="Leth. Houseaux +3"}
 	sets.midcast['Enhancing Magic'].composure = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{head="Lethargy Chappel +3",body="Lethargy Sayon +3",legs="Lethargy Fuseau +3"})
@@ -144,6 +148,7 @@ function init_gear_sets()
 		head="Befouled Crown",body="Viti. Tabard +3",hands="Viti. Gloves +3",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		waist="Olympus Sash",legs="Atrophy Tights +3",feet="Leth. Houseaux +3"})
 	sets.midcast['Enhancing Magic'].NoEnhancingSkill = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ear1="Malignance Earring"})
+	sets.midcast['Enhancing Magic'].EnhancingDuration = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ear1="Mimir Earring",ring1="Stikini Ring +1",ring2="Stikini Ring +1",})
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",ear1="Earthcry Earring",hands="Stone Mufflers",waist="Siegel Sash",legs="Shedir Seraweels"}
 	sets.midcast.Aquaveil = {head="Amalric Coif +1",hands="Regal Cuffs",legs="Shedir Seraweels"}
 	sets.midcast['Enhancing Magic'].RefreshSpells = {head="Amalric Coif +1",body="Atrophy Tabard +3",hands="Atrophy Gloves +3",legs="Lethargy Fuseau +3",feet="Leth. Houseaux +3"}
@@ -152,12 +157,12 @@ function init_gear_sets()
 	sets.midcast.GainSpells = sets.midcast['Enhancing Magic'].EnhancingSkill
 	sets.midcast.Cursna = {head="Vanya Hood",neck="Debilis Medallion",ear1="Meili Earring",ear2="Beatific Earring",hands="Hieros Mittens",ring1="Menelaus's Ring",ring2="Haoma's Ring",back="Oretan. Cape +1",waist="Bishop's Sash",legs="Vanya Slops",feet="Vanya Clogs"}
 
-	sets.midcast.Protect = {ring1="Sheltered Ring"}
-	sets.midcast.Protectra = {ring1="Sheltered Ring"}
-	sets.midcast.Shell = {ring1="Sheltered Ring"}
-	sets.midcast.Shellra = {ring1="Sheltered Ring"}
-	sets.midcast.Sneak = {back="Skulker's Cape"}
-	sets.midcast.Invisible = {back="Skulker's Cape"}
+	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ring1="Sheltered Ring"})
+	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ring1="Sheltered Ring"})
+	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ring1="Sheltered Ring"})
+	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{ring1="Sheltered Ring"})
+	sets.midcast.Sneak = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{back="Skulker's Cape"})
+	sets.midcast.Invisible = set_combine(sets.midcast['Enhancing Magic'].nocomposure,{back="Skulker's Cape"})
 
 	sets.midcast['Elemental Magic'] = {}
 	sets.midcast["Elemental Magic"].base = {main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
@@ -176,7 +181,7 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-obi"}
 
 	-- Idle sets
-	sets.idle = {main="Colada",Sub="Sacro Bulwark",ammo="Homiliary",
+	sets.idle = {main=Colada.Refresh,Sub="Sacro Bulwark",ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Yngvi Choker",ear1="Sanare Earring",ear2="Etiolation Earring",
 		--		head="Vitiation Chapeau +3",neck="Warder's Charm +1",ear1="Sanare Earring",ear2="Etiolation Earring",   -- swap out the Yngvi when trying to maintain hate. Ody Atonement 3, etc
 		body="Lethargy Sayon +3",hands=ChironicHands.Refresh,ring1="Defending Ring",ring2="Stikini Ring +1",

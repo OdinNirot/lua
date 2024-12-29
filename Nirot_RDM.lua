@@ -93,9 +93,13 @@ function job_setup()
 	}	
 
 	magic_maps.NoEnhancingSkill = S{
-		'Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II'
+		'Erase','Escape','Retrace','Warp','Warp II'
 	}
 
+	magic_maps.EnhancingDuration = S{
+		'Blink','Deodorize','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak'
+	}
+	
 	magic_maps.RegenSpells = S{
 		'Regen','Regen II'
 	}	
@@ -113,10 +117,10 @@ function job_setup()
 	-- Frazzle: dark
 	-- Distract: ice
 
-	send_command('get "Storage Slip 25" sack') --AF +3
-	send_command('get "Storage Slip 27" sack') --relic +3
-	send_command('get "Storage Slip 29" sack') --empy +2
-	send_command('get "Storage Slip 30" sack') --empy +3
+	--send_command('get "Storage Slip 25" sack') --AF +3
+	--send_command('get "Storage Slip 27" sack') --relic +3
+	--send_command('get "Storage Slip 29" sack') --empy +2
+	--send_command('get "Storage Slip 30" sack') --empy +3
 
 end
 
