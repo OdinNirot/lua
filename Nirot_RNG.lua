@@ -56,6 +56,7 @@ function job_setup()
 	
 	state.Kiting = M(true, 'Kiting')
 	state.HasteMode = M{['description']='Haste Mode', 'Hi', 'Normal'}
+	state.MainWS = M{['description']='Main WS', 'Savage Blade', 'Trueflight', 'Wildfire', 'Hot Shot'}
 	state.Buff['Curse'] = buffactive['curse'] or false
 	state.Buff['Doom'] = buffactive['doom'] or false
 	state.Buff['Bane'] = buffactive['bane'] or false
@@ -139,8 +140,11 @@ function user_setup()
 	--send_command('bind != gs c toggle CapacityMode')
 	send_command('bind @f9 gs c cycle HasteMode')
 	send_command('bind numpad. gs c cycle HybridMode')
-	send_command('bind numpad6 gs c cycle RangedMode')
+	send_command('bind numpad0 input /ra <t>')
 	send_command('bind numpad3 gs c cycle OffenseMode')
+	send_command('bind numpad4 gs c wsmain')
+	send_command('bind numpad5 gs c cycle MainWS')
+	send_command('bind numpad6 gs c cycle RangedMode')
 
 	send_command('gs enable ammo')
 	
@@ -158,7 +162,8 @@ function file_unload()
 	send_command('unbind @f9')
 	send_command('unbind numpad.')
 	--send_command('unbind @[')
-	send_command('unbind ^0')	
+	send_command('unbind ^0')
+	send_command('unbind numpad0')
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
 	send_command('unbind numpad5')
@@ -222,7 +227,7 @@ function init_gear_sets()
 	sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +3"}
 	sets.precast.JA['Camouflage'] = {body="Orion Jerkin +1"}
 	sets.precast.JA['Double Shot'] = {head="Amini Gapette +3",body="Arcadian Jerkin +1",hands="Oshosi Gloves +1",legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"}
-	sets.precast.JA['Eagle Eye Shot'] = {legs="Arcadian Braccae +1"}
+	sets.precast.JA['Eagle Eye Shot'] = {legs="Arcadian Braccae +3"}
 	sets.precast.JA['Flashy Shot'] = {hands="Arcadian Bracers +1"}
 	sets.precast.JA['Scavenge'] = {feet="Orion Socks +1"}
 	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +1"}
@@ -987,6 +992,7 @@ function display_current_job_state(eventArgs)
 	end
 
 	local ws_msg = state.WeaponskillMode.value
+	local ws_msg = state.MainWS.value
 
 	local d_msg = 'None'
 	if state.DefenseMode.value ~= 'None' then
@@ -1125,6 +1131,13 @@ end
 --]]
 
 function job_self_command(cmdParams, eventArgs)
+
+	if cmdParams[1] == 'wsmain' then
+		local mywsmain = ''
+		mywsmain = state.MainWS.current
+		send_command('@input /ws "'..mywsmain..'" <t>')
+	end
+
 	gearinfo(cmdParams, eventArgs)
 end
 
