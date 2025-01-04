@@ -56,7 +56,7 @@ function job_setup()
 	
 	state.Kiting = M(true, 'Kiting')
 	state.HasteMode = M{['description']='Haste Mode', 'Hi', 'Normal'}
-	state.MainWS = M{['description']='Main WS', 'Savage Blade', 'Trueflight', 'Wildfire', 'Hot Shot'}
+	state.MainWS = M{['description']='Main WS', 'Savage Blade', 'Trueflight', 'Wildfire', 'Hot Shot','Last Stand','Coronach'}
 	state.Buff['Curse'] = buffactive['curse'] or false
 	state.Buff['Doom'] = buffactive['doom'] or false
 	state.Buff['Bane'] = buffactive['bane'] or false
@@ -220,6 +220,7 @@ function init_gear_sets()
 
 	Belenus = {}
 	Belenus.WSD_AGI = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
+	Belenus.AgiDW = { name="Belenus's Cape", augments={'AGI+20','Accuracy+20 Attack+20','AGI+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
 	Belenus.DexCrit = Belenus.WSD_AGI
 
 	-- Precast sets to enhance JAs
@@ -232,7 +233,7 @@ function init_gear_sets()
 	sets.precast.JA['Scavenge'] = {feet="Orion Socks +1"}
 	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +1"}
 	sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +1"}  --dont think these have to stay equipped
-	sets.precast.JA['Stealth Shot'] = {feet="Arcadian Socks +1"}  --dont think these have to stay equipped
+	sets.precast.JA['Stealth Shot'] = {feet="Arcadian Socks +3"}  --dont think these have to stay equipped
 	sets.precast.JA['Unlimited Shot'] = {feet="Amini Bottillons +3"}
 	sets.precast.JA['Velocity Shot'] = {body="Amini Caban +3",back="Belenus's Cape"}
 	
@@ -240,7 +241,7 @@ function init_gear_sets()
 	sets.idle = {
 		head="Amini Gapette +3",neck="Elite Royal Collar",ear1="Sanare Earring",ear2="Odnowa Earring +1",
 		body="Nyame Mail",hands="Amini Glovelettes +3",ring1="Chirich Ring +1",ring2="Defending Ring",
-		back="Moonbeam Cape",waist="Carrier's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+		back=Belenus.AgiDW,waist="Carrier's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.idle.PDT = set_combine(sets.idle, {neck="Loricate Torque +1",ring1="Gelatinous Ring +1"})
 	sets.idle.Normal = sets.idle
 	sets.idle.Regen = set_combine(sets.idle, {})
@@ -271,7 +272,7 @@ function init_gear_sets()
 		body="Amini Caban +3",hands="Carmine Fin. Ga. +1",ring1="Chirich Ring +1",ring2="Crepuscular Ring",
 		waist="Yemaya Belt",legs="Orion Braccae +1",feet="Meghanada Jambeaux +2"}
 	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA,{head="Orion Beret +1",legs="Adhemar Kecks +1"})
-	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1,{feet="Arcadian Socks +1"})
+	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1,{feet="Arcadian Socks +3"})
 
 	-- Weaponskill sets
 
@@ -569,7 +570,7 @@ function init_gear_sets()
 	sets.engaged = {
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Dedition Earring",ear2="Sherida Earring",
 		body="Tatenashi Haramaki +1",hands="Amini Glovelettes +3",ring1="Chirich Ring +1",ring2="Epona's Ring",
-		back=Belenus.WSD_AGI,waist="Sailfi Belt +1",legs="Amini Bragues +3",feet="Malignance Boots"}
+		back=Belenus.AgiDW,waist="Sailfi Belt +1",legs="Amini Bragues +3",feet="Malignance Boots"}
 	sets.engaged.LowAcc = set_combine(sets.engaged, {})
 	sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {})
 	sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {})
@@ -994,6 +995,8 @@ function display_current_job_state(eventArgs)
 	local ws_msg = state.WeaponskillMode.value
 	local ws_msg = state.MainWS.value
 
+	local rm_msg = state.RangedMode.value
+	
 	local d_msg = 'None'
 	if state.DefenseMode.value ~= 'None' then
 		d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
@@ -1003,13 +1006,14 @@ function display_current_job_state(eventArgs)
 
 	local msg = ''
 	if state.Kiting.value then
-		msg = msg .. ' Kiting: On '
+		msg = msg .. '| Kiting: On '
 	end
 
 	add_to_chat(string.char(31,210).. 'Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002)..  ' |'
+		..string.char(31,207).. ' RangeMode: ' ..string.char(31,001)..rm_msg.. string.char(31,002)..  ' |'
 		..string.char(31,207).. ' WS: ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
 		..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
-		..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)
 		..string.char(31,002)..msg)
 
 	eventArgs.handled = true
@@ -1284,48 +1288,6 @@ function check_gear()
 		enable("waist")
 	end
 end
-
---[[
-function display_current_job_state(eventArgs)
-	local msg = ''
-	msg = msg .. 'Offense: '..state.OffenseMode.current
-	msg = msg .. ', Hybrid: '..state.HybridMode.current
-
-	if state.DefenseMode.value ~= 'None' then
-		local defMode = state[state.DefenseMode.value ..'DefenseMode'].current
-		msg = msg .. ', Defense: '..state.DefenseMode.value..' '..defMode
-	end
-	if state.HasteMode.value ~= 'Normal' then
-		msg = msg .. ', Haste: '..state.HasteMode.current
-	end
-	if state.RangedMode.value ~= 'Normal' then
-		msg = msg .. ', Rng: '..state.RangedMode.current
-	end
-	if state.Kiting.value then
-		msg = msg .. ', Kiting'
-	end
-	if state.PCTargetMode.value ~= 'default' then
-		msg = msg .. ', Target PC: '..state.PCTargetMode.value
-	end
-	if state.SelectNPCTargets.value then
-		msg = msg .. ', Target NPCs'
-	end
-
-	add_to_chat(123, msg)
-	eventArgs.handled = true
-end
---]]
-
---function check_weaponset()
---	if state.OffenseMode.value == 'LowAcc' or state.OffenseMode.value == 'MidAcc' or state.OffenseMode.value == 'HighAcc' then
---		equip(sets[state.WeaponSet.current].Acc)
---	else
---		equip(sets[state.WeaponSet.current])
---	end
---	if player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' then
---		equip(sets.DefaultShield)
---	end
---end
 
 -- Select default macro book on initial load or subjob change.
 function set_macros(sheet,book)
