@@ -235,7 +235,7 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.buff['Burst Affinity'] = {feet="Hashishin Basmak +3"}
-	sets.buff['Chain Affinity'] = {head="Hashishin Kavuk +3"} --feet="Assim. Charuqs +2"
+	sets.buff['Chain Affinity'] = {head="Hashishin Kavuk +3"} --feet="Assim. Charuqs +3"
 	sets.buff.Convergence = {head="Luhlaza Keffiyeh +3"}
 	sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
 	sets.buff.Enchainment = {body="Luhlaza Jubbah +3"}
@@ -307,7 +307,7 @@ function init_gear_sets()
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Azure Lore'] = {hands="Luhlaza Bazubands +3"}
 	sets.precast.JA['Burst Affinity'] = {legs="Assim. Shalwar +3",feet="Hashishin Basmak +3"}
-	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +3",feet="Assim. Charuqs +2"}
+	sets.precast.JA['Chain Affinity'] = {head="Hashishin Kavuk +3",feet="Assim. Charuqs +3"}
 	sets.precast.JA['Diffusion'] = {feet="Luhlaza Charuqs +3"}
 
 	-- Waltz set (chr and vit)
@@ -391,8 +391,7 @@ function init_gear_sets()
 		back=Rosmerta.TP,waist="Windbuffet Belt +1",legs="Malignance Tights",feet={ name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}}
 
 	sets.engaged.PDT = set_combine(sets.engaged,{
-		head="Malignance Chapeau",ear2="Telos Earring",
-		hands="Malignance Gloves",ring1="Defending Ring"})
+		body="Malignance Tabard",feet="Malignance Boots"})
 
 	sets.engaged.Acc = set_combine(sets.engaged,{ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",ear1="Telos Earring",ear2="Hashi. Earring +1",
@@ -484,7 +483,7 @@ function init_gear_sets()
 		body="Hashishin Mintan +3",hands=HercHands.Refresh,ring1="Chirich Ring +1",ring2="Defending Ring",
 		back="Engulfer Cape +1",waist="Flume Belt +1",legs="Hashishin Tayt +3",feet=HercFeet.Refresh}
 
-	sets.idle.PDT = set_combine(sets.idle,{})	
+	sets.idle.PDT = set_combine(sets.idle,{head="Nyame Helm",hands="Nyame Gauntlets",feet="Nyame Sollerets"})	
 	sets.idle.Town = sets.idle
 
 	-- Defense sets
@@ -803,7 +802,11 @@ function customize_idle_set(idleSet)
 		set_combine(idleSet, sets.latent_refresh)
 	end
 	if state.HybridMode.value == 'PDT' then
-		idleSet = sets.idle.PDT
+		if state.Kiting.value then
+			idleSet = set_combine(sets.idle.PDT, sets.Kiting)
+		else
+			idleSet = sets.idle.PDT
+		end
 	end
 	if state.ExtraResist.value == 'Charm' then
 		idleSet = set_combine(idleset,sets.Charm)
