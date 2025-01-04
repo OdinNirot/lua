@@ -15,6 +15,7 @@ end
 function job_setup()
 
 	state.Kalasiris = M(false, 'Kalasiris')
+	state.Seidr = M(true, 'Seidr')
 	state.DualWielding = M{false, true}
 	state.Immunobreak = M(false, 'Immunobreak')
 	
@@ -159,6 +160,7 @@ function user_setup()
 	send_command('bind ^- gs c cycle Kiting')
 	send_command('bind ^= gs c cycle TreasureMode')
 	send_command('bind ^backspace gs c cycle CursnaGear')
+	send_command('bind numpad1 gs c cycle Seidr')
 	send_command('bind numpad3 gs c cycle AccMode')
 	send_command('bind numpad4 gs c cycle ExtraResist')
 	send_command('bind numpad6 gs c cycle Immunobreak')
@@ -184,6 +186,7 @@ function user_unload()
 	send_command('unbind numpad.')
 	send_command('unbind ^=')
 	send_command('unbind ^backspace')
+	send_command('unbind numpad1')
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
 	send_command('unbind numpad8')
@@ -238,6 +241,7 @@ function init_gear_sets()
 	TelFeet.Duration = { name="Telchine Pigaches", augments={'Mag. Evasion+20','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 		
 	sets.Prime = {main="Lorg Mor"}
+	sets.Seidr = {body="Seidr Cotehardie"}
 	
 	Lifestream = {}
 	Lifestream.IndiDuration = { name="Lifestream Cape", augments={'Geomancy Skill +4','Indi. eff. dur. +20','Pet: Damage taken -1%',}}
@@ -536,10 +540,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 
 	if spellMap == 'Nuke' then
+		add_to_chat(8,"you are here")
 		weathercheck(spell.element,sets.midcast['Elemental Magic'].base)
 		zodiaccheck(spell.element)
 		if state.BurstMode.value then
 			equip(sets.Burst)
+		end
+		if state.Seidr.value then --"Does work on AoE spells, but MP recovery is capped at the spells initial cost." e.g. for Thunder V costing 306 mp, do at least 15,300 dmg for full return
+			equip(sets.Seidr)
 		end
 		--if sets.ElementalMagicMAB[spell.element] then
 		--    equip(sets.ElementalMagicMAB[spell.element])
