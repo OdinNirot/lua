@@ -540,7 +540,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 
 	if spellMap == 'Nuke' then
-		add_to_chat(8,"you are here")
 		weathercheck(spell.element,sets.midcast['Elemental Magic'].base)
 		zodiaccheck(spell.element)
 		if state.BurstMode.value then
