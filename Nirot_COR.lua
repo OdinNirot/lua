@@ -238,6 +238,9 @@ function init_gear_sets()
 	Camulus.DW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
 	Camulus.WSDMagi = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
 	
+	sets.Orpheus = {waist="Orpheus's Sash"}
+	sets.Hachirin = {waist="Hachirin-no-Obi"}
+	
 	sets.idle = {
 	head="Nyame Helm",neck="Warder's Charm +1",ear1="Sanare Earring",ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
 		body="Chasseur's Frac +3",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Chirich Ring +1",
@@ -1186,48 +1189,6 @@ function check_gear()
 		enable("waist")
 	end
 end
-
---[[
-function display_current_job_state(eventArgs)
-	local msg = ''
-	msg = msg .. 'Offense: '..state.OffenseMode.current
-	msg = msg .. ', Hybrid: '..state.HybridMode.current
-
-	if state.DefenseMode.value ~= 'None' then
-		local defMode = state[state.DefenseMode.value ..'DefenseMode'].current
-		msg = msg .. ', Defense: '..state.DefenseMode.value..' '..defMode
-	end
-	if state.HasteMode.value ~= 'Normal' then
-		msg = msg .. ', Haste: '..state.HasteMode.current
-	end
-	if state.RangedMode.value ~= 'Normal' then
-		msg = msg .. ', Rng: '..state.RangedMode.current
-	end
-	if state.Kiting.value then
-		msg = msg .. ', Kiting'
-	end
-	if state.PCTargetMode.value ~= 'default' then
-		msg = msg .. ', Target PC: '..state.PCTargetMode.value
-	end
-	if state.SelectNPCTargets.value then
-		msg = msg .. ', Target NPCs'
-	end
-
-	add_to_chat(123, msg)
-	eventArgs.handled = true
-end
---]]
-
---function check_weaponset()
---	if state.OffenseMode.value == 'LowAcc' or state.OffenseMode.value == 'MidAcc' or state.OffenseMode.value == 'HighAcc' then
---		equip(sets[state.WeaponSet.current].Acc)
---	else
---		equip(sets[state.WeaponSet.current])
---	end
---	if player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' then
---		equip(sets.DefaultShield)
---	end
---end
 
 windower.register_event('zone change',
 	function()
