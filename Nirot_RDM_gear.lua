@@ -175,7 +175,8 @@ function init_gear_sets()
 	sets.midcast.Cure = {main="Daybreak",Sub="Sacro Bulwark",
 		head="Kaykaus Mitra +1",neck="Incanter's Torque",ear1="Mendicant's Earring",ear2="Novia Earring",
 		body="Bunzi's Robe",hands="Kaykaus Cuffs +1",ring1="Kishar Ring",ring2="Naji's Loop",
-		back="Ghostfyre Cape",waist="Bishop's Sash",legs="Kaykaus Tights +1",feet="Kaykaus Boots +1"}	
+		back="Ghostfyre Cape",waist="Bishop's Sash",legs="Kaykaus Tights +1",feet="Kaykaus Boots +1"}
+	sets.midcast.Curaga = sets.midcast.Cure
 
 	-- Sets to return to when not performing an action.
 	sets.latent_refresh = {waist="Fucho-no-obi"}
