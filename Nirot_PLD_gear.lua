@@ -101,7 +101,7 @@ function init_gear_sets()
 
 	sets.precast.FC = {ammo={ name="Sapience Orb", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={ name="Orunmila's Torque", priority=1},ear1={ name="Loquacious Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Rev. Surcoat +3",priority=254},hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',},priority=25},ring1={ name="Defending Ring",priority=1},ring2="Kishar Ring",
+		body={ name="Rev. Surcoat +3",priority=254},hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',},priority=25},ring1={ name="Moonlight Ring",priority=110},ring2="Kishar Ring",
 		back=Rudianos.FC,waist={name="Plat. Mog. Belt", priority=300},legs=EschiteLegs.FC,feet={ name="Chev. Sabatons +3", priority=52}}
 
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {neck={ name="Incanter's Torque", priority=1},
@@ -173,9 +173,9 @@ function init_gear_sets()
 		waist={name="Dynamic Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}}
 		
 	sets.midcast.Enmity = {ammo={ name="Sapience Orb", priority=1},
-		head={ name="Loess Barbuta +1", augments={'Path: A',}, priority=105},neck={name="Moonlight Necklace", priority=1},ear1={name="Cryptic Earring", priority=40},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
-		back=Rudianos.SIRD,waist={ name="Creed Baudrier", priority=40},legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=162},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
+		head={ name="Loess Barbuta +1", augments={'Path: A',}, priority=105},neck={name="Moonlight Necklace", priority=1},ear1={name="Cryptic Earring", priority=40},ear2={name="Friomisi Earring", priority=1},
+		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={ name="Supershear Ring",priority=30},ring2={ name="Apeile Ring +1", priority=1},
+		back=Rudianos.SIRD,waist={ name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 
 	-- you need a total of 102 to cap SIRD. Full merits in the category mean you only need 92% from gear. Probably best to use +enmity or -DT in the rest of the slots
 	-- ear1={ name="Loquacious Earring", priority=1},body={ name="Yorium Cuirass", augments={'Spell interruption rate down -9%',}},hands={ name="Yorium Gauntlets", augments={'Spell interruption rate down -10%',}}
@@ -188,9 +188,9 @@ function init_gear_sets()
 	--feet="Odyssean Greaves" = 30
 
 	sets.midcast.SIRD = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={name="Moonlight Necklace", priority=1},ear1={ name="Knightly Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={name="Chev. Gauntlets +3", priority=64},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
-		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={name="Founder's Hose", priority=54},feet={ name="Odyssean Greaves", augments={'INT+5','Spell interruption rate down -10%','"Store TP"+2','Accuracy+18 Attack+18','Mag. Acc.+16 "Mag.Atk.Bns."+16',}, priority=20}}
+		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={name="Moonlight Necklace", priority=1},ear1={ name="Knightly Earring", priority=1},ear2={name="Nourish. Earring +1", priority=1},
+		body={ name="Adamantite Armor", priority=182},hands={name="Sakpata's Gauntlets", priority=91},ring1={ name="Evanescence Ring",priority=1},ring2={ name="Moonlight Ring", priority=110},
+		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={name="Chev. Cuisses +3", priority=127},feet={ name="Odyssean Greaves", augments={'INT+5','Spell interruption rate down -10%','"Store TP"+2','Accuracy+18 Attack+18','Mag. Acc.+16 "Mag.Atk.Bns."+16',}, priority=20}}
 
 	sets.Phalanx = {
 		head=ValorousHead.Phalanx, priority=38,
