@@ -272,6 +272,7 @@ function init_gear_sets()
 	HercLegs.Healing = { name="Herculean Trousers", augments={'"Triple Atk."+2','"Cure" potency +10%','Damage taken-2%','Accuracy+20 Attack+20','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Weapon skill damage +3%','"Fast Cast"+1','Phalanx +4','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
 	HercFeet.Refresh = { name="Herculean Boots", augments={'DEX+10','STR+2','"Refresh"+2','Accuracy+11 Attack+11',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 
@@ -467,7 +468,7 @@ function init_gear_sets()
 	sets.midcast.Protectra = {ring1="Sheltered Ring"}
 	sets.midcast.Shell = {ring1="Sheltered Ring"}
 	sets.midcast.Shellra = {ring1="Sheltered Ring"}
-	sets.midcast.Phalanx = set_combine(sets.midcast.EnhancingDuration, {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx})
+	sets.midcast.Phalanx = set_combine(sets.midcast.EnhancingDuration, {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx,feet=HercFeet.Phalanx})
 
 	-- Sets to return to when not performing an action.
 
@@ -503,7 +504,7 @@ function init_gear_sets()
 	sets.Refresh = {waist="Gishdubar Sash"}
 	
 	-- don't forget to add these pieces to your midcast as well
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx,feet=HercFeet.Phalanx}
 
 	-- Engaged sets
 
