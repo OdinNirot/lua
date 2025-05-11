@@ -236,7 +236,7 @@ function init_gear_sets()
 	
 	Camulus = {}
 	Camulus.DW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
-	Camulus.WSDMagi = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
+	Camulus.WSDMagi = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 	
 	sets.Orpheus = {waist="Orpheus's Sash"}
 	sets.Hachirin = {waist="Hachirin-no-Obi"}
