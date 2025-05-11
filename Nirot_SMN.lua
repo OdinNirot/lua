@@ -86,11 +86,19 @@ function get_sets()
 	Grio = {}
 	Campestres = {}
 
+	MerlinicHead.Phalanx = {name="Merlinic Hood", augments={'Pet: Phys. dmg. taken -2%','"Resist Silence"+1','Phalanx +5','Accuracy+10 Attack+10','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
+	MerlinicHead.TH = { name="Merlinic Hood", augments={'Mag. Acc.+22','"Dbl.Atk."+3','"Treasure Hunter"+2','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
+
+	MerlinicHands.Phalanx = { name="Merlinic Dastanas", augments={'Crit. hit damage +1%','Attack+12','Phalanx +5','Accuracy+14 Attack+14',}}
 	MerlinicHands.Refresh = { name="Merlinic Dastanas", augments={'Pet: STR+3','STR+8','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+8 "Mag.Atk.Bns."+8',}}
 	MerlinicHands.TH = { name="Merlinic Dastanas", augments={'MND+5','Weapon Skill Acc.+2','"Treasure Hunter"+2',}}
-	MerlinicHead.TH = { name="Merlinic Hood", augments={'Mag. Acc.+22','"Dbl.Atk."+3','"Treasure Hunter"+2','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
+
+	MerlinicLegs.Phalanx = { name="Merlinic Shalwar", augments={'AGI+4','Mag. Acc.+6','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	MerlinicLegs.Refresh = { name="Merlinic Shalwar", augments={'Pet: Mag. Acc.+1','Accuracy+4 Attack+4','"Refresh"+2','Mag. Acc.+6 "Mag.Atk.Bns."+6',}}
+
+	MerlinicFeet.Phalanx = { name="Merlinic Crackows", augments={'CHR+7','Magic Damage +1','Phalanx +4','Accuracy+6 Attack+6',}}
 	MerlinicFeet.Refresh = { name="Merlinic Crackows", augments={'"Dual Wield"+1','Enmity-2','"Refresh"+2','Mag. Acc.+10 "Mag.Atk.Bns."+10',}}
+
 
 	TelHead.Duration = { name="Telchine Cap", augments={'Mag. Evasion+20','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	TelBody.Duration = { name="Telchine Chas.", augments={'Mag. Evasion+21','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
@@ -98,10 +106,12 @@ function get_sets()
 	TelLegs.Duration = { name="Telchine Braconi", augments={'Mag. Evasion+24','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	TelFeet.Duration = { name="Telchine Pigaches", augments={'Mag. Evasion+20','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 
+
 	HeliosHead.PhysBP = { name="Helios Band", augments={'Pet: Attack+29 Pet: Rng.Atk.+29','Pet: "Dbl. Atk."+8','Blood Pact Dmg.+7',}}
 	HeliosHands.PetMelee = { name="Helios Gloves", augments={'Pet: Accuracy+30 Pet: Rng. Acc.+30','Pet: "Dbl. Atk."+8','Pet: Haste+6',}}
 	HeliosFeet.PhysBP = { name="Helios Boots", augments={'Pet: Accuracy+30 Pet: Rng. Acc.+30','Pet: "Dbl. Atk."+8','Blood Pact Dmg.+7',}}
 	HeliosFeet.PetMelee = { name="Helios Boots", augments={'Pet: Accuracy+26 Pet: Rng. Acc.+26','Pet: "Dbl. Atk."+8','Pet: Haste+6',}}
+
 
 	ApogeeHead.PetDT = { name="Apogee Crown +1", augments={'Pet: Accuracy+25','"Avatar perpetuation cost"+7','Pet: Damage taken -4%',}}
 	ApogeeBody.MagBP = { name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}}
@@ -110,19 +120,25 @@ function get_sets()
 	ApogeeFeet.PhysBP = { name="Apogee Pumps +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}}
 	ApogeeFeet.MagBP = { name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}}
 
+
 	VanyaHead.HealSkill = { name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
 	VanyaLegs.HealSkill = { name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
 	VanyaFeet.HealSkill = { name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
 
+
 	Grio.PetMAB = { name="Grioavolr", augments={'Blood Pact Dmg.+10','Pet: INT+15','Pet: Mag. Acc.+20','Pet: "Mag.Atk.Bns."+21','DMG:+7',}}
 	Campestres.CapeA = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Pet: Attack+5 Pet: Rng.Atk.+5','Pet: "Regen"+10','Pet: Damage taken -5%',}}
+
+
+	Gada = {}
+	Gada.Enh = { name="Gada", augments={'Enh. Mag. eff. dur. +6','DMG:+4',}}
 
 	-- Base Damage Taken Set - Mainly used when IdleMode is "DT"
 	sets.PDT_Base = {
 		main="Nirvana",
 		sub="Khonsu",
 		head="Beckoner's Horn +3",
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		ear1="Cath Palug Earring",
 		ear2="Beck. Earring +1",
 		body="Bunzi's Robe",
@@ -139,6 +155,7 @@ function get_sets()
 	-- It overwrites slots in other sets when TH toggle is on (Ctrl+F10).
 	sets.TH = {head=MerlinicHead.TH,hands=MerlinicHands.TH}
 	sets.SacTorque = {neck="Sacrifice Torque"}
+	sets.Phalanx = {head=MerlinicHead.Phalanx,hands=MerlinicHands.Phalanx,legs=MerlinicLegs.Phalanx,feet=MerlinicFeet.Phalanx}
 
 	sets.precast = {}
 
@@ -158,7 +175,7 @@ function get_sets()
 	sets.midcast.BP = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},sub="Vox Grip",ammo="Epitaph",
 		head="Beckoner's Horn +3",neck="Incanter's Torque",ear1="Cath Palug Earring",ear2="Lodurr Earring",
 		body="Baayami Robe +1",hands="Baayami Cuffs +1",ring1="Stikini Ring +1",ring2="Evoker's Ring",
-		back={ name="Conveyance Cape", augments={'Summoning magic skill +2','Pet: Enmity+12','Blood Pact Dmg.+5','Blood Pact ab. del. II -1',}},waist="Kobo Obi",legs="Baayami Slops +1",feet="Baayami Sabots +1"}
+		back={ name="Conveyance Cape", augments={'Summoning magic skill +1','Pet: Enmity+5','Blood Pact Dmg.+1','Blood Pact ab. del. II -3',}},waist="Kobo Obi",legs="Baayami Slops +1",feet="Baayami Sabots +1"}
 
 	-- Elemental Siphon sets. Zodiac Ring is affected by day, Chatoyant Staff by weather, and Twilight Cape by both.
 	sets.midcast.Siphon = {
@@ -173,7 +190,7 @@ function get_sets()
 		hands="Baayami Cuffs +1",
 		ring1="Stikini Ring +1",
 		ring2="Evoker's Ring",
-		back={ name="Conveyance Cape", augments={'Summoning magic skill +2','Pet: Enmity+12','Blood Pact Dmg.+5','Blood Pact ab. del. II -1',}},
+		back={ name="Conveyance Cape", augments={'Summoning magic skill +1','Pet: Enmity+5','Blood Pact Dmg.+1','Blood Pact ab. del. II -3',}},
 		waist="Kobo Obi",
 		legs="Baayami Slops +1",
 		feet="Beck. Pigaches +1"
@@ -223,13 +240,13 @@ function get_sets()
 	}
 	sets.midcast.Enfeeble.INT = set_combine(sets.midcast.Enfeeble, {waist="Acuity Belt +1"})
 
-	sets.midcast.Enhancing = {main="Gada",sub="Ammurapi Shield",
+	sets.midcast.Enhancing = {main=Gada.Enh,sub="Ammurapi Shield",
 		head=TelHead.Duration,neck="Incanter's Torque",ear2="Mimir Earring",
 		body=TelBody.Duration,hands=TelHands.Duration,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Perimede Cape",waist="Embla Sash",legs=TelLegs.Duration,feet=TelFeet.Duration}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast.Enhancing, {head="Umuthi Hat",neck="Nodens Gorget",ear1="Earthcry Earring",legs="Shedir Seraweels"})
-
+	
 	sets.midcast.Nuke = {
 		main="Mpaca's Staff",
 		sub="Elan Strap +1",
@@ -257,6 +274,8 @@ function get_sets()
 		head="Amalric Coif +1"
 	})
 
+	sets.midcast["Phalanx"] = set_combine(sets.midcast.Enhancing,{head=MerlinicHead.Phalanx,hands=MerlinicHands.Phalanx,legs=MerlinicLegs.Phalanx,feet=MerlinicFeet.Phalanx})
+	
 	sets.midcast["Dispelga"] = set_combine(sets.midcast.Enfeeble, {main="Daybreak",sub="Ammurapi Shield"})
 	sets.midcast["Mana Cede"] = { hands="Beckoner's Bracers +1" }
 	sets.midcast["Astral Flow"] = { head="Glyphic Horn +3" }
@@ -301,7 +320,7 @@ function get_sets()
 		sub="Elan Strap +1",
 		ammo="Epitaph",
 		head=HeliosHead.PhysBP,
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		ear1="Lugalbanda Earring",
 		ear2="Kyrene's Earring",
 		body="Glyphic Doublet +3",
@@ -345,13 +364,13 @@ function get_sets()
 	-- Base magic pact set
 	-- Prioritize BP Damage & Pet:MAB
 	-- Strong Alternatives:
-	-- Espiritus, Apogee Crown, Smn. Collar +2 (equal to ~R12 Collar)
+	-- Espiritus, Apogee Crown, Summoner's Collar +2 (equal to ~R12 Collar)
 	sets.pet_midcast.Magic_BP_Base = {
 		main=Grio.PetMAB,  
 		sub="Elan Strap +1",
 		ammo="Epitaph",
 		head="Cath Palug Crown",
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		ear1="Lugalbanda Earring",
 		ear2="Gelos Earring",
 		body=ApogeeBody.MagBP,
@@ -390,13 +409,13 @@ function get_sets()
 	-- Favor BP Damage above all. Pet:MAB also very strong.
 	-- Pet: Accuracy, Attack, Magic Accuracy moderately important.
 	-- Strong Alternatives:
-	-- Keraunos, Grioavolr, Espiritus, Was, Apogee Crown, Apogee Dalmatica, Smn. Collar +2
+	-- Keraunos, Grioavolr, Espiritus, Was, Apogee Crown, Apogee Dalmatica, Summoner's Collar +2
 	sets.pet_midcast.FlamingCrush = {
 		main="Nirvana",
 		sub="Elan Strap +1",
 		ammo="Epitaph",
 		head="Cath Palug Crown",
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		ear1="Lugalbanda Earring",
 		ear2="Gelos Earring",
 		body="Convoker's Doublet +3",
@@ -422,7 +441,7 @@ function get_sets()
 		sub="Vox Grip",
 		ammo="Epitaph",
 		head="Convoker's Horn +3",
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		ear1="Lugalbanda Earring",
 		ear2="Enmerkar Earring",
 		body="Convoker's Doublet +3",
@@ -435,6 +454,17 @@ function get_sets()
 		feet="Bunzi's Sabots"
 	}
 
+    -- Shock Squall is too fast to swap gear in pet_midcast() or otherwise. It'll generally land in your BP timer set.
+    -- I settle for the 670 skill favor tier in this set, so that I can fit more Pet:MAcc although it's usually not necessary.
+    sets.pet_midcast["Shock Squall"] = set_combine(sets.pet_midcast.MagicAcc_BP, {
+        neck="Summoner's Collar +2",
+        ear1="Enmerkar Earring",
+        ear2="Lugalbanda Earring",
+        ring1="Cath Palug Ring",
+        back=Campestres.CapeB,
+        waist="Incarnation Sash"
+    })
+	
 	sets.pet_midcast.Debuff_Rage = sets.pet_midcast.MagicAcc_BP
 
 	-- Pure summoning magic set, mainly used for buffs like Hastega II.
@@ -452,7 +482,7 @@ function get_sets()
 		hands="Baayami Cuffs +1",
 		ring1="Stikini Ring +1",
 		ring2="Evoker's Ring",
-		back={ name="Conveyance Cape", augments={'Summoning magic skill +2','Pet: Enmity+12','Blood Pact Dmg.+5','Blood Pact ab. del. II -1',}},
+		back={ name="Conveyance Cape", augments={'Summoning magic skill +1','Pet: Enmity+5','Blood Pact Dmg.+1','Blood Pact ab. del. II -3',}},
 		waist="Kobo Obi",
 		legs="Baayami Slops +1",
 		feet="Baayami Sabots +1"
@@ -463,7 +493,7 @@ function get_sets()
 	-- Wind's Blessing set. Pet:MND increases potency.
 	sets.pet_midcast.Buff_MND = set_combine(sets.pet_midcast.Buff, {
 		main="Nirvana",
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		hands="Lamassu Mitts +1",
 		back=Campestres.CapeA,
 		legs="Assiduity Pants +1",
@@ -501,7 +531,7 @@ function get_sets()
 
 	-- This is your main idle set with no avatar out. Focus on refresh and defensive stats.
 	sets.aftercast = {main="Mpaca's Staff",sub="Khonsu",ammo="Epitaph",
-		head="Beckoner's Horn +3",neck="Smn. Collar +2",ear1="Cath Palug Earring",ear2="Beck. Earring +1",
+		head="Beckoner's Horn +3",neck="Summoner's Collar +2",ear1="Cath Palug Earring",ear2="Beck. Earring +1",
 		body="Bunzi's Robe",hands=MerlinicHands.Refresh,ring1="Defending Ring",ring2={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		back=Campestres.CapeA,waist="Regal Belt",legs=MerlinicLegs.Refresh,feet=MerlinicFeet.Refresh}  -- i used to have loricate torque in this set, seems like just using Smn collar is fine?
 
@@ -530,7 +560,7 @@ function get_sets()
 		neck="Shulmanu Collar",
 		ear1="Telos Earring",
 		ear2="Cessance Earring",
-		body="Tali'ah Manteel +2",
+		body="Bunzi's Robe",
 		hands="Bunzi's Gloves",
 		ring1={ name="Chirich Ring +1", bag="wardrobe2" },
 		ring2={ name="Chirich Ring +1", bag="wardrobe4" },
@@ -604,7 +634,7 @@ function get_sets()
 		sub="Khonsu",
 		ammo="Epitaph",
 		head={ name="Apogee Crown +1", augments={'Pet: Accuracy+25','"Avatar perpetuation cost"+7','Pet: Damage taken -4%',}},
-		neck="Smn. Collar +2",
+		neck="Summoner's Collar +2",
 		ear1="Cath Palug Earring",
 		ear2="Enmerkar Earring",
 		body={ name="Apo. Dalmatica +1", augments={'Summoning magic skill +20','Enmity-6','Pet: Damage taken -4%',}},
@@ -653,7 +683,7 @@ function get_sets()
 		hands="Baayami Cuffs +1",
 		ring1="Stikini Ring +1",
 		ring2="Evoker's Ring",
-		back={ name="Conveyance Cape", augments={'Summoning magic skill +2','Pet: Enmity+12','Blood Pact Dmg.+5','Blood Pact ab. del. II -1',}},
+		back={ name="Conveyance Cape", augments={'Summoning magic skill +1','Pet: Enmity+5','Blood Pact Dmg.+1','Blood Pact ab. del. II -3',}},
 		waist="Lucidity Sash",
 		legs="Glyphic Spats +3",
 		feet="Baayami Sabots +1"
@@ -877,6 +907,8 @@ function equipBPGear(spell)
 		else
 			equip(sets.pet_midcast.FlamingCrush)
 		end
+	elseif spell=="Shock Squall" then
+		equip(sets.pet_midcast["Shock Squall"])
 	elseif ImpactDebuff and (spell=="Impact" or spell=="Conflag Strike") then
 		equip(sets.pet_midcast.Impact)
 	elseif Magic_BPs_NoTP:contains(spell) then
@@ -921,6 +953,96 @@ function equipBPGear(spell)
 		else
 			equip(sets.pet_midcast.Physical_BP)
 		end
+	end
+end
+
+function check_reaction(act)
+
+	--Gather Info
+    local curact = T(act)
+    local actor = T{}
+	local otherTarget = T{}
+
+    actor.id = curact.actor_id
+	
+	if not ((curact.category == 8) or curact.category == 4) then return end
+	-- Make sure it's a mob that's doing something.
+    if windower.ffxi.get_mob_by_id(actor.id) then
+        actor = windower.ffxi.get_mob_by_id(actor.id)
+    else
+        return
+    end
+	
+	-- Check if we're targeting it.
+    if player and player.target and player.target.id and actor.id == player.target.id then
+        isTarget = true
+    else
+		isTarget = false
+    end
+	
+	if curact.targets[1].id == nil then
+		targetsMe = false
+		targetsSelf = false
+		otherTarget.in_party = false
+		otherTarget.in_alliance = false
+		targetsDistance = 50
+	elseif curact.targets[1].id == player.id then
+		otherTarget.in_party = false
+		otherTarget.in_alliance = false
+		targetsMe = true
+		targetsSelf = false
+		targetsDistance = 0
+	elseif curact.targets[1].id == actor.id	then
+		if windower.ffxi.get_mob_by_id(curact.targets[1].id) then
+			otherTarget = windower.ffxi.get_mob_by_id(curact.targets[1].id)
+		else
+			otherTarget.in_party = false
+			otherTarget.in_alliance = false
+			otherTarget.distance = 10000
+		end
+		targetsMe = false
+		targetsSelf = true
+		targetsDistance = math.sqrt(otherTarget.distance)
+	else
+		if windower.ffxi.get_mob_by_id(curact.targets[1].id) then
+			otherTarget = windower.ffxi.get_mob_by_id(curact.targets[1].id)
+		else
+			otherTarget.in_party = false
+			otherTarget.in_alliance = false
+			otherTarget.distance = 10000
+		end
+		targetsSelf = false
+		targetsMe = false
+		targetsDistance = math.sqrt(otherTarget.distance)
+	end
+		
+	-- Make sure it's not US from this point on!
+	if actor.id == player.id then return end
+    -- Make sure it's a WS or MA precast before reacting to it.		
+    if not (curact.category == 7 or curact.category == 8) then return end
+	
+    -- Get the name of the action.
+    if curact.category == 8 then act_info = res.spells[curact.targets[1].actions[1].param] end
+	if act_info == nil then return end
+
+	if targetsMe then
+		if PhalanxAbility:contains(act_info.name) then
+			do_equip('sets.Phalanx')
+			windower.send_command('wait 2.5;gs c update user')
+		end
+		
+--	elseif actor.in_party and otherTarget.in_party and targetsDistance < 10 then
+--
+--		if CuragaAbility:contains(act_info.name) and player.hpp < 75 then
+--			if sets.Cure_Received then
+--				do_equip('sets.Cure_Received')
+--			elseif sets.Self_Healing then
+--				do_equip('sets.Self_Healing') 
+--			end
+--			return
+--		elseif ProshellraAbility:contains(act_info.name) and sets.Sheltered then
+--			do_equip('sets.Sheltered') return
+--		end
 	end
 end
 
