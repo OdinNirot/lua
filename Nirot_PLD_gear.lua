@@ -172,10 +172,10 @@ function init_gear_sets()
 		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +3", priority=64},
 		waist={name="Dynamic Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}}
 		
-	sets.midcast.Enmity = {ammo={ name="Sapience Orb", priority=1},
-		head={ name="Loess Barbuta +1", augments={'Path: A',}, priority=105},neck={name="Moonlight Necklace", priority=1},ear1={name="Cryptic Earring", priority=40},ear2={name="Friomisi Earring", priority=1},
-		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={ name="Supershear Ring",priority=30},ring2={ name="Apeile Ring +1", priority=1},
-		back=Rudianos.SIRD,waist={ name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
+	sets.midcast.Enmity = {ammo={ name="Staunch Tathlum +1", priority=1},
+		head={ name="Loess Barbuta +1", augments={'Path: A',}, priority=105},neck={name="Kgt. Beads +2", priority=60},ear1={name="Cryptic Earring", priority=40},ear2={name="Chevalier's Earring +1", priority=1},
+		body={ name="Chev. Cuirass +3", priority=151},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={ name="Moonlight Ring",priority=110},ring2={ name="Apeile Ring +1", priority=1},
+		back=Rudianos.DT,waist={ name="Plat. Mog. Belt", priority=300},legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=162},feet={ name="Chev. Sabatons +3", priority=52}}
 
 	-- you need a total of 102 to cap SIRD. Full merits in the category mean you only need 92% from gear. Probably best to use +enmity or -DT in the rest of the slots
 	-- ear1={ name="Loquacious Earring", priority=1},body={ name="Yorium Cuirass", augments={'Spell interruption rate down -9%',}},hands={ name="Yorium Gauntlets", augments={'Spell interruption rate down -10%',}}
@@ -188,8 +188,8 @@ function init_gear_sets()
 	--feet="Odyssean Greaves" = 30
 
 	sets.midcast.SIRD = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={name="Moonlight Necklace", priority=1},ear1={ name="Knightly Earring", priority=1},ear2={name="Nourish. Earring +1", priority=1},
-		body={ name="Adamantite Armor", priority=182},hands={name="Sakpata's Gauntlets", priority=91},ring1={ name="Evanescence Ring",priority=1},ring2={ name="Moonlight Ring", priority=110},
+		head={ name="Chev. Armet +3", priority=145},neck={name="Moonlight Necklace", priority=1},ear1={ name="Knightly Earring", priority=1},ear2={name="Etiolation Earring", priority=50},
+		body={ name="Chev. Cuirass +3", priority=151},hands={name="Chev. Gauntlets +3", priority=64},ring1={ name="Moonlight Ring",priority=150},ring2={ name="Gelatinous Ring +1", priority=135},
 		back=Rudianos.SIRD,waist={name="Plat. Mog. Belt", priority=300},legs={name="Chev. Cuisses +3", priority=127},feet={ name="Odyssean Greaves", augments={'INT+5','Spell interruption rate down -10%','"Store TP"+2','Accuracy+18 Attack+18','Mag. Acc.+16 "Mag.Atk.Bns."+16',}, priority=20}}
 
 	sets.Phalanx = {
@@ -319,22 +319,19 @@ function init_gear_sets()
 	-- Engaged sets
 	--------------------------------------
 
-	sets.engaged = {ammo={name="Aurgelmir Orb +1", priority=1},
-		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
-		body={name="Sakpata's Plate", priority=136},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Chirich Ring +1", priority=1},ring2={name="Moonlight Ring", priority=110},
-		back=Rudianos.DT,waist={name="Sailfi belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
+	sets.engaged = {ammo={name="Staunch Tathlum +1", priority=1},
+		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Cryptic Earring", priority=40},ear2={name="Odnowa earring +1", priority=110},
+		body={name="Chev. Cuirass +3", priority=151},hands={ name="Chev. Gauntlets +3", priority=64},ring1={name="Chirich Ring +1", priority=1},ring2={name="Moonlight Ring", priority=110},
+		back=Rudianos.DT,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={ name="Chev. Sabatons +3", priority=52}}
 
 	sets.engaged.Acc = {ammo={ name="Ginsen", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={name="Dignitary's Earring", priority=1},
 		body={name="Sakpata's Plate", priority=136},hands={name="Sakpata's Gauntlets", priority=91},ring1={name="Chirich Ring +1", priority=1},ring2={name="Moonlight Ring", priority=110},
 		back=Rudianos.DT,waist={name="Dynamic Belt +1", priority=1},legs={name="Sakpata's Cuisses", priority=114},feet={name="Sakpata's Leggings", priority=68}}
 
-	sets.engaged.PDT = {ammo={name="Staunch Tathlum +1", priority=1},
-		head={name="Chev. Armet +3", priority=145},neck={ name="Warder's Charm +1", priority=1},ear1={name="Telos Earring", priority=1},ear2={ name="Ethereal Earring", priority=1},
-		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +3", priority=64},ring1={ name="Defending Ring",priority=1},ring2={ name="Pernicious Ring", priority=1},
-		back=Rudianos.DT,waist={ name="Flume Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127}}
+	sets.engaged.PDT = sets.engaged
 		
-	sets.engaged.MDT = set_combine(sets.engaged.PDT, {ear1={ name="Sanare Earring", priority=1},ring2={ name="Purity Ring", priority=1},waist={ name="Creed Baudrier", priority=40},feet="Sakpata's Leggings"})
+	sets.engaged.MDT = sets.engaged
 
 	--[[
 	sets.engaged.DW = {ammo={ name="Ginsen", priority=1},
