@@ -399,7 +399,7 @@ function init_gear_sets()
 		body="Agwu's Robe",hands="Amalric Gages +1",ring2="Mallquis Ring",
 		feet="Amalric Nails +1"})
 	sets.BurstHelix = set_combine(sets.Helix,{
-		head="Peda. M.Board +3",ear2="Arbatel Earring +1",
+		head="Peda. M.Board +3",ear2="Arbatel Earring +2",
 		hands="Agwu's Gages",ring2="Mujin Band",
 		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +2"})
 	sets.midcast.Death = sets.midcast['Elemental Magic'].base
@@ -418,7 +418,7 @@ function init_gear_sets()
 	-- Custom spell classes
 	sets.midcast['Enfeebling Magic'] = {}
 	sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Khonsu",
-		head="Arbatel Bonnet +3",neck="Argute Stole +2",ear1="Snotra Earring",ear2="Arbatel Earring +1",
+		head="Arbatel Bonnet +3",neck="Argute Stole +2",ear1="Snotra Earring",ear2="Arbatel Earring +2",
 		body="Arbatel Gown +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Arbatel Pants +3",feet="Acad. Loafers +3"}
 	sets.midcast['Enfeebling Magic'].potency = set_combine(sets.midcast['Enfeebling Magic'].base,{})
