@@ -47,6 +47,8 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 	res = require('resources')
+	
+	classes.CustomDTGroups = L{}	
 end
 
 -- Setup vars that are user-independent.
@@ -107,16 +109,18 @@ end
 function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal', 'MidAcc', 'MaxAcc')
-	state.HybridMode:options('Normal', 'PDT')
+	state.DTMode = M{['description'] = 'DTMode', 'None', 'DT'}
+	--state.HybridMode:options('Normal', 'PDT')
 	--state.IdleMode:options('Normal', 'PDT')
 	
 	
 	--state.RangeMode:options('Gun','Crossbow','Bow')
 	--state.RangeMode = M{['description'] = 'Ranged Mode','Gun','Crossbow','Bow'}
 	state.RangedMode:options('Normal','Critical')
-	state.WeaponskillMode:options('Normal','MidAcc','MaxAcc','PDT')
-	state.PhysicalDefenseMode:options('PDT')
-	state.MagicalDefenseMode:options('MDT')
+	state.WeaponskillMode:options('Normal','MidAcc','MaxAcc','DT')
+	--state.PhysicalDefenseMode:options('PDT')
+	--state.MagicalDefenseMode:options('MDT')
+	state.CursnaGear = M(true, 'CursnaGear')
 	
 	Haste = 0
 	DW_needed = 0
@@ -139,12 +143,13 @@ function user_setup()
 	--send_command('bind ![ input /lockstyle off')
 	--send_command('bind != gs c toggle CapacityMode')
 	send_command('bind @f9 gs c cycle HasteMode')
-	send_command('bind numpad. gs c cycle HybridMode')
+	send_command('bind numpad. gs c cycle DTMode')
 	send_command('bind numpad0 input /ra <t>')
 	send_command('bind numpad3 gs c cycle OffenseMode')
 	send_command('bind numpad4 gs c wsmain')
 	send_command('bind numpad5 gs c cycle MainWS')
 	send_command('bind numpad6 gs c cycle RangedMode')
+	send_command('bind ^backspace gs c cycle CursnaGear')
 
 	send_command('gs enable ammo')
 	
@@ -167,8 +172,9 @@ function file_unload()
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
 	send_command('unbind numpad5')
-	send_command('unbind numpad6')	
-	send_command('unbind numpad7')	
+	send_command('unbind numpad6')
+	send_command('unbind numpad7')
+	send_command('unbind ^backspace')
 	
 end
 
@@ -224,15 +230,15 @@ function init_gear_sets()
 	Belenus.DexCrit = Belenus.WSD_AGI
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Barrage'] = {hands="Orion Bracers +1"}
+	sets.precast.JA['Barrage'] = {hands="Orion Bracers +3"}
 	sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +3"}
 	sets.precast.JA['Camouflage'] = {body="Orion Jerkin +1"}
-	sets.precast.JA['Double Shot'] = {head="Amini Gapette +3",body="Arcadian Jerkin +1",hands="Oshosi Gloves +1",legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"}
+	sets.precast.JA['Double Shot'] = {head="Amini Gapette +3",body="Arcadian Jerkin +3",hands="Oshosi Gloves +1",legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"}
 	sets.precast.JA['Eagle Eye Shot'] = {legs="Arcadian Braccae +3"}
-	sets.precast.JA['Flashy Shot'] = {hands="Arcadian Bracers +1"}
-	sets.precast.JA['Scavenge'] = {feet="Orion Socks +1"}
-	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +1"}
-	sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +1"}  --dont think these have to stay equipped
+	sets.precast.JA['Flashy Shot'] = {hands="Arcadian Bracers +3"}
+	sets.precast.JA['Scavenge'] = {feet="Orion Socks +3"}
+	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +3"}
+	sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +3"}  --dont think these have to stay equipped
 	sets.precast.JA['Stealth Shot'] = {feet="Arcadian Socks +3"}  --dont think these have to stay equipped
 	sets.precast.JA['Unlimited Shot'] = {feet="Amini Bottillons +3"}
 	sets.precast.JA['Velocity Shot'] = {body="Amini Caban +3",back="Belenus's Cape"}
@@ -242,7 +248,7 @@ function init_gear_sets()
 		head="Amini Gapette +3",neck="Elite Royal Collar",ear1="Sanare Earring",ear2="Odnowa Earring +1",
 		body="Nyame Mail",hands="Amini Glovelettes +3",ring1="Chirich Ring +1",ring2="Defending Ring",
 		back=Belenus.AgiDW,waist="Carrier's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
-	sets.idle.PDT = set_combine(sets.idle, {neck="Loricate Torque +1",ring1="Gelatinous Ring +1"})
+	sets.idle.DT = set_combine(sets.idle, {neck="Loricate Torque +1",ring1="Gelatinous Ring +1"})
 	sets.idle.Normal = sets.idle
 	sets.idle.Regen = set_combine(sets.idle, {})
 	sets.resting = sets.idle
@@ -270,8 +276,8 @@ function init_gear_sets()
 	sets.precast.RA = {--ammo=gear.RAbullet,
 		head="Amini Gapette +3",neck="Scout's Gorget +2",
 		body="Amini Caban +3",hands="Carmine Fin. Ga. +1",ring1="Chirich Ring +1",ring2="Crepuscular Ring",
-		waist="Yemaya Belt",legs="Orion Braccae +1",feet="Meghanada Jambeaux +2"}
-	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA,{head="Orion Beret +1",legs="Adhemar Kecks +1"})
+		waist="Yemaya Belt",legs="Orion Braccae +3",feet="Meghanada Jambeaux +2"}
+	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA,{head="Orion Beret +3",legs="Adhemar Kecks +1"})
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1,{feet="Arcadian Socks +3"})
 
 	-- Weaponskill sets
@@ -288,7 +294,7 @@ function init_gear_sets()
 		head=AdhemarHead.DexAgiAtk,ear1="Odr Earring",
 		body="Meghanada Cuirie +2",hands="Mummu Wrists +2",ring1="Mummu Ring",ring2="Defending Ring",
 		back=Belenus.DexCrit,legs="Amini Bragues +3",feet="Oshosi Leggings +1"})
-	sets.precast.WS['Evisceration'].PDT = set_combine(sets.precast.WS['Evisceration'], {})
+	sets.precast.WS['Evisceration'].DT = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Evisceration'].UncappedAtk = set_combine(sets.precast.WS['Evisceration'].Mod, {})
@@ -298,7 +304,7 @@ function init_gear_sets()
 		head=empty,neck="Sibyl Scarf",ear1="Crematio Earring",ear2="Friomisi Earring",
 		body="Cohort Cloak +1",ring2="Defending Ring",
 		back=Belenus.WSD_AGI,waist="Orpheus's Sash"})
-	sets.precast.WS['Aeolian Edge'].PDT = set_combine(sets.precast.WS['Aeolian Edge'], {})
+	sets.precast.WS['Aeolian Edge'].DT = set_combine(sets.precast.WS['Aeolian Edge'], {})
 	sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'], {})
 	sets.precast.WS['Aeolian Edge'].Mod = set_combine(sets.precast.WS['Aeolian Edge'], {})
 	sets.precast.WS['Aeolian Edge'].UncappedAtk = set_combine(sets.precast.WS['Aeolian Edge'], {})
@@ -309,7 +315,7 @@ function init_gear_sets()
 		neck="Republican Platinum Medal",ear1="Ishvara Earring",ear2="Sherida Earring",
 		ring2="Sroda Ring",
 		waist="Sailfi Belt +1",feet="Amini Bottillons +3"})
-	sets.precast.WS['Savage Blade'].PDT = set_combine(sets.precast.WS['Savage Blade'], {})
+	sets.precast.WS['Savage Blade'].DT = set_combine(sets.precast.WS['Savage Blade'], {})
 	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {})
 	sets.precast.WS['Savage Blade'].Mod = set_combine(sets.precast.WS['Savage Blade'], {})
 	sets.precast.WS['Savage Blade'].UncappedAtk = set_combine(sets.precast.WS['Savage Blade'].Mod, {})
@@ -318,37 +324,37 @@ function init_gear_sets()
 	----avg dmg 59566 (Perfervid Sword/Malevolence, Fomalhaut, Hauksbok)
 	sets.precast.WS['Hot Shot'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Bullet,
 		ear2="Friomisi Earring"})
-	sets.precast.WS['Hot Shot'].PDT = set_combine(sets.precast.WS['Hot Shot'], {})
+	sets.precast.WS['Hot Shot'].DT = set_combine(sets.precast.WS['Hot Shot'], {})
 	sets.precast.WS['Hot Shot'].Acc = set_combine(sets.precast.WS['Hot Shot'], {})
 	sets.precast.WS['Hot Shot'].Mod = set_combine(sets.precast.WS['Hot Shot'], {})
 	sets.precast.WS['Hot Shot'].UncappedAtk = set_combine(sets.precast.WS['Hot Shot'].Mod, {})
 
 	----avg dmg 6470 (Ternion/Crepuscular, Armageddon, Chrono)
 	sets.precast.WS['Split Shot'] = set_combine(sets.precast.WS, {ammo="Chrono Bullet",
-		head="Orion Beret +1",neck="Scout's Gorget +2",ear1="Ishvara Earring",
+		head="Orion Beret +3",neck="Scout's Gorget +2",ear1="Ishvara Earring",
 		hands="Meghanada Gloves +2",ring2="Defending Ring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Split Shot'].PDT = set_combine(sets.precast.WS['Split Shot'], {})
+	sets.precast.WS['Split Shot'].DT = set_combine(sets.precast.WS['Split Shot'], {})
 	sets.precast.WS['Split Shot'].Acc = set_combine(sets.precast.WS['Split Shot'], {})
 	sets.precast.WS['Split Shot'].Mod = set_combine(sets.precast.WS['Split Shot'], {})
 	sets.precast.WS['Split Shot'].UncappedAtk = set_combine(sets.precast.WS['Split Shot'].Mod, {})
 	
 	----avg dmg 5101 (Oneiros/Ternion, Armageddon, Hauksbok)
 	sets.precast.WS['Sniper Shot'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Bullet,
-		head="Orion Beret +1",ear1="Odr Earring",ear2="Odnowa Earring +1",
+		head="Orion Beret +3",ear1="Odr Earring",ear2="Odnowa Earring +1",
 		ring2="Regal Ring",
 		back=Belenus.WSD_AGI,legs="Amini Bragues +3",feet="Amini Bottillons +3"})
-	sets.precast.WS['Sniper Shot'].PDT = set_combine(sets.precast.WS['Sniper Shot'], {})
+	sets.precast.WS['Sniper Shot'].DT = set_combine(sets.precast.WS['Sniper Shot'], {})
 	sets.precast.WS['Sniper Shot'].Acc = set_combine(sets.precast.WS['Sniper Shot'], {})
 	sets.precast.WS['Sniper Shot'].Mod = set_combine(sets.precast.WS['Sniper Shot'], {})
 	sets.precast.WS['Sniper Shot'].UncappedAtk = set_combine(sets.precast.WS['Sniper Shot'].Mod, {})
 
 	----avg dmg 19727 (Ternion/Perun, Armageddon, Hauksbok)
 	sets.precast.WS['Slug Shot'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Bullet,
-		head="Orion Beret +1",neck="Republican Platinum Medal",ear1="Ishvara Earring",ear2="Sherida Earring",
+		head="Orion Beret +3",neck="Republican Platinum Medal",ear1="Ishvara Earring",ear2="Sherida Earring",
 		hands="Meghanada Gloves +2",ring2="Defending Ring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Slug Shot'].PDT = set_combine(sets.precast.WS['Slug Shot'], {})
+	sets.precast.WS['Slug Shot'].DT = set_combine(sets.precast.WS['Slug Shot'], {})
 	sets.precast.WS['Slug Shot'].Acc = set_combine(sets.precast.WS['Slug Shot'], {})
 	sets.precast.WS['Slug Shot'].Mod = set_combine(sets.precast.WS['Slug Shot'], {})
 	sets.precast.WS['Slug Shot'].UncappedAtk = set_combine(sets.precast.WS['Slug Shot'].Mod, {})
@@ -357,7 +363,7 @@ function init_gear_sets()
 	sets.precast.WS['Blast Shot'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Bullet,
 		ear1="Ishvara Earring",ear2="Sherida Earring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Blast Shot'].PDT = set_combine(sets.precast.WS['Blast Shot'], {})
+	sets.precast.WS['Blast Shot'].DT = set_combine(sets.precast.WS['Blast Shot'], {})
 	sets.precast.WS['Blast Shot'].Acc = set_combine(sets.precast.WS['Blast Shot'], {})
 	sets.precast.WS['Blast Shot'].Mod = set_combine(sets.precast.WS['Blast Shot'], {})
 	sets.precast.WS['Blast Shot'].UncappedAtk = set_combine(sets.precast.WS['Blast Shot'].Mod, {})
@@ -367,7 +373,7 @@ function init_gear_sets()
 		neck="Scout's Gorget +2",
 		body="Ikenga's Vest",ring2="Defending Ring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Detonator'].PDT = set_combine(sets.precast.WS['Detonator'], {})
+	sets.precast.WS['Detonator'].DT = set_combine(sets.precast.WS['Detonator'], {})
 	sets.precast.WS['Detonator'].Acc = set_combine(sets.precast.WS['Detonator'], {})
 	sets.precast.WS['Detonator'].Mod = set_combine(sets.precast.WS['Detonator'], {})
 	sets.precast.WS['Detonator'].UncappedAtk = set_combine(sets.precast.WS['Detonator'].Mod, {})
@@ -377,7 +383,7 @@ function init_gear_sets()
 		ear1="Ishvara Earring",ear2="Sherida Earring",
 		ring2="Regal Ring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Coronach'].PDT = set_combine(sets.precast.WS['Coronach'], {})
+	sets.precast.WS['Coronach'].DT = set_combine(sets.precast.WS['Coronach'], {})
 	sets.precast.WS['Coronach'].Acc = set_combine(sets.precast.WS['Coronach'], {})
 	sets.precast.WS['Coronach'].Mod = set_combine(sets.precast.WS['Coronach'], {})
 	sets.precast.WS['Coronach'].UncappedAtk = set_combine(sets.precast.WS['Coronach'].Mod, {})
@@ -387,7 +393,7 @@ function init_gear_sets()
 		neck="Scout's Gorget +2",ear2="Friomisi Earring",
 		ring2="Dingir Ring",
 		back=Belenus.WSD_AGI,waist="Orpheus's Sash"})
-	sets.precast.WS['Trueflight'].PDT = set_combine(sets.precast.WS['Trueflight'], {})
+	sets.precast.WS['Trueflight'].DT = set_combine(sets.precast.WS['Trueflight'], {})
 	sets.precast.WS['Trueflight'].Acc = set_combine(sets.precast.WS['Trueflight'], {})
 	sets.precast.WS['Trueflight'].Mod = set_combine(sets.precast.WS['Trueflight'], {})
 	sets.precast.WS['Trueflight'].UncappedAtk = set_combine(sets.precast.WS['Trueflight'].Mod, {})
@@ -397,7 +403,7 @@ function init_gear_sets()
 		neck="Scout's Gorget +2",ear1="Crematio Earring",ear2="Friomisi Earring",
 		ring2="Dingir Ring",
 		back=Belenus.WSD_AGI,waist="Orpheus's Sash"})
-	sets.precast.WS['Wildfire'].PDT = set_combine(sets.precast.WS['Wildfire'], {})
+	sets.precast.WS['Wildfire'].DT = set_combine(sets.precast.WS['Wildfire'], {})
 	sets.precast.WS['Wildfire'].Acc = set_combine(sets.precast.WS['Wildfire'], {})
 	sets.precast.WS['Wildfire'].Mod = set_combine(sets.precast.WS['Wildfire'], {})
 	sets.precast.WS['Wildfire'].UncappedAtk = set_combine(sets.precast.WS['Wildfire'].Mod, {})
@@ -407,17 +413,17 @@ function init_gear_sets()
 		head="Amini Gapette +3",neck="Scout's Gorget +2",ear2="Ishvara Earring",
 		body="Ikenga's Vest",hands="Amini Glovelettes +3",ring2="Regal Ring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Last Stand'].PDT = set_combine(sets.precast.WS['Last Stand'], {})
+	sets.precast.WS['Last Stand'].DT = set_combine(sets.precast.WS['Last Stand'], {})
 	sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {})
 	sets.precast.WS['Last Stand'].Mod = set_combine(sets.precast.WS['Last Stand'], {})
 	sets.precast.WS['Last Stand'].UncappedAtk = set_combine(sets.precast.WS['Last Stand'].Mod, {})
 
 	----avg dmg 28583 (Ternion/Perun, Earp, Bayeux)
 	sets.precast.WS['Terminus'] = set_combine(sets.precast.WS, {--ammo=Bayeux Bullet,
-		head="Orion Beret +1",neck="Loricate Torque +1",ear2="Ishvara Earring",
+		head="Orion Beret +3",neck="Loricate Torque +1",ear2="Ishvara Earring",
 		body="Ikenga's Vest",ring2="Defending Ring",
 		back=Belenus.WSD_AGI,feet="Amini Bottillons +3"})
-	sets.precast.WS['Terminus'].PDT = set_combine(sets.precast.WS['Terminus'], {})
+	sets.precast.WS['Terminus'].DT = set_combine(sets.precast.WS['Terminus'], {})
 	sets.precast.WS['Terminus'].Acc = set_combine(sets.precast.WS['Terminus'], {})
 	sets.precast.WS['Terminus'].Mod = set_combine(sets.precast.WS['Terminus'], {})
 	sets.precast.WS['Terminus'].UncappedAtk = set_combine(sets.precast.WS['Terminus'].Mod, {})
@@ -426,7 +432,7 @@ function init_gear_sets()
 	----avg dmg 63873 (Malevolence/Perfervid Sword, Fail-not, Hauksbok)
 	sets.precast.WS['Flaming Arrow'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
 		ear2="Friomisi Earring"})
-	sets.precast.WS['Flaming Arrow'].PDT = set_combine(sets.precast.WS['Flaming Arrow'], {})
+	sets.precast.WS['Flaming Arrow'].DT = set_combine(sets.precast.WS['Flaming Arrow'], {})
 	sets.precast.WS['Flaming Arrow'].Acc = set_combine(sets.precast.WS['Flaming Arrow'], {})
 	sets.precast.WS['Flaming Arrow'].Mod = set_combine(sets.precast.WS['Flaming Arrow'], {})
 	sets.precast.WS['Flaming Arrow'].UncappedAtk = set_combine(sets.precast.WS['Flaming Arrow'].Mod, {})
@@ -436,37 +442,37 @@ function init_gear_sets()
 		neck="Scout's Gorget +2",ear1="Ishvara Earring",
 		body="Amini Caban +3",hands="Meghanada Gloves +2",ring2="Defending Ring",
 		legs="Ikenga's Trousers",feet="Amini Bottillons +3"})
-	sets.precast.WS['Piercing Arrow'].PDT = set_combine(sets.precast.WS['Piercing Arrow'], {})
+	sets.precast.WS['Piercing Arrow'].DT = set_combine(sets.precast.WS['Piercing Arrow'], {})
 	sets.precast.WS['Piercing Arrow'].Acc = set_combine(sets.precast.WS['Piercing Arrow'], {})
 	sets.precast.WS['Piercing Arrow'].Mod = set_combine(sets.precast.WS['Piercing Arrow'], {})
 	sets.precast.WS['Piercing Arrow'].UncappedAtk = set_combine(sets.precast.WS['Piercing Arrow'].Mod, {})
 
 	----avg dmg 5066 (Oneiros/Ternion, Fail-not, Hauksbok)
 	sets.precast.WS['Dulling Arrow'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
-		head="Orion Beret +1",ear1="Odr Earring",ear2="Odnowa Earring +1",
+		head="Orion Beret +3",ear1="Odr Earring",ear2="Odnowa Earring +1",
 		hands="Amini Glovelettes +3",ring2="Regal Ring",
 		feet="Amini Bottillons +3"})
-	sets.precast.WS['Dulling Arrow'].PDT = set_combine(sets.precast.WS['Dulling Arrow'], {})
+	sets.precast.WS['Dulling Arrow'].DT = set_combine(sets.precast.WS['Dulling Arrow'], {})
 	sets.precast.WS['Dulling Arrow'].Acc = set_combine(sets.precast.WS['Dulling Arrow'], {})
 	sets.precast.WS['Dulling Arrow'].Mod = set_combine(sets.precast.WS['Dulling Arrow'], {})
 	sets.precast.WS['Dulling Arrow'].UncappedAtk = set_combine(sets.precast.WS['Dulling Arrow'].Mod, {})
 
 	----avg dmg 20303 (Ternion/Perun, Fail-not, Hauksbok)
 	sets.precast.WS['Sidewinder'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
-		head="Orion Beret +1",neck="Republican Platinum Medal",ear1="Ishvara Earring",ear2="Odnowa Earring +1",
+		head="Orion Beret +3",neck="Republican Platinum Medal",ear1="Ishvara Earring",ear2="Odnowa Earring +1",
 		hands="Amini Glovelettes +3",ring2="Regal Ring",
 		waist="Sailfi Belt +1",feet="Amini Bottillons +3"})
-	sets.precast.WS['Sidewinder'].PDT = set_combine(sets.precast.WS['Sidewinder'], {})
+	sets.precast.WS['Sidewinder'].DT = set_combine(sets.precast.WS['Sidewinder'], {})
 	sets.precast.WS['Sidewinder'].Acc = set_combine(sets.precast.WS['Sidewinder'], {})
 	sets.precast.WS['Sidewinder'].Mod = set_combine(sets.precast.WS['Sidewinder'], {})
 	sets.precast.WS['Sidewinder'].UncappedAtk = set_combine(sets.precast.WS['Sidewinder'].Mod, {})
 
 	----avg dmg 8493 (Ternion/Perun, Fail-not, Hauksbok)
 	sets.precast.WS['Blast Arrow'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
-		head="Orion Beret +1",ear1="Ishvara Earring",ear2="Odnowa Earring +1",
+		head="Orion Beret +3",ear1="Ishvara Earring",ear2="Odnowa Earring +1",
 		hands="Amini Glovelettes +3",ring2="Regal Ring",
 		feet="Amini Bottillons +3"})
-	sets.precast.WS['Blast Arrow'].PDT = set_combine(sets.precast.WS['Blast Arrow'], {})
+	sets.precast.WS['Blast Arrow'].DT = set_combine(sets.precast.WS['Blast Arrow'], {})
 	sets.precast.WS['Blast Arrow'].Acc = set_combine(sets.precast.WS['Blast Arrow'], {})
 	sets.precast.WS['Blast Arrow'].Mod = set_combine(sets.precast.WS['Blast Arrow'], {})
 	sets.precast.WS['Blast Arrow'].UncappedAtk = set_combine(sets.precast.WS['Blast Arrow'].Mod, {})
@@ -476,7 +482,7 @@ function init_gear_sets()
 		neck="Scout's Gorget +2",
 		body="Ikenga's Vest",ring2="Sroda Ring",
 		feet="Amini Bottillons +3"})
-	sets.precast.WS['Empyreal Arrow'].PDT = set_combine(sets.precast.WS['Empyreal Arrow'], {})
+	sets.precast.WS['Empyreal Arrow'].DT = set_combine(sets.precast.WS['Empyreal Arrow'], {})
 	sets.precast.WS['Empyreal Arrow'].Acc = set_combine(sets.precast.WS['Empyreal Arrow'], {})
 	sets.precast.WS['Empyreal Arrow'].Mod = set_combine(sets.precast.WS['Empyreal Arrow'], {})
 	sets.precast.WS['Empyreal Arrow'].UncappedAtk = set_combine(sets.precast.WS['Empyreal Arrow'].Mod, {})
@@ -486,17 +492,17 @@ function init_gear_sets()
 		neck="Republican Platinum Medal",ear2="Ishvara Earring",
 		body="Ikenga's Vest",ring2="Sroda Ring",
 		waist="Sailfi Belt +1",feet="Amini Bottillons +3"})
-	sets.precast.WS['Refulgent Arrow'].PDT = set_combine(sets.precast.WS['Refulgent Arrow'], {})
+	sets.precast.WS['Refulgent Arrow'].DT = set_combine(sets.precast.WS['Refulgent Arrow'], {})
 	sets.precast.WS['Refulgent Arrow'].Acc = set_combine(sets.precast.WS['Refulgent Arrow'], {})
 	sets.precast.WS['Refulgent Arrow'].Mod = set_combine(sets.precast.WS['Refulgent Arrow'], {})
 	sets.precast.WS['Refulgent Arrow'].UncappedAtk = set_combine(sets.precast.WS['Refulgent Arrow'].Mod, {})
 
 	----avg dmg 19717 (Ternion/Perun, Yoichinoyumi, Hauksbok)
 	sets.precast.WS['Namas Arrow'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
-		head="Orion Beret +1",ear1="Ishvara Earring",ear2="Odnowa Earring +1",
+		head="Orion Beret +3",ear1="Ishvara Earring",ear2="Odnowa Earring +1",
 		hands="Amini Glovelettes +3",ring2="Regal Ring",
 		feet="Amini Bottillons +3"})
-	sets.precast.WS['Namas Arrow'].PDT = set_combine(sets.precast.WS['Namas Arrow'], {})
+	sets.precast.WS['Namas Arrow'].DT = set_combine(sets.precast.WS['Namas Arrow'], {})
 	sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'], {})
 	sets.precast.WS['Namas Arrow'].Mod = set_combine(sets.precast.WS['Namas Arrow'], {})
 	sets.precast.WS['Namas Arrow'].UncappedAtk = set_combine(sets.precast.WS['Namas Arrow'].Mod, {})
@@ -506,27 +512,27 @@ function init_gear_sets()
 		head="Blistering Sallet +1",ear1="Odr Earring",
 		body="Meghanada Cuirie +2",hands="Amini Glovelettes +3",ring2="Regal Ring",
 		legs="Amini Bragues +3",feet="Amini Bottillons +3"})
-	sets.precast.WS["Jishnu's Radiance"].PDT = set_combine(sets.precast.WS["Jishnu's Radiance"], {})
+	sets.precast.WS["Jishnu's Radiance"].DT = set_combine(sets.precast.WS["Jishnu's Radiance"], {})
 	sets.precast.WS["Jishnu's Radiance"].Acc = set_combine(sets.precast.WS["Jishnu's Radiance"], {})
 	sets.precast.WS["Jishnu's Radiance"].Mod = set_combine(sets.precast.WS["Jishnu's Radiance"], {})
 	sets.precast.WS["Jishnu's Radiance"].UncappedAtk = set_combine(sets.precast.WS["Jishnu's Radiance"].Mod, {})
 
 	----avg dmg 21261 (Ternion/Crepuscular Knife, Fail-not, Hauksbok)
 	sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
-		head="Orion Beret +1",neck="Scout's Gorget +2",ear1="Ishvara Earring",
+		head="Orion Beret +3",neck="Scout's Gorget +2",ear1="Ishvara Earring",
 		hands="Amini Glovelettes +3",ring2="Sroda Ring",
 		legs="Ikenga's Trousers",feet="Amini Bottillons +3"})
-	sets.precast.WS['Apex Arrow'].PDT = set_combine(sets.precast.WS['Apex Arrow'], {})
+	sets.precast.WS['Apex Arrow'].DT = set_combine(sets.precast.WS['Apex Arrow'], {})
 	sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {})
 	sets.precast.WS['Apex Arrow'].Mod = set_combine(sets.precast.WS['Apex Arrow'], {})
 	sets.precast.WS['Apex Arrow'].UncappedAtk = set_combine(sets.precast.WS['Apex Arrow'].Mod, {})
 
 	----avg dmg 33966 (Ternion/Perun, Pinaka, Hauksbok)
 	sets.precast.WS['Sarv'] = set_combine(sets.precast.WS, {--ammo=Hauksbok Arrow,
-		head="Orion Beret +1",neck="Republican Platinum Medal",ear2="Odnowa Earring +1",
+		head="Orion Beret +3",neck="Republican Platinum Medal",ear2="Odnowa Earring +1",
 		body="Ikenga's Vest",hands="Amini Glovelettes +3",ring2="Defending Ring",
 		waist="Sailfi Belt +1",feet="Amini Bottillons +3"})
-	sets.precast.WS['Sarv'].PDT = set_combine(sets.precast.WS['Sarv'], {})
+	sets.precast.WS['Sarv'].DT = set_combine(sets.precast.WS['Sarv'], {})
 	sets.precast.WS['Sarv'].Acc = set_combine(sets.precast.WS['Sarv'], {})
 	sets.precast.WS['Sarv'].Mod = set_combine(sets.precast.WS['Sarv'], {})
 	sets.precast.WS['Sarv'].UncappedAtk = set_combine(sets.precast.WS['Sarv'].Mod, {})
@@ -555,10 +561,10 @@ function init_gear_sets()
 		waist="Kwahu Kachina Belt +1",legs="Amini Bragues +3",feet="Oshosi Leggings +1"})
 	sets.midcast.RA.STP = set_combine(sets.midcast.RA, {})
 	sets.DoubleShot = set_combine(sets.midcast.RA,{
-		body="Arcadian Jerkin +1",hands="Oshosi Gloves +1",
+		body="Arcadian Jerkin +3",hands="Oshosi Gloves +1",
 		legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"})
 	sets.DoubleShotCritical = set_combine(sets.midcast.RA.Critical,{
-		body="Arcadian Jerkin +1",hands="Oshosi Gloves +1",
+		body="Arcadian Jerkin +3",hands="Oshosi Gloves +1",
 		legs="Oshosi Trousers +1"})
 	sets.TrueShot = set_combine(sets.midcast.RA,{
 		body="Nisroch Jerkin",
@@ -575,7 +581,8 @@ function init_gear_sets()
 	sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {})
 	sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {})
 	sets.engaged.STP = set_combine(sets.engaged, {})
-
+	sets.engaged.DT = set_combine(sets.engaged, {body="Malignance Tabard",waist="Null Belt"})
+	
 	-- * DNC Subjob DW Trait: +15%
 	-- * NIN Subjob DW Trait: +25%
 
@@ -935,7 +942,28 @@ end
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
 --check_weaponset()
-	if buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane'] then
+
+	classes.CustomDTGroups:clear()
+
+	if state.DTMode.value == 'DT' then
+		if state.Kiting.value then
+			meleeSet = set_combine(sets.engaged.DT, sets.Kiting)
+		else
+			meleeSet = sets.engaged.DT
+		end
+		classes.CustomDTGroups:append('DT')
+	else
+		classes.CustomDTGroups:clear()
+	end
+
+	for _,group in ipairs(classes.CustomDTGroups) do
+		if meleeSet[group] then
+			meleeSet = meleeSet[group]
+			mote_vars.set_breadcrumbs:append(group)
+		end
+	end
+	
+	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
 		meleeSet = set_combine(meleeSet, sets.buff.Doom)
 	end
 	return meleeSet
@@ -961,11 +989,11 @@ function customize_idle_set(idleSet)
 	if player.hpp < 80 then
 		idleSet = set_combine(idleSet, sets.idle.Regen)
 	end
-	if state.HybridMode.value == 'PDT' then
+	if state.DTMode.value == 'DT' then
 	    if state.Kiting.value then
-			idleSet = set_combine(sets.idle.PDT,sets.Kiting)
+			idleSet = set_combine(sets.idle.DT,sets.Kiting)
 		else
-			idleSet = set_combine(idleSet, sets.idle.PDT)
+			idleSet = set_combine(idleSet,sets.idle.DT)
 		end
 	end
 	--local res = require('resources')
@@ -974,7 +1002,7 @@ function customize_idle_set(idleSet)
 	--if zone:match('Adoulin') then
 	--	idleSet = set_combine(idleSet, sets.Adoulin)
 	--end
-	if buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane'] then
+	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
 		idleSet = set_combine(idleSet, sets.buff.Doom)
 	end
 	return idleSet
@@ -986,7 +1014,6 @@ function display_current_job_state(eventArgs)
 	if state.CombatForm.has_value then
 		cf_msg = ' (' ..state.CombatForm.value.. ')'
 	end
-
 	local m_msg = state.OffenseMode.value
 	if state.HybridMode.value ~= 'Normal' then
 		m_msg = m_msg .. '/' ..state.HybridMode.value
@@ -998,15 +1025,17 @@ function display_current_job_state(eventArgs)
 	local rm_msg = state.RangedMode.value
 	
 	local d_msg = 'None'
-	if state.DefenseMode.value ~= 'None' then
-		d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
+	if state.DTMode.value ~= 'None' then
+		d_msg = state.DTMode.value
+	else
+		d_msg = 'None'
 	end
 
 	local i_msg = state.IdleMode.value
 
 	local msg = ''
 	if state.Kiting.value then
-		msg = msg .. '| Kiting: On '
+		msg = msg .. ' | Kiting: On '
 	end
 
 	add_to_chat(string.char(31,210).. 'Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002)..  ' |'
