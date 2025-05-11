@@ -281,7 +281,7 @@ function init_gear_sets()
 	
 	sets.midcast.SIRD = {ammo="Staunch Tathlum +1",
 		head="Azimuth Hood +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Halasz Earring",
-		body="Ros. Jaseran +1",hands="Azimuth Gloves +2",ring1="Evanescence Ring",ring2="Freke Ring",
+		body="Ros. Jaseran +1",hands="Azimuth Gloves +3",ring1="Evanescence Ring",ring2="Freke Ring",
 		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Geomancy Pants +3",feet="Azimuth Gaiters +3"}
 	
 	sets.TreasureHunter = {head=MerlinicHead.TH,hands=MerlinicHands.TH}
@@ -290,8 +290,8 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Ginsen",
 		head="Nyame Helm",neck="Rep. Plat. Medal",ear1="Telos Earring",ear2="Sherida Earring",
-		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Ilabrat Ring",
-		back="Phalangite Mantle",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Cornelia's Ring",
+		back="Aurist's Cape +1",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.PDT = set_combine(sets.precast.WS,{})
 	
 	sets.precast.WS['Exudation'] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
@@ -316,7 +316,7 @@ function init_gear_sets()
 	sets.midcast['Dark Magic'].base = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 		head="Geo. Galero +2",neck="Erra Pendant",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Geomancy Tunic +3",hands="Geo. Mitaines +3",ring1={name="Stikini Ring +1"},ring2={name="Stikini Ring +1"},
-		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Azimuth Tights +2",feet="Azimuth Gaiters +3"}
+		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Azimuth Tights +3",feet="Azimuth Gaiters +3"}
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'].base, {
 		head="Bagua Galero +3",--ear1="Hirudinea Earring",
 		ring1="Evanescence Ring",ring2="Archon Ring",
@@ -327,7 +327,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {}
 	sets.midcast['Enfeebling Magic'].base = {main="Idris",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 		head="Geo. Galero +2",neck="Bagua Charm +2",ear1="Malignance Earring",ear2="Regal Earring",
-		body="Geomancy Tunic +3",hands="Azimuth Gloves +2",ring1="Kishar Ring",ring2="Stikini Ring +1",
+		body="Geomancy Tunic +3",hands="Azimuth Gloves +3",ring1="Kishar Ring",ring2="Stikini Ring +1",
 		back="Aurist's Cape +1",waist="Luminary Sash",legs="Geomancy Pants +3",feet="Geo. Sandals +2"}
 	sets.midcast['Enfeebling Magic'].potency = set_combine(sets.midcast['Enfeebling Magic'].base,{})
 	sets.midcast['Enfeebling Magic'].mndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ring1="Metamor. Ring +1"})
@@ -370,8 +370,8 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'] = {}
 	sets.midcast["Elemental Magic"].base = {main="Idris",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
 		head="Azimuth Hood +3",neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Azimuth Earring +1",
-		body="Azimuth Coat +3",hands="Azimuth Gloves +2",ring1="Freke Ring",ring2="Stikini Ring +1",
-		back=gear.GEO_MAB_Cape,waist="Acuity Belt +1",legs="Azimuth Tights +2",feet="Azimuth Gaiters +3"}
+		body="Azimuth Coat +3",hands="Azimuth Gloves +3",ring1="Freke Ring",ring2="Stikini Ring +1",
+		back=gear.GEO_MAB_Cape,waist="Acuity Belt +1",legs="Azimuth Tights +3",feet="Azimuth Gaiters +3"}
 	sets.midcast.Death = sets.midcast['Elemental Magic'].base
 	sets.Burst = set_combine(sets.midcast["Elemental Magic"].base,{head="Ea Hat +1",body="Ea Houppe. +1",hands="Amalric Gages +1"}) --{ hands="Hattori Tekko +1", feet=HercFeet.MAB})
 	
