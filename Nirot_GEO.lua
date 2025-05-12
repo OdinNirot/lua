@@ -387,15 +387,15 @@ function init_gear_sets()
 	
 	-- Idle sets
 	sets.idle = {main="Daybreak",sub="Genmei Shield",ranged="Dunna",
-		head="Azimuth Hood +3",neck="Elite Royal Collar",ear1="Odnowa Earring +1",ear2="Lugalbanda Earring",
-		body="Azimuth Coat +3",hands="Bagua Mitaines +3",ring1="Defending Ring",ring2={name="Stikini Ring +1"},
+		head="Azimuth Hood +3",neck="Elite Royal Collar",ear1="Odnowa Earring +1",ear2="Azimuth Earring +1",
+		body="Azimuth Coat +3",hands="Bagua Mitaines +3",ring1="Defending Ring",ring2="Stikini Ring +1",
 		back=Nantosuelta.PetRegen,waist="Plat. Mog. Belt",legs="Volte Brais",feet="Azimuth Gaiters +3"}
 	
 	sets.idle.Pet = set_combine(sets.idle, {
 		-- Pet: -DT (37.5% to cap)
 		main="Idris",sub="Genmei Shield",
-		head="Azimuth Hood +3",neck="Bagua Charm +2",ear1="Odnowa Earring +1",ear2="Azimuth Earring +1",
-		body="Shamash Robe",hands="Geo. Mitaines +3",
+		head="Azimuth Hood +3",neck="Bagua Charm +2",ear1="Ethereal Earring",ear2="Azimuth Earring +1",
+		body="Adamantite Armor",hands="Geo. Mitaines +3",ring2="Purity Ring",
 		back=Nantosuelta.PetRegen,waist="Isa Belt",legs="Volte Brais",feet="Bagua Sandals +3"})
 	sets.PetHP = {head="Bagua Galero +3"}
 	sets.idle.PDT = set_combine(sets.idle.Pet,{})
