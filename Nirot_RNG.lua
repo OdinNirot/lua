@@ -216,7 +216,7 @@ function init_gear_sets()
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
-	HercFeet.Phalanx = { name="Herculean Boots", augments={'Weapon skill damage +3%','"Fast Cast"+1','Phalanx +4','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 
 	TaeonHead = {}

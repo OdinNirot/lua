@@ -157,6 +157,7 @@ function init_gear_sets()
 
 	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 
 	Toutatis.STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Damage taken-5%',}}
 	Toutatis.WSD = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
@@ -167,7 +168,7 @@ function init_gear_sets()
 	sets.buff['Curse'] = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	sets.Charm = {neck="Unmoving Collar +1",ear1="Arete Del Luna +1"}
 	sets.Death = {neck="Warder's Charm +1",ring1="Shadow Ring",ring2="Warden's Ring"}
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx,feet=HercFeet.Phalanx}
 
 	sets.buff['Sneak Attack'] = {
 		head=AdhemarHead.DexAgiAtk,neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Sherida Earring",

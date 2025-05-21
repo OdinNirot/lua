@@ -113,6 +113,7 @@ function init_gear_sets()
 	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 
 	AdhemarHands = {}
 	AdhemarHands.StrDexAtk = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
@@ -276,7 +277,7 @@ function init_gear_sets()
 	sets.Doom = {neck="Nicander's Necklace",ring1="Blenmot's Ring +1",ring2="Blenmot's Ring +1",waist="Gishdubar Sash"}
 	sets.ExtraRegen = {} --{head="Ocelomeh Headpiece +1"}
 	sets.TreasureHunter = {head=HercHead.TH,hands=HercHands.TH}
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx,feet=HercFeet.Phalanx}
 
 	-- Engaged sets
 

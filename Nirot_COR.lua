@@ -211,8 +211,8 @@ function init_gear_sets()
 	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
-	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 
 	HercBody.WSD = { name="Herculean Vest", augments={'MND+15','"Store TP"+2','Weapon skill damage +8%',} } 
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
@@ -224,6 +224,7 @@ function init_gear_sets()
 	HercLegs.WSD = { name="Herculean Trousers", augments={'Spell interruption rate down -7%','MND+13','Weapon skill damage +9%','Mag. Acc.+3 "Mag.Atk.Bns."+3',} }
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
+	
 
 	TaeonHands = {}
 	TaeonHands.Snap = {} --{name="Taeon Gloves", augments={'"Snapshot"+5', 'Attack+22','"Snapshot"+5'}}
@@ -274,7 +275,7 @@ function init_gear_sets()
 	
 	sets.buff.Doom = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"} --{ring2="Saida Ring"}
 	sets.buff.Curse = sets.buff.Doom
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx,feet=HercFeet.Phalanx}
 	sets.TreasureHunter = {head=HercHead.TH}
 
 	sets.precast.FC = {

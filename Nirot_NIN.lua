@@ -210,6 +210,8 @@ function init_gear_sets()
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
+	
 	TaeonHands = {} 
 	TaeonHead = {}
 
@@ -225,7 +227,7 @@ function init_gear_sets()
 	InninHead = "Hattori Zukin +2"
 	YoninLegs = "Hattori Hakama +2"
 
-	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx}
+	sets.Phalanx = {head=HercHead.Phalanx,body=HercBody.Phalanx,hands=HercHands.Phalanx,legs=HercLegs.Phalanx,feet=HercFeet.Phalanx}
 	--------------------------------------
 	-- Job Abilties
 	--------------------------------------
