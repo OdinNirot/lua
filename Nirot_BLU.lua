@@ -272,8 +272,8 @@ function init_gear_sets()
 	HercLegs.Healing = { name="Herculean Trousers", augments={'"Triple Atk."+2','"Cure" potency +10%','Damage taken-2%','Accuracy+20 Attack+20','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
 	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
-	HercFeet.Phalanx = { name="Herculean Boots", augments={'Weapon skill damage +3%','"Fast Cast"+1','Phalanx +4','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
-	HercFeet.Refresh = { name="Herculean Boots", augments={'DEX+10','STR+2','"Refresh"+2','Accuracy+11 Attack+11',}}
+	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
+	HercFeet.Refresh = { name="Herculean Boots", augments={'"Store TP"+1','Spell interruption rate down -10%','"Refresh"+2',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 
 	AdhemarHead = {}
