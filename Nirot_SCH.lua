@@ -123,7 +123,7 @@ function job_setup()
 		'Adloquium','Animus Minuo','Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II','Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'
 	}
 	magic_maps.RegenSpells = S{
-		'Regen','Regen II','Regen III','Regen IV','Regen V'
+		'Regen','Regen II','Regen III','Regen IV','Regen V','Embrava'
 	}
 
 	magic_maps.ImmunobreakSpells = S{
