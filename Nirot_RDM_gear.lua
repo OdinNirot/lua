@@ -186,7 +186,7 @@ function init_gear_sets()
 		head="Vitiation Chapeau +3",neck="Yngvi Choker",ear1="Sanare Earring",ear2="Etiolation Earring",
 		--		head="Vitiation Chapeau +3",neck="Warder's Charm +1",ear1="Sanare Earring",ear2="Etiolation Earring",   -- swap out the Yngvi when trying to maintain hate. Ody Atonement 3, etc
 		body="Lethargy Sayon +3",hands=ChironicHands.Refresh,ring1="Defending Ring",ring2="Stikini Ring +1",
-		back=Sucellos.Normal,waist="Carrier's Sash",legs={ name="Merlinic Shalwar", augments={'Pet: Mag. Acc.+1','Accuracy+4 Attack+4','"Refresh"+2','Mag. Acc.+6 "Mag.Atk.Bns."+6',}},feet=ChironicFeet.Refresh}
+		back=Sucellos.Normal,waist="Carrier's Sash",legs=MerlinicLegs.Refresh,feet=ChironicFeet.Refresh}
 
 	sets.idle.PDT = set_combine(sets.idle,{hands="Lethargy Gantherots +3"})
 	sets.idle.Town = sets.idle
