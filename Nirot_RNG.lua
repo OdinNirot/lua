@@ -212,9 +212,8 @@ function init_gear_sets()
 	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercHands.TH = { name="Herculean Gloves", augments={'Accuracy+1 Attack+1','Weapon skill damage +2%','"Treasure Hunter"+2',}}
 	HercHands.FC = { name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+20','STR+7','"Fast Cast"+8','Accuracy+15 Attack+15',}}
-	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
+	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Potency of "Cure" effect received+6%','Mag. Acc.+8 "Mag.Atk.Bns."+8','Phalanx +5',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
-	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
@@ -270,7 +269,7 @@ function init_gear_sets()
 	sets.precast.FC = {
 		head=HercHead.FC,neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
 		body={ name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}},hands=HercHands.FC,ring1="Rahab Ring",ring2="Defending Ring",
-		legs=HercLegs.FC,feet=HercFeet.FC}
+		legs=HercLegs.FC}
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,{neck="Magoraga Beads",body="Passion Jacket"})
 
 	sets.precast.RA = {--ammo=gear.RAbullet,

@@ -108,9 +108,8 @@ function init_gear_sets()
 	HercBody.Phalanx = { name="Herculean Vest", augments={'Mag. Acc.+19','Magic dmg. taken -1%','Phalanx +5',}}
 
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
-	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
+	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Potency of "Cure" effect received+6%','Mag. Acc.+8 "Mag.Atk.Bns."+8','Phalanx +5',}}
 
-	HercFeet.FC = {name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.TripleAtk = { name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
@@ -158,7 +157,7 @@ function init_gear_sets()
 	sets.precast.FC = {ammo="Sapience Orb",
 		head=HercHead.FC,neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
 		body="Adhemar Jacket +1",hands=HercHands.FC,ring1="Kishar Ring",ring2="Rahab Ring",
-		legs=HercLegs.FC,feet=HercFeet.FC}
+		legs=HercLegs.FC}
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
 	-- Weaponskill sets

@@ -222,7 +222,7 @@ function init_gear_sets()
 	HercHead.FC = { name="Herculean Helm", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Accuracy+3','"Fast Cast"+7',}}
 	
 	HercLegs.WSD = { name="Herculean Trousers", augments={'Spell interruption rate down -7%','MND+13','Weapon skill damage +9%','Mag. Acc.+3 "Mag.Atk.Bns."+3',} }
-	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
+	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Potency of "Cure" effect received+6%','Mag. Acc.+8 "Mag.Atk.Bns."+8','Phalanx +5',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	
 
@@ -281,7 +281,7 @@ function init_gear_sets()
 	sets.precast.FC = {
 		head=HercHead.FC,neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
 		body={ name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}},hands=HercHands.FC,ring1="Kishar Ring",ring2="Rahab Ring",
-		legs=HercLegs.FC,feet=HercFeet.FC}
+		legs=HercLegs.FC}
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket"})
 
 	sets.precast.RA = {ammo=gear.RAbullet,

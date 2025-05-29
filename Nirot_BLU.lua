@@ -270,7 +270,7 @@ function init_gear_sets()
 	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercLegs.Refresh = { name="Herculean Trousers", augments={'AGI+7','"Mag.Atk.Bns."+13','"Refresh"+2','Accuracy+8 Attack+8',}}
 	HercLegs.Healing = { name="Herculean Trousers", augments={'"Triple Atk."+2','"Cure" potency +10%','Damage taken-2%','Accuracy+20 Attack+20','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
-	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
+	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Potency of "Cure" effect received+6%','Mag. Acc.+8 "Mag.Atk.Bns."+8','Phalanx +5',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 	HercFeet.Refresh = { name="Herculean Boots", augments={'"Store TP"+1','Spell interruption rate down -10%','"Refresh"+2',}}
@@ -396,7 +396,7 @@ function init_gear_sets()
 
 	sets.engaged.Acc = set_combine(sets.engaged,{ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",ear1="Telos Earring",ear2="Hashi. Earring +1",
-		hands="Gazu Bracelets +1",ring1="Moonlight Ring",
+		hands="Gazu Bracelets +1",
 		waist="Reiki Yotai",legs="Hashishin Tayt +3"})
 	sets.engaged.Refresh = set_combine(sets.engaged,{})
 	sets.engaged.DW = set_combine(sets.engaged,{})
