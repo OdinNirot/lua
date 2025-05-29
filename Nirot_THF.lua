@@ -153,9 +153,8 @@ function init_gear_sets()
 	HercHands.Phalanx = { name="Herculean Gloves", augments={'Pet: "Dbl. Atk."+2','Potency of "Cure" effect received+6%','Phalanx +4','Accuracy+5 Attack+5','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	HercLegs.FC = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+18','"Fast Cast"+6','INT+10','Mag. Acc.+12',}}
 	HercLegs.WSD = { name="Herculean Trousers", augments={'Spell interruption rate down -7%','MND+13','Weapon skill damage +9%','Mag. Acc.+3 "Mag.Atk.Bns."+3',} }
-	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Mag. Acc.+15','Phalanx +4','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
+	HercLegs.Phalanx = { name="Herculean Trousers", augments={'Potency of "Cure" effect received+6%','Mag. Acc.+8 "Mag.Atk.Bns."+8','Phalanx +5',}}
 
-	HercFeet.FC = { name="Herculean Boots", augments={'"Fast Cast"+6','INT+4','Mag. Acc.+1','"Mag.Atk.Bns."+10',}}
 	HercFeet.Waltz = { name="Herculean Boots", augments={'"Waltz" potency +10%','STR+12','Damage taken-1%','Mag. Acc.+3 "Mag.Atk.Bns."+3',}}
 	HercFeet.Phalanx = { name="Herculean Boots", augments={'Sklchn.dmg.+2%','Pet: STR+9','Phalanx +5','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 
@@ -191,8 +190,8 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Collaborator'] = {head="Skulker's Bonnet +2"}
-	sets.precast.JA['Accomplice'] = {head="Skulker's Bonnet +2"}
+	sets.precast.JA['Collaborator'] = {head="Skulker's Bonnet +3"}
+	sets.precast.JA['Accomplice'] = {head="Skulker's Bonnet +3"}
 	sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Hide'] = {body="Pillager's Vest +3"}
 	sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
@@ -219,7 +218,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	sets.precast.FC = {head=HercHead.FC,neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body=AdhemarBody.FC,hands=HercHands.FC.FC,ring1="Naji's Loop",ring2="Rahab Ring",
-		legs=HercLegs.FC,feet=HercFeet.FC}
+		legs=HercLegs.FC}
 
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket"})
@@ -243,8 +242,8 @@ function init_gear_sets()
 	
 	-- Exenterator: AGI:73~85%, depending on merit points ugrades. 
 	sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
-		head="Skulker's Bonnet +2",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring +2",
-		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Gere Ring",
+		head="Skulker's Bonnet +3",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring +2",
+		body="Skulker's Vest +3",hands="Skulker's Armlets +3",ring1="Gere Ring",
 		back=Toutatis.WSD,waist="Fotia Belt",legs="Nyame Flanchard",feet="Skulker's Poulaines +3"})
 	sets.precast.WS['Exenterator'].PDT = set_combine(sets.precast.WS['Exenterator'], {ring2="Defending Ring"})
 	sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {})
@@ -257,7 +256,7 @@ function init_gear_sets()
 	-- Dancing Edge: DEX:40% ; CHR:40% 
 	sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
 		head="Plunderer's Bonnet +3",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Dominance Earring +1",
-		body="Skulker's Vest +2",hands="Skulker's Armlets +2",ring1="Regal ring",ring2="Gere Ring",
+		body="Skulker's Vest +3",hands="Skulker's Armlets +3",ring1="Regal ring",ring2="Gere Ring",
 		waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Skulker's Poulaines +3"})
 	sets.precast.WS['Dancing Edge'].PDT = set_combine(sets.precast.WS.PDT, {ring2="Defending Ring"})
 	sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {})
@@ -269,9 +268,9 @@ function init_gear_sets()
 
 	-- Evisceration: DEX:50% 
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {ammo="Yetshila +1",
-		head="Skulker's Bonnet +2",neck="Fotia Gorget",
+		head="Skulker's Bonnet +3",neck="Fotia Gorget",
 		body="Plunderer's Vest +3",hands="Gleti's Gauntlets",ring1="Gere Ring",ring2="Moonlight Ring",
-		back=Toutatis.WSD,waist="Fotia Belt",legs="Skulker's Culottes +2",feet="Gleti's Boots"})
+		back=Toutatis.WSD,waist="Fotia Belt",legs="Skulker's Culottes +3",feet="Gleti's Boots"})
 	sets.precast.WS['Evisceration'].PDT = set_combine(sets.precast.WS['Evisceration'], {ring2="Defending Ring"})
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {})
@@ -283,7 +282,7 @@ function init_gear_sets()
 	-- Rudra's Storm: 80% DEX
 	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
 		head="Nyame Helm",neck="Assassin's Gorget +2",ear1="Dominance Earring +1",ear2="Odnowa Earring +1",
-		body="Skulker's Vest +2",hands="Nyame Gauntlets",ring1="Cornelia's ring",
+		body="Skulker's Vest +3",hands="Nyame Gauntlets",ring1="Cornelia's ring",
 		back=Toutatis.WSD,waist="Kentarch Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.precast.WS["Rudra's Storm"].PDT = set_combine(sets.precast.WS["Rudra's Storm"], {ring2="Defending Ring"})
 	sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
@@ -296,7 +295,7 @@ function init_gear_sets()
 	-- Shark Bite: DEX:40% AGI:40% 
 	sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {ammo="Coiste Bodhar",
 		head="Nyame Helm",ear1="Odnowa Earring +1",
-		body="Skulker's Vest +2",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
+		body="Skulker's Vest +3",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
 		waist="Sailfi Belt +1",legs="Nyame Flanchard"})
 	sets.precast.WS["Shark Bite"].PDT = set_combine(sets.precast.WS.PDT, {ring2="Defending Ring"})
 	sets.precast.WS['Shark Bite'].Acc = set_combine(sets.precast.WS['Shark Bite'], {})
@@ -308,8 +307,8 @@ function init_gear_sets()
 
 	-- Mandalic Stab: DEX:60% 
 	sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {ammo="Crepuscular Pebble",
-		head="Skulker's Bonnet +2",ear1="Dominance Earring +1",ear2="Odr Earring",
-		body="Skulker's Vest +2",hands="Gleti's Gauntlets",ring1="Cornelia's Ring",ring2="Moonlight Ring",
+		head="Skulker's Bonnet +3",ear1="Dominance Earring +1",ear2="Odr Earring",
+		body="Skulker's Vest +3",hands="Gleti's Gauntlets",ring1="Cornelia's Ring",ring2="Moonlight Ring",
 		waist="Kentarch Belt +1"})
 	sets.precast.WS['Mandalic Stab'].PDT = set_combine(sets.precast.WS.PDT, {ring1="Defending Ring"})
 	sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {})
@@ -329,7 +328,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
 		head="Nyame Helm",neck="Republican Platinum Medal",ear1="Odnowa Earring +1",ear2="Sherida Earring",
-		body="Skulker's Vest +2",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
+		body="Skulker's Vest +3",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
 		waist="Sailfi Belt +1",legs="Nyame Flanchard"})
 
 	--------------------------------------
@@ -436,7 +435,7 @@ function init_gear_sets()
 
 	-- Normal melee group
 	sets.engaged = {ammo="Aurgelmir Orb +1",
-		head="Skulker's Bonnet +2",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +2",
+		head="Skulker's Bonnet +3",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +2",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonlight Ring",ring2="Gere Ring",
 		back=Toutatis.STP,waist="Reiki Yotai",legs="Malignance Tights",feet="Malignance Boots"}
 	sets.engaged.Acc = set_combine(sets.engaged,{})
