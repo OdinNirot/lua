@@ -55,6 +55,7 @@ function job_setup()
 	state.Buff["Focalization"] = buffactive["Focalization"] or false
 	state.Buff["Equanamity"] = buffactive["Equanamity"] or false
 	state.Buff["Immanence"] = buffactive["Immanence"] or false
+	state.Buff["Klimaform"] = buffactive["Klimaform"] or false
 	
 	no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)","Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 
@@ -280,7 +281,8 @@ function init_gear_sets()
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
 
-
+	sets.buff['Klimaform'] = {feet="Arbatel Loafers +3"}
+	sets.buff.Curse = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
 	-- Weaponskill sets
 
 	-- Default set for any weaponskill that isn't 	any more specifically defined
@@ -387,7 +389,7 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'].base = {main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",  --this is the "high tier free nuke" set from sch guide
 		head="Agwu's Cap",neck="Argute Stole +2",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Arbatel Gown +3",hands=Empyrean.Hands,ring1="Freke Ring",ring2="Metamor. Ring +1",
-		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +2"}
+		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +3"}
 	sets.Burst = set_combine(sets.midcast['Elemental Magic'].base,{
 		head="Agwu's Cap",
 		hands="Agwu's Gages"})
@@ -401,7 +403,7 @@ function init_gear_sets()
 	sets.BurstHelix = set_combine(sets.Helix,{
 		head="Peda. M.Board +3",ear2="Arbatel Earring +2",
 		hands="Agwu's Gages",ring2="Mujin Band",
-		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +2"})
+		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +3"})
 	sets.midcast.Death = sets.midcast['Elemental Magic'].base
 	sets.midcast.Kaustra = set_combine(sets.midcast['Elemental Magic'].base,{ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
@@ -466,6 +468,7 @@ function init_gear_sets()
 	sets.SublimationOff = {head="Arbatel Bonnet +3",waist="Carrier's Sash"}
 	sets.Immanence = {head="Nyame Helm",neck="Warder's Charm +1",body="Nyame Mail",hands="Arbatel Bracers +3",back=LughsCape.MAB}
 	sets.EbullienceMB = {head="Arbatel Bonnet +3",ring1="Mujin Band"}
+	sets.Klimaform = {feet="Arbatel Loafers +3"}
 
 	-- Engaged sets
 
@@ -695,6 +698,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		--    equip(sets.ElementalMagicMAB[spell.element])
 		--end
 		--equip(sets.midcast["Elemental Magic"].base)
+		if buffactive['Klimaform'] and spell.element == world.weather_element then
+			equip(sets.buff['Klimaform'])
+		end
 	end
 
 	if spellMap == 'GainSpells' then
