@@ -175,7 +175,6 @@ function init_gear_sets()
 		hands="Bunzi's Gloves",ring2="Metamorph Ring +1",
 		waist="Fotia Belt"})
 
-
 	sets.precast.WS.PDT = sets.precast.WS
 
 	--sets.precast.WS['Flash Nova'] = {
@@ -308,7 +307,7 @@ function init_gear_sets()
 	sets.midcast.Enfeebs = {main="Yagrush",Sub="Ammurapi Shield",
 		head="C. Palug Crown",neck="Incanter's Torque",ear1="Regal Earring",ear2="Ebers Earring +2",
 		body="Theophany Bliaut +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",legs="Th. Pant. +3",feet="Skaoi Boots"}
+		back="Aurist's Cape +1",legs="Theophany Pantaloons +3",feet="Skaoi Boots"}
 	sets.midcast.MndEnfeebles = set_combine(sets.midcast.Enfeebs, {
 		waist="Sacro Cord"})
 	sets.midcast.IntEnfeebles = set_combine(sets.midcast.Enfeebs, {
