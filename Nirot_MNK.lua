@@ -295,7 +295,7 @@ function init_gear_sets()
 		ear2="Telos Earring",
 		body="Malignance Tabard",ring2="Niqmaddu Ring"})
 	sets.engaged.MaxAccuracy = set_combine(sets.engaged.SomeAccuracy,{ammo="Ginsen",
-		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
+		head="Bhikku Crown +3",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring"})
 	-- Subtle Blow and Subtle Blow II individually cap at 50% each, and cap at 75% combined.
 	sets.engaged.SubtleBlow = set_combine(sets.engaged,{head="Ken. Jinpachi +1",hands="Malignance Gloves",body="Malignance Tabard",ring2="Niqmaddu Ring",feet="Ken. Sune-Ate +1"})
@@ -305,7 +305,7 @@ function init_gear_sets()
 		body="Malignance Tabard",hands="Malignance Gloves"})
 	sets.engaged.SomeAccuracy.DT = set_combine(sets.engaged.DT,{})
 	sets.engaged.MaxAccuracy.DT = set_combine(sets.engaged.SomeAccuracy.DT,{ammo="Ginsen",
-		head="Bhikku Crown +2",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
+		head="Bhikku Crown +3",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		feet="Tatenashi Sune-Ate +1"})
 	sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
@@ -314,16 +314,16 @@ function init_gear_sets()
 	sets.engaged.Impetus.DT = set_combine(sets.engaged.DT,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.SomeAccuracy = set_combine(sets.engaged.Impetus,{ear2="Telos Earring",ring2="Niqmaddu Ring"})
 	sets.engaged.Impetus.MaxAccuracy = set_combine(sets.engaged.Impetus.SomeAccuracy,{ammo="Ginsen",
-		head="Bhikku Crown +2",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
+		head="Bhikku Crown +3",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring"})
 	sets.engaged.Impetus.SubtleBlow = set_combine(sets.engaged.SubtleBlow,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
 	sets.engaged.Impetus.SomeAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy,{feet="Bhikku Gaiters +3"})
-	sets.engaged.Impetus.MaxAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy.DT,{ammo="Ginsen",head="Bhikku Crown +2",ear1="Telos Earring"})
+	sets.engaged.Impetus.MaxAccuracy.DT = set_combine(sets.engaged.Impetus.SomeAccuracy.DT,{ammo="Ginsen",head="Bhikku Crown +3",ear1="Telos Earring"})
 
 -- base Subtle Blow set:
 --	sets.engaged = {ammo="Coiste Bodhar",
---		head="Bhikku Crown +2",neck="Mnk. Nodowa +2",ear1="Sherida Earring",ear2="Schere Earring",
+--		head="Bhikku Crown +3",neck="Mnk. Nodowa +2",ear1="Sherida Earring",ear2="Schere Earring",
 --		body="Mpaca's Doublet",hands="Hes. Gloves +3",ring1="Gere Ring",ring2="Chirich Ring +1",
 --		back=Segomo.Normal,waist="Moonbow Belt +1",legs="Bhikku Hose +3",feet="Malignance Boots"}
 
@@ -331,14 +331,14 @@ function init_gear_sets()
 	-- Hundred Fists/Impetus melee set mods
 	sets.engaged.HF = set_combine(sets.engaged,{})
 	sets.engaged.HF.SomeAccuracy = set_combine(sets.engaged.SomeAccuracy,{})
-	sets.engaged.HF.MaxAccuracy = set_combine(sets.engaged.HF.SomeAccuracy,{ammo="Ginsen",head="Bhikku Crown +2",ear1="Telos Earring",body="Malignance Tabard",hands="Ryuo Tekko +1",waist="Grunfeld Rope"})
-	sets.engaged.HF.SubtleBlow = set_combine(sets.engaged.HF,{head="Bhikku Crown +2"})
+	sets.engaged.HF.MaxAccuracy = set_combine(sets.engaged.HF.SomeAccuracy,{ammo="Ginsen",head="Bhikku Crown +3",ear1="Telos Earring",body="Malignance Tabard",hands="Ryuo Tekko +1",waist="Grunfeld Rope"})
+	sets.engaged.HF.SubtleBlow = set_combine(sets.engaged.HF,{head="Bhikku Crown +3"})
 	sets.engaged.HF.DT = set_combine(sets.engaged.DT,{})
 
 	sets.engaged.HF.Impetus = set_combine(sets.engaged.HF,{body="Bhikku Cyclas +3"})
 	sets.engaged.HF.Impetus.SomeAccuracy = set_combine(sets.engaged.HF.SomeAccuracy, {body="Bhikku Cyclas +3"})
-	sets.engaged.HF.Impetus.MaxAccuracy = set_combine(sets.engaged.HF.Impetus.SomeAccuracy, {ammo="Ginsen",head="Bhikku Crown +2",ear1="Telos Earring"})
-	sets.engaged.HF.Impetus.SubtleBlow = set_combine(sets.engaged.HF.Impetus,{head="Bhikku Crown +2"})
+	sets.engaged.HF.Impetus.MaxAccuracy = set_combine(sets.engaged.HF.Impetus.SomeAccuracy, {ammo="Ginsen",head="Bhikku Crown +3",ear1="Telos Earring"})
+	sets.engaged.HF.Impetus.SubtleBlow = set_combine(sets.engaged.HF.Impetus,{head="Bhikku Crown +3"})
 	sets.engaged.HF.Impetus.DT = set_combine(sets.engaged.Impetus.DT,{})
 
 
@@ -692,13 +692,9 @@ function customize_melee_set(meleeSet)
 	--	s = table.concat(s)	
 
 	if state.ElementalResist.value == true and state.DTMode.value == 'DT' then
-		meleeSet = set_combine(meleeSet,EleResist,{head="Bhikku Crown +2"})
+		meleeSet = set_combine(meleeSet,EleResist,{head="Bhikku Crown +3"})
 	elseif state.ElementalResist.value == true then
 		meleeSet = set_combine(meleeSet,EleResist)
-	end
-
-	if  buffactive.impetus then
-		meleeSet = set_combine(meleeSet,{body="Bhikku Cyclas +3"})
 	end
 
 	if state.CursnaGear.value and (buffactive['Doom'] or buffactive['Bane']) then
