@@ -260,7 +260,7 @@ function init_gear_sets()
 
 	sets.precast.CorsairRoll = set_combine(sets.idle.PDT,{head="Lanun Tricorne +3",neck="Regal Necklace",hands="Chasseur's Gants +3",ring2="Gelatinous Ring +1",back=Camulus.DW,legs="Desultor Tassets"})
 	sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +3"})
-	sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +2"})
+	sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +3"})
 	sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +3"})
 	sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
 	sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3"})
@@ -354,9 +354,9 @@ function init_gear_sets()
 	sets.midcast.Cure = {}
 	sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
 	sets.precast.CorsairShot = {ammo=gear.MAbullet,
-		head="Nyame Helm",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Crematio Earring",
+		head="Ikenga's Hat",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Crematio Earring",
 		body="Mirke Wardecors",hands="Carmine Fin. Ga. +1",ring1="Dingir Ring",ring2="Ilabrat Ring",
-		back=Camulus.WSDMagi,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+		back=Camulus.WSDMagi,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Lanun Bottes +3"}
 	sets.precast.CorsairShot.STP = set_combine(sets.precast.CorsairShot, {
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Dedition Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Crepuscular Ring",ring2="Chirich Ring +1",
