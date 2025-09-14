@@ -190,7 +190,11 @@ function init_gear_sets()
 		head="Sakpata's Helm",
 		hands="Nyame Gauntlets",ring2="Sroda Ring",
 		legs="Boii Cuisses +3"})
-
+	sets.precast.WS["Disaster"] = set_combine(sets.precast.WS,{
+		ear2="Dominance Earring +1",
+		body="Boii Lorica +3",ring2="Beithir Ring",
+		waist="Kentarch Belt +1",legs="Boii Cuisses +3",feet="Boii Calligae +3"})
+		
 	sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS,{
 		hands="Nyame Gauntlets",ring2="Sroda Ring"})
 
