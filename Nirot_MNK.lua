@@ -166,6 +166,7 @@ function init_gear_sets()
 		head="Mpaca's Cap",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
 		body="Bhikku Cyclas +3",hands="Ryuo Tekko +1",ring1="Gere Ring",ring2="Niqmaddu Ring",
 		back=Segomo.Normal,waist="Moonbow Belt +1",legs="Mpaca's Hose",feet="Mpaca's Boots"}
+	sets.precast.WS.DT = sets.precast.WS
 	sets.precast.WS.NotAttackCapped = sets.precast.WS
 	sets.precast.WS.Accuracy = set_combine(sets.precast.WS,{})
 	--sets.precast.WSAcc = {} --{ammo="Honed Tathlum",body="Manibozho Jerkin",back="Letalis Mantle",feet="Qaaxo Leggings"}
@@ -210,7 +211,6 @@ function init_gear_sets()
 		ear1="Moonshade Earring",ear2="Schere Earring",
 		body="Nyame Mail",hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",feet="Nyame Sollerets"})
-
 	sets.precast.WS['Final Heaven'] = set_combine(sets.precast.WS, {ammo="Knobkierrie",
 		head="Nyame Helm",neck="Fotia Gorget",ear1="Schere Earring",ear2="Bhikku Earring +1",
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
@@ -359,7 +359,7 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
 	-- Don't gearswap for weaponskills when Defense or SubtleBlow is on.
-	if spell.type == 'WeaponSkill' and (state.DTMode.current ~= 'None' or state.OffMode.value == 'SubtleBlow') then
+	if spell.type == 'WeaponSkill' and (state.OffMode.value == 'SubtleBlow') then
 		eventArgs.handled = true
 	end
 end
@@ -503,7 +503,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 			if (info.impetus_hit_count > 5) then
 				equip(sets.impetus_body)
 			end
-		elseif state.Buff.Footwork and (spell.english == "Dragon's Kick" or spell.english == "Tornado Kick") then
+		end
+		
+		if state.Buff.Footwork and (spell.english == "Dragon's Kick" or spell.english == "Tornado Kick") then
 			equip(sets.footwork_kick_feet)
 		end
 
