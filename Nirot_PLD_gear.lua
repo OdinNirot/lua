@@ -364,5 +364,8 @@ function init_gear_sets()
 	sets.buff.Doom = {neck={ name="Nicander's Necklace", priority=1},ring1={ name="Eshmun's Ring", priority=1},ring2={ name="Eshmun's Ring", priority=1},waist={ name="Gishdubar Sash", priority=1},legs={ name="Shabti Cuisses +1",priority=41}}
 	sets.buff.Curse = sets.buff.Doom
 	sets.buff.Cover = {head={ name="Reverence Coronet +3", priority=71}, body={ name="Caballarius Surcoat +3", priority=138}}
+	
+	sets.Enlight = {main="Archduke's Sword"}
+	
 end
 

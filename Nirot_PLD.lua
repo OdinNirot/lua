@@ -56,6 +56,7 @@ function user_setup()
 
 	proSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V'}
 	enhancingSpells = S{'Protect','Protect II','Protect III','Protect IV','Protect V','Shell','Shell II','Shell III','Shell IV','Shell V','Reprisal','Crusade'} --add phalanx if you want more duration at the cost of less effectiveness
+	enlightSpells = S{'Enlight','Enlight II'}
 
 	update_defense_mode()
 
@@ -244,6 +245,12 @@ function job_midcast(spell, action, spellMap, eventArgs)
 			do_equip('sets.EnhancingDurationFull')
 		end
 		windower.send_command('wait 3.5;gs c update user')
+	end
+	
+	if enlightSpells:contains(spell.english) then
+		if not state.WeaponLock.value then
+			do_equip('sets.Enlight')
+		end
 	end
 
 	local phalanxSet
