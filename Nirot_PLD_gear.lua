@@ -269,8 +269,8 @@ function init_gear_sets()
 	sets.Death = {neck={ name="Warder's Charm +1", priority=1},ring1={ name="Shadow Ring", priority=1},ring2={ name="Warden's Ring", priority=1}}
 
 	sets.MaxHP = {
-		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Sanare Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Moonlight Ring", priority=110},ring2={ name="Gelatinous Ring +1", augments={'Path: A',}, priority=135},
+		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Alabaster Earring", priority=100},ear2={name="Odnowa earring +1", priority=110},
+		body={ name="Adamantite Armor", priority=182},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Moonlight Ring", priority=110},ring2={ name="Gelatinous Ring +1", augments={'Path: A',}, priority=135},
 		back="Moonbeam Cape",waist={name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 
 	-- Idle sets
