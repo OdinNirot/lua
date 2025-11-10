@@ -124,7 +124,11 @@ function job_setup()
 		'Adloquium','Animus Minuo','Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II','Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'
 	}
 	magic_maps.RegenSpells = S{
-		'Regen','Regen II','Regen III','Regen IV','Regen V','Embrava'
+		'Regen','Regen II','Regen III','Regen IV','Regen V'
+	}
+	
+	magic_maps.Embrava = S{
+		'Embrava'
 	}
 
 	magic_maps.ImmunobreakSpells = S{
@@ -370,10 +374,11 @@ function init_gear_sets()
 		back="Fi Follet Cape +1",waist="Embla Sash",legs=TelLegs.Duration,feet=TelFeet.Duration})
 	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'].base,{main="Musa",Sub="Khonsu",
 		head="Arbatel Bonnet +3",
-		body=TelBody.Duration,
+		body="Peda. Gown +3",
 		hands=TelHands.Duration,
 		back="Bookworm's Cape",waist="Embla Sash",legs=TelLegs.Duration,feet=TelFeet.Duration})
 	sets.midcast.RegenPerpetuance = set_combine(sets.midcast.Regen,{hands=Empyrean.Hands})
+	sets.midcast.Embrava = set_combine(sets.midcast.RegenPerpetuance,{head="Telchine Cap"})
 	sets.midcast.Regen.SIRD = set_combine(sets.midcast.Regen,sets.midcast.SIRD)
 	sets.midcast['Enhancing Magic'].RefreshSpells = set_combine(sets.midcast['Enhancing Magic'].base,{head="Amalric Coif +1"})
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'].base,{waist="Embla Sash"})--{ring1="Sheltered Ring"}
@@ -386,7 +391,7 @@ function init_gear_sets()
 	sets.midcast.Invisible = set_combine(sets.midcast['Enhancing Magic'].base,{back="Skulker's Cape"})
 	
 	sets.midcast['Elemental Magic'] = {}
-	sets.midcast['Elemental Magic'].base = {main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",  --this is the "high tier free nuke" set from sch guide
+	sets.midcast['Elemental Magic'].base = {main="Bunzi's Rod",sub="Culminus",ammo="Ghastly Tathlum +1",  --this is the "high tier free nuke" set from sch guide
 		head="Agwu's Cap",neck="Argute Stole +2",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Arbatel Gown +3",hands=Empyrean.Hands,ring1="Freke Ring",ring2="Metamor. Ring +1",
 		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +3"}
@@ -667,7 +672,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip(sets.midcast.Regen)
 		end
 	end
-
+	
+	if spellMap == 'Embrava' then
+		equip(sets.midcast.Embrava)
+	end
+	
 	if spellMap == 'BarSpells' then
 		if buffactive['Perpetuance'] then
 			equip(sets.midcast['Enhancing Magic'].base,sets.midcast.BarSpells,{hands=Empyrean.Hands})
