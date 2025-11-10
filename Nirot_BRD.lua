@@ -442,7 +442,7 @@ function init_gear_sets()
 		hands="Fili Manchettes +3",
 		back=Intarabus.FC,
 		legs="Inyanga Shalwar +2",
-		feet="Brioso Slippers +3"
+		feet="Brioso Slippers +4"
 	}
 	sets.midcast.aria = set_combine(sets.midcast.songs,{range="Loughnashade"})
 	sets.midcast.ballad = set_combine(sets.midcast.songs,{})  --prefer to keen inyanga shalwar for longer duration, else legs="Fili Rhingrave +3" would be a good choice
@@ -484,7 +484,7 @@ function init_gear_sets()
 		ring2="Stikini Ring +1",
 		waist="Acuity Belt +1",
 		legs="Inyanga Shalwar +2",
-		feet="Brioso Slippers +3"	
+		feet="Brioso Slippers +4"	
 	})
 	sets.midcast.lullaby_single.DW = set_combine(sets.midcast.lullaby_single,sets.precast.FC.DW)
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.lullaby_single,{range="Daurdabla"})  -- focus on macc because you already hit max aoe range at 154 string skill. so base it on lullaby_single set but use Daurdabla
