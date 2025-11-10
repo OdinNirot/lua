@@ -27,7 +27,7 @@ function job_setup()
 	no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
 		"Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 	gsList = S{'Montante +1','Nandaka'}
-	gaList = S{'Chango','Bravura','Ukonvasara'}
+	gaList = S{'Chango','Bravura','Ukonvasara','Laphria'}
 	paList = S{'Shining One'}
 	aList = S{'Dolichenus','Perun +1',"Renaud's Axe +3",'Fernagu'}
 	sList = S{'Naegling','Zantetsuken',"Sakpata's Sword",'Mercurial Kris'}
@@ -121,7 +121,7 @@ function init_gear_sets()
 
 	sets.precast.Enmity = {ammo={ name="Sapience Orb", priority=1},
 		head="Pummeler's Mask +3",neck={name="Moonlight Necklace", priority=1},ear1={name="Cryptic Earring", priority=40},ear2={name="Odnowa earring +1", priority=110},
-		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={ name="Apeile Ring +1", priority=1},ring2={ name="Defending Ring",priority=1},
+		body={ name = "Adamantite Armor", priority=182},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={ name="Apeile Ring +1", priority=1},ring2={ name="Defending Ring",priority=1},
 	back="Phalangite Mantle",legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=162},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 
 	-- Precast sets to enhance JAs on use
@@ -278,7 +278,7 @@ function init_gear_sets()
 	sets.engaged = {ammo="Coiste Bodhar",
 		head="Hjarrandi Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +2",
 		body="Boii Lorica +3",hands="Sakpata's Gauntlets",ring1="Moonlight Ring",ring2="Niqmaddu Ring",
-		back=Cichol.DA,waist="Sailfi Belt +1",legs="Pummeler's Cuisses +3",feet="Pummeler's Calligae +3"}
+		back=Cichol.DA,waist="Sailfi Belt +1",legs="Pummeler's Cuisses +3",feet="Pumm. Calligae +4"}
 	sets.engagedDT = {ammo="Antitail +1",
 		head="Sakpata's Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +2",
 		body="Sakpata's Plate",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",ring2="Niqmaddu Ring",
