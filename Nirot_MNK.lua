@@ -212,7 +212,7 @@ function init_gear_sets()
 		body="Nyame Mail",hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.precast.WS['Final Heaven'] = set_combine(sets.precast.WS, {ammo="Knobkierrie",
-		head="Nyame Helm",neck="Fotia Gorget",ear1="Schere Earring",ear2="Bhikku Earring +1",
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Schere Earring",ear2="Bhikku Earring +2",
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Cornelia's Ring",
 		legs="Nyame Flanchard",feet="Nyame Sollerets"})
 
@@ -295,7 +295,7 @@ function init_gear_sets()
 		ear2="Telos Earring",
 		body="Malignance Tabard",ring2="Niqmaddu Ring"})
 	sets.engaged.MaxAccuracy = set_combine(sets.engaged.SomeAccuracy,{ammo="Ginsen",
-		head="Bhikku Crown +3",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
+		head="Bhikku Crown +3",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +2",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring"})
 	-- Subtle Blow and Subtle Blow II individually cap at 50% each, and cap at 75% combined.
 	sets.engaged.SubtleBlow = set_combine(sets.engaged,{head="Ken. Jinpachi +1",hands="Malignance Gloves",body="Malignance Tabard",ring2="Niqmaddu Ring",feet="Ken. Sune-Ate +1"})
@@ -305,7 +305,7 @@ function init_gear_sets()
 		body="Malignance Tabard",hands="Malignance Gloves"})
 	sets.engaged.SomeAccuracy.DT = set_combine(sets.engaged.DT,{})
 	sets.engaged.MaxAccuracy.DT = set_combine(sets.engaged.SomeAccuracy.DT,{ammo="Ginsen",
-		head="Bhikku Crown +3",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
+		head="Bhikku Crown +3",ear1="Dominance Earring +1",ear2="Bhikku Earring +2",
 		ring1="Cacoethic Ring +1",ring2="Moonlight Ring",
 		feet="Tatenashi Sune-Ate +1"})
 	sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
@@ -314,7 +314,7 @@ function init_gear_sets()
 	sets.engaged.Impetus.DT = set_combine(sets.engaged.DT,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.SomeAccuracy = set_combine(sets.engaged.Impetus,{ear2="Telos Earring",ring2="Niqmaddu Ring"})
 	sets.engaged.Impetus.MaxAccuracy = set_combine(sets.engaged.Impetus.SomeAccuracy,{ammo="Ginsen",
-		head="Bhikku Crown +3",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +1",
+		head="Bhikku Crown +3",ear1="Telos Earring",ear1="Dominance Earring +1",ear2="Bhikku Earring +2",
 		hands="Ryuo Tekko +1",ring1="Cacoethic Ring +1",ring2="Moonlight Ring"})
 	sets.engaged.Impetus.SubtleBlow = set_combine(sets.engaged.SubtleBlow,{body="Bhikku Cyclas +3"})
 	sets.engaged.Impetus.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow,{ring1="Defending Ring"})
