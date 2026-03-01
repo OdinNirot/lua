@@ -197,7 +197,10 @@ function init_gear_sets()
 	sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
 	--sets.precast.JA['Steal'] = {ammo="Barathrum",neck="Pentalagus Charm",hands="Thief's Kote",legs="Assassin's Culottes",feet="Pillager's Poulaines +3"}
 	-- trying to stick to ilvl gear
-	sets.precast.JA['Steal'] = {range=empty,ammo="Barathrum",neck="Pentalagus Charm",feet="Pillager's Poulaines +3"}
+	sets.precast.JA['Steal'] = {sub="Bartholomew's Knife",range=empty,ammo="Barathrum",
+		head="Rogue's Bonnet",neck="Pentalagus Charm",ear1="Hoxne Earring",
+		body="Adamantite Armor",hands="Thief's Kote",ring1="Regal Ring",ring2="Dingir Ring",
+		back="Null Shawl",waist="Key Ring Belt",legs="Assassin's Culottes",feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +3"}
 	sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
 	sets.precast.JA['Feint'] = {legs="Plunderer's Culottes +3"}
