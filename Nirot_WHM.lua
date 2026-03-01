@@ -295,7 +295,7 @@ function init_gear_sets()
 	sets.midcast['Divine Magic'] = set_combine(sets.precast.FC,{})
 		
 	sets.midcast.Banish = {main="Daybreak",Sub="Ammurapi Shield",
-		head="Ipoca Beret",neck="Mizukage-no-Kubikazari",ear1="Friomisi Earring",ear2="Malignance Earring",
+		head="Ipoca Beret",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Malignance Earring",
 		hands="Fanatic Gloves",ring1="Metamor. Ring +1",ring2="Freke Ring",
 		back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
 	sets.midcast.Banish.SIRD = set_combine(sets.midcast.Banish,sets.midcast.SIRD)
