@@ -57,7 +57,7 @@ function init_gear_sets()
 	sets.Refresh = {waist={ name="Gishdubar Sash", priority=1}}
 	sets.Srivatsa = {sub="Srivatsa"}
 
-	sets.EnhancingDuration = {body="Shab. Cuirass +1"}
+	sets.EnhancingDuration = {body="Shab. Cuirass +1",hands="Regal Gauntlets"}
 	sets.EnhancingDurationShield = {sub="Ajax +1"}
 	sets.EnhancingDurationMain = {}  --put enhancing colada here if you ever make one
 	sets.EnhancingDurationFull = {sub="Ajax +1"} --and add the colada here too
@@ -218,16 +218,16 @@ function init_gear_sets()
 	sets.midcast.SIRD['Enhancing Magic'] = sets.midcast.SIRD
 	sets.midcast['Phalanx'] = sets.Phalanx
 	sets.midcast.SIRD['Phalanx'] = sets.midcast.SIRD
-	sets.midcast['Crusade'] = sets.midcast.Enmity
+	sets.midcast['Crusade'] = set_combine(sets.midcast.Enmity,sets.EnhancingDuration)
 	sets.midcast.SIRD['Crusade'] = sets.midcast.SIRD
-	sets.midcast['Reprisal'] = sets.midcast.Enmity
+	sets.midcast['Reprisal'] = set_combine(sets.midcast.Enmity,sets.EnhancingDuration)
 	sets.midcast.SIRD['Reprisal'] = sets.midcast.SIRD
 	sets.midcast['Enlight'] = sets.midcast.Enmity
 	sets.midcast.SIRD['Enlight'] = sets.midcast.SIRD
 	sets.midcast['Enlight II'] = sets.midcast.Enmity
 	sets.midcast.SIRD['Enlight II'] = sets.midcast.SIRD
-	sets.midcast.Protect = set_combine(sets.midcast.SIRD,{sets.EnhancingDuration}) --{ring1="Sheltered Ring"}
-	sets.midcast.Shell = set_combine(sets.midcast.SIRD,{sets.EnhancingDuration}) --{ring1="Sheltered Ring"}
+	sets.midcast.Protect = set_combine(sets.midcast.SIRD,{sets.EnhancingDuration},{ring1="Sheltered Ring"})
+	sets.midcast.Shell = set_combine(sets.midcast.SIRD,{sets.EnhancingDuration},{ring1="Sheltered Ring"})
 
 	-- BlackMagic
 	sets.midcast['Stun'] = sets.midcast.Enmity
