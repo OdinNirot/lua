@@ -27,7 +27,7 @@ function job_setup()
 	no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
 		"Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 	gsList = S{'Montante +1','Nandaka'}
-	gaList = S{'Chango','Bravura','Ukonvasara','Laphria'}
+	gaList = S{'Chango','Bravura','Ukonvasara','Laphria','Conqueror'}
 	paList = S{'Shining One'}
 	aList = S{'Dolichenus','Perun +1',"Renaud's Axe +3",'Fernagu'}
 	sList = S{'Naegling','Zantetsuken',"Sakpata's Sword",'Mercurial Kris'}
@@ -58,17 +58,23 @@ function user_setup()
 	state.WeaponskillMode:options('Normal', 'NotAttackCapped', 'Accuracy')
 	state.HybridMode:options('Normal', 'DT')
 	state.CursnaGear = M(true, 'CursnaGear')
+	state.MaxHP = M(false, 'MaxHP')
+	state.WeaponLock = M(true, 'WeaponLocked')
+	state.WeaponChoice = M('Chango', 'Ukonvasara','Laphria','Conqueror','Bravura','Shining One','Montante +1','Naegling','Loxotic Mace +1','Demersal Degen +1','Dolichenus')
 --	state.PhysicalDefenseMode:options('PDT', 'HP')
 --	state.PhysicalDefenseMode = 'None'
 	
 	send_command('bind ^= gs c cycle TreasureMode')
 	send_command('bind ^- gs c cycle Kiting')
 	send_command('bind ^backspace gs c cycle CursnaGear')
+	send_command('bind F10 gs c cycle WeaponLock')
 	send_command('bind F11 gs c cycle Crepuscular')
 	send_command('bind numpad. gs c cycle HybridMode')
 	send_command('bind numpad2 gs c cycle ElementalResist')
 	send_command('bind numpad3 gs c cycle OffenseMode')
 	send_command('bind numpad6 gs c cycle WeaponskillMode')
+	send_command('bind numpad7 gs c cycle WeaponChoice')
+	send_command('bind numpad9 gs c cycle MaxHP')
 
 	update_combat_form()
 	update_melee_groups()
@@ -84,12 +90,15 @@ function user_unload()
 	send_command('unbind ^=')
 	send_command('unbind ^-')
 	send_command('unbind ^backspace')
+	send_command('unbind F10')
 	send_command('unbind F11')
 	send_command('unbind numpad2')
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
 	send_command('unbind numpad5')
 	send_command('unbind numpad6')	
+	send_command('unbind numpad7')	
+	send_command('unbind numpad9')
 end
 
 
@@ -107,7 +116,6 @@ function init_gear_sets()
 	ValorousHead.WSD = { name="Valorous Mask", augments={'Mag. Acc.+5','Pet: Haste+1','Weapon skill damage +8%','Accuracy+20 Attack+20','Mag. Acc.+15 "Mag.Atk.Bns."+15',}}
 
 	ValorousBody.Phalanx = { name="Valorous Mail", augments={'STR+7','DEX+5','Phalanx +5','Accuracy+5 Attack+5','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
-	ValorousBody.Waltz = { name="Valorous Mail", augments={'"Waltz" potency +10%','Pet: STR+2','"Store TP"+2','Accuracy+14 Attack+14',}}
 
 	Nyame = {head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
@@ -116,6 +124,11 @@ function init_gear_sets()
 	Cichol.WSDVit = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Damage taken-5%',}}
 
 	sets.Crepuscular = {head="Crepuscular Helm",body="Crepuscular Mail"}
+	
+	sets.MaxHP = {
+		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},neck={ name="Unmoving Collar +1", augments={'Path: A',}, priority=200},ear1={ name="Alabaster Earring", priority=100},ear2={name="Odnowa earring +1", priority=110},
+		body={ name="Adamantite Armor", priority=182},hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},ring1={name="Moonlight Ring", priority=110},ring2={ name="Gelatinous Ring +1", augments={'Path: A',}, priority=135},
+		back="Moonbeam Cape",waist={name="Plat. Mog. Belt", priority=300},legs={ name="Souv. Diechlings +1", priority=162},feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=227}}
 
 	-- Precast Sets
 
@@ -139,7 +152,7 @@ function init_gear_sets()
 	sets.precast.JA['Brazen Rush'] = {}
 
 	-- Waltz set (chr and vit)
-	sets.precast.Waltz = {body=ValorousBody.Waltz,legs="Dashing Subligar"}
+	sets.precast.Waltz = {legs="Dashing Subligar"}
 
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = {}
@@ -523,6 +536,17 @@ end
 
 windower.raw_register_event('action', check_reaction)
 
+function job_handle_equipping_gear(playerStatus, eventArgs)
+	-- Check that shield slot is locked, if necessary
+	check_weaponlock()
+	if state.MaxHP.value then
+		equip(sets.MaxHP)
+		disallow_swaps()
+	else
+		allow_swaps()
+	end
+end
+
 windower.register_event('zone change',
 	function()
 		if no_swap_gear:contains(player.equipment.ring1) then
@@ -600,6 +624,36 @@ function customize_idle_set(idleSet)
 			idleSet = set_combine(idleSet, sets.Kiting)
 		end
 	end
+	if state.WeaponLock.value == true then
+		idleSet = idleSet
+	elseif state.WeaponChoice.value then
+		if state.WeaponChoice.value == 'Chango' then
+			idleSet = set_combine(idleSet,{main='Chango',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Ukonvasara' then
+			idleSet = set_combine(idleSet,{main='Ukonvasara',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Laphria' then
+			idleSet = set_combine(idleSet,{main='Laphria',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Conqueror' then
+			idleSet = set_combine(idleSet,{main='Conqueror',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Bravura' then
+			idleSet = set_combine(idleSet,{main='Bravura',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Shining One' then
+			idleSet = set_combine(idleSet,{main='Shining One',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Montante +1' then
+			idleSet = set_combine(idleSet,{main='Montante +1',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Naegling' then
+			idleSet = set_combine(idleSet,{main='Naegling',sub='Blurred Shield +1'})
+		elseif state.WeaponChoice.value == 'Loxotic Mace +1' then
+			idleSet = set_combine(idleSet,{main='Loxotic Mace +1',sub='Blurred Shield +1'})
+		elseif state.WeaponChoice.value == 'Demersal Degen +1' then
+			idleSet = set_combine(idleSet,{main='Demersal Degen +1',sub='Blurred Shield +1'})
+		elseif state.WeaponChoice.value == 'Dolichenus' then
+			idleSet = set_combine(idleSet,{main='Dolichenus',sub='Blurred Shield +1'})
+		end	
+	end
+	if state.MaxHP.value then
+		idleSet = set_combine(idleSet,sets.MaxHP)
+	end
 	if player.hpp < 30 or (state.Crepuscular.value) then
 		idleSet = set_combine(idleSet,sets.Crepuscular)
 		equip(sets.Crepuscular)
@@ -617,6 +671,36 @@ function job_update(cmdParams, eventArgs)
 	update_combat_form()
 	update_melee_groups()
 	get_combat_weapon()
+end
+
+function disallow_swaps()
+	disable('head')
+	disable('neck')
+	disable('ear1')
+	disable('ear2')
+	disable('body')
+	disable('hands')
+	disable('ring1')
+	disable('ring2')
+	disable('back')
+	disable('waist')
+	disable('legs')
+	disable('feet')
+end
+
+function allow_swaps()
+	enable('head')
+	enable('neck')
+	enable('ear1')
+	enable('ear2')
+	enable('body')
+	enable('hands')
+	enable('ring1')
+	enable('ring2')
+	enable('back')
+	enable('waist')
+	enable('legs')
+	enable('feet')
 end
 
 -- Function to lock the ranged slot if we have a ranged weapon equipped.
@@ -714,6 +798,39 @@ function customize_melee_set(meleeSet)
 	if state.CursnaGear.value and (buffactive['Curse'] or buffactive['Doom'] or buffactive['Bane']) then
 		meleeSet = set_combine(meleeSet,sets.buff.Curse)
 	end
+	
+	if state.WeaponLock.value == true then
+		meleeSet = meleeSet
+	elseif state.WeaponChoice.value then
+		if state.WeaponChoice.value == 'Chango' then
+			meleeSet = set_combine(meleeSet,{main='Chango',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Ukonvasara' then
+			meleeSet = set_combine(meleeSet,{main='Ukonvasara',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Laphria' then
+			meleeSet = set_combine(meleeSet,{main='Laphria',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Conqueror' then
+			meleeSet = set_combine(meleeSet,{main='Conqueror',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Bravura' then
+			meleeSet = set_combine(meleeSet,{main='Bravura',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Shining One' then
+			meleeSet = set_combine(meleeSet,{main='Shining One',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Montante +1' then
+			meleeSet = set_combine(meleeSet,{main='Montante +1',sub='Utu Grip'})
+		elseif state.WeaponChoice.value == 'Naegling' then
+			meleeSet = set_combine(meleeSet,{main='Naegling',sub='Blurred Shield +1'})
+		elseif state.WeaponChoice.value == 'Loxotic Mace +1' then
+			meleeSet = set_combine(meleeSet,{main='Loxotic Mace +1',sub='Blurred Shield +1'})
+		elseif state.WeaponChoice.value == 'Demersal Degen +1' then
+			meleeSet = set_combine(meleeSet,{main='Demersal Degen +1',sub='Blurred Shield +1'})
+		elseif state.WeaponChoice.value == 'Dolichenus' then
+			meleeSet = set_combine(meleeSet,{main='Dolichenus',sub='Blurred Shield +1'})
+		end	
+	end
+	
+	if state.MaxHP.value then
+		meleeSet = set_combine(meleeSet,sets.MaxHP)
+	end
+	
 	if player.hpp < 30 or (state.Crepuscular.value) then
 		meleeSet = set_combine(meleeSet,sets.Crepuscular)
 		equip(sets.Crepuscular)
@@ -777,6 +894,14 @@ function display_current_job_state(eventArgs)
 
 	eventArgs.handled = true
 	
+end
+
+function check_weaponlock()
+	if state.WeaponLock.value then
+		disable("main")
+	else
+		enable("main")
+	end
 end
 
 -- Select default macro book on initial load or subjob change.
