@@ -314,7 +314,7 @@ function init_gear_sets()
 	
 	sets.midcast['Dark Magic'] = {}
 	sets.midcast['Dark Magic'].base = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Geo. Galero +2",neck="Erra Pendant",ear1="Malignance Earring",ear2="Regal Earring",
+		head="Geo. Galero +3",neck="Erra Pendant",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Geomancy Tunic +3",hands="Geo. Mitaines +3",ring1={name="Stikini Ring +1"},ring2={name="Stikini Ring +1"},
 		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Azimuth Tights +3",feet="Azimuth Gaiters +3"}
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'].base, {
@@ -326,9 +326,9 @@ function init_gear_sets()
 	
 	sets.midcast['Enfeebling Magic'] = {}
 	sets.midcast['Enfeebling Magic'].base = {main="Idris",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Geo. Galero +2",neck="Bagua Charm +2",ear1="Malignance Earring",ear2="Regal Earring",
+		head="Geo. Galero +3",neck="Bagua Charm +2",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Geomancy Tunic +3",hands="Azimuth Gloves +3",ring1="Kishar Ring",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Luminary Sash",legs="Geomancy Pants +3",feet="Geo. Sandals +2"}
+		back="Aurist's Cape +1",waist="Luminary Sash",legs="Geomancy Pants +3",feet="Geo. Sandals +3"}
 	sets.midcast['Enfeebling Magic'].potency = set_combine(sets.midcast['Enfeebling Magic'].base,{})
 	sets.midcast['Enfeebling Magic'].mndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ring1="Metamor. Ring +1"})
 	sets.midcast['Enfeebling Magic'].skillmndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{waist="Luminary Sash"})
