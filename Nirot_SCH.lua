@@ -119,9 +119,9 @@ function job_setup()
 	magic_maps.EnhancingSkill = S{
 		'Aquaveil','Blaze Spikes','Enaero','Enaero II','Enblizzard','Enblizzard II','Enfire','Enfire II','Enstone','Enstone II','Enthunder','Enthunder II','Enwater','Enwater II','Ice Spikes','Phalanx','Phalanx II','Shock Spikes','Stoneskin','Temper','Temper II'
 	}
-
+	
 	magic_maps.NoEnhancingSkill = S{
-		'Adloquium','Animus Minuo','Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II','Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'
+		'Adloquium','Animus Minuo','Blink','Deodorize','Erase','Escape','Flurry','Flurry II','Haste','Haste II','Invisible','Protect','Protect II','Protect III','Protect IV','Protect V','Protectra','Protectra II','Protectra III','Protectra IV','Protectra V','Retrace','Shell','Shell II','Shell III','Shell IV','Shell V','Shellra','Shellra II','Shellra III','Shellra IV','Shellra V','Sneak','Warp','Warp II','Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm','Sandstorm II','Rainstorm II','Windstorm II','Firestorm II','Hailstorm II','Thunderstorm II','Voidstorm II','Aurorastorm II'
 	}
 	magic_maps.RegenSpells = S{
 		'Regen','Regen II','Regen III','Regen IV','Regen V'
@@ -391,12 +391,11 @@ function init_gear_sets()
 	sets.midcast.Invisible = set_combine(sets.midcast['Enhancing Magic'].base,{back="Skulker's Cape"})
 	
 	sets.midcast['Elemental Magic'] = {}
-	sets.midcast['Elemental Magic'].base = {main="Bunzi's Rod",sub="Culminus",ammo="Ghastly Tathlum +1",  --this is the "high tier free nuke" set from sch guide
+	sets.midcast['Elemental Magic'].base = {main="Opashoro",sub="Khonsu",ammo="Ghastly Tathlum +1",
 		head="Agwu's Cap",neck="Argute Stole +2",ear1="Malignance Earring",ear2="Regal Earring",
 		body="Arbatel Gown +3",hands=Empyrean.Hands,ring1="Freke Ring",ring2="Metamor. Ring +1",
 		back=LughsCape.MAB,waist="Skrymir Cord +1",legs="Agwu's Slops",feet="Arbatel Loafers +3"}
 	sets.Burst = set_combine(sets.midcast['Elemental Magic'].base,{
-		head="Agwu's Cap",
 		hands="Agwu's Gages"})
 	sets.BurstEbullience = set_combine(sets.midcast['Elemental Magic'].base,{
 		head="Arbatel Bonnet +3",
