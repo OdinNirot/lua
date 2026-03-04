@@ -74,6 +74,7 @@ function user_setup()
 	send_command('bind numpad3 gs c cycle OffenseMode')
 	send_command('bind numpad6 gs c cycle WeaponskillMode')
 	send_command('bind numpad7 gs c cycle WeaponChoice')
+	send_command('bind numpad8 gs c cycleback WeaponChoice')
 	send_command('bind numpad9 gs c cycle MaxHP')
 
 	update_combat_form()
@@ -98,6 +99,7 @@ function user_unload()
 	send_command('unbind numpad5')
 	send_command('unbind numpad6')	
 	send_command('unbind numpad7')	
+	send_command('unbind numpad8')	
 	send_command('unbind numpad9')
 end
 
@@ -139,8 +141,8 @@ function init_gear_sets()
 
 	-- Precast sets to enhance JAs on use
 	sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers +3"}
-	sets.precast.JA['Berserk'] = {body="Pummeler's Lorica +3",back=Cichol.DA,feet="Agoge Calligae +3"}
-	sets.precast.JA['Warcry'] = {head="Agoge Mask +3"}
+	sets.precast.JA['Berserk'] = {main="Conqueror",sub="Utu Grip",body="Pummeler's Lorica +3",back=Cichol.DA,feet="Agoge Calligae +3"}
+	sets.precast.JA['Warcry'] = {head="Agoge Mask +4"}
 	sets.precast.JA['Defender'] = { }
 	sets.precast.JA['Aggressor'] = {head="Pummeler's Mask +3",body="Agoge Lorica +3"}
 	sets.precast.JA['Provoke'] = sets.precast.Enmity
@@ -170,7 +172,7 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Knobkierrie",
-		head="Agoge Mask +3",neck="War. Beads +2",ear1="Moonshade Earring",ear2="Thrud Earring",
+		head="Agoge Mask +4",neck="War. Beads +2",ear1="Moonshade Earring",ear2="Thrud Earring",
 		body="Nyame Mail",hands="Boii Mufflers +3",ring1="Cornelia's Ring",ring2="Niqmaddu Ring",
 		back=Cichol.WSDVit,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.NotAttackCapped = sets.precast.WS
@@ -183,7 +185,7 @@ function init_gear_sets()
 
 	-- Specific weaponskill sets.
 	sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS,{ammo="Knobkierrie",
-		head="Agoge Mask +3",
+		head="Agoge Mask +4",
 		hands="Nyame Gauntlets",
 		back=Cichol.WSDVit,waist="Sailfi Belt +1"})
 	sets.precast.WS['Upheaval'].HighTP = set_combine(sets.precast.WS['Upheaval'],{
@@ -235,12 +237,12 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",ring2="Sroda Ring",
 		waist="Fotia Belt",legs="Boii Cuisses +3"})
 	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS,{
-		head="Agoge Mask +3",neck="Fotia Gorget",ear1="Schere Earring",ear2="Boii Earring +2",
+		head="Agoge Mask +4",neck="Fotia Gorget",ear1="Schere Earring",ear2="Boii Earring +2",
 		hands="Nyame Gauntlets",
 		waist="Fotia Belt"})
 
 	sets.precast.WS["Judgment"] = set_combine(sets.precast.WS["Savage Blade"],{
-		head="Agoge Mask +3",
+		head="Agoge Mask +4",
 		hands="Nyame Gauntlets",ring2="Regal Ring"})
 	sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"],{
 		head="Nyame Helm",
@@ -277,7 +279,7 @@ function init_gear_sets()
 
 	sets.Kiting = {ring1="Shneddick Ring +1"}
 	sets.Doom = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Blenmot's Ring +1",waist="Gishdubar Sash",legs="Shabti Cuisses +1"}
-	sets.TreasureHunter = {head=ValorousHead.TH,waist="Chaac Belt"}
+	sets.TreasureHunter = {head=ValorousHead.TH,neck="Elite Royal Collar",ring2="Hoxne Ring",waist="Plat. Mog. Belt"}
 	sets.Phalanx = {head=ValorousHead.Phalanx,body=ValorousBody.Phalanx,hands="Souv. Handsch. +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1"}
 	
 	-- Engaged sets
