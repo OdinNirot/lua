@@ -24,6 +24,7 @@ function job_setup()
 	state.Buff['Bane'] = buffactive['bane'] or false
 	state.Buff['Terror'] = buffactive['terror'] or false
 	state.Buff['Stun'] = buffactive['stun'] or false
+	state.Buff['Boost'] = buffactive['boost'] or false
 	state.Buff['Petrification'] = buffactive['petrification'] or false
 	state.CursnaGear = M(false, 'CursnaGear')
 	--state.Kiting = M(true)
@@ -589,6 +590,9 @@ function customize_idle_set(idleSet)
 			idleSet = set_combine(idleSet, sets.Kiting)
 		end
 	end
+	if buffactive['Boost'] then
+		idleSet = set_combine(idleSet,{waist="Ask Sash"})
+	end
 	return idleSet
 end
 
@@ -701,6 +705,10 @@ function customize_melee_set(meleeSet)
 
 	if state.CursnaGear.value and (buffactive['Doom'] or buffactive['Bane']) then
 		meleeSet = set_combine(meleeSet,sets.Doom)
+	end
+	
+	if buffactive['Boost'] then
+		meleeSet = set_combine(meleeSet,{waist="Ask Sash"})
 	end
 
 	--add_to_chat(8,s)
