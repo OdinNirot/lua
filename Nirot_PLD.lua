@@ -232,6 +232,13 @@ function job_midcast(spell, action, spellMap, eventArgs)
 			do_equip('sets.Srivatsa')
 		end
 	end
+	
+	if string.find(spell.english,'Stoneskin') then
+		if buffactive['Stoneskin'] then
+		do_equip('sets.Stoneskin')
+			send_command('@wait 2.5;cancel Stoneskin')
+		end
+	end
 
 	if enhancingSpells:contains(spell.english) then
 		do_equip('sets.EnhancingDuration')
@@ -427,9 +434,9 @@ function customize_idle_set(idleSet)
 		end
 	elseif state.HybridMode.value == 'MDT' then
 		if state.LockShield.value and state.MaxHP.value then
-			idleSet = set_combine(idleSet,sets.MaxHP)
+			idleSet = set_combine(idleSet,sets.engaged.MDT,sets.MaxHP)
 		elseif state.LockShield.value then
-			idleSet = set_combine(idleSet,sets.idle.MDT)
+			idleSet = set_combine(idleSet,sets.engaged.MDT,sets.idle.MDT)
 		elseif state.MaxHP.value then
 			idleSet = set_combine(sets.idle.MDT,{sub="Aegis"})
 		else 

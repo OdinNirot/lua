@@ -24,7 +24,7 @@ function init_gear_sets()
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Invincible'] = set_combine(sets.midcast.Enmity,{legs={ name="Caballarius Breeches +3", priority=72}})
-	sets.precast.JA['Holy Circle'] = set_combine(sets.midcast.Enmity,{feet={name="Reverence Leggings +3", priority=82}})
+	sets.precast.JA['Holy Circle'] = set_combine(sets.midcast.Enmity,{feet={name="Rev. Leggings +4", priority=92}})
 	sets.precast.JA['Shield Bash'] = set_combine(sets.midcast.Enmity,{hands={ name="Caballarius Gauntlets +3", priority=124},ear1={ name="Knightly Earring", priority=1}})
 	sets.precast.JA['Sentinel'] = set_combine(sets.midcast.Enmity,{feet={ name="Caballarius Leggings +3", priority=63}})
 	sets.precast.JA['Rampart'] = set_combine(sets.midcast.Enmity,{head={ name="Caballarius Coronet +3", priority=116}})
@@ -200,6 +200,8 @@ function init_gear_sets()
 	sets.PhalanxSub = {sub="Priwen"}
 	sets.PhalanxFull = set_combine(sets.Phalanx,{main="Sakpata's Sword",sub="Priwen"})
 	sets.PhalanxSIRD = set_combine(sets.Phalanx, sets.midcast.SIRD)  --if you want to use SIRD with phalanx when SIRDMode is enabled. Make sure UseSIRDWithPhalanx = true is set. Otherwise, you get full-strength phalanx in both SIRD and Enmity modes
+	
+	sets.Stoneskin = set_combine(sets.engaged,{neck="Stone Gorget",ear1="Earthcry Earring",hands="Stone Mufflers",waist="Siegel Sash",legs="Haven Hose"})
 
 	-- WhiteMagic
 	sets.midcast['Cure'] = sets.midcast.Enmity
@@ -228,6 +230,8 @@ function init_gear_sets()
 	sets.midcast.SIRD['Enlight II'] = sets.midcast.SIRD
 	sets.midcast.Protect = set_combine(sets.midcast.SIRD,{sets.EnhancingDuration},{ring1="Sheltered Ring"})
 	sets.midcast.Shell = set_combine(sets.midcast.SIRD,{sets.EnhancingDuration},{ring1="Sheltered Ring"})
+	--sets.midcast['Stoneskin'] = set_combine(sets.engaged,{neck="Stone Gorget",ear1="Earthcry Earring",hands="Stone Mufflers",waist="Siegel Sash",legs="Haven Hose"})
+	--sets.midcast.SIRD['Stoneskin'] = set_combine(sets.midcast.SIRD,sets.midcast['Stoneskin'])
 
 	-- BlackMagic
 	sets.midcast['Stun'] = sets.midcast.Enmity
@@ -277,10 +281,13 @@ function init_gear_sets()
 	sets.idle = {ammo={name="Staunch Tathlum +1", priority=1},
 		head={name="Chev. Armet +3", priority=145},neck={name="Kgt. Beads +2", priority=60},ear1={ name="Sanare Earring", priority=1},ear2={name="Odnowa earring +1", priority=110},
 		body={ name="Sacro Breastplate",priority=178},hands={ name="Chev. Gauntlets +3", priority=64},ring1={ name="Defending Ring",priority=1},ring2={ name="Apeile Ring +1", priority=1},
-		back=Rudianos.DT,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Reverence Leggings +3", priority=82}}
+		back=Rudianos.DT,waist={name="Plat. Mog. Belt", priority=300},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Rev. Leggings +4", priority=92}}
 
 	sets.idle.PDT = set_combine(sets.idle,{})
-	sets.idle.MDT = set_combine(sets.idle,{neck={ name="Warder's Charm +1", priority=1 }})	
+	sets.idle.MDT = {ammo="Vanir Battery",
+		head="Sakpata's Helm",neck="Coatl Gorget +1",ear1="Sanare Earring",ear2="Eabani Earring",
+		body="Adamantite Armor",hands="Sakpata's Gauntlets",ring1="Shadow Ring",ring2="Apeile Ring +1",
+		back="Null Shawl",waist="Null Belt",legs="Sakpata's Cuisses",feet="Nyame Sollerets"}	
 	sets.idle.Town = sets.idle
 	sets.idle.Weak = sets.idle
 
@@ -331,7 +338,10 @@ function init_gear_sets()
 
 	sets.engaged.PDT = sets.engaged
 		
-	sets.engaged.MDT = sets.engaged
+	sets.engaged.MDT = set_combine(sets.engaged,{
+		head="Sakpata's Helm",neck="Coatl Gorget +1",ear1="Sanare Earring",ear2="Eabani Earring",
+		body="Adamantite Armor",
+		back="Null Shawl",waist="Null Belt",legs="Sakpata's Cuisses",feet="Nyame Sollerets"})
 
 	--[[
 	sets.engaged.DW = {ammo={ name="Ginsen", priority=1},
