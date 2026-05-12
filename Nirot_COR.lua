@@ -379,7 +379,12 @@ function init_gear_sets()
 	sets.idle.Refresh = set_combine(sets.idle, {})
 	sets.Kiting = {ring2="Shneddick Ring +1"}
 
-
+	sets.midcast["Absorb-TP"] = {
+		head="Chass. Tricorne +3",neck="Null Loop",ear1="Loquac. Earring",ear2="Etiolation Earring",
+		body="Malignance Tabard",hands="Leyline Gloves",ring1="Archon Ring",ring2="Stikini Ring +1",
+		back="Null Shawl",waist="Null Belt",legs="Chas. Culottes +3",feet="Chass. Bottes +3",
+	}
+	
 	sets.engaged = {
 		head={ name="Dampening Tam", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Quadruple Attack +3',}},neck="Iskur Gorget",ear1="Dedition Earring",ear2="Balder Earring +1",
 		body="Malignance Tabard",hands="Adhemar Wrist. +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
