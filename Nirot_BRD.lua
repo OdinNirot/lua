@@ -288,7 +288,7 @@ function init_gear_sets()
 
 	-- Precast sets to enhance JAs on use
 	sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +3"}
-	sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +3"}
+	sets.precast.JA['Troubadour'] = {body="Bihu Just. +4"}
 	sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +3"}
 
 	-- Waltz set (chr and vit)
@@ -408,20 +408,20 @@ function init_gear_sets()
 	-- Mordant Rime: 70% CHR ; 30% DEX
 	sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS, {
 		ear1="Regal Earring",ear2="Balder Earring +1",
-		body="Bihu Justaucorps +3"})
+		body="Bihu Just. +4"})
 	sets.precast.WS['Mordant Rime'].NotAttackCapped = set_combine(sets.precast.WS.NotAttackCapped,sets.precast.WS['Mordant Rime'])
 	sets.precast.WS['Mordant Rime'].Accuracy = set_combine(sets.precast.WS.Accuracy,sets.precast.WS['Mordant Rime'].NotAttackCapped)
 	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
 		ear2="Dominance Earring +1",
-		body="Bihu Justaucorps +3",ring2="Ilabrat Ring",
+		body="Bihu Just. +4",ring2="Ilabrat Ring",
 		waist="Kentarch Belt +1"})
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
 		head="Blistering Sallet +1",ear2="Dominance Earring +1",
-		body="Bihu Justaucorps +3",ring1="Moonlight Ring",ring2="Ilabrat Ring",
+		body="Bihu Just. +4",ring1="Moonlight Ring",ring2="Ilabrat Ring",
 		waist="Fotia Belt",feet="Lustratio Leggings +1"})
 	sets.precast.WS['Ruthless Stroke'] = set_combine(sets.precast.WS, {
 		ear2="Dominance Earring +1",
-		body="Bihu Justaucorps +3",ring2="Ilabrat Ring"})
+		body="Bihu Just. +4",ring2="Ilabrat Ring"})
 		
 	
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
