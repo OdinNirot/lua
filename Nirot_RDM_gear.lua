@@ -48,7 +48,6 @@ function init_gear_sets()
 
 	Colada = {}
 	Colada.Enhancing = { name="Colada", augments={'Enh. Mag. eff. dur. +4','Mag. Acc.+7','"Mag.Atk.Bns."+6',}}
-	Colada.Refresh = { name="Colada", augments={'Accuracy+4 Attack+4','STR+5','"Refresh"+2','DMG:+17',}}
 
 	TelHead.Duration = { name="Telchine Cap", augments={'Mag. Evasion+20','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	TelBody.Duration = { name="Telchine Chas.", augments={'Mag. Evasion+21','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
@@ -125,14 +124,14 @@ function init_gear_sets()
 
 
 	sets.midcast['Enfeebling Magic'] = {}
-	sets.midcast['Enfeebling Magic'].base = {main="Murgleis",sub="Ammurapi Shield",
+	sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Enki Strap",
 		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Snotra Earring",ear2="Regal Earring",
 		body="Atrophy Tabard +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back=Sucellos.Normal,waist="Acuity Belt +1",legs="Leth. Fuseau +3",feet="Vitiation Boots +3"}
 	sets.midcast['Enfeebling Magic'].potency = set_combine(sets.midcast['Enfeebling Magic'].base,{ammo="Regal Gem",body="Lethargy Sayon +3"})
 	sets.midcast['Enfeebling Magic'].mndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ammo="Regal Gem",ring1="Metamor. Ring +1"})
 	sets.midcast['Enfeebling Magic'].skillmndpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ammo="Regal Gem",waist="Luminary Sash"})
-	sets.midcast['Enfeebling Magic'].macc = set_combine(sets.midcast['Enfeebling Magic'].base,{range="Ullr",ear2="Leth. Earring +2",body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",back="Aurist's Cape +1",feet="Leth. Houseaux +3"})
+	sets.midcast['Enfeebling Magic'].macc = set_combine(sets.midcast['Enfeebling Magic'].base,{range="Ullr",ear2="Leth. Earring +2",body="Lethargy Sayon +3",hands="Regal Cuffs",ring1="Kishar Ring",back="Aurist's Cape +1",feet="Leth. Houseaux +3"})
 	sets.midcast['Enfeebling Magic'].intpot = set_combine(sets.midcast['Enfeebling Magic'].base,{ammo="Regal Gem",ring1="Metamor. Ring +1"})
 	sets.midcast['Enfeebling Magic'].skillpot = set_combine(sets.midcast['Enfeebling Magic'].base,{})
 	sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].macc,{head=empty,body="Crepuscular Cloak",ring1="Metamor. Ring +1",back="Aurist's Cape +1",feet="Leth. Houseaux +3"})
@@ -182,7 +181,7 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-obi"}
 
 	-- Idle sets
-	sets.idle = {main=Colada.Refresh,Sub="Sacro Bulwark",ammo="Homiliary",
+	sets.idle = {main="Sakpata's Sword",Sub="Sacro Bulwark",ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Yngvi Choker",ear1="Sanare Earring",ear2="Etiolation Earring",
 		--		head="Vitiation Chapeau +3",neck="Warder's Charm +1",ear1="Sanare Earring",ear2="Etiolation Earring",   -- swap out the Yngvi when trying to maintain hate. Ody Atonement 3, etc
 		body="Lethargy Sayon +3",hands=ChironicHands.Refresh,ring1="Defending Ring",ring2="Stikini Ring +1",
