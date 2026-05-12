@@ -205,10 +205,10 @@ function init_gear_sets()
 		head="Sakpata's Helm",
 		hands="Nyame Gauntlets",ring2="Sroda Ring",
 		legs="Boii Cuisses +3"})
-	sets.precast.WS["Disaster"] = set_combine(sets.precast.WS,{
-		ear2="Dominance Earring +1",
-		body="Boii Lorica +3",ring2="Beithir Ring",
-		waist="Kentarch Belt +1",legs="Boii Cuisses +3",feet="Boii Calligae +3"})
+	sets.precast.WS["Disaster"] = set_combine(sets.precast.WS,{ammo="Crepuscular Pebble",
+		neck="Loricate Torque +1",ear2="Hoxne Earring",
+		body="Sakpata's Breastplate",hands="Nyame Gauntlets",ring2="Gelatinous Ring +1",
+		legs="Boii Cuisses +3"})
 		
 	sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS,{
 		hands="Nyame Gauntlets",ring2="Sroda Ring"})
@@ -293,7 +293,7 @@ function init_gear_sets()
 	sets.engaged = {ammo="Coiste Bodhar",
 		head="Hjarrandi Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +2",
 		body="Boii Lorica +3",hands="Sakpata's Gauntlets",ring1="Moonlight Ring",ring2="Niqmaddu Ring",
-		back=Cichol.DA,waist="Sailfi Belt +1",legs="Pummeler's Cuisses +3",feet="Pumm. Calligae +4"}
+		back=Cichol.DA,waist="Sailfi Belt +1",legs="Pummeler's Cuisses +4",feet="Pumm. Calligae +4"}
 	sets.engagedDT = {ammo="Antitail +1",
 		head="Sakpata's Helm",neck="War. Beads +2",ear1="Dedition Earring",ear2="Boii Earring +2",
 		body="Sakpata's Plate",hands="Sakpata's Gauntlets",ring1="Chirich Ring +1",ring2="Niqmaddu Ring",
