@@ -188,12 +188,12 @@ function init_gear_sets()
 	sets.midcast.FastRecast = {
 		head="Ebers Cap +3",ear2="Loquacious Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Rahab Ring",ring2="Kishar Ring",
-		back="Swith Cape +1",waist="Witful Belt",legs="Volte Brais",feet="Volte Gaiters"}
+		back="Fi Follet Cape +1",waist="Witful Belt",legs="Volte Brais",feet="Volte Gaiters"}
 
 	sets.midcast.SIRD = {ammo="Staunch Tathlum +1",
 		head="Ebers Cap +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Nourishing Earring +1",
 		body="Ros. Jaseran +1",hands="Ebers Mitts +3",ring1="Freke Ring",ring2="Defending Ring",
-		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Ebers Pantaloons +3",feet="Theo. Duckbills +3"}
+		back="Fi Follet Cape +1",waist="Emphatikos Rope",legs="Ebers Pantaloons +3",feet="Theo. Duckbills +4"}
 
 	-- Cure sets
 	--gear.default.obi_waist = "Goading Belt"
@@ -226,7 +226,7 @@ function init_gear_sets()
 	sets.midcast.Cursna = {main="Yagrush",Sub="Thuellaic Ecu +1",
 		head=VanyaHead.HealSkill,neck="Debilis Medallion",ear1="Meili Earring",ear2="Ebers Earring +2",
 		body="Ebers Bliaut +3",hands="Fanatic Gloves",ring1="Menelaus's Ring",ring2="Haoma's Ring",
-		back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet=VanyaFeet.HealSkill}
+		back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +4",feet=VanyaFeet.HealSkill}
 	sets.midcast.Cursna.SIRD = set_combine(sets.midcast.Cursna,sets.midcast.SIRD)
 
 	sets.midcast.StatusRemoval = {main="Yagrush",Sub="Genmei Shield",neck="Cleric's Torque +2"}
@@ -241,7 +241,7 @@ function init_gear_sets()
 	sets.midcast['Enhancing Magic'] = {main=Gada.Enh,sub="Ammurapi Shield",
 		head=TelHead.Duration,neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Ebers Earring +2",
 		body=TelBody.Duration,hands=TelHands.Duration,
-		waist="Embla Sash",legs=TelLegs.Duration,feet="Theophany Duckbills +3"}--{main="Beneficus",sub="Genmei Shield",
+		waist="Embla Sash",legs=TelLegs.Duration,feet="Theo. Duckbills +4"}--{main="Beneficus",sub="Genmei Shield",
 		--head="Umuthi Hat",neck="Colossus's Torque",
 		--body="Manasa Chasuble",hands="Dynasty Mitts",
 		--back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
@@ -251,7 +251,7 @@ function init_gear_sets()
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",
 		head="Cath Palug Crown",neck="Nodens Gorget",ear1="Earthcry Earring",
-		waist="Siegel Sash",legs="Shedir Seraweels",feet="Theophany Duckbills +3"})--{
+		waist="Siegel Sash",legs="Shedir Seraweels",feet="Theo. Duckbills +4"})--{
 		--head="Nahtirah Hat",neck="Orison Locket",ear2="Loquacious Earring",
 		--body="Vanir Cotehardie",hands="Dynasty Mitts",
 		--back="Swith Cape +1",waist="Siegel Sash",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
@@ -284,7 +284,7 @@ function init_gear_sets()
 		head="Inyanga Tiara +2",
 		body="Piety Bliaut +3",
 		hands="Ebers Mitts +3",
-		waist="Embla Sash",legs="Theophany Pantaloons +3",feet="Theophany Duckbills +3"})
+		waist="Embla Sash",legs="Theophany Pantaloons +4",feet="Theo. Duckbills +4"})
 	sets.midcast.Regen.SIRD = set_combine(sets.midcast.Regen,sets.midcast.SIRD)
 
 	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'],{main=Gada.Enh,sub="Ammurapi Shield",waist="Embla Sash"})--{ring1="Sheltered Ring",feet="Piety Duckbills +1"}
@@ -297,7 +297,7 @@ function init_gear_sets()
 	sets.midcast.Banish = {main="Daybreak",Sub="Ammurapi Shield",
 		head="Ipoca Beret",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Malignance Earring",
 		hands="Fanatic Gloves",ring1="Metamor. Ring +1",ring2="Freke Ring",
-		back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
+		back=Alaunus.DA,waist="Bishop's Sash",legs="Theophany Pantaloons +4",feet={ name="Chironic Slippers", augments={'"Fast Cast"+2','Mag. Acc.+18','"Refresh"+2','Accuracy+12 Attack+12','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}}
 	sets.midcast.Banish.SIRD = set_combine(sets.midcast.Banish,sets.midcast.SIRD)
 
 	sets.midcast['Dark Magic'] = {}
@@ -307,7 +307,7 @@ function init_gear_sets()
 	sets.midcast.Enfeebs = {main="Yagrush",Sub="Ammurapi Shield",
 		head="C. Palug Crown",neck="Incanter's Torque",ear1="Regal Earring",ear2="Ebers Earring +2",
 		body="Theophany Bliaut +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",legs="Theophany Pantaloons +3",feet="Skaoi Boots"}
+		back="Aurist's Cape +1",legs="Theophany Pantaloons +4",feet="Skaoi Boots"}
 	sets.midcast.MndEnfeebles = set_combine(sets.midcast.Enfeebs, {
 		waist="Sacro Cord"})
 	sets.midcast.IntEnfeebles = set_combine(sets.midcast.Enfeebs, {
