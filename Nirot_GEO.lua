@@ -368,10 +368,10 @@ function init_gear_sets()
 	sets.midcast.Invisible = {back="Skulker's Cape"}
 	
 	sets.midcast['Elemental Magic'] = {}
-	sets.midcast["Elemental Magic"].base = {main="Idris",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
+	sets.midcast["Elemental Magic"].base = {main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
 		head="Azimuth Hood +3",neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Azimuth Earring +1",
 		body="Azimuth Coat +3",hands="Azimuth Gloves +3",ring1="Freke Ring",ring2="Stikini Ring +1",
-		back=gear.GEO_MAB_Cape,waist="Acuity Belt +1",legs="Azimuth Tights +3",feet="Azimuth Gaiters +3"}
+		back=gear.GEO_MAB_Cape,waist="Orpheus's Sash",legs="Azimuth Tights +3",feet="Azimuth Gaiters +3"}
 	sets.midcast.Death = sets.midcast['Elemental Magic'].base
 	sets.Burst = set_combine(sets.midcast["Elemental Magic"].base,{head="Ea Hat +1",body="Ea Houppe. +1",hands="Amalric Gages +1"}) --{ hands="Hattori Tekko +1", feet=HercFeet.MAB})
 	
