@@ -54,6 +54,7 @@ function user_setup()
 	--state.HybridMode:options('Normal', 'DT')
 	state.OffMode = M{['description'] = 'OffMode', 'None','SomeAccuracy','MaxAccuracy','SubtleBlow'}
 	state.DTMode = M{['description'] = 'DTMode', 'None', 'DT'}
+	state.HoxneMode = M{['description'] = 'HoxneMode', 'None', 'On'}
 
 	send_command('bind ^= gs c cycle TreasureMode')
 	send_command('bind ^- gs c cycle Kiting')
@@ -62,6 +63,7 @@ function user_setup()
 	send_command('bind numpad3 gs c cycle OffMode')
 	send_command('bind numpad2 gs c cycle ElementalResist')
 	send_command('bind numpad6 gs c cycle WeaponskillMode')
+	send_command('bind numpad7 gs c cycle HoxneMode')
 
 	update_combat_form()
 	update_melee_groups()
@@ -80,7 +82,8 @@ function user_unload()
 	send_command('unbind numpad3')
 	send_command('unbind numpad4')
 	send_command('unbind numpad5')
-	send_command('unbind numpad6')	
+	send_command('unbind numpad6')
+	send_command('unbind numpad7')
 end
 
 
@@ -573,6 +576,14 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
+	if state.HoxneMode.value == "On" then
+		equip({ammo="Hoxne Ampulla"})
+		disable("range")
+		disable("ammo")
+	else
+		enable("range")
+		enable("ammo")
+	end
 	if player.hpp < 70 then
 		idleSet = set_combine(idleSet, sets.ExtraRegen)
 	end
@@ -653,6 +664,15 @@ function customize_melee_set(meleeSet)
 
 	classes.CustomDTGroups:clear()
 	classes.CustomOffGroups:clear()
+
+	if state.HoxneMode.value == "On"  then
+		equip({ammo="Hoxne Ampulla"})
+		disable("range")
+		disable("ammo")
+	else
+		enable("range")
+		enable("ammo")
+	end
 
 	if state.OffMode.value == 'SomeAccuracy' then
 		classes.CustomOffGroups:append('SomeAccuracy')
@@ -814,6 +834,11 @@ function display_current_job_state(eventArgs)
 	else
 		er_msg = 'Off'
 	end
+	if state.HoxneMode.has_value then
+		hm_msg = state.HoxneMode.value
+	else
+		hm_msg = 'Off'
+	end
 
 	local msg = ''
 	if state.Kiting.value then
@@ -827,6 +852,7 @@ function display_current_job_state(eventArgs)
 		..string.char(31,008).. ' DTMode: ' ..string.char(31,001)..dt_msg.. string.char(31,002)..  ' |'
 		..string.char(31,008).. ' ElementalResist: ' ..string.char(31,001)..er_msg.. string.char(31,002)..  ' |'
 		..string.char(31,008).. ' TreasureMode: ' ..string.char(31,001)..tm_msg.. string.char(31,002)..  ' |'
+		..string.char(31,008).. ' HoxneMode: ' ..string.char(31,001)..hm_msg.. string.char(31,002)..  ' |'
 		..string.char(31,002)..msg)
 
 	eventArgs.handled = true
