@@ -236,7 +236,7 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	if string.find(spell.english,'Stoneskin') then
 		if buffactive['Stoneskin'] then
 		do_equip('sets.Stoneskin')
-			send_command('@wait 2.5;cancel Stoneskin')
+			send_command('@wait 1.25;cancel Stoneskin')
 		end
 	end
 
