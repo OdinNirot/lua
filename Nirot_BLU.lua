@@ -392,7 +392,8 @@ function init_gear_sets()
 		back=Rosmerta.TP,waist="Windbuffet Belt +1",legs="Malignance Tights",feet={ name="Herculean Boots", augments={'Accuracy+18','"Triple Atk."+4','DEX+7',}}}
 
 	sets.engaged.PDT = set_combine(sets.engaged,{
-		body="Malignance Tabard",feet="Malignance Boots"})
+		body="Malignance Tabard",ring1="Defending Ring",
+		feet="Malignance Boots"})
 
 	sets.engaged.Acc = set_combine(sets.engaged,{ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",ear1="Telos Earring",ear2="Hashi. Earring +1",
@@ -445,7 +446,7 @@ function init_gear_sets()
 	-- Other Types --
 
 	sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].MagicAccuracy,{}) --{waist="Chaac Belt"}
-	sets.midcast['Blue Magic'].Healing = set_combine(sets.midcast['Blue Magic'].MagicAccuracy,{legs=HercLegs.Healing})
+	sets.midcast['Blue Magic'].Healing = set_combine(sets.midcast['Blue Magic'].MagicAccuracy,{neck="Loricate Torque +1",ear2="Odnowa Earring +1",waist="Plat. Mog. Belt",legs=HercLegs.Healing,feet="Nyame Sollerets"})
 	sets.midcast['Blue Magic'].SkillBasedBuff = sets.midcast['Blue Magic'].MagicAccuracy
 
 	sets.midcast['Blue Magic'].Buff = {}
@@ -928,4 +929,4 @@ end
 function set_style(sheet)
 	send_command('@input ;wait 5.0;input /lockstyleset '..sheet)
 end
-set_style(4)
+set_style(56)
