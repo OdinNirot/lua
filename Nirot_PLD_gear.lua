@@ -162,6 +162,11 @@ function init_gear_sets()
 		waist={ name="Fotia Belt", priority=1}})
 	sets.precast.WS['Savage Blade'].MDT = set_combine(sets.precast.WS['Savage Blade'], {ammo={name="Aurgelmir Orb +1", priority=1},
 		waist={ name="Fotia Belt", priority=1}})
+		
+	sets.precast.WS['Knights of Round'] = set_combine(sets.precast.WS,{ammo={name="Coiste Bodhar", priority=1},
+		head="Nyame Helm",neck={ name="Republican Platinum Medal", priority=1},ear1="Lugra Earring +1",ear2="Thrud Earring",
+		body="Nyame Mail",hands="Chevalier's Gauntlets +3",ring1="Regal Ring",ring2="Cornelia's Ring",
+		waist={ name="Sailfi Belt +1", priority=1},legs="Nyame Flanchard",feet="Nyame Sollerets"})
 
 	--------------------------------------
 	-- Midcast sets
