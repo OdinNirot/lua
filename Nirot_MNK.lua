@@ -528,11 +528,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 end
 
 
-function job_aftercast(spell, action, spellMap, eventArgs)
-	if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
-		send_command('cancel Footwork')
-	end
-end
+--function job_aftercast(spell, action, spellMap, eventArgs)
+--	if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
+--		send_command('cancel Footwork')
+--	end
+--end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
