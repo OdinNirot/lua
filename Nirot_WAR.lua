@@ -901,8 +901,10 @@ end
 function check_weaponlock()
 	if state.WeaponLock.value then
 		disable("main")
+		disable("sub")
 	else
 		enable("main")
+		enable("sub")
 	end
 end
 
