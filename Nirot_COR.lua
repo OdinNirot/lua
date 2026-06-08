@@ -115,6 +115,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.BurstMode = M(false, 'BurstMode')
+	state.DummyMode = M('Normal','Dummy')
 	
 	Haste = 0
 	DW_needed = 0
@@ -148,7 +149,7 @@ function user_setup()
 	send_command('bind numpad7 gs c toggle LuzafRing')
 	send_command('bind numpad8 gs c cycle Mainqd')
 	send_command('bind numpad9 gs c cycle Altqd')
-
+	send_command('bind pagedown gs c cycle DummyMode')
 
 	--send_command('unbind ^-')
 	send_command('bind ^- gs c cycle Kiting')
@@ -180,6 +181,7 @@ function file_unload()
 	send_command('unbind numpad7')
 	send_command('unbind numpad8')
 	send_command('unbind numpad9')
+	send_command('unbind pagedown')
 end
 
 
@@ -264,6 +266,14 @@ function init_gear_sets()
 	sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +3"})
 	sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
 	sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3"})
+
+	-- use this section to define lower-duration roll sets, so they can be overwritten "out of order", e.g. roll 1 full duration, roll 2 dummy roll, if you do roll 3 within a few minutes you'll overwrite the "dummy" roll instead of the first roll. Gunslinger's cape reduces phantom roll recast
+	sets.precast.CorsairRoll.dummy = set_combine(sets.idle.PDT,{head="Nyame Helm",back="Gunslinger's Cape",legs="Desultor Tassets"})
+	sets.precast.CorsairRoll.dummy["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +3"})
+	sets.precast.CorsairRoll.dummy["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +3"})
+	sets.precast.CorsairRoll.dummy["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +3"})
+	sets.precast.CorsairRoll.dummy["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
+	sets.precast.CorsairRoll.dummy["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3"})
 
 	sets.precast.LuzafRing = {ring1="Luzaf's Ring"}
 	sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
@@ -437,8 +447,18 @@ function init_gear_sets()
 
 end
 
+function dummy_sets()
+	if state.DummyMode.value == 'Dummy' then
+		classes.CustomClass = "dummy"
+	else
+		classes.CustomClass = nil
+	end
+end
 
 function job_precast(spell, action, spellMap, eventArgs)
+
+	dummy_sets()
+
 	-- Check that proper ammo is available if we're using ranged attacks or similar.
 	if spell.action_type == 'Ranged Attack' or spell.type == 'WeaponSkill' or spell.type == 'CorsairShot' then
 		do_bullet_checks(spell, spellMap, eventArgs)
@@ -650,14 +670,21 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)
 	if (spell.type == 'CorsairRoll' or spell.english == "Double-Up") and not spell.interrupted then
+
+	if state.DummyMode.value == 'Dummy' then
+		dummyRoll= classes.CustomClass:gsub(".dummy", "")
+		display_roll_info(dummyRoll)
+	else
 		display_roll_info(spell)
 	end
+	
 	if spell.english == "Light Shot" then
 		send_command('@timers c "Light Shot ['..spell.target.name..']" 60 down abilities/00195.png')
 	end
 	--if player.status ~= 'Engaged' and state.WeaponLock.value == false then
 	--    check_weaponset()
 	--end
+	end
 end
 
 function job_buff_change(buff,gain)
@@ -823,6 +850,12 @@ function display_current_job_state(eventArgs)
 --		e_msg = e_msg .. '/'..state.Altqd.current
 --	end
 
+	if state.DummyMode.value then
+		dummy_msg = state.DummyMode.value
+	else
+		dummy_msg = 'Off'
+	end
+
 	local d_msg = 'None'
 	if state.DefenseMode.value ~= 'None' then
 		d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
@@ -840,6 +873,7 @@ function display_current_job_state(eventArgs)
 		..string.char(31,207).. ' WS: ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
 		..string.char(31,060).. ' QD: ' ..string.char(31,001)..mainqd_msg.. '/'  ..string.char(31,001)..altqd_msg.. string.char(31,002)..  ' |'
 		..string.char(31,060).. ' QDMode: ' ..string.char(31,001)..qdmode_msg.. string.char(31,002)..  ' |'
+		..string.char(31,060).. ' DummyMode: ' ..string.char(31,001)..dummy_msg.. string.char(31,002)..  ' |'
 		--   ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
 		--   ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'
 		--   ..string.char(31,060).. ' AltQD' ..altqd_msg.. ': '  ..string.char(31,001)..e_msg.. string.char(31,002)..  ' |'
@@ -1062,7 +1096,13 @@ function define_roll_values()
 end
 
 function display_roll_info(spell)
-	rollinfo = rolls[spell.english]
+
+	if state.DummyMode.value == 'Dummy' then
+		rollinfo = rolls[classes.CustomClass:gsub(".dummy", "")]
+	else
+		rollinfo = rolls[spell.english]
+	end
+	
 	local rollsize = (state.LuzafRing.value and string.char(129,157)) or ''
 
 	if rollinfo then
