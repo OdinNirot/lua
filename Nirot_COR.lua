@@ -269,11 +269,11 @@ function init_gear_sets()
 
 	-- use this section to define lower-duration roll sets, so they can be overwritten "out of order", e.g. roll 1 full duration, roll 2 dummy roll, if you do roll 3 within a few minutes you'll overwrite the "dummy" roll instead of the first roll. Gunslinger's cape reduces phantom roll recast
 	sets.precast.CorsairRoll.dummy = set_combine(sets.idle.PDT,{head="Nyame Helm",back="Gunslinger's Cape",legs="Desultor Tassets"})
-	sets.precast.CorsairRoll.dummy["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +3"})
-	sets.precast.CorsairRoll.dummy["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +3"})
-	sets.precast.CorsairRoll.dummy["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +3"})
-	sets.precast.CorsairRoll.dummy["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
-	sets.precast.CorsairRoll.dummy["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3"})
+	sets.precast.CorsairRoll.dummy["Caster's Roll"] = set_combine(sets.precast.CorsairRoll.dummy, {legs="Chasseur's Culottes +3"})
+	sets.precast.CorsairRoll.dummy["Courser's Roll"] = set_combine(sets.precast.CorsairRoll.dummy, {feet="Chass. Bottes +3"})
+	sets.precast.CorsairRoll.dummy["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll.dummy, {head="Chass. Tricorne +3"})
+	sets.precast.CorsairRoll.dummy["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll.dummy, {body="Chasseur's Frac +3"})
+	sets.precast.CorsairRoll.dummy["Allies' Roll"] = set_combine(sets.precast.CorsairRoll.dummy, {hands="Chasseur's Gants +3"})
 
 	sets.precast.LuzafRing = {ring1="Luzaf's Ring"}
 	sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
