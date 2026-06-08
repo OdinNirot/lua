@@ -171,11 +171,6 @@ function init_gear_sets()
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
-
-	sets.midcast.FastRecast = {
-		head={name="Chev. Armet +3", priority=145},ear1={ name="Loquacious Earring", priority=1},
-		body={name="Sakpata's Plate", priority=136},hands={ name="Chev. Gauntlets +3", priority=64},
-		waist={name="Dynamic Belt +1", priority=1},legs={ name="Chev. Cuisses +3", priority=127},feet={name="Sakpata's Leggings", priority=68}}
 		
 	sets.midcast.Enmity = {ammo={ name="Staunch Tathlum +1", priority=1},
 		head={ name="Loess Barbuta +1", augments={'Path: A',}, priority=105},neck={name="Kgt. Beads +2", priority=60},ear1={name="Cryptic Earring", priority=40},ear2={name="Chevalier's Earring +1", priority=1},
