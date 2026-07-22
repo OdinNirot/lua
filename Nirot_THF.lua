@@ -68,12 +68,12 @@ function job_setup()
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
 
-	send_command('get "Storage Slip 06" sack') --af for steal+
-	send_command('get "Storage Slip 21" sack') --empy +1
-	send_command('get "Storage Slip 24" sack') --AF +2
-	send_command('get "Storage Slip 25" sack') --AF +3
-	send_command('get "Storage Slip 27" sack') --relic +3
-	send_command('get "Storage Slip 29" sack') --empy +2
+	--send_command('get "Storage Slip 06" sack') --af for steal+
+	--send_command('get "Storage Slip 21" sack') --empy +1
+	--send_command('get "Storage Slip 24" sack') --AF +2
+	--send_command('get "Storage Slip 25" sack') --AF +3
+	--send_command('get "Storage Slip 27" sack') --relic +3
+	--send_command('get "Storage Slip 29" sack') --empy +2
 
 
 end
@@ -161,7 +161,7 @@ function init_gear_sets()
 	Toutatis.STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Damage taken-5%',}}
 	Toutatis.WSD = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 
-	sets.TreasureHunter = {hands="Plunderer's Armlets +3",Feet="Skulker's Poulaines +3"}
+	sets.TreasureHunter = {hands="Plun. Armlets +4",ring1="Hoxne Ring",feet="Skulker's Poulaines +3"}
 	sets.ExtraRegen = {head="Turms Cap +1",neck="Elite Royal Collar",body="Turms Harness +1",hands="Turms Mittens +1",ring1="Chirich Ring +1",legs="Turms Subligar +1",Feet="Turms Leggings +1"}
 	sets.Kiting = {feet="Pillager's Poulaines +3"}
 	sets.buff['Curse'] = {neck="Nicander's Necklace",ring1="Eshmun's Ring",ring2="Eshmun's Ring",waist="Gishdubar Sash"}
@@ -171,12 +171,12 @@ function init_gear_sets()
 
 	sets.buff['Sneak Attack'] = {
 		head=AdhemarHead.DexAgiAtk,neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Sherida Earring",
-		body="Turms Harness +1",hands="Plunderer's Armlets +3",ring1="Ilabrat Ring",ring2="Gere Ring",
+		body="Turms Harness +1",hands="Plun. Armlets +4",ring1="Ilabrat Ring",ring2="Gere Ring",
 		back=Toutatis.WSD,waist="Chaac Belt",legs="Plunderer's Culottes +3",Feet="Skulker's Poulaines +3"}
 
 	sets.buff['Trick Attack'] = {
 		head=AdhemarHead.DexAgiAtk,neck="Assassin's Gorget +2",ear1="Odr Earring",ear2="Sherida Earring",
-		body="Turms Harness +1",hands="Plunderer's Armlets +3",ring1="Ilabrat Ring",ring2="Gere Ring",
+		body="Turms Harness +1",hands="Plun. Armlets +4",ring1="Ilabrat Ring",ring2="Gere Ring",
 		back=Toutatis.WSD,waist="Chaac Belt",legs="Turms Subligar +1",Feet="Skulker's Poulaines +3"}
 
 	-- Actions we want to use to tag TH.
@@ -202,7 +202,7 @@ function init_gear_sets()
 		body="Adamantite Armor",hands="Thief's Kote",ring1="Regal Ring",ring2="Dingir Ring",
 		back="Null Shawl",waist="Key Ring Belt",legs="Assassin's Culottes",feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +3"}
-	sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
+	sets.precast.JA['Perfect Dodge'] = {hands="Plun. Armlets +4"}
 	sets.precast.JA['Feint'] = {legs="Plunderer's Culottes +3"}
 	sets.precast.JA['Sneak Attack'] = sets.buff['Sneak Attack']
 	sets.precast.JA['Trick Attack'] = sets.buff['Trick Attack']
@@ -362,6 +362,7 @@ function init_gear_sets()
 
 	sets.midcast['Poisonga'] = set_combine(sets.precast.FC,sets.TreasureHunter)
 	sets.midcast['Aspir'] = set_combine(sets.precast.FC,sets.TreasureHunter)
+	sets.midcast['Horde Lullaby'] = set_combine(sets.precast.FC,sets.TreasureHunter)
 
 	--------------------------------------
 	-- Idle/resting/defense sets
@@ -378,7 +379,7 @@ function init_gear_sets()
 
 	sets.idle = {
 		head="Turms Cap +1",neck="Elite Royal Collar",ear1="Sanare Earring",ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
-		body="Turms Harness +1",hands="Turms Mittens +1",ring1="Chirich Ring +1",ring2="Defending Ring",
+		body="Turms Harness +1",hands="Skulk. Armlets +3",ring1="Defending Ring",ring2="Murky Ring",
 		back=Toutatis.STP,waist="Flume Belt +1",legs="Turms Subligar +1",feet="Pillager's Poulaines +3"}
 	sets.idle.Town = {
 		head="Turms Cap +1",neck="Elite Royal Collar",ear1="Sanare Earring",ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -447,6 +448,11 @@ function init_gear_sets()
 		body="Pillager's Vest +3",hands="Turms Mittens +1",ring1="Chirich Ring +1",ring2="Gere Ring",
 		back=Toutatis.STP,waist="Reiki Yotai",legs="Turms Subligar +1",Feet="Turms Leggings +1"}
 
+	sets.Gandring = {ammo="Yamarang",   -- eva focus set
+		head="Malignance Chapeau",neck="Assassin's Gorget +2",ear1="Odnowa Earring +1",ear2="Skulker's Earring +2",
+		body="Malignance Tabard",hands="Turms Mittens +1",ring1="Moonlight Ring",ring2="Murky Ring",
+		back=Toutatis.STP,waist="Reiki Yotai",legs="Malignance Tights",feet="Malignance Boots"}
+		
 	-- Mod set for trivial mobs (Skadi+1)
 	sets.engaged.Mod = sets.engaged 
 
@@ -661,7 +667,11 @@ function customize_idle_set(idleSet)
 		idleSet = set_combine(idleSet, sets.ExtraRegen)
 	end
 	if state.HybridMode.value == 'PDT' then
-		idleSet = sets.idle.PDT
+		if player.equipment.main == 'Gandring' then  --if we're using gandring then assume we want to maintain evasion build even in idle DT mode. Otherwise (normal) mode, regen/regain focus
+			idleSet  = set_combine(sets.Gandring,{hands="Skulk. Armlets +3"})
+		else
+			idleSet = sets.idle.PDT
+		end
 	end
 	if state.ExtraResist.value == 'Charm' then
 		idleSet = set_combine(idleset,sets.Charm)
@@ -701,6 +711,11 @@ function customize_melee_set(meleeSet)
 	if state.MeleeRegen.value == 'MeleeRegen' then
 		meleeSet = sets.engaged.MeleeRegen
 	end
+	
+	if player.equipment.main == 'Gandring' then
+		meleeSet = set_combine(meleeSet, sets.Gandring)
+	end
+	
 	if state.TreasureMode.value == 'Fulltime' then
 		meleeSet = set_combine(meleeSet, sets.TreasureHunter)
 	end
