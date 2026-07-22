@@ -738,7 +738,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 
 	--	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ranged Attack' then --if TH mode is on, the assumption is you're farming anyway, just do it for all blue magic
-		if state.TreasureMode.current == 'Tag' and spell.skill == 'Blue Magic' then
+		if state.TreasureMode.current == 'Tag' and spell.skill == 'Blue Magic' or spell.skill == 'Elemental Magic' then
 			equip(sets.TreasureHunter)
 		end
 		
