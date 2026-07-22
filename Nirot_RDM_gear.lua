@@ -124,7 +124,7 @@ function init_gear_sets()
 
 
 	sets.midcast['Enfeebling Magic'] = {}
-	sets.midcast['Enfeebling Magic'].base = {main="Contemplator +1",sub="Enki Strap",
+	sets.midcast['Enfeebling Magic'].base = {main="Crocea Mors",sub="Ammurapi Shield",
 		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Snotra Earring",ear2="Regal Earring",
 		body="Atrophy Tabard +3",hands="Regal Cuffs",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
 		back=Sucellos.Normal,waist="Acuity Belt +1",legs="Leth. Fuseau +3",feet="Vitiation Boots +3"}
