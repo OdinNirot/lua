@@ -41,9 +41,9 @@ function job_setup()
 --	state.TreasureMode:options('None','Tag')
 --	state.TreasureMode:set('Tag')
 
-	send_command('get "Storage Slip 16" sack') --AF +1
-	send_command('get "Storage Slip 18" sack') --relic +1
-	send_command('get "Storage Slip 29" sack') --empy +2
+	--send_command('get "Storage Slip 16" sack') --AF +1
+	--send_command('get "Storage Slip 18" sack') --relic +1
+	--send_command('get "Storage Slip 29" sack') --empy +2
 
 	end
 

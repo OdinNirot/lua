@@ -187,11 +187,11 @@ function job_setup()
 	}
 
 
-	send_command('get "Storage Slip 18" sack') -- relic +1
-	send_command('get "Storage Slip 23" sack') --Ambu +2
-	send_command('get "Storage Slip 24" sack') --AF +2
-	send_command('get "Storage Slip 25" sack') --AF +3
-	send_command('get "Storage Slip 29" sack') -- Empy +2
+	--send_command('get "Storage Slip 18" sack') -- relic +1
+	--send_command('get "Storage Slip 23" sack') --Ambu +2
+	--send_command('get "Storage Slip 24" sack') --AF +2
+	--send_command('get "Storage Slip 25" sack') --AF +3
+	--send_command('get "Storage Slip 29" sack') -- Empy +2
 
 end
 
